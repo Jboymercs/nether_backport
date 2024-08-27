@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+  <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="nether_backport"/>
+  <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="net.minecraftforge.legacydev.MainClient"/>
+  <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dforge.logging.console.level=debug -Dforge.logging.markers=SCAN,REGISTRIES,REGISTRYDUMP &quot;-Dnet.minecraftforge.gradle.GradleStart.srg.srg-mcp=C:\Users\17857\Desktop\Mod Dev\nether_backport\build\createSrgToMcp\output.srg&quot; -Dmixin.env.remapRefMap=true &quot;-Dmixin.env.refMapRemappingFile=C:\Users\17857\Desktop\Mod Dev\nether_backport\build\createSrgToMcp\output.srg&quot; &quot;-Dnet.minecraftforge.gradle.GradleStart.csvDir=C:\Users\17857\Desktop\Mod Dev\nether_backport\build\extractMappings&quot; &quot;-Dnet.minecraftforge.gradle.GradleStart.srg.notch-srg=C:\Users\17857\Desktop\Mod Dev\nether_backport\build\createLegacyObf2Srg\output.srg&quot; -Dmixin.debug.export=true -Dmixin.hotSwap=true -Dmixin.checks.interfaces=true"/>
+  <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value=""/>
+  <stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="C:\Users\17857\Desktop\Mod Dev\nether_backport\run"/>
+  <mapAttribute key="org.eclipse.debug.core.environmentVariables">
+    <mapEntry key="MCP_TO_SRG" value="C:\Users\17857\Desktop\Mod Dev\nether_backport\build\createSrgToMcp\output.srg"/>
+    <mapEntry key="MOD_CLASSES" value=""/>
+    <mapEntry key="mainClass" value="net.minecraft.launchwrapper.Launch"/>
+    <mapEntry key="MCP_MAPPINGS" value="stable_39-1.12"/>
+    <mapEntry key="FORGE_VERSION" value="14.23.5.2860"/>
+    <mapEntry key="assetIndex" value="1.12"/>
+    <mapEntry key="assetDirectory" value="C:\Users\17857\.gradle\caches\forge_gradle\assets"/>
+    <mapEntry key="nativesDirectory" value="C:\Users\17857\Desktop\Mod Dev\nether_backport\build\natives"/>
+    <mapEntry key="FORGE_GROUP" value="net.minecraftforge"/>
+    <mapEntry key="tweakClass" value="net.minecraftforge.fml.common.launcher.FMLTweaker"/>
+    <mapEntry key="MC_VERSION" value="${MC_VERSION}"/>
+  </mapAttribute>
+</launchConfiguration>

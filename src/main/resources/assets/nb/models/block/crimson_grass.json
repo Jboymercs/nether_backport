@@ -1,0 +1,10 @@
+{
+  "parent": "block/grass",
+  "textures": {
+    "particle": "nb:blocks/crimson_grass_bottom",
+    "top": "nb:blocks/crimson_grass_top",
+    "side": "nb:blocks/crimson_grass_side",
+    "bottom": "nb:blocks/crimson_grass_bottom",
+    "overlay": "nb:blocks/crimson_grass_side"
+  }
+}

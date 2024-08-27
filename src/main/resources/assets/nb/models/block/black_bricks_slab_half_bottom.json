@@ -1,0 +1,9 @@
+{
+  "parent": "block/half_slab",
+  "textures":
+  {
+    "bottom": "nb:blocks/black_stone_bricks",
+    "top": "nb:blocks/black_stone_bricks",
+    "side": "nb:blocks/black_stone_bricks"
+  }
+}

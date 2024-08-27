@@ -1,0 +1,9 @@
+{
+  "parent": "block/upper_slab",
+  "textures":
+  {
+    "bottom": "nb:blocks/crimson_planks",
+    "top": "nb:blocks/crimson_planks",
+    "side": "nb:blocks/crimson_planks"
+  }
+}

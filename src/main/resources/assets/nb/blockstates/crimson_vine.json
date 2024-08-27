@@ -1,0 +1,20 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "nb:crimson_vine_middle"
+  },
+  "variants": {
+    "is_top": {
+      "true": {
+        "model" : "nb:crimson_vine_top"
+      },
+      "false": { }
+    },
+    "is_bottom": {
+      "true": {
+        "model": "nb:crimson_vine_bottom"
+      },
+      "false": { }
+    }
+  }
+}

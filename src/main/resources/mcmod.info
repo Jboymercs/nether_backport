@@ -1,0 +1,19 @@
+[
+  {
+    "modid": "nb",
+    "name": "Unseens Nether Backport",
+    "description": "Backports 1.16.5 features to 1.12.2",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "modpage",
+    "authorList": [
+      "UnseenDontRun"
+    ],
+    "credits": "FG6 Build template for 1.12.2 made by The_Computerizer",
+    "logoFile": "modlogo.png",
+    "screenshots": [],
+    "dependencies": [
+      "nether-api"
+    ]
+  }
+]

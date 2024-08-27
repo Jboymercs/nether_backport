@@ -1,0 +1,291 @@
+[20:04:09] [main/INFO] [net.minecraftforge.gradle.GradleForgeHacks]: Found and added coremod: git.jbredwards.nether_api.mod.asm.ASMHandler
+[20:04:09] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
+[20:04:09] [main/INFO] [LaunchWrapper]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
+[20:04:09] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[20:04:09] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLTweaker
+[20:04:09] [main/INFO] [FML]: Forge Mod Loader version 14.23.5.2860 for Minecraft 1.12.2 loading
+[20:04:09] [main/INFO] [FML]: Java is OpenJDK 64-Bit Server VM, version 1.8.0_333, running on Windows 10:amd64:10.0, installed at C:\Users\17857\.jdks\liberica-1.8.0_333\jre
+[20:04:09] [main/ERROR] [FML]: Apache Maven library folder was not in the format expected. Using default libraries directory.
+[20:04:09] [main/ERROR] [FML]: Full: C:\Users\17857\.gradle\caches\modules-2\files-2.1\org.apache.maven\maven-artifact\3.5.3\7dc72b6d6d8a6dced3d294ed54c2cc3515ade9f4\maven-artifact-3.5.3.jar
+[20:04:09] [main/ERROR] [FML]: Trimmed: c:/users/17857/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-artifact/3.5.3/
+[20:04:09] [main/INFO] [FML]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
+[20:04:09] [main/INFO] [FML]: Detected deobfuscated environment, loading log configs for colored console logs.
+[20:04:10] [main/INFO] [FML]: Ignoring missing certificate for coremod FMLCorePlugin (net.minecraftforge.fml.relauncher.FMLCorePlugin), we are in deobf and it's a forge core plugin
+[20:04:10] [main/INFO] [FML]: Ignoring missing certificate for coremod FMLForgePlugin (net.minecraftforge.classloading.FMLForgePlugin), we are in deobf and it's a forge core plugin
+[20:04:10] [main/INFO] [FML]: Found a command line coremod : git.jbredwards.nether_api.mod.asm.ASMHandler
+[20:04:10] [main/INFO] [FML]: Ignoring missing certificate for coremod Nether API Plugin (git.jbredwards.nether_api.mod.asm.ASMHandler), as this is probably a dev workspace
+[20:04:10] [main/INFO] [FML]: Searching C:\Users\17857\Desktop\Mod Dev\nether_backport\run\.\mods for mods
+[20:04:10] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.CoremodTweaker
+[20:04:10] [main/INFO] [CoremodTweaker]: Injecting location in coremod net.minecraftforge.fml.relauncher.FMLCorePlugin
+[20:04:10] [main/INFO] [CoremodTweaker]: Injecting location in coremod net.minecraftforge.classloading.FMLForgePlugin
+[20:04:10] [main/INFO] [CoremodTweaker]: Injecting location in coremod git.jbredwards.nether_api.mod.asm.ASMHandler
+[20:04:10] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[20:04:10] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[20:04:10] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[20:04:10] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[20:04:10] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[20:04:10] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[20:04:10] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+[20:04:10] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[20:04:10] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[20:04:11] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[20:04:11] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[20:04:11] [main/INFO] [net.minecraftforge.gradle.GradleForgeHacks]: Remapping AccessTransformer rules...
+[20:04:11] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.TerminalTweaker
+[20:04:11] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.TerminalTweaker
+[20:04:11] [main/INFO] [LaunchWrapper]: Launching wrapped minecraft {net.minecraft.client.main.Main}
+[20:04:11] [Client thread/INFO] [net.minecraft.client.Minecraft]: Setting user: Player750
+[20:04:13] [Client thread/WARN] [net.minecraft.client.settings.GameSettings]: Skipping bad option: lastServer:
+[20:04:13] [Client thread/INFO] [net.minecraft.client.Minecraft]: LWJGL Version: 2.9.4
+[20:04:13] [Client thread/INFO] [FML]: -- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_333, BellSoft
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), BellSoft
+	Memory: 738934656 bytes (704 MB) / 919601152 bytes (877 MB) up to 7568621568 bytes (7218 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: 
+	Loaded coremods (and transformers): 
+Nether API Plugin (nether-API-f2f48d7b8b_mapped_stable_39-1.12.jar)
+  git.jbredwards.nether_api.mod.asm.transformers.modded.TransformerBetterNetherConfigLoader
+  git.jbredwards.nether_api.mod.asm.transformers.modded.TransformerBetterNetherFirefly
+  git.jbredwards.nether_api.mod.asm.transformers.modded.TransformerBetterNetherGenerator
+  git.jbredwards.nether_api.mod.asm.transformers.modded.TransformerBiomesOPlentyBiomes
+  git.jbredwards.nether_api.mod.asm.transformers.modded.TransformerBiomesOPlentyDecorator
+  git.jbredwards.nether_api.mod.asm.transformers.modded.TransformerBiomesOPlentyFixes
+  git.jbredwards.nether_api.mod.asm.transformers.modded.TransformerJITLCascadingFix
+  git.jbredwards.nether_api.mod.asm.transformers.modded.TransformerJITLGenerator
+  git.jbredwards.nether_api.mod.asm.transformers.modded.TransformerJITLTowerFix
+  git.jbredwards.nether_api.mod.asm.transformers.modded.TransformerLibraryExCascadingFix
+  git.jbredwards.nether_api.mod.asm.transformers.modded.TransformerNethercraftEvents
+  git.jbredwards.nether_api.mod.asm.transformers.modded.TransformerNetherEXBiomes
+  git.jbredwards.nether_api.mod.asm.transformers.modded.TransformerNetherExOverride
+  git.jbredwards.nether_api.mod.asm.transformers.modded.TransformerStygianEndBiomes
+  git.jbredwards.nether_api.mod.asm.transformers.modded.TransformerStygianEndCascadingFix
+  git.jbredwards.nether_api.mod.asm.transformers.modded.height.Transformer_NetherHeight_BiomesOPlenty
+  git.jbredwards.nether_api.mod.asm.transformers.modded.height.Transformer_NetherHeight_Natura
+  git.jbredwards.nether_api.mod.asm.transformers.modded.height.Transformer_NetherHeight_NetherEx
+  git.jbredwards.nether_api.mod.asm.transformers.vanilla.Transformer_MC_10369
+  git.jbredwards.nether_api.mod.asm.transformers.vanilla.TransformerBiomeEndDecorator
+  git.jbredwards.nether_api.mod.asm.transformers.vanilla.TransformerBiomeHell
+  git.jbredwards.nether_api.mod.asm.transformers.vanilla.TransformerCommandLocate
+  git.jbredwards.nether_api.mod.asm.transformers.vanilla.TransformerDragonSpawnManager
+  git.jbredwards.nether_api.mod.asm.transformers.vanilla.TransformerEntityRenderer
+  git.jbredwards.nether_api.mod.asm.transformers.vanilla.TransformerMapGenCavesHell
+  git.jbredwards.nether_api.mod.asm.transformers.vanilla.TransformerMapGenEndCity
+  git.jbredwards.nether_api.mod.asm.transformers.vanilla.TransformerWorldClient
+	GL info: ' Vendor: 'Intel' Version: '4.6.0 - Build 31.0.101.3413' Renderer: 'Intel(R) Iris(R) Xe Graphics'
+[20:04:13] [Client thread/INFO] [FML]: MinecraftForge v14.23.5.2860 Initialized
+[20:04:13] [Client thread/INFO] [FML]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[20:04:13] [Client thread/INFO] [FML]: Invalid recipe found with multiple oredict ingredients in the same ingredient...
+[20:04:13] [Client thread/INFO] [FML]: Replaced 1227 ore ingredients
+[20:04:14] [Client thread/INFO] [FML]: Searching C:\Users\17857\Desktop\Mod Dev\nether_backport\run\.\mods for mods
+[20:04:14] [Client thread/INFO] [FML]: Forge Mod Loader has identified 10 mods to load
+[20:04:14] [Client thread/INFO] [FML]: Attempting connection with missing mods [minecraft, mcp, FML, forge, nether_api, caliper, jei, nb, bookshelf, worldedit] at CLIENT
+[20:04:14] [Client thread/INFO] [FML]: Attempting connection with missing mods [minecraft, mcp, FML, forge, nether_api, caliper, jei, nb, bookshelf, worldedit] at SERVER
+[20:04:15] [Client thread/ERROR] [FML]: The mod caliper is expecting signature d476d1b22b218a10d845928d1665d45fce301b27 for source caliper-266824-2810222_mapped_stable_39-1.12.jar, however there is no signature matching that description
+[20:04:15] [Client thread/WARN] [Caliper]: Invalid fingerprint detected! The file caliper-266824-2810222_mapped_stable_39-1.12.jar may have been tampered with. This version will NOT be supported by the author!
+[20:04:15] [Client thread/INFO] [net.minecraft.client.resources.SimpleReloadableResourceManager]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Nether API, FMLFileResourcePack:Caliper, FMLFileResourcePack:Had Enough Items, FMLFileResourcePack:Unseens Nether Backport, FMLFileResourcePack:Bookshelf, FMLFileResourcePack:WorldEdit
+[20:04:15] [Client thread/INFO] [FML]: Processing ObjectHolder annotations
+[20:04:15] [Client thread/INFO] [FML]: Found 1168 ObjectHolder annotations
+[20:04:15] [Client thread/INFO] [FML]: Identifying ItemStackHolder annotations
+[20:04:15] [Client thread/INFO] [FML]: Found 0 ItemStackHolder annotations
+[20:04:15] [Client thread/INFO] [FML]: Configured a dormant chunk cache size of 0
+[20:04:15] [Forge Version Check/INFO] [forge.VersionCheck]: [forge] Starting version check at http://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
+[20:04:15] [Client thread/INFO] [FML]: Applying holder lookups
+[20:04:15] [Client thread/INFO] [FML]: Holder lookups applied
+[20:04:15] [Client thread/INFO] [FML]: Applying holder lookups
+[20:04:15] [Client thread/INFO] [FML]: Holder lookups applied
+[20:04:15] [Client thread/INFO] [FML]: Applying holder lookups
+[20:04:15] [Client thread/INFO] [FML]: Holder lookups applied
+[20:04:15] [Client thread/INFO] [FML]: Applying holder lookups
+[20:04:15] [Client thread/INFO] [FML]: Holder lookups applied
+[20:04:15] [Client thread/INFO] [FML]: Injecting itemstacks
+[20:04:15] [Client thread/INFO] [FML]: Itemstack injection complete
+[20:04:15] [Thread-3/INFO] [FML]: Using sync timing. 200 frames of Display.update took 94927900 nanos
+[20:04:16] [Forge Version Check/INFO] [forge.VersionCheck]: [forge] Found status: AHEAD Target: null
+[20:04:25] [Sound Library Loader/INFO] [net.minecraft.client.audio.SoundManager]: Starting up SoundSystem...
+[20:04:25] [Thread-5/INFO] [net.minecraft.client.audio.SoundManager]: Initializing LWJGL OpenAL
+[20:04:25] [Thread-5/INFO] [net.minecraft.client.audio.SoundManager]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[20:04:26] [Thread-5/INFO] [net.minecraft.client.audio.SoundManager]: OpenAL initialized.
+[20:04:26] [Sound Library Loader/INFO] [net.minecraft.client.audio.SoundManager]: Sound engine started
+[20:04:27] [Client thread/INFO] [FML]: Max texture size: 16384
+[20:04:28] [Client thread/INFO] [net.minecraft.client.renderer.texture.TextureMap]: Created: 512x512 textures-atlas
+[20:04:29] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory for item "minecraft:air", normal location exception: 
+net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model minecraft:item/air with loader VanillaLoader.INSTANCE, skipping
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161) ~[ModelLoaderRegistry.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadItemModels(ModelLoader.java:302) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadVariantItemModels(ModelBakery.java:175) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:151) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:513) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:378) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_333]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_333]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_333]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_333]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_333]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_333]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_333]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_333]
+	at net.minecraftforge.legacydev.Main.start(Main.java:91) [legacydev-0.2.4.1-fatjar.jar:0.2.4.1+0+fdc17ca]
+	at net.minecraftforge.legacydev.MainClient.main(MainClient.java:29) [legacydev-0.2.4.1-fatjar.jar:0.2.4.1+0+fdc17ca]
+Caused by: java.io.FileNotFoundException: minecraft:models/item/air.json
+	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:69) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:65) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadModel(ModelBakery.java:334) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.access$1400(ModelLoader.java:115) ~[ModelLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoader$VanillaLoader.loadModel(ModelLoader.java:861) ~[ModelLoader$VanillaLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:157) ~[ModelLoaderRegistry.class:?]
+	... 20 more
+[20:04:29] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory for item "minecraft:air", blockstate location exception: 
+net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model minecraft:air#inventory with loader VariantLoader.INSTANCE, skipping
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161) ~[ModelLoaderRegistry.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadItemModels(ModelLoader.java:296) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadVariantItemModels(ModelBakery.java:175) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:151) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:513) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:378) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_333]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_333]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_333]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_333]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_333]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_333]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_333]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_333]
+	at net.minecraftforge.legacydev.Main.start(Main.java:91) [legacydev-0.2.4.1-fatjar.jar:0.2.4.1+0+fdc17ca]
+	at net.minecraftforge.legacydev.MainClient.main(MainClient.java:29) [legacydev-0.2.4.1-fatjar.jar:0.2.4.1+0+fdc17ca]
+Caused by: net.minecraft.client.renderer.block.model.ModelBlockDefinition$MissingVariantException
+	at net.minecraft.client.renderer.block.model.ModelBlockDefinition.getVariant(ModelBlockDefinition.java:83) ~[ModelBlockDefinition.class:?]
+	at net.minecraftforge.client.model.ModelLoader$VariantLoader.loadModel(ModelLoader.java:1175) ~[ModelLoader$VariantLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:157) ~[ModelLoaderRegistry.class:?]
+	... 20 more
+[20:04:29] [Client thread/INFO] [FML]: Applying holder lookups
+[20:04:29] [Client thread/INFO] [FML]: Holder lookups applied
+[20:04:29] [Client thread/INFO] [HadEnoughItems]: Created: 256x128 textures-atlas
+[20:04:29] [Client thread/INFO] [FML]: Injecting itemstacks
+[20:04:29] [Client thread/INFO] [FML]: Itemstack injection complete
+[20:04:29] [Client thread/INFO] [worldedit]: WorldEdit for Forge (version 6.1.10) is loaded
+[20:04:29] [Client thread/INFO] [HadEnoughItems]: Starting HEI...
+[20:04:29] [Client thread/INFO] [HadEnoughItems]: Registering recipe categories...
+[20:04:29] [Client thread/INFO] [HadEnoughItems]: Registering recipe categories took 10.19 ms
+[20:04:29] [Client thread/INFO] [HadEnoughItems]: Registering mod plugins...
+[20:04:29] [Client thread/INFO] [HadEnoughItems]: Registering mod plugins took 93.76 ms
+[20:04:29] [Client thread/INFO] [HadEnoughItems]: Building recipe registry...
+[20:04:30] [Client thread/INFO] [HadEnoughItems]: Building recipe registry took 66.63 ms
+[20:04:30] [Client thread/INFO] [HadEnoughItems]: Building ingredient filter and search trees...
+[20:04:30] [Client thread/INFO] [HadEnoughItems]: Building [default] search tree...
+[20:04:30] [Client thread/INFO] [HadEnoughItems]: Building [default] search tree took 34.03 ms
+[20:04:30] [Client thread/INFO] [HadEnoughItems]: Building [tooltip] search tree...
+[20:04:30] [Client thread/INFO] [HadEnoughItems]: Building [tooltip] search tree took 21.43 ms
+[20:04:30] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [resource_id] search tree...
+[20:04:30] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [resource_id] search tree took 1.851 ms
+[20:04:30] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [color] search tree...
+[20:04:30] [Client thread/INFO] [HadEnoughItems]: Building ingredient filter and search trees took 131.9 ms
+[20:04:30] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [color] search tree took 234.0 ?s
+[20:04:30] [Client thread/INFO] [HadEnoughItems]: Building bookmarks...
+[20:04:30] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [oredict] search tree...
+[20:04:30] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [oredict] search tree took 237.8 ?s
+[20:04:30] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [mod_name] search tree...
+[20:04:30] [Client thread/INFO] [HadEnoughItems]: Building bookmarks took 3.878 ms
+[20:04:30] [Client thread/INFO] [HadEnoughItems]: Building runtime...
+[20:04:30] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [mod_name] search tree took 5.292 ms
+[20:04:30] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [creative_tab] search tree...
+[20:04:30] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [creative_tab] search tree took 269.1 ?s
+[20:04:30] [Client thread/INFO] [HadEnoughItems]: Building runtime took 94.25 ms
+[20:04:30] [Client thread/INFO] [HadEnoughItems]: Starting HEI took 523.8 ms
+[20:04:30] [Client thread/INFO] [FML]: Forge Mod Loader has successfully loaded 10 mods
+[20:04:30] [Client thread/WARN] [net.minecraft.client.settings.GameSettings]: Skipping bad option: lastServer:
+[20:04:30] [Client thread/INFO] [com.mojang.text2speech.NarratorWindows]: Narrator library for x64 successfully loaded
+[20:04:30] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient]: Could not authorize you against Realms server: Invalid session id
+[20:04:33] [Client thread/INFO] [net.minecraft.world.storage.SaveFormatOld]: Deleting level New World-
+[20:04:33] [Client thread/INFO] [net.minecraft.world.storage.SaveFormatOld]: Attempt 1...
+[20:04:35] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Starting integrated minecraft server version 1.12.2
+[20:04:35] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Generating keypair
+[20:04:36] [Server thread/INFO] [FML]: Injecting existing registry data into this server instance
+[20:04:36] [Server thread/INFO] [FML]: Applying holder lookups
+[20:04:36] [Server thread/INFO] [FML]: Holder lookups applied
+[20:04:36] [Server thread/INFO] [FML]: Loading dimension 0 (New World) (net.minecraft.server.integrated.IntegratedServer@58183366)
+[20:04:36] [Server thread/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 488 advancements
+[20:04:36] [Server thread/WARN] [net.minecraft.world.WorldServer]: Unable to find spawn biome
+[20:04:37] [Server thread/INFO] [FML]: Loading dimension -1 (New World) (net.minecraft.server.integrated.IntegratedServer@58183366)
+[20:04:37] [Server thread/INFO] [FML]: Loading dimension 1 (New World) (net.minecraft.server.integrated.IntegratedServer@58183366)
+[20:04:37] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing start region for level 0
+[20:04:38] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing spawn area: 20%
+[20:04:39] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing spawn area: 40%
+[20:04:40] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing spawn area: 59%
+[20:04:41] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing spawn area: 80%
+[20:04:42] [Server thread/INFO] [FML]: Unloading dimension -1
+[20:04:42] [Server thread/INFO] [FML]: Unloading dimension 1
+[20:04:42] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Changing view distance to 12, from 10
+[20:04:43] [Netty Local Client IO #0/INFO] [FML]: Server protocol version 2
+[20:04:43] [Netty Server IO #1/INFO] [FML]: Client protocol version 2
+[20:04:43] [Netty Server IO #1/INFO] [FML]: Client attempting to join with 10 mods : minecraft@1.12.2,caliper@1.1.46,FML@8.0.99.99,nb@0.0.1,bookshelf@2.3.590,forge@14.23.5.2860,nether_api@1.3.0,worldedit@6.1.10,mcp@9.42,jei@4.25.0
+[20:04:43] [Netty Local Client IO #0/INFO] [FML]: [Netty Local Client IO #0] Client side modded connection established
+[20:04:43] [Netty Local Client IO #0/INFO] [HadEnoughItems]: ElementSearch PrefixInfo{default} Storage Stats: GeneralizedSuffixTree:
+Node size stats: 
+IntSummaryStatistics{count=12884, sum=15209, min=0, average=1.180456, max=159}
+Node edge stats: 
+Edge counts: IntSummaryStatistics{count=3078, sum=7980, min=1, average=2.592593, max=30}
+Edge lengths: IntSummaryStatistics{count=7980, sum=34197, min=1, average=4.285338, max=26}
+[20:04:43] [Server thread/INFO] [FML]: [Server thread] Server side modded connection established
+[20:04:43] [Server thread/INFO] [net.minecraft.server.management.PlayerList]: Player750[local:E:8802ff29] logged in with entity id 1351 at (182.5, 91.0, -337.5)
+[20:04:43] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Player750 joined the game
+[20:04:43] [Netty Local Client IO #0/INFO] [HadEnoughItems]: ElementSearch PrefixInfo{tooltip} Storage Stats: GeneralizedSuffixTree:
+Node size stats: 
+IntSummaryStatistics{count=4273, sum=7663, min=0, average=1.793354, max=112}
+Node edge stats: 
+Edge counts: IntSummaryStatistics{count=1129, sum=2700, min=1, average=2.391497, max=42}
+Edge lengths: IntSummaryStatistics{count=2700, sum=9077, min=1, average=3.361852, max=20}
+[20:04:43] [Netty Local Client IO #0/INFO] [HadEnoughItems]: ElementSearch PrefixInfo{mod_name} Storage Stats: LimitedStringStorage: GeneralizedSuffixTree:
+Node size stats: 
+IntSummaryStatistics{count=69, sum=32, min=0, average=0.463768, max=2}
+Node edge stats: 
+Edge counts: IntSummaryStatistics{count=11, sum=39, min=1, average=3.545455, max=16}
+Edge lengths: IntSummaryStatistics{count=39, sum=261, min=1, average=6.692308, max=21}
+[20:04:44] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Saving and pausing game...
+[20:04:44] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level 'New World'/overworld
+[20:05:10] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Player750 has made the advancement [Ice Bucket Challenge]
+[20:05:10] [Client thread/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Player750 has made the advancement [Ice Bucket Challenge]
+[20:05:10] [Client thread/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 12 advancements
+[20:05:20] [Server thread/INFO] [FML]: Loading dimension -1 (New World) (net.minecraft.server.integrated.IntegratedServer@58183366)
+[20:05:22] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Player750 has made the advancement [We Need to Go Deeper]
+[20:05:22] [Client thread/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Player750 has made the advancement [We Need to Go Deeper]
+[20:05:22] [Server thread/WARN] [net.minecraft.server.MinecraftServer]: Can't keep up! Did the system time change, or is the server overloaded? Running 2292ms behind, skipping 45 tick(s)
+[20:05:23] [Client thread/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 20 advancements
+[20:06:27] [Server thread/WARN] [net.minecraft.server.MinecraftServer]: Can't keep up! Did the system time change, or is the server overloaded? Running 2450ms behind, skipping 49 tick(s)
+[20:06:45] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Player750 has made the advancement [A Terrible Fortress]
+[20:06:45] [Client thread/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Player750 has made the advancement [A Terrible Fortress]
+[20:06:45] [Client thread/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 22 advancements
+[20:08:02] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: [Player750: Set own game mode to Spectator Mode]
+[20:08:02] [Client thread/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Your game mode has been updated to Spectator Mode
+[20:08:27] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Saving and pausing game...
+[20:08:27] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level 'New World'/overworld
+[20:08:27] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level 'New World'/the_nether
+[20:08:56] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Stopping server
+[20:08:56] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving players
+[20:08:56] [Server thread/INFO] [net.minecraft.network.NetHandlerPlayServer]: Player750 lost connection: Disconnected
+[20:08:56] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Player750 left the game
+[20:08:56] [Server thread/INFO] [net.minecraft.network.NetHandlerPlayServer]: Stopping singleplayer server as player logged out
+[20:08:56] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving worlds
+[20:08:56] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level 'New World'/overworld
+[20:08:56] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level 'New World'/the_nether
+[20:08:56] [Server thread/INFO] [FML]: Unloading dimension 0
+[20:08:56] [Server thread/INFO] [FML]: Unloading dimension -1
+[20:08:56] [Server thread/INFO] [FML]: Applying holder lookups
+[20:08:56] [Server thread/INFO] [FML]: Holder lookups applied
+[20:08:57] [Client thread/INFO] [net.minecraft.client.Minecraft]: Stopping!
+[20:08:57] [Client thread/INFO] [net.minecraft.client.audio.SoundManager]: SoundSystem shutting down...
+[20:08:57] [Client thread/WARN] [net.minecraft.client.audio.SoundManager]: Author: Paul Lamb, www.paulscode.com

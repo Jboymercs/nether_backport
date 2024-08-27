@@ -1,0 +1,14 @@
+{
+  "minecraft:recipes/misc/bone_meal_from_block": {
+    "criteria": {
+      "has_bone_block": "2024-08-23 21:54:52 +0100"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "plains": "2024-08-23 21:54:40 +0100"
+    },
+    "done": false
+  }
+}

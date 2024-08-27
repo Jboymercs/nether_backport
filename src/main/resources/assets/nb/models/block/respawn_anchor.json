@@ -1,0 +1,10 @@
+{
+  "parent": "block/grass",
+  "textures": {
+    "particle": "nb:blocks/cry_obi",
+    "top": "nb:blocks/respawn_anchor_top_off",
+    "side": "nb:blocks/respawn_anchor_side0",
+    "bottom": "nb:blocks/cry_obi",
+    "overlay": "nb:blocks/respawn_anchor_side0"
+  }
+}

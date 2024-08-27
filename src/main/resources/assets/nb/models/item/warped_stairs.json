@@ -1,0 +1,7 @@
+{
+  "forge_marker": 1,
+  "parent":"nb:block/base_stairs",
+  "textures": {
+    "all": "nb:blocks/warped_planks"
+  }
+}

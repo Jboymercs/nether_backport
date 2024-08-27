@@ -1,0 +1,14 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "nb:warped_vine_middle"
+  },
+  "variants": {
+    "is_top": {
+      "true": {
+        "model" : "nb:warped_vine_top"
+      },
+      "false": { }
+    }
+  }
+}

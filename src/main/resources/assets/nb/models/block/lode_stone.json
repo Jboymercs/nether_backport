@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "nb:blocks/lode_stone_top",
+    "side": "nb:blocks/lode_stone_side"
+  }
+}

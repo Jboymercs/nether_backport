@@ -1,0 +1,7 @@
+{
+  "parent": "block/fire_floor",
+  "textures": {
+    "particle": "nb:blocks/soul_fire_layer_1",
+    "fire": "nb:blocks/soul_fire_layer_1"
+  }
+}

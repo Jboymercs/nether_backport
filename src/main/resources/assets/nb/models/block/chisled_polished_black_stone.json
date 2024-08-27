@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "nb:blocks/chiseled_polished_black_stone"
+  }
+}
