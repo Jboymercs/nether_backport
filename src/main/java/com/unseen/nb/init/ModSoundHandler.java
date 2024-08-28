@@ -62,6 +62,25 @@ public class ModSoundHandler {
     public static SoundEvent ROOTS_PLACE;
 
     public static SoundEvent SPROUT_BREAK;
+
+
+
+    //ENTITIES
+    public static SoundEvent PIGLIN_IDLE;
+
+    public static SoundEvent PIGLIN_HURT;
+
+    public static SoundEvent PIGLIN_STEP;
+
+    public static SoundEvent PIGLIN_ADMIRE;
+
+    public static SoundEvent PIGLIN_DEATH;
+
+    public static SoundEvent PIGLIN_JEALOUS;
+    public static SoundEvent PIGLIN_ANGRY;
+    public static SoundEvent PIGLIN_CELEBRATE;
+    public static SoundEvent PIGLIN_RETREAT;
+
     public static void registerSounds() {
     NYLIUM_BREAK = registerSound("nether_grass.break", "block");
     NYLIUM_BLOCK_HIT = registerSound("nether_grass.block_hit", "block");
@@ -117,6 +136,17 @@ public class ModSoundHandler {
     ROOTS_HIT = registerSound("roots.hit", "block");
 
     SPROUT_BREAK = registerSound("sprout.break", "block");
+
+    //ENTITIES
+        PIGLIN_STEP = registerSound("piglin.step", "entity");
+        PIGLIN_HURT = registerSound("piglin.hurt", "entity");
+        PIGLIN_IDLE = registerSound("piglin.idle", "entity");
+        PIGLIN_DEATH = registerSound("piglin.death", "entity");
+        PIGLIN_ADMIRE = registerSound("piglin.admire", "entity");
+        PIGLIN_JEALOUS = registerSound("piglin.jealous", "entity");
+        PIGLIN_ANGRY = registerSound("piglin.angry", "entity");
+        PIGLIN_CELEBRATE = registerSound("piglin.celebrate", "entity");
+        PIGLIN_RETREAT = registerSound("piglin.retreat", "entity");
     }
 
 

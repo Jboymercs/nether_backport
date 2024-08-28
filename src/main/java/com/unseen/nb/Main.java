@@ -5,12 +5,14 @@ import com.unseen.nb.init.ModEntities;
 import com.unseen.nb.init.ModSoundHandler;
 import com.unseen.nb.proxy.CommonProxy;
 import com.unseen.nb.util.ModReference;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -52,5 +54,20 @@ public class Main {
     @EventHandler
     public void postInit(FMLPostInitializationEvent e) {
 
+    }
+
+
+
+    public static <MSG extends IMessage> void sendMSGToAll(MSG message) {
+
+        //  for(EntityPlayerMP playerMP : Minecraft.getMinecraft().) {
+        //  sendNonLocal(message, playerMP);
+        //  }
+        //network.sendToAll(message);
+    }
+
+
+    public static <MSG extends IMessage> void sendNonLocal(MSG message, EntityPlayerMP playerMP) {
+        network.sendTo(message, playerMP);
     }
 }

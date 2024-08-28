@@ -1093,5 +1093,200 @@
         "stream": true
       }
     ]
+  },
+  "entity.piglin.step": {
+    "category": "entity",
+    "subtitle": "entity.piglin.step",
+    "sounds": [
+      {
+        "name": "nb:entity/piglin/step1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/step2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/step3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/step4",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/step5",
+        "stream": true
+      }
+    ]
+  },
+  "entity.piglin.hurt": {
+    "category": "entity",
+    "subtitle": "entity.piglin.hurt",
+    "sounds": [
+      {
+        "name": "nb:entity/piglin/hurt1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/hurt2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/hurt3",
+        "stream": true
+      }
+    ]
+  },
+  "entity.piglin.idle": {
+    "category": "entity",
+    "subtitle": "entity.piglin.idle",
+    "sounds": [
+      {
+        "name": "nb:entity/piglin/idle1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/idle2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/idle3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/idle4",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/idle5",
+        "stream": true
+      }
+    ]
+  },
+  "entity.piglin.death": {
+    "category": "entity",
+    "subtitle": "entity.piglin.death",
+    "sounds": [
+      {
+        "name": "nb:entity/piglin/death1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/death2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/death3",
+        "stream": true
+      }
+    ]
+  },
+  "entity.piglin.admire": {
+    "category": "entity",
+    "subtitle": "entity.piglin.admire",
+    "sounds": [
+      {
+        "name": "nb:entity/piglin/admire1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/admire2",
+        "stream": true
+      }
+    ]
+  },
+  "entity.piglin.jealous": {
+    "category": "entity",
+    "subtitle": "entity.piglin.jealous",
+    "sounds": [
+      {
+        "name": "nb:entity/piglin/jealous1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/jealous2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/jealous3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/jealous4",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/jealous5",
+        "stream": true
+      }
+    ]
+  },
+  "entity.piglin.angry": {
+    "category": "entity",
+    "subtitle": "entity.piglin.angry",
+    "sounds": [
+      {
+        "name": "nb:entity/piglin/angry1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/angry2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/angry3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/angry4",
+        "stream": true
+      }
+    ]
+  },
+  "entity.piglin.celebrate": {
+    "category": "entity",
+    "subtitle": "entity.piglin.celebrate",
+    "sounds": [
+      {
+        "name": "nb:entity/piglin/celebrate1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/celebrate2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/celebrate3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/celebrate4",
+        "stream": true
+      }
+    ]
+  },
+  "entity.piglin.retreat": {
+    "category": "entity",
+    "subtitle": "entity.piglin.retreat",
+    "sounds": [
+      {
+        "name": "nb:entity/piglin/retreat1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/retreat2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/retreat3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/retreat4",
+        "stream": true
+      }
+    ]
   }
+
 }

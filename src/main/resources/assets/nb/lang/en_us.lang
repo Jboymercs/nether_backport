@@ -47,3 +47,6 @@ tile.warped_sprout.name=Nether Sprout
 tile.crimson_vine.name=Weeping Vines
 tile.warped_vine.name=Twisting Vines
 tile.soul_fire.name=Soul Fire
+
+##ENTITIES
+entity.piglin.name=Piglin

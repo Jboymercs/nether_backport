@@ -1,6 +1,7 @@
 package com.unseen.nb.init;
 
 import com.unseen.nb.Main;
+import com.unseen.nb.common.entity.entities.EntityPiglin;
 import com.unseen.nb.util.ModReference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -21,10 +22,12 @@ public class ModEntities {
     private static final Map<Class<? extends Entity>, String> ID_MAP = new HashMap<>();
 
     private static int ENTITY_START_ID = 100;
-
+    //temporary
+    public static Vec3i nether = new Vec3i(6433126, 0xeb4034, 0);
 
     public static void registerEntities() {
-
+        //Piglin
+    registerEntityWithID("piglin", EntityPiglin.class, ENTITY_START_ID++, 50, nether);
     }
 
     public static void RegisterEntitySpawns() {
