@@ -84,19 +84,19 @@ public class ModelPiglin extends BasicModelEntity {
 		LegR.cubeList.add(new ModelBox(LegR, 0, 32, -2.0F, 4.0F, -2.0F, 4, 12, 4, 0.0F, false));
 
 		RArm = new BasicModelPart(this);
-		RArm.setRotationPoint(-4.0F, -5.0F, 0.0F);
+		RArm.setRotationPoint(-4.0F, -2.0F, 0.0F);
 		Torso.addChild(RArm);
-		RArm.cubeList.add(new ModelBox(RArm, 24, 16, -4.0F, 1.0F, -2.0F, 4, 12, 4, 0.0F, false));
+		RArm.cubeList.add(new ModelBox(RArm, 24, 16, -4.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
 
 		HoldWeapon = new BasicModelPart(this);
-		HoldWeapon.setRotationPoint(-2.0F, 11.0F, 0.0F);
+		HoldWeapon.setRotationPoint(-2.0F, 9.0F, 0.0F);
 		RArm.addChild(HoldWeapon);
-		
+
 
 		LArm = new BasicModelPart(this);
-		LArm.setRotationPoint(4.0F, -5.0F, 0.0F);
+		LArm.setRotationPoint(4.0F, -2.0F, 0.0F);
 		Torso.addChild(LArm);
-		LArm.cubeList.add(new ModelBox(LArm, 24, 16, 0.0F, 1.0F, -2.0F, 4, 12, 4, 0.0F, true));
+		LArm.cubeList.add(new ModelBox(LArm, 24, 16, 0.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, true));
 
 		HoldWeaponL = new BasicModelPart(this);
 		HoldWeaponL.setRotationPoint(2.0F, 11.0F, 0.0F);
@@ -147,15 +147,15 @@ public class ModelPiglin extends BasicModelEntity {
 			ChestArmor.cubeList.add(new ModelBox(ChestArmor, 36, 3, -4.0F, -4.0F, -2.0F, 8, 12, 4, 0.5F, false));
 
 
-			RShoulderPad = new BasicModelPart(this);
-			RShoulderPad.setRotationPoint(0.0F, 0.0F, 0.0F);
-			RArm.addChild(RShoulderPad);
-			RShoulderPad.cubeList.add(new ModelBox(RShoulderPad, 40, 20, -4.0F, 1.0F, -2.0F, 4, 12, 4, 0.5F, false));
+		RShoulderPad = new BasicModelPart(this);
+		RShoulderPad.setRotationPoint(0.0F, 0.0F, 0.0F);
+		RArm.addChild(RShoulderPad);
+		RShoulderPad.cubeList.add(new ModelBox(RShoulderPad, 40, 20, -4.0F, -2.0F, -2.0F, 4, 12, 4, 0.5F, false));
 
-			LShoulderPad = new BasicModelPart(this);
-			LShoulderPad.setRotationPoint(0.0F, 0.0F, 0.0F);
-			LArm.addChild(LShoulderPad);
-			LShoulderPad.cubeList.add(new ModelBox(LShoulderPad, 40, 20, 0.0F, 1.0F, -2.0F, 4, 12, 4, 0.5F, true));
+		LShoulderPad = new BasicModelPart(this);
+		LShoulderPad.setRotationPoint(0.0F, 0.0F, 0.0F);
+		LArm.addChild(LShoulderPad);
+		LShoulderPad.cubeList.add(new ModelBox(LShoulderPad, 40, 20, 0.0F, -2.0F, -2.0F, 4, 12, 4, 0.5F, true));
 
 
 		RBoot = new BasicModelPart(this);
@@ -207,8 +207,13 @@ public class ModelPiglin extends BasicModelEntity {
 		//
 		animator.setAnimation(EntityPiglin.ANIMATION_ATTACK_MELEE);
 		//
-		animator.startKeyframe(8);
-		animator.rotate(RArm, (float) Math.toRadians(-80),0, (float) Math.toRadians(-15));
+		animator.startKeyframe(4);
+		animator.rotate(RArm, (float) Math.toRadians(-55),0, (float) Math.toRadians(-7));
+		animator.rotate(LArm, (float) Math.toRadians(10), 0, (float) Math.toRadians(-5));
+		animator.endKeyframe();
+		//
+		animator.startKeyframe(4);
+		animator.rotate(RArm, (float) Math.toRadians(-110),0, (float) Math.toRadians(-15));
 		animator.rotate(LArm, (float) Math.toRadians(20), 0, (float) Math.toRadians(-10));
 		animator.endKeyframe();
 		//

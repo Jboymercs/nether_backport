@@ -97,6 +97,12 @@ public class ModSoundHandler {
     public static SoundEvent BRUTE_STEP;
     public static SoundEvent BRUTE_ANGRY;
 
+    //Piglin Zombie
+    public static SoundEvent ZPIG_IDLE;
+    public static SoundEvent ZPIG_HURT;
+    public static SoundEvent ZPIG_DEATH;
+    public static SoundEvent ZPIG_ANGRY;
+
     public static void registerSounds() {
     NYLIUM_BREAK = registerSound("nether_grass.break", "block");
     NYLIUM_BLOCK_HIT = registerSound("nether_grass.block_hit", "block");
@@ -177,6 +183,11 @@ public class ModSoundHandler {
         BRUTE_IDLE = registerSound("brute.idle", "entity");
         BRUTE_STEP = registerSound("brute.step", "entity");
         BRUTE_ANGRY = registerSound("brute.angry", "entity");
+        //Zombie Piglin
+        ZPIG_ANGRY = registerSound("zpig.angry", "entity");
+        ZPIG_DEATH = registerSound("zpig.death", "entity");
+        ZPIG_HURT = registerSound("zpig.hurt", "entity");
+        ZPIG_IDLE = registerSound("zpig.idle", "entity");
     }
 
 

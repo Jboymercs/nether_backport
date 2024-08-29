@@ -10,12 +10,15 @@ import com.unseen.nb.client.animation.model.BasicModelPart;
 import com.unseen.nb.client.animation.model.EZModelAnimator;
 import com.unseen.nb.client.animation.util.EZMath;
 import com.unseen.nb.common.entity.entities.EntityPiglinBrute;
+import com.unseen.nb.common.entity.entities.EntityPiglinZombie;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.model.ModelZombie;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.EnumHandSide;
+import net.minecraft.util.math.MathHelper;
 
-public class ModelPiglinBrute extends BasicModelEntity {
+public class ModelPiglinZombie extends BasicModelEntity {
 	private BasicModelPart Torso;
 	private BasicModelPart ChestArmor;
 	private BasicModelPart LegL;
@@ -32,14 +35,17 @@ public class ModelPiglinBrute extends BasicModelEntity {
 	private BasicModelPart REar;
 	private BasicModelPart cube_r2;
 
+	private BasicModelPart cube_r3;
+
+	private BasicModelPart cube_r4;
 	//This is your animator where most of the functions for animation are used
 	private EZModelAnimator animator;
 
-	public ModelPiglinBrute(float scale) {
+	public ModelPiglinZombie(float scale) {
 		this(scale, 0.0F, 64, 64);
 	}
 
-	public ModelPiglinBrute(float scale, float i, int textureWidth, int textureHeight) {
+	public ModelPiglinZombie(float scale, float i, int textureWidth, int textureHeight) {
 
 	}
 
@@ -50,10 +56,10 @@ public class ModelPiglinBrute extends BasicModelEntity {
 
 	protected ModelRenderer getArmForSide(EnumHandSide side)
 	{
-		return side == EnumHandSide.LEFT ? this.LArm : this.RArm;
+		return side == EnumHandSide.LEFT ? this.LArm : this.cube_r3;
 	}
 
-	public ModelPiglinBrute() {
+	public ModelPiglinZombie() {
 		textureWidth = 64;
 		textureHeight = 64;
 
@@ -74,7 +80,7 @@ public class ModelPiglinBrute extends BasicModelEntity {
 		LBoot = new BasicModelPart(this);
 		LBoot.setRotationPoint(0.0F, 16.0F, 0.0F);
 		LegL.addChild(LBoot);
-		LBoot.cubeList.add(new ModelBox(LBoot, 0, 48, -2.0F, -11.0F, -2.0F, 4, 6, 4, 0.5F, false));
+		LBoot.cubeList.add(new ModelBox(LBoot, 0, 48, -2.0F, -12.0F, -2.0F, 4, 6, 4, 0.5F, false));
 
 		LegR = new BasicModelPart(this);
 		LegR.setRotationPoint(-2.0F, 4.0F, 0.0F);
@@ -84,22 +90,33 @@ public class ModelPiglinBrute extends BasicModelEntity {
 		RBoot = new BasicModelPart(this);
 		RBoot.setRotationPoint(0.0F, 16.0F, 0.0F);
 		LegR.addChild(RBoot);
-		RBoot.cubeList.add(new ModelBox(RBoot, 0, 48, -2.0F, -11.0F, -2.0F, 4, 6, 4, 0.5F, false));
+		RBoot.cubeList.add(new ModelBox(RBoot, 0, 48, -2.0F, -12.0F, -2.0F, 4, 6, 4, 0.5F, true));
 
 		RArm = new BasicModelPart(this);
 		RArm.setRotationPoint(-4.0F, -2.0F, 0.0F);
 		Torso.addChild(RArm);
-		RArm.cubeList.add(new ModelBox(RArm, 24, 16, -4.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
+
+
+		cube_r3 = new BasicModelPart(this);
+		cube_r3.setRotationPoint(0.0F, 0.0F, 0.0F);
+		RArm.addChild(cube_r3);
+		setRotationAngle(cube_r3, -1.2217F, 0.0F, 0.0F);
+		cube_r3.cubeList.add(new ModelBox(cube_r3, 24, 16, -4.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
 
 		HoldWeapon = new BasicModelPart(this);
-		HoldWeapon.setRotationPoint(-2.0F, 9.0F, 0.0F);
+		HoldWeapon.setRotationPoint(-2.0F, 11.0F, 0.0F);
 		RArm.addChild(HoldWeapon);
-
+		
 
 		LArm = new BasicModelPart(this);
 		LArm.setRotationPoint(4.0F, -2.0F, 0.0F);
 		Torso.addChild(LArm);
-		LArm.cubeList.add(new ModelBox(LArm, 24, 16, 0.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, true));
+
+		cube_r4 = new BasicModelPart(this);
+		cube_r4.setRotationPoint(0.0F, 0.0F, 0.0F);
+		LArm.addChild(cube_r4);
+		setRotationAngle(cube_r4, -1.2217F, 0.0F, 0.0F);
+		cube_r4.cubeList.add(new ModelBox(cube_r4, 24, 16, 0.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
 
 		Head = new BasicModelPart(this);
 		Head.setRotationPoint(0.0F, -6.0F, 0.0F);
@@ -144,23 +161,18 @@ public class ModelPiglinBrute extends BasicModelEntity {
 		//Always include this in the beginning of this method
 		animator.update(entity);
 		//Always include this in the beginning of this method
-		animator.setAnimation(EntityPiglinBrute.ANIMATION_ATTACK_MELEE);
+		animator.setAnimation(EntityPiglinZombie.ANIMATION_ATTACK_MELEE);
 		//
-		animator.startKeyframe(4);
-		animator.rotate(RArm, (float) Math.toRadians(-40),0, (float) Math.toRadians(-7));
-		animator.rotate(LArm, (float) Math.toRadians(10), 0, (float) Math.toRadians(-5));
-		animator.endKeyframe();
-		//
-		animator.startKeyframe(4);
-		animator.rotate(RArm, (float) Math.toRadians(-80),0, (float) Math.toRadians(-15));
-		animator.rotate(LArm, (float) Math.toRadians(20), 0, (float) Math.toRadians(-10));
+		animator.startKeyframe(8);
+		animator.rotate(cube_r3, (float) Math.toRadians(-50), (float) Math.toRadians(15), 0);
+		animator.rotate(LArm, (float) Math.toRadians(-50), (float) Math.toRadians(-15),0);
 		animator.endKeyframe();
 		//
 		animator.setStaticKeyframe(7);
 		//
 		animator.startKeyframe(5);
-		animator.rotate(RArm, (float) Math.toRadians(20), (float) Math.toRadians(-20), (float) Math.toRadians(10));
-		animator.rotate(LArm, (float) Math.toRadians(-10), 0, (float) Math.toRadians(-10));
+		animator.rotate(cube_r3, (float) Math.toRadians(20), (float) Math.toRadians(-20),0 );
+		animator.rotate(LArm, (float) Math.toRadians(20), (float) Math.toRadians(20), 0);
 		animator.endKeyframe();
 		//
 		animator.resetKeyframe(5);
@@ -168,21 +180,23 @@ public class ModelPiglinBrute extends BasicModelEntity {
 
 	@Override
 	public Iterable<BasicModelPart> getAllParts() {
-		return ImmutableList.of(Torso,ChestArmor,LegL,LBoot,LegR,RBoot,RArm,HoldWeapon,LArm,Head,Snout,LEar,cube_r1,REar,cube_r2);
+		return ImmutableList.of(Torso,ChestArmor,LegL,LBoot,LegR,RBoot,RArm,HoldWeapon,LArm,Head,Snout,LEar,cube_r1,REar,cube_r2, cube_r3, cube_r4);
 	}
 
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn)
 	{
-		EntityPiglinBrute pigling = ((EntityPiglinBrute) entityIn);
+		EntityPiglinZombie pigling = ((EntityPiglinZombie) entityIn);
 
 		float walkSpeed = 0.5F;
 		float walkDegree = 1F;
 
 		//Arms
 		if(!pigling.isMeleeAttack()) {
-			this.walk(RArm, walkSpeed, walkDegree, true, 0F, 0.1F, limbSwing, limbSwingAmount);
-			this.walk(LArm, walkSpeed, walkDegree, false, 0F, 0.1F, limbSwing, limbSwingAmount);
+			this.cube_r3.rotateAngleZ += MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
+			this.cube_r4.rotateAngleZ -= MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
+			this.cube_r3.rotateAngleX += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+			this.cube_r4.rotateAngleX -= MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
 		}
 
 		//Body Bobbing

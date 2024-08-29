@@ -3,6 +3,7 @@ package com.unseen.nb.init;
 import com.unseen.nb.Main;
 import com.unseen.nb.common.entity.entities.EntityPiglin;
 import com.unseen.nb.common.entity.entities.EntityPiglinBrute;
+import com.unseen.nb.common.entity.entities.EntityPiglinZombie;
 import com.unseen.nb.common.entity.entities.EntityStrider;
 import com.unseen.nb.util.ModReference;
 import net.minecraft.entity.Entity;
@@ -36,11 +37,14 @@ public class ModEntities {
     registerEntityWithID("strider", EntityStrider.class, ENTITY_START_ID++, 50, nether);
     //Piglin Brute
         registerEntityWithID("piglin_brute", EntityPiglinBrute.class, ENTITY_START_ID++, 50, nether);
+        //Piglin Zombie
+        registerEntityWithID("piglin_zombie", EntityPiglinZombie.class, ENTITY_START_ID++, 50, nether);
     }
 
     public static void RegisterEntitySpawns() {
     spawnRateBiomeSpecific(EntityPiglin.class, EnumCreatureType.MONSTER, 15, 2, 4, Biomes.HELL);
     spawnRateBiomeSpecific(EntityStrider.class, EnumCreatureType.CREATURE, 10, 1, 2, Biomes.HELL);
+    spawnRateBiomeSpecific(EntityPiglinZombie.class, EnumCreatureType.MONSTER, 50, 2, 4, Biomes.HELL);
 
     }
 

@@ -15,8 +15,8 @@ submitted to any online service.
 | ColorHandlerEvent$Item                       | 1              |
 | RenderSpecificHandEvent                      | 1              |
 | GuiScreenEvent$InitGuiEvent$Post             | 1              |
-| PlayerEvent$PlayerLoggedInEvent              | 1              |
 | TextureStitchEvent$Pre                       | 1              |
+| PlayerEvent$PlayerLoggedInEvent              | 1              |
 | PlayerInteractEvent                          | 1              |
 | ChunkEvent$Unload                            | 1              |
 | WorldEvent$Unload                            | 1              |
@@ -50,16 +50,16 @@ submitted to any online service.
 | Had Enough Items | onGuiInit | mezz.jei.input.MouseHelper | normal   | had-enough-items-557549-4571247_mapped_stable_39-1.12.jar | false           |
 
 
-## PlayerEvent$PlayerLoggedInEvent
-| Owner           | Method      | Location | Priority | Source                                                     | RecieveCanceled |
-|-----------------|-------------|----------|----------|------------------------------------------------------------|-----------------|
-| Minecraft Forge | playerLogin | forge    | normal   | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | false           |
-
-
 ## TextureStitchEvent$Pre
 | Owner            | Method             | Location                           | Priority | Source                                                    | RecieveCanceled |
 |------------------|--------------------|------------------------------------|----------|-----------------------------------------------------------|-----------------|
 | Had Enough Items | handleTextureRemap | mezz.jei.startup.ProxyCommonClient | normal   | had-enough-items-557549-4571247_mapped_stable_39-1.12.jar | false           |
+
+
+## PlayerEvent$PlayerLoggedInEvent
+| Owner           | Method      | Location | Priority | Source                                                     | RecieveCanceled |
+|-----------------|-------------|----------|----------|------------------------------------------------------------|-----------------|
+| Minecraft Forge | playerLogin | forge    | normal   | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | false           |
 
 
 ## PlayerInteractEvent
@@ -77,9 +77,9 @@ submitted to any online service.
 ## ConfigChangedEvent$OnConfigChangedEvent
 | Owner            | Method          | Location                                                    | Priority | Source                                                     | RecieveCanceled |
 |------------------|-----------------|-------------------------------------------------------------|----------|------------------------------------------------------------|-----------------|
+| Minecraft Forge  | onConfigChanged | forge                                                       | normal   | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | false           |
 | Had Enough Items | onConfigChanged | mezz.jei.startup.ProxyCommonClient                          | normal   | had-enough-items-557549-4571247_mapped_stable_39-1.12.jar  | false           |
 | Nether API       | sync            | git.jbredwards.nether_api.mod.common.config.NetherAPIConfig | normal   | nether-API-f2f48d7b8b_mapped_stable_39-1.12.jar            | false           |
-| Minecraft Forge  | onConfigChanged | forge                                                       | normal   | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | false           |
 
 
 ## WorldEvent$Load
@@ -116,8 +116,8 @@ submitted to any online service.
 ## WorldEvent$Save
 | Owner            | Method          | Location                                       | Priority | Source                                                     | RecieveCanceled |
 |------------------|-----------------|------------------------------------------------|----------|------------------------------------------------------------|-----------------|
-| Had Enough Items | onWorldSave     | mezz.jei.startup.ProxyCommonClient             | normal   | had-enough-items-557549-4571247_mapped_stable_39-1.12.jar  | false           |
 | Minecraft Forge  | onDimensionSave | net.minecraftforge.common.ForgeInternalHandler | highest  | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | false           |
+| Had Enough Items | onWorldSave     | mezz.jei.startup.ProxyCommonClient             | normal   | had-enough-items-557549-4571247_mapped_stable_39-1.12.jar  | false           |
 
 
 ## EntityJoinWorldEvent
@@ -165,15 +165,15 @@ submitted to any online service.
 ## TickEvent$ClientTickEvent
 | Owner           | Method                | Location                                                        | Priority | Source                                                     | RecieveCanceled |
 |-----------------|-----------------------|-----------------------------------------------------------------|----------|------------------------------------------------------------|-----------------|
-| Nether API      | resetCurrentMusicType | git.jbredwards.nether_api.mod.client.audio.TheEndMusicHandler   | normal   | nether-API-f2f48d7b8b_mapped_stable_39-1.12.jar            | false           |
-| Nether API      | resetCurrentMusicType | git.jbredwards.nether_api.mod.client.audio.NetherMusicHandler   | normal   | nether-API-f2f48d7b8b_mapped_stable_39-1.12.jar            | false           |
-| Minecraft Forge | checkSettings         | net.minecraftforge.common.ForgeInternalHandler                  | normal   | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | false           |
 | Bookshelf       | onClientTick          | net.darkhax.bookshelf.Bookshelf                                 | normal   | Bookshelf-1.12.2-2.3.590 (1).jar                           | false           |
+| Nether API      | resetCurrentMusicType | git.jbredwards.nether_api.mod.client.audio.TheEndMusicHandler   | normal   | nether-API-f2f48d7b8b_mapped_stable_39-1.12.jar            | false           |
+| Minecraft Forge | checkSettings         | net.minecraftforge.common.ForgeInternalHandler                  | normal   | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | false           |
+| Nether API      | resetCurrentMusicType | git.jbredwards.nether_api.mod.client.audio.NetherMusicHandler   | normal   | nether-API-f2f48d7b8b_mapped_stable_39-1.12.jar            | false           |
 | Nether API      | onPlayerTick          | git.jbredwards.nether_api.mod.client.audio.BiomeAmbienceHandler | normal   | nether-API-f2f48d7b8b_mapped_stable_39-1.12.jar            | false           |
 
 
 ## NetherAPIRegistryEvent$Nether
 | Owner                   | Method                  | Location                                          | Priority | Source                                          | RecieveCanceled |
 |-------------------------|-------------------------|---------------------------------------------------|----------|-------------------------------------------------|-----------------|
-| Nether API              | registerHardcodedNether | git.jbredwards.nether_api.mod.common.EventHandler | highest  | nether-API-f2f48d7b8b_mapped_stable_39-1.12.jar | false           |
 | Unseens Nether Backport | onNetherAPIRegistry     | com.unseen.nb.handler.ApiEventHandler             | highest  | nb-1.12.2-0.0.1.jar                             | false           |
+| Nether API              | registerHardcodedNether | git.jbredwards.nether_api.mod.common.EventHandler | highest  | nether-API-f2f48d7b8b_mapped_stable_39-1.12.jar | false           |

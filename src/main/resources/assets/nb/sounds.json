@@ -1603,6 +1603,74 @@
         "stream": true
       }
     ]
+  },
+  "entity.zpig.angry": {
+    "category": "entity",
+    "subtitle": "entity.zpig.angry",
+    "sounds": [
+      {
+        "name": "nb:entity/zpig/angry1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/zpig/angry2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/zpig/angry3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/zpig/angry4",
+        "stream": true
+      }
+    ]
+  },
+  "entity.zpig.idle": {
+    "category": "entity",
+    "subtitle": "entity.zpig.idle",
+    "sounds": [
+      {
+        "name": "nb:entity/zpig/idle1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/zpig/idle2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/zpig/idle3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/zpig/idle4",
+        "stream": true
+      }
+    ]
+  },
+  "entity.zpig.hurt": {
+    "category": "entity",
+    "subtitle": "entity.zpig.hurt",
+    "sounds": [
+      {
+        "name": "nb:entity/zpig/hurt1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/zpig/hurt2",
+        "stream": true
+      }
+    ]
+  },
+  "entity.zpig.death": {
+    "category": "entity",
+    "subtitle": "entity.zpig.death",
+    "sounds": [
+      {
+        "name": "nb:entity/zpig/death1",
+        "stream": true
+      }
+    ]
   }
 
 }

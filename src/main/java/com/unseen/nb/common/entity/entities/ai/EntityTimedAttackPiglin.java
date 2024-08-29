@@ -69,7 +69,7 @@ public class EntityTimedAttackPiglin<T extends EntityPiglin & IAttack> extends E
 
         move(target, distSq, canSee);
 
-        if (distSq <= this.maxAttackDistSq && canSee && !this.entity.isFightMode()) {
+        if (distSq <= this.maxAttackDistSq && canSee) {
             this.attackTime--;
             if (this.attackTime <= 0) {
                 this.attackTime = this.entity.startAttack(target, (float) distSq, this.strafingBackwards);

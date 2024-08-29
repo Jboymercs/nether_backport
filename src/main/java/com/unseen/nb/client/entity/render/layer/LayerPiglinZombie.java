@@ -1,8 +1,8 @@
-package com.unseen.nb.client.animation.render.layer;
+package com.unseen.nb.client.entity.render.layer;
 
 import com.unseen.nb.client.animation.render.EZRenderLiving;
-import com.unseen.nb.client.entity.model.ModelPiglin;
-import com.unseen.nb.common.entity.entities.EntityPiglin;
+import com.unseen.nb.client.entity.model.ModelPiglinZombie;
+import com.unseen.nb.common.entity.entities.EntityPiglinZombie;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
@@ -11,9 +11,9 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHandSide;
 
-public class EZLayerHeldItem extends LayerHeldItem {
+public class LayerPiglinZombie extends LayerHeldItem {
 
-    public EZLayerHeldItem(EZRenderLiving<?> livingEntityRendererIn) {
+    public LayerPiglinZombie(EZRenderLiving<?> livingEntityRendererIn) {
         super(livingEntityRendererIn);
     }
 
@@ -57,13 +57,11 @@ public class EZLayerHeldItem extends LayerHeldItem {
             GlStateManager.rotate(-90.0F, 1.0F, 0.0F, 0.0F);
             GlStateManager.rotate(180.0F, 0.0F, 1.0F, 0.0F);
             boolean flag = handSide == EnumHandSide.LEFT;
-            if(p_188358_1_ instanceof EntityPiglin) {
-                if(((EntityPiglin)p_188358_1_).isLoadedACrossBow()) {
-                    GlStateManager.translate(0.15F, -0.125F, -0.7F);
-                } else if (((EntityPiglin)p_188358_1_).isMeleeAttack()) {
-                    GlStateManager.translate(0.15F, -0.12F, -0.7F);
+            if(p_188358_1_ instanceof EntityPiglinZombie) {
+                if (((EntityPiglinZombie)p_188358_1_).isMeleeAttack()) {
+                    GlStateManager.translate(0.37F, 0F, -0.65F);
                 } else {
-                    GlStateManager.translate(flag ? -0.15F :0.15F, flag ? 0 : 0.125F, -0.85F);
+                    GlStateManager.translate(flag ? -0.15F : 0.37F, 0F, -0.65F);
                 }
 
             }
@@ -77,7 +75,7 @@ public class EZLayerHeldItem extends LayerHeldItem {
     @Override
     protected void translateToHand(EnumHandSide p_191361_1_)
     {
-        ((ModelPiglin)this.livingEntityRenderer.getMainModel()).postRenderArm(0.0625F, p_191361_1_);
+        ((ModelPiglinZombie)this.livingEntityRenderer.getMainModel()).postRenderArm(0.0625F, p_191361_1_);
 
     }
 

@@ -59,9 +59,9 @@ public class LayerBruteItem extends LayerHeldItem {
             boolean flag = handSide == EnumHandSide.LEFT;
             if(p_188358_1_ instanceof EntityPiglinBrute) {
              if (((EntityPiglinBrute)p_188358_1_).isMeleeAttack()) {
-                    GlStateManager.translate(0.15F, -0.12F, -1.0F);
+                    GlStateManager.translate(0.15F, -0.12F, -0.85F);
                 } else {
-                    GlStateManager.translate(flag ? -0.15F :0.15F, flag ? 0 : 0.125F, -1.0F);
+                    GlStateManager.translate(flag ? -0.15F :0.15F, flag ? 0 : 0.125F, -0.85F);
                 }
 
             }

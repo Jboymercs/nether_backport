@@ -5,17 +5,23 @@ import com.unseen.nb.client.animation.EZAnimationHandler;
 import com.unseen.nb.client.animation.IAnimatedEntity;
 import com.unseen.nb.common.entity.EntityNetherBase;
 import com.unseen.nb.common.entity.entities.ai.EntityTimedAttackPiglinBrute;
+import com.unseen.nb.common.entity.entities.ai.EntityTimedAttackZombie;
 import com.unseen.nb.common.entity.entities.ai.IAttack;
 import com.unseen.nb.init.ModSoundHandler;
 import com.unseen.nb.util.ModRand;
 import com.unseen.nb.util.ModUtils;
 import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
@@ -27,27 +33,35 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 import java.util.function.Consumer;
 
-public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEntity, IAttack {
-
+public class EntityPiglinZombie extends EntityNetherBase implements IAnimatedEntity, IAttack {
     public static final EZAnimation ANIMATION_ATTACK_MELEE = EZAnimation.create(25);
-    protected static final DataParameter<Boolean> MELEE_ATTACK = EntityDataManager.createKey(EntityPiglinBrute.class, DataSerializers.BOOLEAN);
+
+    private static final UUID ATTACK_SPEED_BOOST_MODIFIER_UUID = UUID.fromString("49455A49-7EC5-45BA-B886-3B90B23A1718");
+    private static final AttributeModifier ATTACK_SPEED_BOOST_MODIFIER = (new AttributeModifier(ATTACK_SPEED_BOOST_MODIFIER_UUID, "Attacking speed boost", 0.05D, 0)).setSaved(false);
+    protected static final DataParameter<Boolean> MELEE_ATTACK = EntityDataManager.createKey(EntityPiglinZombie.class, DataSerializers.BOOLEAN);
     protected void setMeleeAttack(boolean value) {this.dataManager.set(MELEE_ATTACK, Boolean.valueOf(value));}
     public boolean isMeleeAttack() {return this.dataManager.get(MELEE_ATTACK);}
     private Consumer<EntityLivingBase> prevAttack;
+
+    private int angerLevel;
+
+    private UUID angerTargetUUID;
 
     //used for animation system
     private int animationTick;
     //just a variable that holds what the current animation is
     private EZAnimation currentAnimation;
 
-    public EntityPiglinBrute(World worldIn) {
+    public EntityPiglinZombie(World worldIn) {
         super(worldIn);
-        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.GOLDEN_AXE.getDefaultInstance());
+        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.GOLDEN_SWORD.getDefaultInstance());
     }
 
     @Override
@@ -59,12 +73,14 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
     @Override
     public void writeEntityToNBT(NBTTagCompound nbt) {
         super.writeEntityToNBT(nbt);
+        nbt.setShort("Anger", (short)this.angerLevel);
         nbt.setBoolean("Melee_Attack", this.isMeleeAttack());
     }
 
     @Override
     public void readEntityFromNBT(NBTTagCompound nbt) {
         super.readEntityFromNBT(nbt);
+        this.angerLevel = nbt.getShort("Anger");
         this.setMeleeAttack(nbt.getBoolean("Melee_Attack"));
     }
     @Override
@@ -94,6 +110,36 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
 
     protected boolean hasPlayedAngrySound = false;
 
+    protected void updateAITasks()
+    {
+        IAttributeInstance iattributeinstance = this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED);
+
+        if (this.isAngry())
+        {
+            if (!this.isChild() && !iattributeinstance.hasModifier(ATTACK_SPEED_BOOST_MODIFIER))
+            {
+                iattributeinstance.applyModifier(ATTACK_SPEED_BOOST_MODIFIER);
+            }
+
+            --this.angerLevel;
+        }
+        else if (iattributeinstance.hasModifier(ATTACK_SPEED_BOOST_MODIFIER))
+        {
+            iattributeinstance.removeModifier(ATTACK_SPEED_BOOST_MODIFIER);
+        }
+
+
+        if (this.angerLevel > 0 && this.angerTargetUUID != null && this.getRevengeTarget() == null)
+        {
+            EntityPlayer entityplayer = this.world.getPlayerEntityByUUID(this.angerTargetUUID);
+            this.setRevengeTarget(entityplayer);
+            this.attackingPlayer = entityplayer;
+            this.recentlyHit = this.getRevengeTimer();
+        }
+
+        super.updateAITasks();
+    }
+
     @Override
     public void onUpdate() {
         super.onUpdate();
@@ -101,7 +147,7 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
         EntityLivingBase target = this.getAttackTarget();
 
         if(target != null && !hasPlayedAngrySound) {
-            this.playSound(ModSoundHandler.BRUTE_ANGRY, 1.0f, 1.0f / (rand.nextFloat() * 0.4f + 0.5f));
+            this.playSound(ModSoundHandler.ZPIG_ANGRY, 1.0f, 1.0f / (rand.nextFloat() * 0.4f + 0.5f));
             hasPlayedAngrySound = true;
         } else if (target == null) {
             hasPlayedAngrySound = false;
@@ -121,8 +167,8 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(50D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(9D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20D);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(7D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20D);
         this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.3D);
@@ -134,11 +180,17 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
         super.initEntityAI();
         this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(2, new EntityAIWander(this, 1.0D));
-        this.tasks.addTask(3, new EntityTimedAttackPiglinBrute<>(this, 1.8D, 20, 2, 0.15F));
+        this.tasks.addTask(4, new EntityTimedAttackZombie<>(this, 1.8D, 20, 2, 0.15F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget<>(this, EntityPlayer.class, 1, true, false, null));
+
+        this.targetTasks.addTask(1, new EntityPiglinZombie.AIHurtByAggressor(this));
+        this.targetTasks.addTask(2, new EntityPiglinZombie.AITargetAggressor(this));
         this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, true, new Class[0]));
-        this.targetTasks.addTask(4, new EntityAINearestAttackableTarget<>(this, EntityPigZombie.class, 1, true, false, null));
+    }
+
+    public boolean isAngry()
+    {
+        return this.angerLevel > 0;
     }
 
     @Override
@@ -165,7 +217,7 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
         addEvent(()-> {
             Vec3d offset = this.getPositionVector().add(ModUtils.getRelativeOffset(this, new Vec3d(1.2, 1.2, 0)));
             DamageSource source = DamageSource.causeMobDamage(this);
-            float damage = 10.0F;
+            float damage = 7.0F;
             ModUtils.handleAreaImpact(1.0f, (e)-> damage, this, offset, source, 0.5f, 0, false);
         }, 18);
 
@@ -183,7 +235,7 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
         addEvent(()-> {
             Vec3d offset = this.getPositionVector().add(ModUtils.getRelativeOffset(this, new Vec3d(1.2, 1.2, 0)));
             DamageSource source = DamageSource.causeMobDamage(this);
-            float damage = 10.0F;
+            float damage = 7.0F;
             ModUtils.handleAreaImpact(1.0f, (e)-> damage, this, offset, source, 0.5f, 0, false);
         }, 18);
 
@@ -194,15 +246,55 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
         }, 25);
     };
 
+    private void becomeAngryAt(Entity p_70835_1_)
+    {
+        this.angerLevel = 400 + this.rand.nextInt(400);
+        if (p_70835_1_ instanceof EntityLivingBase)
+        {
+            this.setRevengeTarget((EntityLivingBase)p_70835_1_);
+        }
+    }
+
+    @Override
+    public void setRevengeTarget(@Nullable EntityLivingBase livingBase)
+    {
+        super.setRevengeTarget(livingBase);
+
+        if (livingBase != null)
+        {
+            this.angerTargetUUID = livingBase.getUniqueID();
+        }
+    }
+
+    @Override
+    public boolean attackEntityFrom(DamageSource source, float amount)
+    {
+        if (this.isEntityInvulnerable(source))
+        {
+            return false;
+        }
+        else
+        {
+            Entity entity = source.getTrueSource();
+
+            if (entity instanceof EntityPlayer)
+            {
+                this.becomeAngryAt(entity);
+            }
+
+            return super.attackEntityFrom(source, amount);
+        }
+    }
+
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return ModSoundHandler.BRUTE_HURT;
+        return ModSoundHandler.ZPIG_HURT;
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return ModSoundHandler.BRUTE_IDLE;
+        return ModSoundHandler.ZPIG_IDLE;
     }
 
     @Override
@@ -213,6 +305,39 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
 
     @Override
     protected SoundEvent getDeathSound() {
-        return ModSoundHandler.BRUTE_DEATH;
+        return ModSoundHandler.ZPIG_DEATH;
+    }
+
+
+
+    static class AIHurtByAggressor extends EntityAIHurtByTarget
+    {
+        public AIHurtByAggressor(EntityPiglinZombie p_i45828_1_)
+        {
+            super(p_i45828_1_, true);
+        }
+
+        protected void setEntityAttackTarget(EntityCreature creatureIn, EntityLivingBase entityLivingBaseIn)
+        {
+            super.setEntityAttackTarget(creatureIn, entityLivingBaseIn);
+
+            if (creatureIn instanceof EntityPiglinZombie)
+            {
+                ((EntityPiglinZombie)creatureIn).becomeAngryAt(entityLivingBaseIn);
+            }
+        }
+    }
+
+    static class AITargetAggressor extends EntityAINearestAttackableTarget<EntityPlayer>
+    {
+        public AITargetAggressor(EntityPiglinZombie p_i45829_1_)
+        {
+            super(p_i45829_1_, EntityPlayer.class, true);
+        }
+
+        public boolean shouldExecute()
+        {
+            return ((EntityPiglinZombie)this.taskOwner).isAngry() && super.shouldExecute();
+        }
     }
 }

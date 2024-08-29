@@ -19,6 +19,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.player.EntityPlayer;
@@ -152,11 +153,11 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
 
 
     protected void initRangedAI() {
-        this.tasks.addTask(4, new EntityTimedAttackPiglin<>(this, 1.8D, 60, 14, 0.3F));
+        this.tasks.addTask(3, new EntityTimedAttackPiglin<>(this, 1.8D, 60, 14, 0.3F));
     }
 
     protected void initMeleeAI() {
-        this.tasks.addTask(4, new EntityTimedAttackPiglin<>(this, 1.8D, 60, 2, 0.1F));
+        this.tasks.addTask(3, new EntityTimedAttackPiglin<>(this, 1.8D, 60, 2, 0.1F));
     }
     @Override
     protected void entityInit() {
@@ -229,6 +230,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
                 this.setAnimation(ANIMATION_SHORT_TRADE);
             }
         }
+
 
         if(this.canTrade) {
             if(trade_delay < 0) {
@@ -345,8 +347,10 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
         //this.tasks.addTask(4, new EntityAiTimedAttack<EntityEverator>(this, 1.3D, 60, 3, 0.3F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, true, new Class[0]));
-        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget<>(this, EntityPigZombie.class, 1, true, false, null));
+        this.targetTasks.addTask(3, new EntityAIAvoidEntity<>(this, EntityPiglinZombie.class, 12F, 1.1D, 1.5D));
     }
+
+
 
     @Override
     public int startAttack(EntityLivingBase target, float distanceSq, boolean strafingBackwards) {

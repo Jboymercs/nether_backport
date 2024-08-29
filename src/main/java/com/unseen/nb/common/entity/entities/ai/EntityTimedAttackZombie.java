@@ -1,11 +1,11 @@
 package com.unseen.nb.common.entity.entities.ai;
 
-import com.unseen.nb.common.entity.entities.EntityPiglin;
 import com.unseen.nb.common.entity.entities.EntityPiglinBrute;
+import com.unseen.nb.common.entity.entities.EntityPiglinZombie;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 
-public class EntityTimedAttackPiglinBrute<T extends EntityPiglinBrute & IAttack> extends EntityAIBase {
+public class EntityTimedAttackZombie <T extends EntityPiglinZombie & IAttack> extends EntityAIBase {
     private final T entity;
     private final double moveSpeedAmp;
     private final int attackCooldown;
@@ -22,11 +22,11 @@ public class EntityTimedAttackPiglinBrute<T extends EntityPiglinBrute & IAttack>
     private static final float STRAFING_DIRECTION_TICK = 20;
     private static final float STRAFING_DIRECTION_CHANGE_CHANCE = 0.3f;
 
-    public EntityTimedAttackPiglinBrute(T entity, double moveSpeedAmp, int attackCooldown, float maxAttackDistance, float strafeAmount) {
+    public EntityTimedAttackZombie(T entity, double moveSpeedAmp, int attackCooldown, float maxAttackDistance, float strafeAmount) {
         this(entity, moveSpeedAmp, attackCooldown, maxAttackDistance, strafeAmount, 30.0f);
     }
 
-    public EntityTimedAttackPiglinBrute(T entity, double moveSpeedAmp, int attackCooldown, float maxAttackDistance, float strafeAmount, float lookSpeed) {
+    public EntityTimedAttackZombie(T entity, double moveSpeedAmp, int attackCooldown, float maxAttackDistance, float strafeAmount, float lookSpeed) {
         this.entity = entity;
         this.moveSpeedAmp = moveSpeedAmp;
         this.attackCooldown = attackCooldown;
