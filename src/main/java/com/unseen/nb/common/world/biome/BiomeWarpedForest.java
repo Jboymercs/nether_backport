@@ -1,5 +1,7 @@
 package com.unseen.nb.common.world.biome;
 
+import com.unseen.nb.common.entity.entities.EntityPiglin;
+import com.unseen.nb.common.entity.entities.EntityStrider;
 import com.unseen.nb.common.world.base.WorldGenNB;
 import com.unseen.nb.common.world.terrain.plants.WorldGenCrimsonVines;
 import com.unseen.nb.common.world.terrain.plants.WorldGenWarpedPlant;
@@ -13,6 +15,7 @@ import git.jbredwards.nether_api.api.registry.INetherAPIRegistryListener;
 import git.jbredwards.nether_api.api.world.INetherAPIChunkGenerator;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -45,6 +48,9 @@ public class BiomeWarpedForest extends Biome implements INetherBiome, INetherAPI
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
         this.spawnableCaveCreatureList.clear();
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityEnderman.class, 1, 1, 4));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityStrider.class, 10, 1, 2));
+        //Add Strider weight 10, min 1, max 2
         this.topBlock = CRIMSON_FLOOR;
         random = new Random();
     }

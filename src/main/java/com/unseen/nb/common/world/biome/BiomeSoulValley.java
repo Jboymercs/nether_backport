@@ -1,5 +1,6 @@
 package com.unseen.nb.common.world.biome;
 
+import com.unseen.nb.common.entity.entities.EntityStrider;
 import com.unseen.nb.common.world.base.WorldGenNB;
 import com.unseen.nb.common.world.terrain.fire.WorldGenSoulFire;
 import com.unseen.nb.common.world.terrain.fossils.WorldGenFossils;
@@ -17,6 +18,9 @@ import git.jbredwards.nether_api.api.registry.INetherAPIRegistryListener;
 import git.jbredwards.nether_api.api.world.INetherAPIChunkGenerator;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.monster.EntityEnderman;
+import net.minecraft.entity.monster.EntityGhast;
+import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -44,6 +48,11 @@ public class BiomeSoulValley extends Biome implements INetherBiome, INetherAPIRe
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
         this.spawnableCaveCreatureList.clear();
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityEnderman.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntitySkeleton.class, 10, 1, 2));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityGhast.class, 8, 1, 2));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityStrider.class, 10, 2, 4));
+        //Add Strider weight 10, min 2, max 4
         this.topBlock = CRIMSON_FLOOR;
         random = new Random();
     }

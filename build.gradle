@@ -119,9 +119,10 @@ dependencies {
     //Minecraft
     minecraft("net.minecraftforge:forge:${project.minecraft_version}-${project.forge_version}")
 
-//Nether API
+    //Nether API
     implementation(fg.deobf('com.github.jbredwards:nether-API:f2f48d7b8b'))
-
+    //Crossbows
+    implementation "curse.maven:crossbows-973881:5108261"
     //Shaded `shade`
     //shade("io.github.kostaskougios:cloning:${project.cloning_version}")
 

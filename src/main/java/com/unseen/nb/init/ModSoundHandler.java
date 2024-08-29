@@ -81,6 +81,22 @@ public class ModSoundHandler {
     public static SoundEvent PIGLIN_CELEBRATE;
     public static SoundEvent PIGLIN_RETREAT;
 
+    //Strider
+    public static SoundEvent STRIDER_WARBLE;
+    public static SoundEvent STRIDER_RETREAT;
+    public static SoundEvent STRIDER_STEP_LAVA;
+    public static SoundEvent STRIDER_STEP;
+    public static SoundEvent STRIDER_HURT;
+    public static SoundEvent STRIDER_CHIRP;
+    public static SoundEvent STRIDER_DEATH;
+
+    //Piglin Brute
+    public static SoundEvent BRUTE_HURT;
+    public static SoundEvent BRUTE_DEATH;
+    public static SoundEvent BRUTE_IDLE;
+    public static SoundEvent BRUTE_STEP;
+    public static SoundEvent BRUTE_ANGRY;
+
     public static void registerSounds() {
     NYLIUM_BREAK = registerSound("nether_grass.break", "block");
     NYLIUM_BLOCK_HIT = registerSound("nether_grass.block_hit", "block");
@@ -147,6 +163,20 @@ public class ModSoundHandler {
         PIGLIN_ANGRY = registerSound("piglin.angry", "entity");
         PIGLIN_CELEBRATE = registerSound("piglin.celebrate", "entity");
         PIGLIN_RETREAT = registerSound("piglin.retreat", "entity");
+     //STRIDER
+     STRIDER_CHIRP = registerSound("strider.chirp", "entity"); //DONE
+     STRIDER_DEATH = registerSound("strider.death", "entity"); //DONE
+     STRIDER_HURT = registerSound("strider.hurt", "entity"); //DONE
+     STRIDER_RETREAT = registerSound("strider.retreat", "entity"); //DONE
+     STRIDER_STEP = registerSound("strider.step", "entity"); //DONE
+     STRIDER_STEP_LAVA = registerSound("strider.step_lava", "entity"); //DONE
+     STRIDER_WARBLE = registerSound("strider.warble", "entity"); //DONE
+        //Piglin Brute
+        BRUTE_DEATH = registerSound("brute.death", "entity");
+        BRUTE_HURT = registerSound("brute.hurt", "entity");
+        BRUTE_IDLE = registerSound("brute.idle", "entity");
+        BRUTE_STEP = registerSound("brute.step", "entity");
+        BRUTE_ANGRY = registerSound("brute.angry", "entity");
     }
 
 

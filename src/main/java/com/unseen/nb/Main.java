@@ -5,6 +5,7 @@ import com.unseen.nb.init.ModEntities;
 import com.unseen.nb.init.ModSoundHandler;
 import com.unseen.nb.proxy.CommonProxy;
 import com.unseen.nb.util.ModReference;
+import com.unseen.nb.util.integration.ModIntegration;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -43,6 +44,7 @@ public class Main {
         ModEntities.registerEntities();
         //Registers Entity Spawns
         ModEntities.RegisterEntitySpawns();
+        ModIntegration.init();
     }
 
     @EventHandler

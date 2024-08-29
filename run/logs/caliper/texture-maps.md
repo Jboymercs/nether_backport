@@ -11,7 +11,8 @@ anonymous, and is not automatically submitted to any online service.
 | Mod ID    | Textures | Pixels | Est. Size |
 |-----------|----------|--------|-----------|
 | minecraft | 818      | 227072 | 887 KB    |
-| nb        | 46       | 11776  | 46 KB     |
+| nb        | 47       | 12032  | 47 KB     |
+| crossbows | 6        | 1536   | 6 KB      |
 | forge     | 3        | 768    | 3 KB      |
 | missingno | 1        | 256    | 1 KB      |
 

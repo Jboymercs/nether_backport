@@ -8,11 +8,14 @@ import com.unseen.nb.client.animation.IAnimatedEntity;
 import com.unseen.nb.client.animation.model.BasicModelEntity;
 import com.unseen.nb.client.animation.model.BasicModelPart;
 import com.unseen.nb.client.animation.model.EZModelAnimator;
+import com.unseen.nb.client.animation.util.EZMath;
 import com.unseen.nb.common.entity.entities.EntityPiglin;
+import com.unseen.nb.util.ModRand;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.util.EnumHandSide;
 
 public class ModelPiglin extends BasicModelEntity {
@@ -21,6 +24,8 @@ public class ModelPiglin extends BasicModelEntity {
 	public BasicModelPart LegR;
 	public BasicModelPart RArm;
 	public BasicModelPart HoldWeapon;
+
+	public BasicModelPart HoldWeaponL;
 	public BasicModelPart LArm;
 	public BasicModelPart Head;
 	private BasicModelPart Snout;
@@ -58,6 +63,7 @@ public class ModelPiglin extends BasicModelEntity {
 		return side == EnumHandSide.LEFT ? this.LArm : this.RArm;
 	}
 
+
 	public ModelPiglin() {
 		textureWidth = 64;
 		textureHeight = 64;
@@ -91,6 +97,10 @@ public class ModelPiglin extends BasicModelEntity {
 		LArm.setRotationPoint(4.0F, -5.0F, 0.0F);
 		Torso.addChild(LArm);
 		LArm.cubeList.add(new ModelBox(LArm, 24, 16, 0.0F, 1.0F, -2.0F, 4, 12, 4, 0.0F, true));
+
+		HoldWeaponL = new BasicModelPart(this);
+		HoldWeaponL.setRotationPoint(2.0F, 11.0F, 0.0F);
+		LArm.addChild(HoldWeaponL);
 
 		Head = new BasicModelPart(this);
 		Head.setRotationPoint(0.0F, -6.0F, 0.0F);
@@ -158,12 +168,14 @@ public class ModelPiglin extends BasicModelEntity {
 			LegL.addChild(LBoot);
 			LBoot.cubeList.add(new ModelBox(LBoot, 0, 48, -2.0F, -6.0F, -2.0F, 4, 6, 4, 0.5F, true));
 
-		RBoot.showModel = false;
-		LBoot.showModel = false;
-		RShoulderPad.showModel = false;
-		LShoulderPad.showModel = false;
-		ChestArmor.showModel = false;
-		Helmet.showModel =false;
+
+				RBoot.isHidden = true;
+				LBoot.isHidden = true;
+			RShoulderPad.isHidden = true;
+			LShoulderPad.isHidden = true;
+			ChestArmor.isHidden = true;
+			Helmet.isHidden =true;
+
 
 
 		this.updateDefaultPose();
@@ -173,30 +185,92 @@ public class ModelPiglin extends BasicModelEntity {
 
 	@Override
 	public Iterable<BasicModelPart> getAllParts() {
-		return ImmutableList.of(Torso,LegL,LegR,RArm,HoldWeapon,LArm,Head,Snout,LEar,cube_r1,REar,cube_r2, RBoot, LBoot, LShoulderPad, RShoulderPad, ChestArmor, Helmet);
+		return ImmutableList.of(Torso,LegL,LegR,RArm,HoldWeapon,LArm,Head,Snout,LEar,cube_r1,REar,cube_r2, RBoot, LBoot, LShoulderPad, RShoulderPad, ChestArmor, Helmet, HoldWeaponL);
 	}
 
 	@Override
 	public void animate(IAnimatedEntity entity) {
 		//Always include this in the beginning of this method
 		animator.update(entity);
+		//
+		animator.setAnimation(EntityPiglin.ANIMATION_SHORT_TRADE);
+		//
+		animator.startKeyframe(5);
+		animator.rotate(Head, (float) Math.toRadians(20), (float) Math.toRadians(-10), 0);
+		animator.rotate(RArm, 0,0,0);
+		animator.rotate(LArm, (float) Math.toRadians(-50), (float) Math.toRadians(20), 0);
+		animator.endKeyframe();
+		//
+		animator.setStaticKeyframe(105);
+		//
+		animator.resetKeyframe(10);
+		//
+		animator.setAnimation(EntityPiglin.ANIMATION_ATTACK_MELEE);
+		//
+		animator.startKeyframe(8);
+		animator.rotate(RArm, (float) Math.toRadians(-80),0, (float) Math.toRadians(-15));
+		animator.rotate(LArm, (float) Math.toRadians(20), 0, (float) Math.toRadians(-10));
+		animator.endKeyframe();
+		//
+		animator.setStaticKeyframe(7);
+		//
+		animator.startKeyframe(5);
+		animator.rotate(RArm, (float) Math.toRadians(20), (float) Math.toRadians(-20), (float) Math.toRadians(10));
+		animator.rotate(LArm, (float) Math.toRadians(-10), 0, (float) Math.toRadians(-10));
+		animator.endKeyframe();
+		//
+		animator.resetKeyframe(5);
+		//
+		animator.setAnimation(EntityPiglin.ANIMATION_ATTACK_RANGED);
+		//
+		animator.startKeyframe(5);
+		animator.rotate(RArm, (float) Math.toRadians(-40), (float) Math.toRadians(-40), 0);
+		animator.rotate(LArm, (float) Math.toRadians(-60), (float) Math.toRadians(30), 0);
+		animator.endKeyframe();
+		//
+		animator.startKeyframe(10);
+		animator.rotate(RArm, (float) Math.toRadians(-30), (float) Math.toRadians(-30), 0);
+		animator.rotate(LArm, (float) Math.toRadians(-70), (float) Math.toRadians(40), 0);
+		animator.endKeyframe();
+		//
+		animator.startKeyframe(10);
+		animator.rotate(LArm, (float) Math.toRadians(-80),(float) Math.toRadians(30),0);
+		animator.rotate(RArm, (float) Math.toRadians(-80), (float) Math.toRadians(-20), 0);
+		animator.endKeyframe();
+
 	}
 
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn)
 	{
+		EntityPiglin pigling = ((EntityPiglin) entityIn);
+
 		float walkSpeed = 0.5F;
 		float walkDegree = 1F;
 		float f = 1.0F;
+
+		//Arm Movements
+		if(pigling.isLoadedACrossBow()) {
+			//animator.rotate(LArm, (float) Math.toRadians(-80),(float) Math.toRadians(30),0);
+			//animator.rotate(RArm, (float) Math.toRadians(-80), (float) Math.toRadians(-20), 0);
+			RArm.rotateAngleX = (-(float)Math.PI / 2F) + Head.rotateAngleX + 0.1F;
+			RArm.rotateAngleY = -0.3F + Head.rotateAngleY;
+			LArm.rotateAngleX = -1.5F + Head.rotateAngleX;
+			LArm.rotateAngleY = 0.6F + Head.rotateAngleY;
+
+		} else if(!pigling.isMeleeAttack() && !pigling.isRangedAttack() && !pigling.isLoadedACrossBow()) {
+			this.walk(RArm, walkSpeed, walkDegree, true, 0F, 0.1F, limbSwing, limbSwingAmount);
+			this.walk(LArm, walkSpeed, walkDegree, false, 0F, 0.1F, limbSwing, limbSwingAmount);
+		}
+		//Body Bobbing
+		float bodyBob = EZMath.walkValue(limbSwing, limbSwingAmount, walkSpeed * 1.2F, 0.5F, 1F, true);
+		this.Torso.rotationPointY += bodyBob;
 		//Legs Walking
 		this.walk(LegR, walkSpeed, walkDegree, true, 0F, 0.1F, limbSwing, limbSwingAmount);
 		this.walk(LegL, walkSpeed, walkDegree, false, 0F, 0.1F, limbSwing, limbSwingAmount);
-		//Arm Movements
-		this.walk(RArm, walkSpeed, walkDegree, true, 0F, 0.1F, limbSwing, limbSwingAmount);
-		this.walk(LArm, walkSpeed, walkDegree, false, 0F, 0.1F, limbSwing, limbSwingAmount);
 		//Ear Movements
-		this.flap(LEar, walkSpeed, walkDegree * 0.25F, false, 0F, 0.1F, limbSwing, limbSwingAmount);
-		this.flap(REar, walkSpeed, walkDegree * 0.25F, true, 0F, 0.1F, limbSwing, limbSwingAmount);
+		this.flap(LEar, walkSpeed, walkDegree * 0.25F, true, 0F, 0.1F, limbSwing, limbSwingAmount);
+		this.flap(REar, walkSpeed, walkDegree * 0.25F, false, 0F, 0.1F, limbSwing, limbSwingAmount);
 		//Again this is for Individual components such as heads to look as they please
 		this.faceTarget(netHeadYaw, headPitch, 1, Head);
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);

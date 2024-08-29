@@ -34,7 +34,7 @@ public class EntityNetherBase extends EntityMob {
         this.dataManager.set(IMMOVABLE, immovable);
     }
 
-    protected boolean isFightMode() {return this.dataManager.get(FIGHT_MODE);}
+    public boolean isFightMode() {return this.dataManager.get(FIGHT_MODE);}
 
     protected void setFightMode(boolean value) {this.dataManager.set(FIGHT_MODE, Boolean.valueOf(value));}
     public EntityNetherBase(World worldIn) {

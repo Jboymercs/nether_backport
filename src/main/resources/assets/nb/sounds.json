@@ -1287,6 +1287,322 @@
         "stream": true
       }
     ]
+  },
+  "entity.strider.step": {
+    "category": "entity",
+    "subtitle": "entity.strider.step",
+    "sounds": [
+      {
+        "name": "nb:entity/strider/step1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/step2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/step3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/step4",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/step5",
+        "stream": true
+      }
+    ]
+  },
+  "entity.strider.step_lava": {
+    "category": "entity",
+    "subtitle": "entity.strider.step_lava",
+    "sounds": [
+      {
+        "name": "nb:entity/strider/step_lava1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/step_lava2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/step_lava3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/step_lava4",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/step_lava5",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/step_lava6",
+        "stream": true
+      }
+    ]
+  },
+  "entity.strider.hurt": {
+    "category": "entity",
+    "subtitle": "entity.strider.hurt",
+    "sounds": [
+      {
+        "name": "nb:entity/strider/hurt1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/hurt2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/hurt3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/hurt4",
+        "stream": true
+      }
+    ]
+  },
+  "entity.strider.death": {
+    "category": "entity",
+    "subtitle": "entity.strider.death",
+    "sounds": [
+      {
+        "name": "nb:entity/strider/death1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/death2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/death3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/death4",
+        "stream": true
+      }
+    ]
+  },
+  "entity.strider.retreat": {
+    "category": "entity",
+    "subtitle": "entity.strider.retreat",
+    "sounds": [
+      {
+        "name": "nb:entity/strider/retreat1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/retreat2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/retreat3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/retreat4",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/retreat5",
+        "stream": true
+      }
+    ]
+  },
+  "entity.strider.chirp": {
+    "category": "entity",
+    "subtitle": "entity.strider.chirp",
+    "sounds": [
+      {
+        "name": "nb:entity/strider/idle1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/idle2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/idle3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/idle4",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/idle5",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/idle6",
+        "stream": true
+      }
+    ]
+  },
+  "entity.strider.warble": {
+    "category": "entity",
+    "subtitle": "entity.strider.happy",
+    "sounds": [
+      {
+        "name": "nb:entity/strider/happy1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/happy2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/happy3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/happy4",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/strider/happy5",
+        "stream": true
+      }
+    ]
+  },
+  "entity.brute.idle": {
+    "category": "entity",
+    "subtitle": "entity.brute.idle",
+    "sounds": [
+      {
+        "name": "nb:entity/brute/idle1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/brute/idle2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/brute/idle3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/brute/idle4",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/brute/idle5",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/brute/idle6",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/brute/idle7",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/brute/idle8",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/brute/idle9",
+        "stream": true
+      }
+    ]
+  },
+  "entity.brute.step": {
+    "category": "entity",
+    "subtitle": "entity.brute.step",
+    "sounds": [
+      {
+        "name": "nb:entity/brute/step1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/brute/step2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/brute/step3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/brute/step4",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/brute/step5",
+        "stream": true
+      }
+    ]
+  },
+  "entity.brute.hurt": {
+    "category": "entity",
+    "subtitle": "entity.brute.hurt",
+    "sounds": [
+      {
+        "name": "nb:entity/brute/hurt1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/brute/hurt2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/brute/hurt3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/brute/hurt4",
+        "stream": true
+      }
+    ]
+  },
+  "entity.brute.death": {
+    "category": "entity",
+    "subtitle": "entity.brute.death",
+    "sounds": [
+      {
+        "name": "nb:entity/brute/death1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/brute/death2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/brute/death3",
+        "stream": true
+      }
+    ]
+  },
+  "entity.brute.angry": {
+    "category": "entity",
+    "subtitle": "entity.brute.angry",
+    "sounds": [
+      {
+        "name": "nb:entity/brute/angry1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/brute/angry2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/brute/angry3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/brute/angry4",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/brute/angry5",
+        "stream": true
+      }
+    ]
   }
 
 }

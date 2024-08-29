@@ -26,11 +26,7 @@ public class ClientProxy extends CommonProxy{
         ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), id));
     }
 
-    public static ModelPiglin getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot slot, ModelPiglin _default)
-    {
 
-        return _default;
-    }
 
     @Override
     public void handleAnimationPacket(int entityId, int index) {

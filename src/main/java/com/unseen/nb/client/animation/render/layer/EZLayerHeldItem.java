@@ -2,6 +2,7 @@ package com.unseen.nb.client.animation.render.layer;
 
 import com.unseen.nb.client.animation.render.EZRenderLiving;
 import com.unseen.nb.client.entity.model.ModelPiglin;
+import com.unseen.nb.common.entity.entities.EntityPiglin;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
@@ -56,7 +57,18 @@ public class EZLayerHeldItem extends LayerHeldItem {
             GlStateManager.rotate(-90.0F, 1.0F, 0.0F, 0.0F);
             GlStateManager.rotate(180.0F, 0.0F, 1.0F, 0.0F);
             boolean flag = handSide == EnumHandSide.LEFT;
-            GlStateManager.translate((float)(flag ? -1.7 : 1.7) / 16.0F, 0.125F, -1F);
+            if(p_188358_1_ instanceof EntityPiglin) {
+                if(((EntityPiglin)p_188358_1_).isLoadedACrossBow()) {
+                    GlStateManager.translate(0.15F, -0.125F, -1.0F);
+                } else if (((EntityPiglin)p_188358_1_).isMeleeAttack()) {
+                    GlStateManager.translate(0.15F, -0.12F, -1.0F);
+                } else {
+                    GlStateManager.translate(flag ? -0.15F :0.15F, flag ? 0 : 0.125F, -1.0F);
+                }
+
+            }
+
+
             Minecraft.getMinecraft().getItemRenderer().renderItemSide(p_188358_1_, p_188358_2_, p_188358_3_, flag);
             GlStateManager.popMatrix();
         }

@@ -1,49 +1,49 @@
-[04:40:56] [main/INFO] [net.minecraftforge.gradle.GradleForgeHacks]: Found and added coremod: git.jbredwards.nether_api.mod.asm.ASMHandler
-[04:40:56] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
-[04:40:56] [main/INFO] [LaunchWrapper]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
-[04:40:56] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
-[04:40:56] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLTweaker
-[04:40:56] [main/INFO] [FML]: Forge Mod Loader version 14.23.5.2860 for Minecraft 1.12.2 loading
-[04:40:56] [main/INFO] [FML]: Java is OpenJDK 64-Bit Server VM, version 1.8.0_333, running on Windows 10:amd64:10.0, installed at C:\Users\17857\.jdks\liberica-1.8.0_333\jre
-[04:40:56] [main/ERROR] [FML]: Apache Maven library folder was not in the format expected. Using default libraries directory.
-[04:40:56] [main/ERROR] [FML]: Full: C:\Users\17857\.gradle\caches\modules-2\files-2.1\org.apache.maven\maven-artifact\3.5.3\7dc72b6d6d8a6dced3d294ed54c2cc3515ade9f4\maven-artifact-3.5.3.jar
-[04:40:56] [main/ERROR] [FML]: Trimmed: c:/users/17857/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-artifact/3.5.3/
-[04:40:56] [main/INFO] [FML]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
-[04:40:56] [main/INFO] [FML]: Detected deobfuscated environment, loading log configs for colored console logs.
-[04:40:57] [main/INFO] [FML]: Ignoring missing certificate for coremod FMLCorePlugin (net.minecraftforge.fml.relauncher.FMLCorePlugin), we are in deobf and it's a forge core plugin
-[04:40:57] [main/INFO] [FML]: Ignoring missing certificate for coremod FMLForgePlugin (net.minecraftforge.classloading.FMLForgePlugin), we are in deobf and it's a forge core plugin
-[04:40:57] [main/INFO] [FML]: Found a command line coremod : git.jbredwards.nether_api.mod.asm.ASMHandler
-[04:40:57] [main/INFO] [FML]: Ignoring missing certificate for coremod Nether API Plugin (git.jbredwards.nether_api.mod.asm.ASMHandler), as this is probably a dev workspace
-[04:40:57] [main/INFO] [FML]: Searching C:\Users\17857\Desktop\Mod Dev\nether_backport\run\.\mods for mods
-[04:40:57] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.CoremodTweaker
-[04:40:57] [main/INFO] [CoremodTweaker]: Injecting location in coremod net.minecraftforge.fml.relauncher.FMLCorePlugin
-[04:40:57] [main/INFO] [CoremodTweaker]: Injecting location in coremod net.minecraftforge.classloading.FMLForgePlugin
-[04:40:57] [main/INFO] [CoremodTweaker]: Injecting location in coremod git.jbredwards.nether_api.mod.asm.ASMHandler
-[04:40:57] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
-[04:40:57] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
-[04:40:57] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
-[04:40:57] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
-[04:40:57] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
-[04:40:57] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
-[04:40:57] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
-[04:40:57] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
-[04:40:57] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
-[04:40:57] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
-[04:40:57] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
-[04:40:57] [main/INFO] [net.minecraftforge.gradle.GradleForgeHacks]: Remapping AccessTransformer rules...
-[04:40:57] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.TerminalTweaker
-[04:40:57] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.TerminalTweaker
-[04:40:57] [main/INFO] [LaunchWrapper]: Launching wrapped minecraft {net.minecraft.client.main.Main}
-[04:40:58] [Client thread/INFO] [net.minecraft.client.Minecraft]: Setting user: Player78
-[04:40:59] [Client thread/WARN] [net.minecraft.client.settings.GameSettings]: Skipping bad option: lastServer:
-[04:40:59] [Client thread/INFO] [net.minecraft.client.Minecraft]: LWJGL Version: 2.9.4
-[04:41:00] [Client thread/INFO] [FML]: -- System Details --
+[01:18:12] [main/INFO] [net.minecraftforge.gradle.GradleForgeHacks]: Found and added coremod: git.jbredwards.nether_api.mod.asm.ASMHandler
+[01:18:12] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
+[01:18:12] [main/INFO] [LaunchWrapper]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
+[01:18:12] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[01:18:12] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLTweaker
+[01:18:12] [main/INFO] [FML]: Forge Mod Loader version 14.23.5.2860 for Minecraft 1.12.2 loading
+[01:18:12] [main/INFO] [FML]: Java is OpenJDK 64-Bit Server VM, version 1.8.0_333, running on Windows 10:amd64:10.0, installed at C:\Users\17857\.jdks\liberica-1.8.0_333\jre
+[01:18:12] [main/ERROR] [FML]: Apache Maven library folder was not in the format expected. Using default libraries directory.
+[01:18:12] [main/ERROR] [FML]: Full: C:\Users\17857\.gradle\caches\modules-2\files-2.1\org.apache.maven\maven-artifact\3.5.3\7dc72b6d6d8a6dced3d294ed54c2cc3515ade9f4\maven-artifact-3.5.3.jar
+[01:18:12] [main/ERROR] [FML]: Trimmed: c:/users/17857/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-artifact/3.5.3/
+[01:18:12] [main/INFO] [FML]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
+[01:18:12] [main/INFO] [FML]: Detected deobfuscated environment, loading log configs for colored console logs.
+[01:18:13] [main/INFO] [FML]: Ignoring missing certificate for coremod FMLCorePlugin (net.minecraftforge.fml.relauncher.FMLCorePlugin), we are in deobf and it's a forge core plugin
+[01:18:13] [main/INFO] [FML]: Ignoring missing certificate for coremod FMLForgePlugin (net.minecraftforge.classloading.FMLForgePlugin), we are in deobf and it's a forge core plugin
+[01:18:13] [main/INFO] [FML]: Found a command line coremod : git.jbredwards.nether_api.mod.asm.ASMHandler
+[01:18:13] [main/INFO] [FML]: Ignoring missing certificate for coremod Nether API Plugin (git.jbredwards.nether_api.mod.asm.ASMHandler), as this is probably a dev workspace
+[01:18:13] [main/INFO] [FML]: Searching C:\Users\17857\Desktop\Mod Dev\nether_backport\run\.\mods for mods
+[01:18:13] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.CoremodTweaker
+[01:18:13] [main/INFO] [CoremodTweaker]: Injecting location in coremod net.minecraftforge.fml.relauncher.FMLCorePlugin
+[01:18:13] [main/INFO] [CoremodTweaker]: Injecting location in coremod net.minecraftforge.classloading.FMLForgePlugin
+[01:18:13] [main/INFO] [CoremodTweaker]: Injecting location in coremod git.jbredwards.nether_api.mod.asm.ASMHandler
+[01:18:13] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[01:18:13] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[01:18:13] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[01:18:13] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[01:18:13] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[01:18:13] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[01:18:13] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+[01:18:13] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[01:18:13] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[01:18:13] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[01:18:13] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[01:18:13] [main/INFO] [net.minecraftforge.gradle.GradleForgeHacks]: Remapping AccessTransformer rules...
+[01:18:13] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.TerminalTweaker
+[01:18:13] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.TerminalTweaker
+[01:18:13] [main/INFO] [LaunchWrapper]: Launching wrapped minecraft {net.minecraft.client.main.Main}
+[01:18:14] [Client thread/INFO] [net.minecraft.client.Minecraft]: Setting user: Player46
+[01:18:15] [Client thread/WARN] [net.minecraft.client.settings.GameSettings]: Skipping bad option: lastServer:
+[01:18:15] [Client thread/INFO] [net.minecraft.client.Minecraft]: LWJGL Version: 2.9.4
+[01:18:16] [Client thread/INFO] [FML]: -- System Details --
 Details:
 	Minecraft Version: 1.12.2
 	Operating System: Windows 10 (amd64) version 10.0
 	Java Version: 1.8.0_333, BellSoft
 	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), BellSoft
-	Memory: 871121896 bytes (830 MB) / 1051197440 bytes (1002 MB) up to 7568621568 bytes (7218 MB)
+	Memory: 854864968 bytes (815 MB) / 1045954560 bytes (997 MB) up to 7568621568 bytes (7218 MB)
 	JVM Flags: 0 total; 
 	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
 	FML: 
@@ -77,43 +77,44 @@ Nether API Plugin (nether-API-f2f48d7b8b_mapped_stable_39-1.12.jar)
   git.jbredwards.nether_api.mod.asm.transformers.vanilla.TransformerMapGenEndCity
   git.jbredwards.nether_api.mod.asm.transformers.vanilla.TransformerWorldClient
 	GL info: ' Vendor: 'Intel' Version: '4.6.0 - Build 31.0.101.3413' Renderer: 'Intel(R) Iris(R) Xe Graphics'
-[04:41:00] [Client thread/INFO] [FML]: MinecraftForge v14.23.5.2860 Initialized
-[04:41:00] [Client thread/INFO] [FML]: Starts to replace vanilla recipe ingredients with ore ingredients.
-[04:41:00] [Client thread/INFO] [FML]: Invalid recipe found with multiple oredict ingredients in the same ingredient...
-[04:41:00] [Client thread/INFO] [FML]: Replaced 1227 ore ingredients
-[04:41:00] [Client thread/INFO] [FML]: Searching C:\Users\17857\Desktop\Mod Dev\nether_backport\run\.\mods for mods
-[04:41:01] [Client thread/INFO] [FML]: Forge Mod Loader has identified 10 mods to load
-[04:41:01] [Client thread/INFO] [FML]: Attempting connection with missing mods [minecraft, mcp, FML, forge, nether_api, caliper, jei, nb, bookshelf, worldedit] at CLIENT
-[04:41:01] [Client thread/INFO] [FML]: Attempting connection with missing mods [minecraft, mcp, FML, forge, nether_api, caliper, jei, nb, bookshelf, worldedit] at SERVER
-[04:41:01] [Client thread/ERROR] [FML]: The mod caliper is expecting signature d476d1b22b218a10d845928d1665d45fce301b27 for source caliper-266824-2810222_mapped_stable_39-1.12.jar, however there is no signature matching that description
-[04:41:01] [Client thread/WARN] [Caliper]: Invalid fingerprint detected! The file caliper-266824-2810222_mapped_stable_39-1.12.jar may have been tampered with. This version will NOT be supported by the author!
-[04:41:01] [Client thread/INFO] [net.minecraft.client.resources.SimpleReloadableResourceManager]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Nether API, FMLFileResourcePack:Caliper, FMLFileResourcePack:Had Enough Items, FMLFileResourcePack:Unseens Nether Backport, FMLFileResourcePack:Bookshelf, FMLFileResourcePack:WorldEdit
-[04:41:01] [Client thread/INFO] [FML]: Processing ObjectHolder annotations
-[04:41:01] [Client thread/INFO] [FML]: Found 1168 ObjectHolder annotations
-[04:41:01] [Client thread/INFO] [FML]: Identifying ItemStackHolder annotations
-[04:41:01] [Client thread/INFO] [FML]: Found 0 ItemStackHolder annotations
-[04:41:01] [Client thread/INFO] [FML]: Configured a dormant chunk cache size of 0
-[04:41:01] [Forge Version Check/INFO] [forge.VersionCheck]: [forge] Starting version check at http://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
-[04:41:01] [Client thread/INFO] [FML]: Applying holder lookups
-[04:41:01] [Client thread/INFO] [FML]: Holder lookups applied
-[04:41:01] [Client thread/INFO] [FML]: Applying holder lookups
-[04:41:01] [Client thread/INFO] [FML]: Holder lookups applied
-[04:41:01] [Client thread/INFO] [FML]: Applying holder lookups
-[04:41:01] [Client thread/INFO] [FML]: Holder lookups applied
-[04:41:01] [Client thread/INFO] [FML]: Applying holder lookups
-[04:41:01] [Client thread/INFO] [FML]: Holder lookups applied
-[04:41:01] [Client thread/INFO] [FML]: Injecting itemstacks
-[04:41:01] [Client thread/INFO] [FML]: Itemstack injection complete
-[04:41:02] [Thread-3/INFO] [FML]: Using sync timing. 200 frames of Display.update took 62906617 nanos
-[04:41:02] [Sound Library Loader/INFO] [net.minecraft.client.audio.SoundManager]: Starting up SoundSystem...
-[04:41:02] [Thread-5/INFO] [net.minecraft.client.audio.SoundManager]: Initializing LWJGL OpenAL
-[04:41:02] [Thread-5/INFO] [net.minecraft.client.audio.SoundManager]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[04:41:02] [Thread-5/INFO] [net.minecraft.client.audio.SoundManager]: OpenAL initialized.
-[04:41:03] [Forge Version Check/INFO] [forge.VersionCheck]: [forge] Found status: AHEAD Target: null
-[04:41:03] [Sound Library Loader/INFO] [net.minecraft.client.audio.SoundManager]: Sound engine started
-[04:41:04] [Client thread/INFO] [FML]: Max texture size: 16384
-[04:41:05] [Client thread/INFO] [net.minecraft.client.renderer.texture.TextureMap]: Created: 512x512 textures-atlas
-[04:41:05] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory for item "minecraft:air", normal location exception: 
+[01:18:16] [Client thread/INFO] [FML]: MinecraftForge v14.23.5.2860 Initialized
+[01:18:16] [Client thread/INFO] [FML]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[01:18:16] [Client thread/INFO] [FML]: Invalid recipe found with multiple oredict ingredients in the same ingredient...
+[01:18:16] [Client thread/INFO] [FML]: Replaced 1227 ore ingredients
+[01:18:16] [Client thread/INFO] [FML]: Searching C:\Users\17857\Desktop\Mod Dev\nether_backport\run\.\mods for mods
+[01:18:17] [Client thread/INFO] [FML]: Forge Mod Loader has identified 11 mods to load
+[01:18:17] [Client thread/INFO] [FML]: Attempting connection with missing mods [minecraft, mcp, FML, forge, nether_api, crossbows, caliper, jei, nb, bookshelf, worldedit] at CLIENT
+[01:18:17] [Client thread/INFO] [FML]: Attempting connection with missing mods [minecraft, mcp, FML, forge, nether_api, crossbows, caliper, jei, nb, bookshelf, worldedit] at SERVER
+[01:18:17] [Client thread/ERROR] [FML]: The mod caliper is expecting signature d476d1b22b218a10d845928d1665d45fce301b27 for source caliper-266824-2810222_mapped_stable_39-1.12.jar, however there is no signature matching that description
+[01:18:17] [Client thread/WARN] [Caliper]: Invalid fingerprint detected! The file caliper-266824-2810222_mapped_stable_39-1.12.jar may have been tampered with. This version will NOT be supported by the author!
+[01:18:18] [Client thread/INFO] [net.minecraft.client.resources.SimpleReloadableResourceManager]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Nether API, FMLFileResourcePack:Crossbows, FMLFileResourcePack:Caliper, FMLFileResourcePack:Had Enough Items, FMLFileResourcePack:Unseens Nether Backport, FMLFileResourcePack:Bookshelf, FMLFileResourcePack:WorldEdit
+[01:18:18] [Client thread/INFO] [FML]: Processing ObjectHolder annotations
+[01:18:18] [Client thread/INFO] [FML]: Found 1168 ObjectHolder annotations
+[01:18:18] [Client thread/INFO] [FML]: Identifying ItemStackHolder annotations
+[01:18:18] [Client thread/INFO] [FML]: Found 0 ItemStackHolder annotations
+[01:18:18] [Client thread/INFO] [FML]: Configured a dormant chunk cache size of 0
+[01:18:18] [Forge Version Check/INFO] [forge.VersionCheck]: [forge] Starting version check at http://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
+[01:18:18] [Thread-3/INFO] [FML]: Using sync timing. 200 frames of Display.update took 80477900 nanos
+[01:18:18] [Client thread/INFO] [FML]: Applying holder lookups
+[01:18:18] [Client thread/INFO] [FML]: Holder lookups applied
+[01:18:18] [Client thread/INFO] [FML]: Applying holder lookups
+[01:18:18] [Client thread/INFO] [FML]: Holder lookups applied
+[01:18:18] [Client thread/INFO] [FML]: Applying holder lookups
+[01:18:18] [Client thread/INFO] [FML]: Holder lookups applied
+[01:18:18] [Client thread/INFO] [FML]: Applying holder lookups
+[01:18:18] [Client thread/INFO] [FML]: Holder lookups applied
+[01:18:18] [Client thread/INFO] [FML]: Injecting itemstacks
+[01:18:18] [Client thread/INFO] [FML]: Itemstack injection complete
+[01:18:18] [Client thread/WARN] [net.minecraft.client.audio.SoundHandler]: File crossbows:sounds/item/crossbow/loading_shoot1.ogg does not exist, cannot add it to event crossbows:item.crossbow.shoot
+[01:18:18] [Sound Library Loader/INFO] [net.minecraft.client.audio.SoundManager]: Starting up SoundSystem...
+[01:18:19] [Thread-5/INFO] [net.minecraft.client.audio.SoundManager]: Initializing LWJGL OpenAL
+[01:18:19] [Thread-5/INFO] [net.minecraft.client.audio.SoundManager]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[01:18:19] [Forge Version Check/INFO] [forge.VersionCheck]: [forge] Found status: AHEAD Target: null
+[01:18:19] [Thread-5/INFO] [net.minecraft.client.audio.SoundManager]: OpenAL initialized.
+[01:18:19] [Sound Library Loader/INFO] [net.minecraft.client.audio.SoundManager]: Sound engine started
+[01:18:20] [Client thread/INFO] [FML]: Max texture size: 16384
+[01:18:22] [Client thread/INFO] [net.minecraft.client.renderer.texture.TextureMap]: Created: 512x512 textures-atlas
+[01:18:22] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory for item "minecraft:air", normal location exception: 
 net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model minecraft:item/air with loader VanillaLoader.INSTANCE, skipping
 	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161) ~[ModelLoaderRegistry.class:?]
 	at net.minecraftforge.client.model.ModelLoader.loadItemModels(ModelLoader.java:302) ~[ModelLoader.class:?]
@@ -144,7 +145,7 @@ Caused by: java.io.FileNotFoundException: minecraft:models/item/air.json
 	at net.minecraftforge.client.model.ModelLoader$VanillaLoader.loadModel(ModelLoader.java:861) ~[ModelLoader$VanillaLoader.class:?]
 	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:157) ~[ModelLoaderRegistry.class:?]
 	... 20 more
-[04:41:05] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory for item "minecraft:air", blockstate location exception: 
+[01:18:22] [Client thread/ERROR] [FML]: Exception loading model for variant minecraft:air#inventory for item "minecraft:air", blockstate location exception: 
 net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model minecraft:air#inventory with loader VariantLoader.INSTANCE, skipping
 	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161) ~[ModelLoaderRegistry.class:?]
 	at net.minecraftforge.client.model.ModelLoader.loadItemModels(ModelLoader.java:296) ~[ModelLoader.class:?]
@@ -172,101 +173,48 @@ Caused by: net.minecraft.client.renderer.block.model.ModelBlockDefinition$Missin
 	at net.minecraftforge.client.model.ModelLoader$VariantLoader.loadModel(ModelLoader.java:1175) ~[ModelLoader$VariantLoader.class:?]
 	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:157) ~[ModelLoaderRegistry.class:?]
 	... 20 more
-[04:41:06] [Client thread/INFO] [FML]: Applying holder lookups
-[04:41:06] [Client thread/INFO] [FML]: Holder lookups applied
-[04:41:06] [Client thread/INFO] [HadEnoughItems]: Created: 256x128 textures-atlas
-[04:41:06] [Client thread/INFO] [FML]: Injecting itemstacks
-[04:41:06] [Client thread/INFO] [FML]: Itemstack injection complete
-[04:41:06] [Client thread/INFO] [worldedit]: WorldEdit for Forge (version 6.1.10) is loaded
-[04:41:06] [Client thread/INFO] [HadEnoughItems]: Starting HEI...
-[04:41:06] [Client thread/INFO] [HadEnoughItems]: Registering recipe categories...
-[04:41:06] [Client thread/INFO] [HadEnoughItems]: Registering recipe categories took 18.98 ms
-[04:41:06] [Client thread/INFO] [HadEnoughItems]: Registering mod plugins...
-[04:41:06] [Client thread/INFO] [HadEnoughItems]: Registering mod plugins took 126.1 ms
-[04:41:06] [Client thread/INFO] [HadEnoughItems]: Building recipe registry...
-[04:41:06] [Client thread/INFO] [HadEnoughItems]: Building recipe registry took 74.08 ms
-[04:41:06] [Client thread/INFO] [HadEnoughItems]: Building ingredient filter and search trees...
-[04:41:06] [Client thread/INFO] [HadEnoughItems]: Building [default] search tree...
-[04:41:06] [Client thread/INFO] [HadEnoughItems]: Building [default] search tree took 39.77 ms
-[04:41:06] [Client thread/INFO] [HadEnoughItems]: Building [tooltip] search tree...
-[04:41:06] [Client thread/INFO] [HadEnoughItems]: Building [tooltip] search tree took 18.77 ms
-[04:41:06] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [resource_id] search tree...
-[04:41:06] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [resource_id] search tree took 1.573 ms
-[04:41:06] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [color] search tree...
-[04:41:06] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [color] search tree took 210.2 ?s
-[04:41:06] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [oredict] search tree...
-[04:41:06] [Client thread/INFO] [HadEnoughItems]: Building ingredient filter and search trees took 142.2 ms
-[04:41:06] [Client thread/INFO] [HadEnoughItems]: Building bookmarks...
-[04:41:06] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [oredict] search tree took 141.8 ?s
-[04:41:06] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [mod_name] search tree...
-[04:41:06] [Client thread/INFO] [HadEnoughItems]: Building bookmarks took 5.459 ms
-[04:41:06] [Client thread/INFO] [HadEnoughItems]: Building runtime...
-[04:41:06] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [mod_name] search tree took 6.795 ms
-[04:41:06] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [creative_tab] search tree...
-[04:41:06] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [creative_tab] search tree took 177.1 ?s
-[04:41:07] [Client thread/INFO] [HadEnoughItems]: Building runtime took 147.2 ms
-[04:41:07] [Client thread/INFO] [HadEnoughItems]: Starting HEI took 661.0 ms
-[04:41:07] [Client thread/INFO] [FML]: Forge Mod Loader has successfully loaded 10 mods
-[04:41:07] [Client thread/WARN] [net.minecraft.client.settings.GameSettings]: Skipping bad option: lastServer:
-[04:41:07] [Client thread/INFO] [com.mojang.text2speech.NarratorWindows]: Narrator library for x64 successfully loaded
-[04:41:08] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient]: Could not authorize you against Realms server: Invalid session id
-[04:41:11] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Starting integrated minecraft server version 1.12.2
-[04:41:11] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Generating keypair
-[04:41:11] [Server thread/INFO] [FML]: Injecting existing registry data into this server instance
-[04:41:12] [Server thread/INFO] [FML]: Applying holder lookups
-[04:41:12] [Server thread/INFO] [FML]: Holder lookups applied
-[04:41:12] [Server thread/INFO] [FML]: Loading dimension 0 (New World) (net.minecraft.server.integrated.IntegratedServer@3d6e3799)
-[04:41:12] [Server thread/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 488 advancements
-[04:41:12] [Server thread/INFO] [FML]: Loading dimension -1 (New World) (net.minecraft.server.integrated.IntegratedServer@3d6e3799)
-[04:41:12] [Server thread/INFO] [FML]: Loading dimension 1 (New World) (net.minecraft.server.integrated.IntegratedServer@3d6e3799)
-[04:41:12] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing start region for level 0
-[04:41:13] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing spawn area: 17%
-[04:41:14] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing spawn area: 32%
-[04:41:15] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing spawn area: 46%
-[04:41:16] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing spawn area: 62%
-[04:41:17] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing spawn area: 86%
-[04:41:18] [Server thread/INFO] [FML]: Unloading dimension -1
-[04:41:18] [Server thread/INFO] [FML]: Unloading dimension 1
-[04:41:18] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Changing view distance to 12, from 10
-[04:41:19] [Netty Local Client IO #0/INFO] [FML]: Server protocol version 2
-[04:41:19] [Netty Server IO #1/INFO] [FML]: Client protocol version 2
-[04:41:19] [Netty Server IO #1/INFO] [FML]: Client attempting to join with 10 mods : minecraft@1.12.2,caliper@1.1.46,FML@8.0.99.99,nb@0.0.1,bookshelf@2.3.590,forge@14.23.5.2860,nether_api@1.3.0,worldedit@6.1.10,mcp@9.42,jei@4.25.0
-[04:41:19] [Netty Local Client IO #0/INFO] [FML]: [Netty Local Client IO #0] Client side modded connection established
-[04:41:19] [Netty Local Client IO #0/INFO] [HadEnoughItems]: ElementSearch PrefixInfo{default} Storage Stats: GeneralizedSuffixTree:
-Node size stats: 
-IntSummaryStatistics{count=12898, sum=15221, min=0, average=1.180105, max=159}
-Node edge stats: 
-Edge counts: IntSummaryStatistics{count=3084, sum=7990, min=1, average=2.590791, max=30}
-Edge lengths: IntSummaryStatistics{count=7990, sum=34222, min=1, average=4.283104, max=26}
-[04:41:19] [Server thread/INFO] [FML]: [Server thread] Server side modded connection established
-[04:41:19] [Server thread/INFO] [net.minecraft.server.management.PlayerList]: Player78[local:E:ea64646a] logged in with entity id 1791 at (155.5, 82.0, 256.5)
-[04:41:19] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Player78 joined the game
-[04:41:19] [Netty Local Client IO #0/INFO] [HadEnoughItems]: ElementSearch PrefixInfo{tooltip} Storage Stats: GeneralizedSuffixTree:
-Node size stats: 
-IntSummaryStatistics{count=4273, sum=7663, min=0, average=1.793354, max=112}
-Node edge stats: 
-Edge counts: IntSummaryStatistics{count=1129, sum=2700, min=1, average=2.391497, max=42}
-Edge lengths: IntSummaryStatistics{count=2700, sum=9077, min=1, average=3.361852, max=20}
-[04:41:19] [Netty Local Client IO #0/INFO] [HadEnoughItems]: ElementSearch PrefixInfo{mod_name} Storage Stats: LimitedStringStorage: GeneralizedSuffixTree:
-Node size stats: 
-IntSummaryStatistics{count=69, sum=32, min=0, average=0.463768, max=2}
-Node edge stats: 
-Edge counts: IntSummaryStatistics{count=11, sum=39, min=1, average=3.545455, max=16}
-Edge lengths: IntSummaryStatistics{count=39, sum=261, min=1, average=6.692308, max=21}
-[04:41:20] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Saving and pausing game...
-[04:41:20] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level 'New World'/overworld
-[04:41:50] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Saving and pausing game...
-[04:41:50] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level 'New World'/overworld
-[04:41:51] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Stopping server
-[04:41:51] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving players
-[04:41:51] [Server thread/INFO] [net.minecraft.network.NetHandlerPlayServer]: Player78 lost connection: Disconnected
-[04:41:51] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Player78 left the game
-[04:41:51] [Server thread/INFO] [net.minecraft.network.NetHandlerPlayServer]: Stopping singleplayer server as player logged out
-[04:41:51] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving worlds
-[04:41:51] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level 'New World'/overworld
-[04:41:51] [Server thread/INFO] [FML]: Unloading dimension 0
-[04:41:51] [Server thread/INFO] [FML]: Applying holder lookups
-[04:41:51] [Server thread/INFO] [FML]: Holder lookups applied
-[04:41:52] [Client thread/INFO] [net.minecraft.client.Minecraft]: Stopping!
-[04:41:52] [Client thread/INFO] [net.minecraft.client.audio.SoundManager]: SoundSystem shutting down...
-[04:41:53] [Client thread/WARN] [net.minecraft.client.audio.SoundManager]: Author: Paul Lamb, www.paulscode.com
+[01:18:22] [Client thread/INFO] [FML]: Applying holder lookups
+[01:18:22] [Client thread/INFO] [FML]: Holder lookups applied
+[01:18:22] [Client thread/INFO] [HadEnoughItems]: Created: 256x128 textures-atlas
+[01:18:22] [Client thread/INFO] [FML]: Injecting itemstacks
+[01:18:22] [Client thread/INFO] [FML]: Itemstack injection complete
+[01:18:22] [Client thread/INFO] [worldedit]: WorldEdit for Forge (version 6.1.10) is loaded
+[01:18:22] [Client thread/INFO] [HadEnoughItems]: Starting HEI...
+[01:18:23] [Client thread/INFO] [HadEnoughItems]: Registering recipe categories...
+[01:18:23] [Client thread/INFO] [HadEnoughItems]: Registering recipe categories took 8.795 ms
+[01:18:23] [Client thread/INFO] [HadEnoughItems]: Registering mod plugins...
+[01:18:23] [Client thread/INFO] [HadEnoughItems]: Registering mod plugins took 79.40 ms
+[01:18:23] [Client thread/INFO] [HadEnoughItems]: Building recipe registry...
+[01:18:23] [Client thread/INFO] [HadEnoughItems]: Building recipe registry took 58.88 ms
+[01:18:23] [Client thread/INFO] [HadEnoughItems]: Building ingredient filter and search trees...
+[01:18:23] [Client thread/INFO] [HadEnoughItems]: Building [default] search tree...
+[01:18:23] [Client thread/INFO] [HadEnoughItems]: Building [default] search tree took 25.47 ms
+[01:18:23] [Client thread/INFO] [HadEnoughItems]: Building [tooltip] search tree...
+[01:18:23] [Client thread/INFO] [HadEnoughItems]: Building [tooltip] search tree took 18.44 ms
+[01:18:23] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [resource_id] search tree...
+[01:18:23] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [resource_id] search tree took 1.150 ms
+[01:18:23] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [color] search tree...
+[01:18:23] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [color] search tree took 179.0 ?s
+[01:18:23] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [oredict] search tree...
+[01:18:23] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [oredict] search tree took 96.50 ?s
+[01:18:23] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [mod_name] search tree...
+[01:18:23] [Client thread/INFO] [HadEnoughItems]: Building ingredient filter and search trees took 99.15 ms
+[01:18:23] [Client thread/INFO] [HadEnoughItems]: Building bookmarks...
+[01:18:23] [Client thread/INFO] [HadEnoughItems]: Building bookmarks took 4.305 ms
+[01:18:23] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [mod_name] search tree took 4.917 ms
+[01:18:23] [Client thread/INFO] [HadEnoughItems]: Building runtime...
+[01:18:23] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [creative_tab] search tree...
+[01:18:23] [pool-3-thread-1/INFO] [HadEnoughItems]: Asynchronously building [creative_tab] search tree took 360.3 ?s
+[01:18:23] [Client thread/INFO] [HadEnoughItems]: Building runtime took 49.36 ms
+[01:18:23] [Client thread/INFO] [HadEnoughItems]: Starting HEI took 408.6 ms
+[01:18:23] [Client thread/INFO] [FML]: Forge Mod Loader has successfully loaded 11 mods
+[01:18:23] [Client thread/WARN] [net.minecraft.client.settings.GameSettings]: Skipping bad option: lastServer:
+[01:18:23] [Client thread/INFO] [com.mojang.text2speech.NarratorWindows]: Narrator library for x64 successfully loaded
+[01:18:24] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient]: Could not authorize you against Realms server: Invalid session id
+[01:18:25] [Client thread/INFO] [net.minecraft.world.storage.SaveFormatOld]: Deleting level New World-
+[01:18:25] [Client thread/INFO] [net.minecraft.world.storage.SaveFormatOld]: Attempt 1...
+[01:18:27] [Client thread/INFO] [net.minecraft.world.storage.SaveFormatOld]: Deleting level New World
+[01:18:27] [Client thread/INFO] [net.minecraft.world.storage.SaveFormatOld]: Attempt 1...
+[01:18:28] [Client thread/INFO] [net.minecraft.client.Minecraft]: Stopping!
+[01:18:28] [Client thread/INFO] [net.minecraft.client.audio.SoundManager]: SoundSystem shutting down...
+[01:18:28] [Client thread/WARN] [net.minecraft.client.audio.SoundManager]: Author: Paul Lamb, www.paulscode.com

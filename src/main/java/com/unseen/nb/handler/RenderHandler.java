@@ -4,7 +4,11 @@ import com.unseen.nb.client.animation.model.BasicModelEntity;
 import com.unseen.nb.client.entity.RenderModEntity;
 import com.unseen.nb.client.entity.model.ModelPiglin;
 import com.unseen.nb.client.entity.render.RenderPiglin;
+import com.unseen.nb.client.entity.render.RenderPiglinBrute;
+import com.unseen.nb.client.entity.render.RenderStrider;
 import com.unseen.nb.common.entity.entities.EntityPiglin;
+import com.unseen.nb.common.entity.entities.EntityPiglinBrute;
+import com.unseen.nb.common.entity.entities.EntityStrider;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -22,6 +26,10 @@ public class RenderHandler {
     public static void registerEntityRenderers() {
         //Piglin
     RenderingRegistry.registerEntityRenderingHandler(EntityPiglin.class, RenderPiglin::new);
+    //Strider
+    RenderingRegistry.registerEntityRenderingHandler(EntityStrider.class, RenderStrider::new);
+    //Piglin Brute
+        RenderingRegistry.registerEntityRenderingHandler(EntityPiglinBrute.class, RenderPiglinBrute::new);
     }
 
 

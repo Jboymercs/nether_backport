@@ -14,6 +14,7 @@ public class RenderPiglin extends RenderModEntity<EntityPiglin> {
 
         super(rendermanagerIn, "piglin.png", new ModelPiglin());
         this.addLayer(new EZLayerHeldItem(this));
+
     }
 
 
