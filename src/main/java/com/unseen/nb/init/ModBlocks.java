@@ -1,5 +1,6 @@
 package com.unseen.nb.init;
 
+import com.unseen.nb.common.blocks.BlockNetherOre;
 import com.unseen.nb.common.blocks.BlockSoulFire;
 import com.unseen.nb.common.blocks.base.*;
 import com.unseen.nb.common.blocks.base.BlockNetherGrass;
@@ -76,11 +77,11 @@ public class ModBlocks {
 
     public static final Block NETHERITE_BLOCK = new BlockBase("netherite_block", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.NETHERITE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
-    public static final Block NETHERITE_ORE = new BlockBase("netherite_ore", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.ANCIENT_DEBRIS).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block NETHERITE_ORE = new BlockBase("netherite_ore", Material.ROCK, OBSIDIAN_HARDNESS, OBSIDIAN_RESISTANCE, NBSoundTypes.ANCIENT_DEBRIS).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
     public static final Block GILDED_BLACKSTONE = new BlockBase("gilded_blackstone", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.NETHER_ORE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
-    public static Block NETHER_GOLD_ORE = new BlockBase("nether_gold_ore", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.NETHER_ORE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static Block NETHER_GOLD_ORE = new BlockNetherOre("nether_gold_ore", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.NETHER_ORE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
     public static Block BLACK_STONE = new BlockBase("black_stone", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
@@ -104,6 +105,7 @@ public class ModBlocks {
 
     public static Block SHROOMLIGHT = new BlockBase("shroom_light", Material.GRASS, WOOD_HARDNESS, WOOD_RESISTANCE, NBSoundTypes.SHROOM_LIGHT).setCreativeTab(CreativeTabs.DECORATIONS).setLightLevel(1.0F);
 
+    public static Block QUARTZ_BRICKS = new BlockBase("quartz_bricks", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     public static Block CRIMSON_FUNGUS = new BlockPlantBase("crimson_fungus", Material.PLANTS, NBSoundTypes.HYPHAE);
 
     public static Block WARPED_FUNGUS = new BlockPlantBase("warped_fungus", Material.PLANTS, NBSoundTypes.HYPHAE);

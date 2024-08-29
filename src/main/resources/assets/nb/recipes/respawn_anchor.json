@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "VVV",
+    "RRR",
+    "VVV"
+  ],
+  "key": {
+    "V": {
+      "item": "nb:cry_obi"
+    },
+    "R": {
+      "item": "minecraft:glowstone"
+    }
+  },
+  "result": {
+    "item": "nb:respawn_anchor"
+  }
+}

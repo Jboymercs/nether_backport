@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "VV",
+    "VV"
+  ],
+  "key": {
+    "V": {
+      "item": "minecraft:quartz_block"
+    }
+  },
+  "result": {
+    "item": "nb:quartz_bricks",
+    "data": 0,
+    "count": 4
+  }
+}

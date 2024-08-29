@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "V"
+  ],
+  "key": {
+    "V": {
+      "item": "nb:warped_stem"
+    }
+  },
+  "result": {
+    "item": "nb:warped_planks",
+    "data": 0,
+    "count": 4
+  }
+}

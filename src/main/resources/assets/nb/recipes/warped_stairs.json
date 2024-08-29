@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "V  ",
+    "VV ",
+    "VVV"
+  ],
+  "key": {
+    "V": {
+      "item": "nb:warped_planks"
+    }
+  },
+  "result": {
+    "item": "nb:warped_stairs",
+    "data": 0,
+    "count": 4
+  }
+}

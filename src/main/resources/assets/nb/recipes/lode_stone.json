@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "VVV",
+    "VRV",
+    "VVV"
+  ],
+  "key": {
+    "R": {
+      "item": "nb:netherite_ingot"
+    },
+    "V": {
+      "item": "minecraft:stonebrick",
+      "data" : 3
+    }
+  },
+  "result": {
+    "item": "nb:lode_stone"
+  }
+}

@@ -1,7 +1,10 @@
 package com.unseen.nb;
 
+import com.unseen.nb.common.world.base.WorldGenOre;
+import com.unseen.nb.common.world.ore.NBOreGen;
 import com.unseen.nb.init.BiomeRegister;
 import com.unseen.nb.init.ModEntities;
+import com.unseen.nb.init.ModRecipes;
 import com.unseen.nb.init.ModSoundHandler;
 import com.unseen.nb.proxy.CommonProxy;
 import com.unseen.nb.util.ModReference;
@@ -15,6 +18,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -44,13 +48,18 @@ public class Main {
         ModEntities.registerEntities();
         //Registers Entity Spawns
         ModEntities.RegisterEntitySpawns();
+        //Mod Integration for Crossbows
         ModIntegration.init();
+        //Register World Gen
+        GameRegistry.registerWorldGenerator(new NBOreGen(), 1);
     }
 
     @EventHandler
     public void init(FMLInitializationEvent e) {
         //Biome Init
         BiomeRegister.registerBiomes();
+        //Furnace Anvil Recipes
+        ModRecipes.init();
     }
 
     @EventHandler

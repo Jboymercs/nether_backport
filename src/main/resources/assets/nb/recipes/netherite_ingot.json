@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "VVV",
+    "VRR",
+    "RR "
+  ],
+  "key": {
+    "V": {
+      "item": "nb:nether_scrap"
+    },
+    "R": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "nb:netherite_ingot"
+  }
+}

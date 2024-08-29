@@ -50,7 +50,6 @@ public class BiomeWarpedForest extends Biome implements INetherBiome, INetherAPI
         this.spawnableCaveCreatureList.clear();
         this.spawnableMonsterList.add(new SpawnListEntry(EntityEnderman.class, 1, 1, 4));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityStrider.class, 10, 1, 2));
-        //Add Strider weight 10, min 1, max 2
         this.topBlock = CRIMSON_FLOOR;
         random = new Random();
     }
@@ -118,27 +117,6 @@ public class BiomeWarpedForest extends Biome implements INetherBiome, INetherAPI
                 if(currentBlock == ModBlocks.WARPED_GRASS.getDefaultState()) {
                     depthSignature++;
                 } else if (currentBlock == Blocks.AIR.getDefaultState()) {
-                    depthSignature = 0;
-                }
-            }
-        }
-
-
-        //Vines
-        for(int k2 = 0; k2< ModRand.range(30, 50); k2++) {
-            int l6 = random.nextInt(16) + 8;
-            int k10 = random.nextInt(16) + 8;
-            int depthSignature = 2;
-            int vineLength = ModRand.range(1, 4);
-            for(int y = 60; y > 5; y--) {
-                IBlockState currentBlock = world.getBlockState(pos.add(l6, y, k10));
-                if(depthSignature == 1) {
-                    //world.setBlockState(pos.add(l6, y + 1, k10), ModBlocks.CRIMSON_VINES.getDefaultState());
-                    crimson_vines.generate(world, rand, pos.add(l6, y + 1, k10));
-                }
-                if(currentBlock == Blocks.AIR.getDefaultState()) {
-                    depthSignature++;
-                } else if (currentBlock == Blocks.NETHERRACK.getDefaultState() || currentBlock == ModBlocks.CRIMSON_GRASS.getDefaultState()) {
                     depthSignature = 0;
                 }
             }

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "V  ",
+    "VV ",
+    "VVV"
+  ],
+  "key": {
+    "V": {
+      "item": "nb:black_stone"
+    }
+  },
+  "result": {
+    "item": "nb:black_stone_stairs",
+    "data": 0,
+    "count": 4
+  }
+}

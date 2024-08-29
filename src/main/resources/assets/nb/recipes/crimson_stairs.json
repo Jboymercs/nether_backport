@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "V  ",
+    "VV ",
+    "VVV"
+  ],
+  "key": {
+    "V": {
+      "item": "nb:crimson_planks"
+    }
+  },
+  "result": {
+    "item": "nb:crimson_stairs",
+    "data": 0,
+    "count": 4
+  }
+}

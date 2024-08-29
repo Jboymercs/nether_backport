@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "VVV",
+    "VVV",
+    "VVV"
+  ],
+  "key": {
+    "V": {
+      "item": "nb:netherite_ingot"
+    }
+  },
+  "result": {
+    "item": "nb:netherite_block"
+  }
+}

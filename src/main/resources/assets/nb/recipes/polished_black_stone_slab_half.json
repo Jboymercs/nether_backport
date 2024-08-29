@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "VVV"
+  ],
+  "key": {
+    "V": {
+      "item": "nb:polished_black_stone"
+    }
+  },
+  "result": {
+    "item": "nb:polished_black_stone_slab_half",
+    "data": 0,
+    "count": 6
+  }
+}
