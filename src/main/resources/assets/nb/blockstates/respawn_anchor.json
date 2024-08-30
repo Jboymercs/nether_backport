@@ -1,5 +1,42 @@
 {
-  "variants": {
-    "normal": { "model": "nb:respawn_anchor" }
+  "forge_marker": 1,
+  "variants":
+  {
+    "charges=0":
+    {
+      "model": "nb:respawn_anchor",
+      "textures": {
+        "top": "nb:blocks/respawn_anchor_top_off",
+        "side": "nb:blocks/respawn_anchor_side0"
+      }
+    },
+    "charges=1": {
+      "model": "nb:respawn_anchor",
+      "textures": {
+        "top": "nb:blocks/respawn_anchor_top",
+        "side": "nb:blocks/respawn_anchor_side1"
+      }
+    },
+    "charges=2": {
+      "model": "nb:respawn_anchor",
+      "textures": {
+        "top": "nb:blocks/respawn_anchor_top",
+        "side": "nb:blocks/respawn_anchor_side2"
+      }
+    },
+    "charges=3": {
+      "model": "nb:respawn_anchor",
+      "textures": {
+        "top": "nb:blocks/respawn_anchor_top",
+        "side": "nb:blocks/respawn_anchor_side3"
+      }
+    },
+    "charges=4": {
+      "model": "nb:respawn_anchor",
+      "textures": {
+        "top": "nb:blocks/respawn_anchor_top",
+        "side": "nb:blocks/respawn_anchor_side4"
+      }
+    }
   }
 }

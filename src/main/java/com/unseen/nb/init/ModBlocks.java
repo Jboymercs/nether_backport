@@ -1,6 +1,7 @@
 package com.unseen.nb.init;
 
 import com.unseen.nb.common.blocks.BlockNetherOre;
+import com.unseen.nb.common.blocks.BlockRespawnAnchor;
 import com.unseen.nb.common.blocks.BlockSoulFire;
 import com.unseen.nb.common.blocks.base.*;
 import com.unseen.nb.common.blocks.base.BlockNetherGrass;
@@ -101,7 +102,7 @@ public class ModBlocks {
 
     public static Block LODE_STONE = new BlockBase("lode_stone", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.LODE_STONE).setCreativeTab(CreativeTabs.DECORATIONS);
 
-    public static Block RESPAWN_ANCHOR = new BlockBase("respawn_anchor", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(CreativeTabs.DECORATIONS);
+    public static Block RESPAWN_ANCHOR = new BlockRespawnAnchor("respawn_anchor", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(CreativeTabs.DECORATIONS);
 
     public static Block SHROOMLIGHT = new BlockBase("shroom_light", Material.GRASS, WOOD_HARDNESS, WOOD_RESISTANCE, NBSoundTypes.SHROOM_LIGHT).setCreativeTab(CreativeTabs.DECORATIONS).setLightLevel(1.0F);
 
