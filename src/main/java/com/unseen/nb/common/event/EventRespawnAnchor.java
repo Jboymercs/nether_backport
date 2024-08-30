@@ -83,6 +83,9 @@ public class EventRespawnAnchor
 
             if (capRespawnAnchor.getUsedAnchor())
             {
+                /* If the Player is intentionally exiting the End, don't teleport them to an End Respawn Anchor. */
+                if (event.isEndConquered() && capRespawnAnchor.getAnchorDim() == 1) return;
+
                 BlockPos anchorPos = capRespawnAnchor.getAnchorPos();
                 World anchorWorld = event.player.getServer().getWorld(capRespawnAnchor.getAnchorDim());
 
