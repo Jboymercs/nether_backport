@@ -1,6 +1,6 @@
 package com.unseen.nb;
 
-import com.unseen.nb.common.world.base.WorldGenOre;
+import com.unseen.nb.common.capabilities.CapabilityRespawnAnchor;
 import com.unseen.nb.common.world.ore.NBOreGen;
 import com.unseen.nb.init.BiomeRegister;
 import com.unseen.nb.init.ModEntities;
@@ -10,6 +10,7 @@ import com.unseen.nb.proxy.CommonProxy;
 import com.unseen.nb.util.ModReference;
 import com.unseen.nb.util.integration.ModIntegration;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -58,6 +59,7 @@ public class Main {
     public void init(FMLInitializationEvent e) {
         //Biome Init
         BiomeRegister.registerBiomes();
+        CapabilityManager.INSTANCE.register(CapabilityRespawnAnchor.ICapabilityRespawnAnchor.class, new CapabilityRespawnAnchor.Storage(), CapabilityRespawnAnchor.RespawnAnchorMethods::new);
         //Furnace Anvil Recipes
         ModRecipes.init();
     }
