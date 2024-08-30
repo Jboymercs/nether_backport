@@ -9,6 +9,7 @@ import com.unseen.nb.common.entity.entities.ai.EntityTimedAttackZombie;
 import com.unseen.nb.common.entity.entities.ai.IAttack;
 import com.unseen.nb.init.ModSoundHandler;
 import com.unseen.nb.util.ModRand;
+import com.unseen.nb.util.ModReference;
 import com.unseen.nb.util.ModUtils;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -28,6 +29,7 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -62,6 +64,8 @@ public class EntityPiglinZombie extends EntityNetherBase implements IAnimatedEnt
     public EntityPiglinZombie(World worldIn) {
         super(worldIn);
         this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.GOLDEN_SWORD.getDefaultInstance());
+        this.experienceValue = 5;
+        this.isImmuneToFire = true;
     }
 
     @Override
@@ -286,6 +290,11 @@ public class EntityPiglinZombie extends EntityNetherBase implements IAnimatedEnt
         }
     }
 
+    private static final ResourceLocation LOOT = new ResourceLocation(ModReference.MOD_ID, "zpig");
+    @Override
+    protected ResourceLocation getLootTable() {
+        return LOOT;
+    }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
@@ -300,7 +309,7 @@ public class EntityPiglinZombie extends EntityNetherBase implements IAnimatedEnt
     @Override
     protected void playStepSound(BlockPos pos, Block blockIn)
     {
-        this.playSound(ModSoundHandler.BRUTE_STEP, 0.5F, 1.0f / (rand.nextFloat() * 0.4F + 0.2f));
+        this.playSound(ModSoundHandler.PIGLIN_STEP, 0.5F, 1.0f / (rand.nextFloat() * 0.4F + 0.2f));
     }
 
     @Override

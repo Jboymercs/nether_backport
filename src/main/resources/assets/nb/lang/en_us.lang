@@ -54,6 +54,8 @@ entity.piglin.name=Piglin
 entity.strider.name=Strider
 entity.piglin_brute.name=Piglin Brute
 entity.piglin_zombie.name=Zombified Piglin
+entity.hoglin.name=Hoglin
+entity.zoglin.name=Zoglin
 
 ##ITEMS
 item.fungus_on_stick.name=Warped Fungus on a Stick

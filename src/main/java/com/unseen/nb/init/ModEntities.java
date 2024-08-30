@@ -1,10 +1,7 @@
 package com.unseen.nb.init;
 
 import com.unseen.nb.Main;
-import com.unseen.nb.common.entity.entities.EntityPiglin;
-import com.unseen.nb.common.entity.entities.EntityPiglinBrute;
-import com.unseen.nb.common.entity.entities.EntityPiglinZombie;
-import com.unseen.nb.common.entity.entities.EntityStrider;
+import com.unseen.nb.common.entity.entities.*;
 import com.unseen.nb.util.ModReference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -32,13 +29,17 @@ public class ModEntities {
 
     public static void registerEntities() {
         //Piglin
-    registerEntityWithID("piglin", EntityPiglin.class, ENTITY_START_ID++, 50, nether);
+    registerEntityWithID("piglin", EntityPiglin.class, ENTITY_START_ID++, 70, nether);
     //Strider
-    registerEntityWithID("strider", EntityStrider.class, ENTITY_START_ID++, 50, nether);
+    registerEntityWithID("strider", EntityStrider.class, ENTITY_START_ID++, 70, nether);
     //Piglin Brute
-        registerEntityWithID("piglin_brute", EntityPiglinBrute.class, ENTITY_START_ID++, 50, nether);
+        registerEntityWithID("piglin_brute", EntityPiglinBrute.class, ENTITY_START_ID++, 70, nether);
         //Piglin Zombie
-        registerEntityWithID("piglin_zombie", EntityPiglinZombie.class, ENTITY_START_ID++, 50, nether);
+        registerEntityWithID("piglin_zombie", EntityPiglinZombie.class, ENTITY_START_ID++, 70, nether);
+        //Hoglin
+        registerEntityWithID("hoglin", EntityHoglin.class, ENTITY_START_ID++, 70, nether);
+        //Zoglin
+        registerEntityWithID("zoglin", EntityZoglin.class, ENTITY_START_ID++, 70, nether);
     }
 
     public static void RegisterEntitySpawns() {

@@ -80,6 +80,7 @@ public class ModSoundHandler {
     public static SoundEvent PIGLIN_ANGRY;
     public static SoundEvent PIGLIN_CELEBRATE;
     public static SoundEvent PIGLIN_RETREAT;
+    public static SoundEvent PIGLIN_CONVERTED;
 
     //Strider
     public static SoundEvent STRIDER_WARBLE;
@@ -102,6 +103,24 @@ public class ModSoundHandler {
     public static SoundEvent ZPIG_HURT;
     public static SoundEvent ZPIG_DEATH;
     public static SoundEvent ZPIG_ANGRY;
+
+    //Hoglin
+    public static SoundEvent HOGLIN_STEP;
+    public static SoundEvent HOGLIN_HURT;
+    public static SoundEvent HOGLIN_DEATH;
+    public static SoundEvent HOGLIN_RETREAT;
+    public static SoundEvent HOGLIN_ANGRY;
+    public static SoundEvent HOGLIN_IDLE;
+    public static SoundEvent HOGLIN_CONVERTED;
+    public static SoundEvent HOGLIN_ATTACK;
+    //Zoglin
+    public static SoundEvent ZOGLIN_IDLE;
+    public static SoundEvent ZOGLIN_HURT;
+    public static SoundEvent ZOGLIN_DEATH;
+    public static SoundEvent ZOGLIN_ANGRY;
+    public static SoundEvent ZOGLIN_STEP;
+    public static SoundEvent ZOGLIN_ATTACK;
+
 
     public static void registerSounds() {
     NYLIUM_BREAK = registerSound("nether_grass.break", "block");
@@ -169,6 +188,7 @@ public class ModSoundHandler {
         PIGLIN_ANGRY = registerSound("piglin.angry", "entity");
         PIGLIN_CELEBRATE = registerSound("piglin.celebrate", "entity");
         PIGLIN_RETREAT = registerSound("piglin.retreat", "entity");
+        PIGLIN_CONVERTED = registerSound("piglin.converted", "entity");
      //STRIDER
      STRIDER_CHIRP = registerSound("strider.chirp", "entity"); //DONE
      STRIDER_DEATH = registerSound("strider.death", "entity"); //DONE
@@ -188,6 +208,22 @@ public class ModSoundHandler {
         ZPIG_DEATH = registerSound("zpig.death", "entity");
         ZPIG_HURT = registerSound("zpig.hurt", "entity");
         ZPIG_IDLE = registerSound("zpig.idle", "entity");
+        //Hoglin
+        HOGLIN_ANGRY = registerSound("hoglin.angry", "entity"); //DONE
+        HOGLIN_HURT = registerSound("hoglin.hurt", "entity"); //DONE
+        HOGLIN_IDLE = registerSound("hoglin.idle", "entity"); //DONE
+        HOGLIN_DEATH = registerSound("hoglin.death", "entity"); //DONE
+        HOGLIN_STEP = registerSound("hoglin.step", "entity"); //DONE
+        HOGLIN_RETREAT = registerSound("hoglin.retreat", "entity"); //DONE
+        HOGLIN_ATTACK = registerSound("hoglin.attack", "entity"); //DONE
+        HOGLIN_CONVERTED = registerSound("hoglin.converted", "entity"); //DONE
+        //ZOGLIN
+        ZOGLIN_ANGRY = registerSound("zoglin.angry", "entity");
+        ZOGLIN_DEATH = registerSound("zoglin.death", "entity");
+        ZOGLIN_HURT = registerSound("zoglin.hurt", "entity");
+        ZOGLIN_IDLE = registerSound("zoglin.idle", "entity");
+        ZOGLIN_STEP = registerSound("zoglin.step", "entity");
+        ZOGLIN_ATTACK = registerSound("zoglin.attack", "entity");
     }
 
 

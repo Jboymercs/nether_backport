@@ -20,7 +20,7 @@ import java.util.PriorityQueue;
 /**
  * Base class for Nether Entities, this just includes some basic functions along with a boolean to check if it's in combat
  */
-public class EntityNetherBase extends EntityMob {
+public abstract class EntityNetherBase extends EntityMob {
 
     protected float sizeScaling = 1.0F;
     protected static final DataParameter<Boolean> IMMOVABLE = EntityDataManager.createKey(EntityNetherBase.class, DataSerializers.BOOLEAN);
@@ -105,6 +105,7 @@ public class EntityNetherBase extends EntityMob {
 
     @Override
     public boolean attackEntityFrom(DamageSource source, float amount) {
+
 
         return super.attackEntityFrom(source, amount);
     }

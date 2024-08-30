@@ -27,6 +27,7 @@ import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.entity.projectile.EntityTippedArrow;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -34,6 +35,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -117,6 +119,10 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
     public EntityPiglin(World worldIn) {
         super(worldIn);
         this.setSize(0.6F, 1.95F);
+        this.experienceValue = 5;
+        this.isImmuneToFire = true;
+
+
         if(!this.isRandArmor()) {
             if (randomChestStat == 3 && !this.isHasChestPlate()) {
                 this.setHasChest(true);
@@ -213,6 +219,16 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
     protected int trade_delay = 30;
 
     protected boolean foundGoldIngot = false;
+    private int dimensionCheck = 40;
+    private int countDownToZombie = 300;
+
+    private EntityHoglin foodTarget;
+
+    public boolean convertTooZombie = false;
+
+    protected boolean hasPlayedAngrySound = false;
+
+    protected int isHungryTimer = 60;
 
     @Override
     public void onUpdate() {
@@ -231,7 +247,54 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
             }
         }
 
+        EntityLivingBase target = this.getAttackTarget();
 
+        if(target != null && !hasPlayedAngrySound) {
+            this.playSound(ModSoundHandler.PIGLIN_ANGRY, 1.0f, 1.0f / (rand.nextFloat() * 0.4f + 0.5f));
+            hasPlayedAngrySound = true;
+        } else if (target == null) {
+            hasPlayedAngrySound = false;
+        }
+
+
+        if(!world.isRemote && world.rand.nextInt(12) == 0) {
+            if(this.isHungryTimer < 0) {
+                List<EntityHoglin> nearbyHoglins = this.world.getEntitiesWithinAABB(EntityHoglin.class, this.getEntityBoundingBox().grow(16D), e -> !e.getIsInvulnerable());
+                if(!nearbyHoglins.isEmpty() && target == null && foodTarget == null) {
+                    for(EntityHoglin hoglin : nearbyHoglins) {
+                        this.createTargetFor(hoglin);
+                        foodTarget = hoglin;
+                        this.isHungryTimer = 60;
+                        List<EntityPiglin> nearbyPiglins = this.world.getEntitiesWithinAABB(EntityPiglin.class, this.getEntityBoundingBox().grow(10D), e -> !e.getIsInvulnerable());
+                        if(!nearbyPiglins.isEmpty()) {
+                            for(EntityPiglin piglin : nearbyPiglins) {
+                                piglin.setAttackTarget(hoglin);
+                            }
+                        }
+                    }
+                }
+            } else {
+                this.isHungryTimer--;
+            }
+        }
+
+        if(dimensionCheck < 0) {
+            if(this.world.provider.getDimension() != -1) {
+                //Start Zombification Process
+                if(countDownToZombie < 0 && !this.convertTooZombie) {
+                    this.setAttackTarget(null);
+                    this.setImmovable(true);
+                    this.convertTooZombie = true;
+                    this.beginZombieTransformation();
+                } else {
+                    countDownToZombie--;
+                }
+            } else {
+                dimensionCheck = 40;
+            }
+        } else {
+            dimensionCheck--;
+        }
         if(this.canTrade) {
             if(trade_delay < 0) {
                 List<EntityItem> nearbyItems = this.world.getEntitiesWithinAABB(EntityItem.class, this.getEntityBoundingBox().grow(5D), e -> !e.getIsInvulnerable());
@@ -293,7 +356,32 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
         EZAnimationHandler.INSTANCE.updateAnimations(this);
     }
 
+    @Override
+    public boolean attackEntityFrom(DamageSource source, float amount) {
 
+        if(source.getImmediateSource() == this || source.getImmediateSource() instanceof EntityPiglinBrute) {
+            return false;
+        }
+
+            return super.attackEntityFrom(source, amount);
+    }
+
+
+
+    private void beginZombieTransformation() {
+        if(!world.isRemote) {
+            addEvent(() -> this.playSound(ModSoundHandler.PIGLIN_CONVERTED, 1.0f, 1.0f), 75);
+            addEvent(() -> {
+                EntityPiglinZombie zombie = new EntityPiglinZombie(world);
+                zombie.copyLocationAndAnglesFrom(this);
+                zombie.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, this.getHeldItemMainhand());
+                zombie.setPosition(this.posX, this.posY, this.posZ);
+                zombie.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 200, 1));
+                this.setDead();
+                this.world.spawnEntity(zombie);
+            }, 100);
+        }
+    }
     protected void doTrade() {
         this.setFightMode(true);
         this.setShortTrade(true);
@@ -312,7 +400,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
             this.foundGoldIngot = false;
         }, 120);
     }
-    protected void createTargetFor(EntityPlayer player) {
+    protected void createTargetFor(EntityLivingBase player) {
         this.targetTasks.addTask(1, new EntityAINearestAttackableTarget<>(this, player.getClass(), 1, true, false, null));
     }
 
@@ -344,7 +432,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
         super.initEntityAI();
         this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(2, new EntityAIWander(this, 1.0D));
-        //this.tasks.addTask(4, new EntityAiTimedAttack<EntityEverator>(this, 1.3D, 60, 3, 0.3F));
+        this.tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 9.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, true, new Class[0]));
         this.targetTasks.addTask(3, new EntityAIAvoidEntity<>(this, EntityPiglinZombie.class, 12F, 1.1D, 1.5D));
@@ -378,7 +466,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
                 prevAttack.accept(target);
             }
         }
-        return this.isHasMelee() ? 20 : this.isLoadedACrossBow() ? 10 : this.isHasRanged() ? 30 : 20;
+        return this.isHasMelee() ? 20 : this.isHasRanged() ? 15 : 20;
     }
 
     private final Consumer<EntityLivingBase> meleeAttackTwo = (target) -> {
@@ -442,7 +530,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
         this.setFightMode(true);
 
         addEvent(()-> {
-            EntityArrow arrow =getArrow(15);
+            EntityArrow arrow =getArrow(30);
             double d0 = target.posX - posX;
             double d1 = target.getEntityBoundingBox().minY + (double)(target.height / 3f) - arrow.posY;
             double d2 = target.posZ - posZ;
@@ -471,6 +559,13 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
         return entitytippedarrow;
     }
 
+
+    @Override
+    public boolean canPickUpLoot()
+    {
+        return true;
+    }
+
     @Override
     public int getAnimationTick() {
         return animationTick;
@@ -496,6 +591,11 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
      return new EZAnimation[]{ANIMATION_ATTACK_MELEE, ANIMATION_ATTACK_RANGED, ANIMATION_SHORT_TRADE, ANIMATION_LONG_TRADE};
     }
 
+    private static final ResourceLocation LOOT = new ResourceLocation(ModReference.MOD_ID, "piglin");
+    @Override
+    protected ResourceLocation getLootTable() {
+        return null;
+    }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {

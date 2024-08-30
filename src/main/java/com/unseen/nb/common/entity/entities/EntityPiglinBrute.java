@@ -8,6 +8,7 @@ import com.unseen.nb.common.entity.entities.ai.EntityTimedAttackPiglinBrute;
 import com.unseen.nb.common.entity.entities.ai.IAttack;
 import com.unseen.nb.init.ModSoundHandler;
 import com.unseen.nb.util.ModRand;
+import com.unseen.nb.util.ModReference;
 import com.unseen.nb.util.ModUtils;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
@@ -16,12 +17,15 @@ import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -48,6 +52,8 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
     public EntityPiglinBrute(World worldIn) {
         super(worldIn);
         this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.GOLDEN_AXE.getDefaultInstance());
+        this.experienceValue = 20;
+        this.isImmuneToFire = true;
     }
 
     @Override
@@ -60,6 +66,7 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
     public void writeEntityToNBT(NBTTagCompound nbt) {
         super.writeEntityToNBT(nbt);
         nbt.setBoolean("Melee_Attack", this.isMeleeAttack());
+
     }
 
     @Override
@@ -94,6 +101,12 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
 
     protected boolean hasPlayedAngrySound = false;
 
+    private int dimensionCheck = 40;
+    private int countDownToZombie = 300;
+
+    public boolean convertTooZombie = false;
+
+
     @Override
     public void onUpdate() {
         super.onUpdate();
@@ -113,8 +126,44 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
             }
         }
 
+
+        if(dimensionCheck < 0) {
+            if(this.world.provider.getDimension() != -1) {
+                //Start Zombification Process
+                if(countDownToZombie < 0 && !this.convertTooZombie) {
+                    this.setAttackTarget(null);
+                    this.setImmovable(true);
+                    this.convertTooZombie = true;
+                    this.beginZombieTransformation();
+                } else {
+                    countDownToZombie--;
+                }
+            } else {
+                dimensionCheck = 40;
+            }
+        } else {
+            dimensionCheck--;
+        }
+
         //NEVER FORGET THIS, OR ELSE ANIMATIONS WILL NOT WORK
         EZAnimationHandler.INSTANCE.updateAnimations(this);
+    }
+
+
+
+    private void beginZombieTransformation() {
+        if(!world.isRemote) {
+            addEvent(() -> this.playSound(ModSoundHandler.PIGLIN_CONVERTED, 1.0f, 0.8f), 75);
+            addEvent(() -> {
+                EntityPiglinZombie zombie = new EntityPiglinZombie(world);
+                zombie.copyLocationAndAnglesFrom(this);
+                zombie.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, this.getHeldItemMainhand());
+                zombie.setPosition(this.posX, this.posY, this.posZ);
+                zombie.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 200, 1));
+                this.setDead();
+                this.world.spawnEntity(zombie);
+            }, 100);
+        }
     }
 
 
@@ -193,6 +242,22 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
             this.setAnimation(NO_ANIMATION);
         }, 25);
     };
+
+    private static final ResourceLocation LOOT = new ResourceLocation(ModReference.MOD_ID, "piglin_brute");
+    @Override
+    protected ResourceLocation getLootTable() {
+        return null;
+    }
+
+    @Override
+    public boolean attackEntityFrom(DamageSource source, float amount) {
+
+        if(source.getImmediateSource() == this || source.getImmediateSource() instanceof EntityPiglin) {
+            return false;
+        }
+
+        return super.attackEntityFrom(source, amount);
+    }
 
 
     @Override

@@ -1288,6 +1288,20 @@
       }
     ]
   },
+  "entity.piglin.converted": {
+    "category": "entity",
+    "subtitle": "entity.piglin.converted",
+    "sounds": [
+      {
+        "name": "nb:entity/piglin/converted1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/piglin/converted2",
+        "stream": true
+      }
+    ]
+  },
   "entity.strider.step": {
     "category": "entity",
     "subtitle": "entity.strider.step",
@@ -1668,6 +1682,326 @@
     "sounds": [
       {
         "name": "nb:entity/zpig/death1",
+        "stream": true
+      }
+    ]
+  },
+  "entity.hoglin.death": {
+    "category": "entity",
+    "subtitle": "entity.hoglin.death",
+    "sounds": [
+      {
+        "name": "nb:entity/hoglin/death1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/death2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/death3",
+        "stream": true
+      }
+    ]
+  },
+  "entity.hoglin.step": {
+    "category": "entity",
+    "subtitle": "entity.hoglin.step",
+    "sounds": [
+      {
+        "name": "nb:entity/hoglin/step1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/step2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/step3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/step4",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/step5",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/step6",
+        "stream": true
+      }
+    ]
+  },
+  "entity.hoglin.idle": {
+    "category": "entity",
+    "subtitle": "entity.hoglin.idle",
+    "sounds": [
+      {
+        "name": "nb:entity/hoglin/idle1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/idle2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/idle3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/idle4",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/idle5",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/idle6",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/idle7",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/idle8",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/idle9",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/idle10",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/idle11",
+        "stream": true
+      }
+    ]
+  },
+  "entity.hoglin.hurt": {
+    "category": "entity",
+    "subtitle": "entity.hoglin.hurt",
+    "sounds": [
+      {
+        "name": "nb:entity/hoglin/hurt1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/hurt2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/hurt3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/hurt4",
+        "stream": true
+      }
+    ]
+  },
+  "entity.hoglin.angry": {
+    "category": "entity",
+    "subtitle": "entity.hoglin.angry",
+    "sounds": [
+      {
+        "name": "nb:entity/hoglin/angry1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/angry2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/angry3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/angry4",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/angry5",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/angry6",
+        "stream": true
+      }
+    ]
+  },
+  "entity.hoglin.retreat": {
+    "category": "entity",
+    "subtitle": "entity.hoglin.retreat",
+    "sounds": [
+      {
+        "name": "nb:entity/hoglin/retreat1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/retreat2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/retreat3",
+        "stream": true
+      }
+    ]
+  },
+  "entity.hoglin.attack": {
+    "category": "entity",
+    "subtitle": "entity.hoglin.attack",
+    "sounds": [
+      {
+        "name": "nb:entity/hoglin/attack1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/attack2",
+        "stream": true
+      }
+    ]
+  },
+  "entity.hoglin.converted": {
+    "category": "entity",
+    "subtitle": "entity.hoglin.converted",
+    "sounds": [
+      {
+        "name": "nb:entity/hoglin/converted1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/hoglin/converted2",
+        "stream": true
+      }
+    ]
+  },
+  "entity.zoglin.hurt": {
+    "category": "entity",
+    "subtitle": "entity.zoglin.hurt",
+    "sounds": [
+      {
+        "name": "nb:entity/zoglin/hurt1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/zoglin/hurt2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/zoglin/hurt3",
+        "stream": true
+      }
+    ]
+  },
+  "entity.zoglin.idle": {
+    "category": "entity",
+    "subtitle": "entity.zoglin.idle",
+    "sounds": [
+      {
+        "name": "nb:entity/zoglin/idle1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/zoglin/idle2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/zoglin/idle3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/zoglin/idle4",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/zoglin/idle5",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/zoglin/idle6",
+        "stream": true
+      }
+    ]
+  },
+  "entity.zoglin.step": {
+    "category": "entity",
+    "subtitle": "entity.zoglin.step",
+    "sounds": [
+      {
+        "name": "nb:entity/zoglin/step1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/zoglin/step2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/zoglin/step3",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/zoglin/step4",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/zoglin/step5",
+        "stream": true
+      }
+    ]
+  },
+  "entity.zoglin.death": {
+    "category": "entity",
+    "subtitle": "entity.zoglin.death",
+    "sounds": [
+      {
+        "name": "nb:entity/zoglin/death1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/zoglin/death2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/zoglin/death3",
+        "stream": true
+      }
+    ]
+  },
+  "entity.zoglin.angry": {
+    "category": "entity",
+    "subtitle": "entity.zoglin.angry",
+    "sounds": [
+      {
+        "name": "nb:entity/zoglin/angry1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/zoglin/angry2",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/zoglin/angry3",
+        "stream": true
+      }
+    ]
+  },
+  "entity.zoglin.attack": {
+    "category": "entity",
+    "subtitle": "entity.zoglin.attack",
+    "sounds": [
+      {
+        "name": "nb:entity/zoglin/attack1",
+        "stream": true
+      },
+      {
+        "name": "nb:entity/zoglin/attack2",
         "stream": true
       }
     ]

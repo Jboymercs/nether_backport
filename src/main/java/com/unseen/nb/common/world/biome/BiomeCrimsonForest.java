@@ -1,5 +1,6 @@
 package com.unseen.nb.common.world.biome;
 
+import com.unseen.nb.common.entity.entities.EntityHoglin;
 import com.unseen.nb.common.entity.entities.EntityPiglin;
 import com.unseen.nb.common.entity.entities.EntityPiglinZombie;
 import com.unseen.nb.common.entity.entities.EntityStrider;
@@ -51,7 +52,7 @@ public class BiomeCrimsonForest extends Biome implements INetherBiome, INetherAP
         this.spawnableMonsterList.add(new SpawnListEntry(EntityPiglin.class, 5, 2, 4));
         this.spawnableMonsterList.add(new SpawnListEntry(EntityPiglinZombie.class, 1, 2,4));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityStrider.class, 10, 1, 2));
-        //Add Hoglin weight 8, min 3, max 4
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityHoglin.class, 10, 3, 4));
         this.topBlock = CRIMSON_FLOOR;
         random = new Random();
     }

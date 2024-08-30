@@ -2,6 +2,7 @@ package com.unseen.nb.util;
 
 import com.google.common.collect.Lists;
 import com.unseen.nb.init.ModBlocks;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.MultiPartEntityPart;
@@ -67,6 +68,32 @@ public class ModUtils {
                 world.setBlockState(blockPos, Blocks.SOUL_SAND.getDefaultState());
             }
         }
+    }
+
+
+    public static BlockPos searchForBlocks(AxisAlignedBB box, World world, Entity entity, IBlockState block) {
+        int i = MathHelper.floor(box.minX);
+        int j = MathHelper.floor(box.minY);
+        int k = MathHelper.floor(box.minZ);
+        int l = MathHelper.floor(box.maxX);
+        int i1 = MathHelper.floor(box.maxY);
+        int j1 = MathHelper.floor(box.maxZ);
+        for (int x = i; x <= l; ++x) {
+            for (int y = j; y <= i1; ++y) {
+                for (int z = k; z <= j1; ++z) {
+                    BlockPos blockpos = new BlockPos(x, y, z);
+                    IBlockState iblockstate = world.getBlockState(blockpos);
+
+
+                    if(iblockstate == block) {
+
+                        return blockpos;
+                    }
+                }
+            }
+        }
+
+        return null;
     }
 
     public static double interperetVar(double dist, double radius){

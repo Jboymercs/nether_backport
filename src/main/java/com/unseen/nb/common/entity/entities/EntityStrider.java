@@ -6,6 +6,7 @@ import com.unseen.nb.common.entity.util.PathNavigateLava;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.init.ModItems;
 import com.unseen.nb.init.ModSoundHandler;
+import com.unseen.nb.util.ModReference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -63,6 +64,7 @@ public class EntityStrider extends EntityAnimal {
         this.setPathPriority(PathNodeType.DAMAGE_FIRE, 0.0F);
         this.isImmuneToFire = true;
         this.setSize(0.9F, 1.7F);
+        this.experienceValue = 2;
     }
 
     @Override
@@ -270,10 +272,17 @@ public class EntityStrider extends EntityAnimal {
         }
     }
 
-    @Nullable
+    private static final ResourceLocation LOOT = new ResourceLocation(ModReference.MOD_ID, "strider");
+
+    @Override
     protected ResourceLocation getLootTable() {
+        if(!this.isChild()) {
+            return LOOT;
+        }
         return null;
     }
+
+
 
     @Override
     public void travel(float strafe, float vertical, float forward) {
@@ -366,6 +375,8 @@ public class EntityStrider extends EntityAnimal {
     public boolean isBreedingItem(ItemStack stack) {
         return TEMPTATION_ITEMS.contains(stack.getItem());
     }
+
+
 
     @Override
     @Nullable
