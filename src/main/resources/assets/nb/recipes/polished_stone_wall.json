@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "VVV",
+    "VVV"
+  ],
+  "key": {
+    "V": {
+      "item": "nb:polished_black_stone"
+    }
+  },
+  "result": {
+    "item": "nb:polished_stone_wall",
+    "data": 0,
+    "count": 6
+  }
+}

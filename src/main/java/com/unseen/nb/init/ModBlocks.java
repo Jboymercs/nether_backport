@@ -8,6 +8,7 @@ import com.unseen.nb.common.blocks.base.slab.BlockHalfSlab;
 import com.unseen.nb.common.blocks.base.slab.BlockSlabBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
+import net.minecraft.block.BlockWall;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -67,6 +68,9 @@ public class ModBlocks {
 
     public static final BlockSlab BLACK_BRICKS_SLAB_HALF = new BlockHalfSlab("black_bricks_slab_half", Material.ROCK, CreativeTabs.BUILDING_BLOCKS, ModBlocks.BLACK_BRICKS_SLAB_HALF, ModBlocks.BLACK_BRICKS_SLAB_DOUBLE, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE);
 
+    public static final Block BLACK_STONE_WALL = new BlockNetherWall("black_stone_wall", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE, CreativeTabs.DECORATIONS);
+    public static final Block POLISHED_BLACK_STONE_WALL = new BlockNetherWall("polished_stone_wall", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE, CreativeTabs.DECORATIONS);
+    public static final Block POLISHED_BRICKS_STONE_WALL = new BlockNetherWall("bricks_stone_wall", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE, CreativeTabs.DECORATIONS);
 
 
     public static final Block SOUL_SOIL = new BlockBase("soul_soil", Material.GROUND, WOOD_HARDNESS, WOOD_RESISTANCE, NBSoundTypes.SOUL_SOIL).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);

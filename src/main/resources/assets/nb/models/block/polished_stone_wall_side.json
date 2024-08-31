@@ -1,0 +1,6 @@
+{
+  "parent": "block/wall_side",
+  "textures": {
+    "wall": "nb:blocks/polished_black_stone"
+  }
+}

@@ -40,7 +40,8 @@ public class BiomeSoulValley extends Biome implements INetherBiome, INetherAPIRe
             new WorldGenFossils("fossil_5"), new WorldGenFossils("fossil_6"), new WorldGenFossils("fossil_7"), new WorldGenFossils("fossil_8")};
     private Random random;
 
-    private final WorldGenNB[] basaltPillarsSmall = {new WorldGenBasaltTop("basalt_pillar_1"), new WorldGenBasaltTop("basalt_pillar_2"), new WorldGenBasaltTop("basalt_pillar_3")};
+    private final WorldGenNB[] basaltPillarsSmall = {new WorldGenBasaltTop("basalt_pillar_1"), new WorldGenBasaltTop("basalt_pillar_2"), new WorldGenBasaltTop("basalt_pillar_3")
+            , new WorldGenBasaltTop("basalt_pillar_4"), new WorldGenBasaltTop("basalt_pillar_5"), new WorldGenBasaltTop("basalt_pillar_6")};
 
     private final WorldGenSoulFire soulFire = new WorldGenSoulFire(ModBlocks.SOUL_FIRE.getDefaultState());
 
