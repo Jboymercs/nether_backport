@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "VV",
+    "VV"
+  ],
+  "key": {
+    "V": {
+      "item": "nb:basalt"
+    }
+  },
+  "result": {
+    "item": "nb:polished_basalt",
+    "data": 0,
+    "count": 4
+  }
+}

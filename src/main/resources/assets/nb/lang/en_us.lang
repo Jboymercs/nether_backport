@@ -17,6 +17,7 @@ tile.warped_slab_double.name=Double Warped Slab
 tile.soul_soil.name=Soul Soil
 tile.basalt.name=Basalt
 tile.polished_basalt.name=Polished Basalt
+tile.smooth_basalt.name=Smooth Basalt
 tile.cry_obi.name=Crying Obsidian
 tile.netherite_block.name=Block of Netherite
 tile.netherite_ore.name=Ancient Debris
@@ -48,6 +49,11 @@ tile.crimson_vine.name=Weeping Vines
 tile.warped_vine.name=Twisting Vines
 tile.soul_fire.name=Soul Fire
 tile.quartz_bricks.name=Quartz Bricks
+tile.warped_trapdoor.name=Warped Trapdoor
+tile.crimson_trapdoor.name=Crimson Trapdoor
+tile.warped_door.name=Warped Door
+tile.crimson_door.name=Crimson Door
+
 
 ##ENTITIES
 entity.piglin.name=Piglin
@@ -61,3 +67,5 @@ entity.zoglin.name=Zoglin
 item.fungus_on_stick.name=Warped Fungus on a Stick
 item.nether_scrap.name=Netherite Scrap
 item.netherite_ingot.name=Netherite Ingot
+item.crimson_door.name=Crimson Door
+item.warped_door.name=Warped Door

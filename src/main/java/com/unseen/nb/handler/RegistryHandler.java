@@ -5,6 +5,8 @@ import com.unseen.nb.init.ModItems;
 import com.unseen.nb.util.ModReference;
 import com.unseen.nb.util.mapper.AdvancedStateMap;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockDoor;
+import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -15,6 +17,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
+
+import java.util.Map;
+import java.awt.*;
 
 @Mod.EventBusSubscriber
 public class RegistryHandler {
@@ -70,7 +75,10 @@ public class RegistryHandler {
                     ((IStateMappedBlock) block).setStateMapper(builder);
                     ModelLoader.setCustomStateMapper(block, builder.build());
                 }
+
                 if (block instanceof IHasModel) {
+                    ModelLoader.setCustomStateMapper(ModBlocks.CRIMSON_DOOR, new StateMap.Builder().ignore(BlockDoor.POWERED).build());
+                    ModelLoader.setCustomStateMapper(ModBlocks.WARPED_DOOR, new StateMap.Builder().ignore(BlockDoor.POWERED).build());
                     ((IHasModel) block).registerModels();
                 }
             }

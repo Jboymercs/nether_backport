@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "VVV",
+    "V V"
+  ],
+  "key": {
+    "V": {
+      "item": "nb:warped_planks"
+    }
+  },
+  "result": {
+    "item": "nb:warped_trapdoor",
+    "data": 0,
+    "count": 2
+  }
+}

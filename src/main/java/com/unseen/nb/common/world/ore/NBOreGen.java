@@ -17,6 +17,7 @@ public class NBOreGen implements IWorldGenerator {
     if(world.provider.getDimension() == -1) {
         genOre(ModBlocks.NETHER_GOLD_ORE.getDefaultState(), ModRand.range(1, 16), 10, 10, 117, world, random, chunkX, chunkZ);
         genOre(ModBlocks.NETHERITE_ORE.getDefaultState(), ModRand.range(1, 5), 5, 3, 24, world, random, chunkX, chunkZ);
+        genOre(ModBlocks.BLACK_STONE.getDefaultState(), ModRand.range(6, 24), 10, 10, 120, world, random, chunkX, chunkZ);
     }
 
     }

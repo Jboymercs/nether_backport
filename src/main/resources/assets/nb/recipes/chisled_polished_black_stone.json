@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "V",
+    "V"
+  ],
+  "key": {
+    "V": {
+      "item": "nb:polished_black_stone_slab_half",
+      "data" : 0
+    }
+  },
+  "result": {
+    "item": "nb:chisled_polished_black_stone",
+    "data": 0,
+    "count": 1
+  }
+}

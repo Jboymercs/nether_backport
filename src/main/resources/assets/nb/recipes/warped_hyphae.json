@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "VV",
+    "VV"
+  ],
+  "key": {
+    "V": {
+      "item": "nb:warped_stem"
+    }
+  },
+  "result": {
+    "item": "nb:warped_hyphae",
+    "data": 0,
+    "count": 3
+  }
+}

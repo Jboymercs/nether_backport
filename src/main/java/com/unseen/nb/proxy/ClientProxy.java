@@ -4,6 +4,8 @@ import com.unseen.nb.client.animation.IAnimatedEntity;
 import com.unseen.nb.client.animation.model.BasicModelEntity;
 import com.unseen.nb.client.entity.model.ModelPiglin;
 import com.unseen.nb.handler.RenderHandler;
+import com.unseen.nb.init.ModBlocks;
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.model.ModelBiped;
@@ -23,7 +25,9 @@ public class ClientProxy extends CommonProxy{
 
     @Override
     public void registerItemRenderer(Item item, int meta, String id) {
+
         ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), id));
+
     }
 
 

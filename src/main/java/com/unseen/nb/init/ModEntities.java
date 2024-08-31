@@ -24,22 +24,27 @@ public class ModEntities {
     private static final Map<Class<? extends Entity>, String> ID_MAP = new HashMap<>();
 
     private static int ENTITY_START_ID = 100;
-    //temporary
-    public static Vec3i nether = new Vec3i(6433126, 0xeb4034, 0);
+
+    public static Vec3i piglin = new Vec3i(0x995F40, 0xF9F3A4, 0);
+    public static Vec3i piglin_brute = new Vec3i(0x592A10, 0xF9F3A4, 0);
+    public static Vec3i hoglin = new Vec3i(0xC66E55, 0x5F6464, 0);
+    public static Vec3i zoglin = new Vec3i(0xC66E55, 0xE6E6E6, 0);
+    public static Vec3i piglin_zombie = new Vec3i(0xEA9393, 0x4C7129, 0);
+    public static Vec3i strider = new Vec3i(0x9C3436, 0x4D494D, 0);
 
     public static void registerEntities() {
         //Piglin
-    registerEntityWithID("piglin", EntityPiglin.class, ENTITY_START_ID++, 70, nether);
+    registerEntityWithID("piglin", EntityPiglin.class, ENTITY_START_ID++, 70, piglin);
     //Strider
-    registerEntityWithID("strider", EntityStrider.class, ENTITY_START_ID++, 70, nether);
+    registerEntityWithID("strider", EntityStrider.class, ENTITY_START_ID++, 70, strider);
     //Piglin Brute
-        registerEntityWithID("piglin_brute", EntityPiglinBrute.class, ENTITY_START_ID++, 70, nether);
+        registerEntityWithID("piglin_brute", EntityPiglinBrute.class, ENTITY_START_ID++, 70, piglin_brute);
         //Piglin Zombie
-        registerEntityWithID("piglin_zombie", EntityPiglinZombie.class, ENTITY_START_ID++, 70, nether);
+        registerEntityWithID("piglin_zombie", EntityPiglinZombie.class, ENTITY_START_ID++, 70, piglin_zombie);
         //Hoglin
-        registerEntityWithID("hoglin", EntityHoglin.class, ENTITY_START_ID++, 70, nether);
+        registerEntityWithID("hoglin", EntityHoglin.class, ENTITY_START_ID++, 70, hoglin);
         //Zoglin
-        registerEntityWithID("zoglin", EntityZoglin.class, ENTITY_START_ID++, 70, nether);
+        registerEntityWithID("zoglin", EntityZoglin.class, ENTITY_START_ID++, 70, zoglin);
     }
 
     public static void RegisterEntitySpawns() {

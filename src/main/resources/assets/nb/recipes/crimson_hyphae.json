@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "VV",
+    "VV"
+  ],
+  "key": {
+    "V": {
+      "item": "nb:crimson_stem"
+    }
+  },
+  "result": {
+    "item": "nb:crimson_hyphae",
+    "data": 0,
+    "count": 3
+  }
+}

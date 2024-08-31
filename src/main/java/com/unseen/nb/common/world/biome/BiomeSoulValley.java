@@ -2,6 +2,7 @@ package com.unseen.nb.common.world.biome;
 
 import com.unseen.nb.common.entity.entities.EntityStrider;
 import com.unseen.nb.common.world.base.WorldGenNB;
+import com.unseen.nb.common.world.terrain.basaltPillars.WorldGenBasaltTop;
 import com.unseen.nb.common.world.terrain.fire.WorldGenSoulFire;
 import com.unseen.nb.common.world.terrain.fossils.WorldGenFossils;
 import com.unseen.nb.common.world.terrain.fossils.WorldGenReplaceOnRand;
@@ -39,6 +40,8 @@ public class BiomeSoulValley extends Biome implements INetherBiome, INetherAPIRe
             new WorldGenFossils("fossil_5"), new WorldGenFossils("fossil_6"), new WorldGenFossils("fossil_7"), new WorldGenFossils("fossil_8")};
     private Random random;
 
+    private final WorldGenNB[] basaltPillarsSmall = {new WorldGenBasaltTop("basalt_pillar_1"), new WorldGenBasaltTop("basalt_pillar_2"), new WorldGenBasaltTop("basalt_pillar_3")};
+
     private final WorldGenSoulFire soulFire = new WorldGenSoulFire(ModBlocks.SOUL_FIRE.getDefaultState());
 
     private final WorldGenReplaceOnRand soul_sand_replacer = new WorldGenReplaceOnRand();
@@ -50,7 +53,7 @@ public class BiomeSoulValley extends Biome implements INetherBiome, INetherAPIRe
         this.spawnableCaveCreatureList.clear();
         this.spawnableMonsterList.add(new SpawnListEntry(EntityEnderman.class, 1, 1, 1));
         this.spawnableMonsterList.add(new SpawnListEntry(EntitySkeleton.class, 10, 1, 2));
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityGhast.class, 8, 1, 2));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityGhast.class, 9, 1, 2));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityStrider.class, 10, 2, 4));
         //Add Strider weight 10, min 2, max 4
         this.topBlock = CRIMSON_FLOOR;
@@ -101,6 +104,20 @@ public class BiomeSoulValley extends Biome implements INetherBiome, INetherAPIRe
                 }
             }
         }
+
+        //Basalt Pillars
+        if(world.rand.nextInt(5) == 0) {
+            for (int k2 = 0; k2 < ModRand.range(0, 3); k2++) {
+                int l6 = random.nextInt(16) + 8;
+                int k10 = random.nextInt(16) + 8;
+                BlockPos posToo = new BlockPos(pos.getX() + l6, 31, pos.getZ() + k10);
+                if (world.getBlockState(posToo).getBlock() == Blocks.LAVA && world.getBlockState(posToo.add(5, 0, 5)).getBlock() == Blocks.LAVA) {
+                    WorldGenNB basalt = ModRand.choice(basaltPillarsSmall);
+                    basalt.generate(world, rand, pos.add(l6 - 3, 0, k10 - 3));
+                }
+            }
+        }
+
     }
     @Override
     public void buildSurface(@Nonnull INetherAPIChunkGenerator chunkGenerator, int chunkX, int chunkZ, @Nonnull ChunkPrimer primer, int x, int z, double[] soulSandNoise, double[] gravelNoise, double[] depthBuffer, double terrainNoise) {
