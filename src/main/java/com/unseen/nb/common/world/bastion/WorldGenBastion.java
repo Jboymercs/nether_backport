@@ -62,7 +62,7 @@ public class WorldGenBastion extends WorldGenerator {
                 Rotation rotation = Rotation.values()[(rand2 + i) % Rotation.values().length];
                 components.clear();
                 //Set IAW with the best Position to spawn the first layer of the chambers at
-                BlockPos blockpos = posI.add(0, 31, 0);
+                BlockPos blockpos = posI.add(0, 100, 0);
                 BastionRemnants bastion = new BastionRemnants(world, world.getSaveHandler().getStructureTemplateManager(), components);
                 //Starts the first room within the Trial Chambers
                 bastion.startBastion(blockpos, rotation);
@@ -85,7 +85,7 @@ public class WorldGenBastion extends WorldGenerator {
         //Here is where you specify the size of the structure in terms of rooms, I guess you could make this configurable if you want
         @Override
         public boolean isSizeableStructure() {
-            return components.size() > 6;
+            return components.size() > 2;
         }
     }
 }

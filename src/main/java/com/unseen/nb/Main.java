@@ -1,7 +1,10 @@
 package com.unseen.nb;
 
+import com.sun.jna.Structure;
 import com.unseen.nb.common.capabilities.CapabilityRespawnAnchor;
+import com.unseen.nb.common.world.WorldGenNetherStructures;
 import com.unseen.nb.common.world.ore.NBOreGen;
+import com.unseen.nb.handler.StructureHandler;
 import com.unseen.nb.init.BiomeRegister;
 import com.unseen.nb.init.ModEntities;
 import com.unseen.nb.init.ModRecipes;
@@ -53,6 +56,8 @@ public class Main {
         ModIntegration.init();
         //Register World Gen
         GameRegistry.registerWorldGenerator(new NBOreGen(), 1);
+        //Register Bastion Spawning
+        GameRegistry.registerWorldGenerator(new WorldGenNetherStructures(), 1);
     }
 
     @EventHandler
@@ -62,6 +67,8 @@ public class Main {
         CapabilityManager.INSTANCE.register(CapabilityRespawnAnchor.ICapabilityRespawnAnchor.class, new CapabilityRespawnAnchor.Storage(), CapabilityRespawnAnchor.RespawnAnchorMethods::new);
         //Furnace Anvil Recipes
         ModRecipes.init();
+        //Registers the Structures and Templates
+        StructureHandler.handleStructureRegistries();
     }
 
     @EventHandler
