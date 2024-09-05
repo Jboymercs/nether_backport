@@ -11,6 +11,7 @@ import net.minecraftforge.fml.common.Loader;
 public class ModIntegration {
 
     public static boolean CROSSBOWS_BACKPORT_LOADED = Loader.isModLoaded("crossbows");
+    public static boolean NETHER_API_LOADED = Loader.isModLoaded("nether_api");
 
     public static void init() {
         if (CROSSBOWS_BACKPORT_LOADED) CrossbosBackportIntegration.init();

@@ -1,19 +1,23 @@
 package com.unseen.nb.util;
 
 import com.google.common.collect.Lists;
+import com.unseen.nb.config.ModConfig;
 import com.unseen.nb.init.ModBlocks;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.MultiPartEntityPart;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 import javax.annotation.Nonnull;
 import java.util.List;
@@ -183,5 +187,15 @@ public class ModUtils {
         float f2 = -MathHelper.cos(-pitch * 0.017453292F);
         float f3 = MathHelper.sin(-pitch * 0.017453292F);
         return new Vec3d(f1 * f2, f3, f * f2);
+    }
+
+
+    public static boolean isFireproof(Item item) {
+        for (String itemName : ModConfig.fireproofItemList) {
+            if (ForgeRegistries.ITEMS.getValue(new ResourceLocation(itemName)) == item) {
+                return !ModConfig.fireproofItemBlacklist;
+            }
+        }
+        return ModConfig.fireproofItemBlacklist;
     }
 }

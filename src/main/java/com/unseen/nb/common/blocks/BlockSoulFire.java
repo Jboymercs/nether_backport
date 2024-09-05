@@ -17,14 +17,12 @@ import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -394,6 +392,19 @@ public class BlockSoulFire extends BlockFire implements IHasModel {
                 worldIn.scheduleUpdate(pos, this, this.tickRate(worldIn) + worldIn.rand.nextInt(10));
             }
         }
+    }
+
+
+    @Override
+    public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
+        if(entityIn.isImmuneToFire()) return;
+
+        entityIn.attackEntityFrom(DamageSource.IN_FIRE, 2.0F);
+        if(!worldIn.isRemote) {
+            entityIn.setFire(8);
+        }
+
+        super.onEntityCollision(worldIn, pos, state, entityIn);
     }
 
     public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)

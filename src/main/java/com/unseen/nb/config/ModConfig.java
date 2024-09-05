@@ -38,4 +38,29 @@ public class ModConfig {
     @Config.Comment("Change how long it takes for a Piglin or Hoglin to Zombify when entering the overworld")
     @Config.RequiresMcRestart
     public static int zombification_time = 15;
+
+
+    @Config.RequiresMcRestart
+    @Config.Comment(value = "Which items will be affected by fire resistance. To add your own do 'modID:itemName', currently not supporting metaData")
+    public static String[] fireproofItemList = new String[] {
+            ModReference.MOD_ID + ":netherite_ore",
+            ModReference.MOD_ID + ":nether_scrap",
+            ModReference.MOD_ID + ":netherite_ingot",
+            ModReference.MOD_ID + ":netherite_block"
+            //ModReference.MOD_ID + ":netherite_sword",
+            //ModReference.MOD_ID + ":netherite_shovel",
+           // ModReference.MOD_ID + ":netherite_pickaxe",
+            //ModReference.MOD_ID + ":netherite_axe",
+           // ModReference.MOD_ID + ":netherite_hoe",
+           // ModReference.MOD_ID + ":netherite_helmet",
+           // ModReference.MOD_ID + ":netherite_chestplate",
+           // ModReference.MOD_ID + ":netherite_leggings",
+           // ModReference.MOD_ID + ":netherite_boots",
+           // ModReference.MOD_ID + ":netherite_horse_armor",
+           // ModReference.MOD_ID + ":netherite_block"
+    };
+
+    @Config.RequiresMcRestart
+    @Config.Comment(value = "Enable this to turn the whitelist for fire resistant items into the opposite. Meaning when set to true, items in the list will act without fire resistance")
+    public static boolean fireproofItemBlacklist = false;
 }

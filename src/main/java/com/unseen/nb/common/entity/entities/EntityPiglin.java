@@ -138,9 +138,13 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
         }
 
         if(!this.isHasMelee() && !this.isHasRanged()) {
-            if(worldIn.rand.nextInt(2) == 0 && ModIntegration.CROSSBOWS_BACKPORT_LOADED) {
+            if(worldIn.rand.nextInt(2) == 0) {
                 this.setHasRanged(true);
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, CrossbowsContent.CROSSBOW.getDefaultInstance());
+                if(ModIntegration.CROSSBOWS_BACKPORT_LOADED) {
+                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, CrossbowsContent.CROSSBOW.getDefaultInstance());
+                } else {
+                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.BOW.getDefaultInstance());
+                }
                 this.initRangedAI();
             } else {
                 this.setHasMelee(true);
@@ -149,7 +153,11 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
             }
         } else {
             if(this.isHasRanged()) {
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, CrossbowsContent.CROSSBOW.getDefaultInstance());
+                if(ModIntegration.CROSSBOWS_BACKPORT_LOADED) {
+                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, CrossbowsContent.CROSSBOW.getDefaultInstance());
+                } else {
+                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.BOW.getDefaultInstance());
+                }
                 this.initRangedAI();
             } else {
                 this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.GOLDEN_SWORD.getDefaultInstance());

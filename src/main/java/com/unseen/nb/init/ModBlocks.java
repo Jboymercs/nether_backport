@@ -86,7 +86,7 @@ public class ModBlocks {
 
     public static final Block NETHERITE_ORE = new BlockBase("netherite_ore", Material.ROCK, OBSIDIAN_HARDNESS, OBSIDIAN_RESISTANCE, NBSoundTypes.ANCIENT_DEBRIS).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
-    public static final Block GILDED_BLACKSTONE = new BlockBase("gilded_blackstone", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.NETHER_ORE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block GILDED_BLACKSTONE = new BlockGildedBlackstone("gilded_blackstone", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.NETHER_ORE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
     public static Block NETHER_GOLD_ORE = new BlockNetherOre("nether_gold_ore", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.NETHER_ORE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
@@ -106,7 +106,7 @@ public class ModBlocks {
 
     public static Block BLACK_STONE_BRICK_STAIRS = new BlockStairBase("black_stone_brick_stairs", ModBlocks.BLACK_STONE_BRICKS.getDefaultState(), STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
-    public static Block LODE_STONE = new BlockBase("lode_stone", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.LODE_STONE).setCreativeTab(CreativeTabs.DECORATIONS);
+    public static Block LODE_STONE = new BlockLodeStone("lode_stone", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.LODE_STONE).setCreativeTab(CreativeTabs.DECORATIONS);
 
     public static Block RESPAWN_ANCHOR = new BlockRespawnAnchor("respawn_anchor", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(CreativeTabs.DECORATIONS);
 
