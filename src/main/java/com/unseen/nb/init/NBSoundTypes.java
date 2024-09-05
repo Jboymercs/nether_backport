@@ -3,6 +3,7 @@ package com.unseen.nb.init;
 import net.minecraft.block.SoundType;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.SoundEvent;
+import net.minecraftforge.fml.common.Mod;
 
 public class NBSoundTypes {
 
@@ -12,6 +13,8 @@ public class NBSoundTypes {
     public static final SoundType HYPHAE = new SoundType(1, 1, ModSoundHandler.HYPHAE_BREAK, ModSoundHandler.HYPHAE_BREAK,
             ModSoundHandler.HYPHAE_BREAK, ModSoundHandler.HYPHAE_BREAK, ModSoundHandler.HYPHAE_BREAK);
 
+    public static final SoundType CHAIN = new SoundType(1, 1, ModSoundHandler.CHAIN_BREAK, ModSoundHandler.CHAIN_STEP,
+            ModSoundHandler.CHAIN_STEP, ModSoundHandler.CHAIN_BREAK, ModSoundHandler.CHAIN_STEP);
     public static final SoundType WART = new SoundType(1, 1, ModSoundHandler.WART_BREAK, ModSoundHandler.WART_STEP,
             ModSoundHandler.WART_PLACE, ModSoundHandler.WART_BLOCK_HIT, ModSoundHandler.WART_PLACE);
 

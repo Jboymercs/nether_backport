@@ -13,6 +13,9 @@ public class ModSoundHandler {
     public static SoundEvent NYLIUM_BLOCK_HIT;
     public static SoundEvent NYLIUM_FALL;
 
+    public static SoundEvent CHAIN_BREAK;
+    public static SoundEvent CHAIN_STEP;
+
     public static SoundEvent HYPHAE_BREAK;
 
     public static SoundEvent WART_BREAK;
@@ -121,6 +124,13 @@ public class ModSoundHandler {
     public static SoundEvent ZOGLIN_STEP;
     public static SoundEvent ZOGLIN_ATTACK;
 
+    //Biome Ambience
+    public static SoundEvent CRIMSON_FOREST_AMBIENT;
+    public static SoundEvent CRIMSON_FOREST_AMBIENT_CONSTANT;
+    public static SoundEvent WARPED_FOREST_AMBIENT;
+    public static SoundEvent WARPED_FOREST_AMBIENT_CONSTANT;
+    public static SoundEvent SOUL_SAND_VALLEY_AMBIENT;
+    public static SoundEvent SOUL_SAND_VALLEY_AMBIENT_CONSTANT;
 
     public static void registerSounds() {
     NYLIUM_BREAK = registerSound("nether_grass.break", "block");
@@ -128,6 +138,8 @@ public class ModSoundHandler {
     NYLIUM_STEP = registerSound("nether_grass.step", "block");
     NYLIUM_PLACE = registerSound("nether_grass.place", "block");
     NYLIUM_FALL = registerSound("nether_grass.fall", "block");
+    CHAIN_BREAK = registerSound("chain.break", "block");
+    CHAIN_STEP = registerSound("chain.step", "block");
 
     HYPHAE_BREAK = registerSound("hyphae.break", "block");
 
@@ -224,6 +236,13 @@ public class ModSoundHandler {
         ZOGLIN_IDLE = registerSound("zoglin.idle", "entity");
         ZOGLIN_STEP = registerSound("zoglin.step", "entity");
         ZOGLIN_ATTACK = registerSound("zoglin.attack", "entity");
+        //Biome Ambience
+        CRIMSON_FOREST_AMBIENT = registerSound("crimson_forest.ambience", "ambient");
+        CRIMSON_FOREST_AMBIENT_CONSTANT = registerSound("crimson_forest.constant", "ambient");
+        WARPED_FOREST_AMBIENT = registerSound("warped_forest.ambience", "ambient");
+        WARPED_FOREST_AMBIENT_CONSTANT = registerSound("warped_forest.constant", "ambient");
+        SOUL_SAND_VALLEY_AMBIENT = registerSound("soulsand_valley.ambience", "ambient");
+        SOUL_SAND_VALLEY_AMBIENT_CONSTANT = registerSound("soulsand_valley.constant", "ambient");
     }
 
 

@@ -8,8 +8,12 @@ import com.unseen.nb.common.world.terrain.plants.WorldGenWarpedPlant;
 import com.unseen.nb.common.world.terrain.plants.WorldGenWarpedVines;
 import com.unseen.nb.common.world.terrain.trees.WorldGenWarpedTree;
 import com.unseen.nb.init.ModBlocks;
+import com.unseen.nb.init.ModSoundHandler;
 import com.unseen.nb.util.ModRand;
 import git.jbredwards.nether_api.api.audio.IMusicType;
+import git.jbredwards.nether_api.api.audio.ISoundAmbience;
+import git.jbredwards.nether_api.api.audio.impl.SoundAmbience;
+import git.jbredwards.nether_api.api.biome.IAmbienceBiome;
 import git.jbredwards.nether_api.api.biome.INetherBiome;
 import git.jbredwards.nether_api.api.registry.INetherAPIRegistryListener;
 import git.jbredwards.nether_api.api.world.INetherAPIChunkGenerator;
@@ -18,6 +22,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -27,7 +32,7 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import javax.annotation.Nonnull;
 import java.util.Random;
 
-public class BiomeWarpedForest extends Biome implements INetherBiome, INetherAPIRegistryListener {
+public class BiomeWarpedForest extends Biome implements INetherBiome, INetherAPIRegistryListener, IAmbienceBiome {
     private final WorldGenNB[] small_trees = {new WorldGenWarpedTree("s_w_tree_1", 1), new WorldGenWarpedTree("s_w_tree_2", 1), new WorldGenWarpedTree("s_w_tree_3", 1), new WorldGenWarpedTree("s_w_tree_4", 1), new WorldGenWarpedTree("s_w_tree_5", 1)};
     private final WorldGenNB[] medium_trees = {new WorldGenWarpedTree("m_w_tree_1", 2),new WorldGenWarpedTree("m_w_tree_2", 2), new WorldGenWarpedTree("m_w_tree_3", 2), new WorldGenWarpedTree("m_w_tree_4", 2), new WorldGenWarpedTree("m_w_tree_5", 2) };
 
@@ -173,5 +178,16 @@ public class BiomeWarpedForest extends Biome implements INetherBiome, INetherAPI
             currentY--;
         }
         return 0;
+    }
+
+
+    @Override
+    public ISoundAmbience getRandomAmbientSound() {
+        return new SoundAmbience(ModSoundHandler.WARPED_FOREST_AMBIENT, 0.001);
+    }
+
+    @Override
+    public SoundEvent getAmbientSound() {
+        return ModSoundHandler.WARPED_FOREST_AMBIENT_CONSTANT;
     }
 }

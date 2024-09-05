@@ -315,7 +315,6 @@ public class BastionRemnants {
         BlockPos blockpos = parent.getTemplate().calculateConnectedPos(parent.getPlacementSettings(), pos, newTemplate.getPlacementSettings(), BlockPos.ORIGIN);
         newTemplate.offset(blockpos.getX(), blockpos.getY(), blockpos.getZ());
         adjustAndCenter(parent, newTemplate, rot);
-        System.out.println("GeneratedEntranceSTart");
         return newTemplate;
     }
 

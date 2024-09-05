@@ -49,7 +49,7 @@ public class BlockNetherGrass extends BlockBase {
                 IBlockState state1 = worldIn.getBlockState(pos.up());
             if(state1 == Blocks.AIR.getDefaultState() && !state1.isFullBlock() || state1 instanceof BlockBush || state1 == ModBlocks.CRIMSON_GRASS.getDefaultState() || state1 == ModBlocks.CRIMSON_ROOTS.getDefaultState()
             || state1 == ModBlocks.CRIMSON_FUNGUS.getDefaultState() || state1 == ModBlocks.WARPED_FUNGUS.getDefaultState() || state1 == ModBlocks.WARPED_GRASS.getDefaultState() || state1 == ModBlocks.WARPED_ROOTS.getDefaultState() ||
-            state1 == ModBlocks.WARPED_VINES.getDefaultState() || state1 == ModBlocks.WARPED_SPROUT.getDefaultState()) {
+            state1 == ModBlocks.WARPED_VINES.getDefaultState() || state1 == ModBlocks.WARPED_SPROUT.getDefaultState() || state1 == ModBlocks.CRIMSON_VINES.getDefaultState()) {
                 return; //If the above block is not air
             } else {
                 worldIn.setBlockState(pos, Blocks.NETHERRACK.getDefaultState());

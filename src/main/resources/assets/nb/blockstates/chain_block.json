@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "axis=y":  { "model": "nb:chain_block" },
+    "axis=z":   { "model": "nb:chain_block", "x": 90 },
+    "axis=x":   { "model": "nb:chain_block", "x": 90, "y": 90 },
+    "axis=none": { "model": "nb:chain_block" }
+  }
+}

@@ -9,18 +9,20 @@ import com.unseen.nb.common.world.terrain.plants.WorldGenCrimsonPlant;
 import com.unseen.nb.common.world.terrain.plants.WorldGenCrimsonVines;
 import com.unseen.nb.common.world.terrain.trees.WorldGenCrimsonTree;
 import com.unseen.nb.init.ModBlocks;
+import com.unseen.nb.init.ModSoundHandler;
 import com.unseen.nb.util.ModRand;
 import git.jbredwards.nether_api.api.audio.IMusicType;
+import git.jbredwards.nether_api.api.audio.ISoundAmbience;
+import git.jbredwards.nether_api.api.audio.impl.SoundAmbience;
+import git.jbredwards.nether_api.api.biome.IAmbienceBiome;
 import git.jbredwards.nether_api.api.biome.INetherBiome;
-import git.jbredwards.nether_api.api.registry.INetherAPIRegistry;
 import git.jbredwards.nether_api.api.registry.INetherAPIRegistryListener;
 import git.jbredwards.nether_api.api.world.INetherAPIChunkGenerator;
-import git.jbredwards.nether_api.mod.NetherAPI;
 import git.jbredwards.nether_api.mod.common.config.NetherAPIConfig;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -28,10 +30,9 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
 
 import javax.annotation.Nonnull;
-import java.util.OptionalInt;
 import java.util.Random;
 
-public class BiomeCrimsonForest extends Biome implements INetherBiome, INetherAPIRegistryListener {
+public class BiomeCrimsonForest extends Biome implements INetherBiome, INetherAPIRegistryListener, IAmbienceBiome {
 
     private final WorldGenNB[] small_trees = {new WorldGenCrimsonTree("s_c_tree_1", 1), new WorldGenCrimsonTree("s_c_tree_2", 1), new WorldGenCrimsonTree("s_c_tree_3", 1), new WorldGenCrimsonTree("s_c_tree_4", 1), new WorldGenCrimsonTree("s_c_tree_5", 1)};
     private final WorldGenNB[] medium_trees = {new WorldGenCrimsonTree("m_c_tree_1", 2),new WorldGenCrimsonTree("m_c_tree_2", 2), new WorldGenCrimsonTree("m_c_tree_3", 2), new WorldGenCrimsonTree("m_c_tree_4", 2), new WorldGenCrimsonTree("m_c_tree_5", 2) };
@@ -62,29 +63,6 @@ public class BiomeCrimsonForest extends Biome implements INetherBiome, INetherAP
     @Override
     public void decorate(World world, Random rand, BlockPos pos)
     {
-        //Trees
-        //for (int k2 = 0; k2 < this.trees_per_chunk; ++k2)
-        //{
-            //int l6 = random.nextInt(16) + 8;
-            //int k10 = random.nextInt(16) + 8;
-            //int yHieght = getNetherSurfaceHeight(world, pos.add(16, 0, 16), 32, 110);
-            //if(yHieght > 32) {
-                //int randM = ModRand.range(1, 4);
-                //if(randM == 1) { //small
-                    //WorldGenNB tree = ModRand.choice(small_trees);
-                  //  tree.generate(world, rand, pos.add(-3, 0, -3));
-                //} else if (randM == 2) { //medium
-                    //WorldGenNB tree = ModRand.choice(medium_trees);
-                  //  tree.generate(world, rand, pos.add(-3, 0, -3));
-                //} else { //large
-
-                //    WorldGenNB tree = ModRand.choice(small_trees);
-              //      tree.generate(world, rand, pos.add(-3, 0, -3));
-            //    }
-          //  }
-        //}
-
-
         //Trees
         for(int k2 = 0; k2 < ModRand.range(8, 15);k2++) {
             int l6 = random.nextInt(16) + 8;
@@ -200,4 +178,13 @@ public class BiomeCrimsonForest extends Biome implements INetherBiome, INetherAP
     }
 
 
+    @Override
+    public ISoundAmbience getRandomAmbientSound() {
+        return new SoundAmbience(ModSoundHandler.CRIMSON_FOREST_AMBIENT, 0.001);
+    }
+
+    @Override
+    public SoundEvent getAmbientSound() {
+        return ModSoundHandler.CRIMSON_FOREST_AMBIENT_CONSTANT;
+    }
 }

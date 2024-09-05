@@ -402,6 +402,58 @@
       }
     ]
   },
+  "block.chain.step": {
+    "category": "block",
+    "sounds": [
+      {
+        "name": "nb:block/chain/step1",
+        "stream": true
+      },
+      {
+        "name": "nb:block/chain/step2",
+        "stream": true
+      },
+      {
+        "name": "nb:block/chain/step3",
+        "stream": true
+      },
+      {
+        "name": "nb:block/chain/step4",
+        "stream": true
+      },
+      {
+        "name": "nb:block/chain/step5",
+        "stream": true
+      },
+      {
+        "name": "nb:block/chain/step6",
+        "stream": true
+      }
+
+    ]
+  },
+  "block.chain.break": {
+    "category": "block",
+    "sounds": [
+      {
+        "name": "nb:block/chain/break1",
+        "stream": true
+      },
+      {
+        "name": "nb:block/chain/break2",
+        "stream": true
+      },
+      {
+        "name": "nb:block/chain/break3",
+        "stream": true
+      },
+      {
+        "name": "nb:block/chain/break4",
+        "stream": true
+      }
+
+    ]
+  },
   "block.basalt.break": {
     "category": "block",
     "subtitle": "subtitles.block.generic.break",
@@ -2004,6 +2056,334 @@
         "name": "nb:entity/zoglin/attack2",
         "stream": true
       }
+    ]
+  },
+  "ambient.crimson_forest.ambience": {
+    "category": "ambient",
+    "subtitle": "ambient.biome",
+    "sounds": [
+      {
+        "name": "nb:ambient/crimson_forest/addition1",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/crimson_forest/addition2",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/crimson_forest/addition3",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/crimson_forest/mood1",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/crimson_forest/mood2",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/crimson_forest/mood3",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/crimson_forest/particles1",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/crimson_forest/particles2",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/crimson_forest/particles3",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/crimson_forest/shine1",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/crimson_forest/shine2",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/crimson_forest/shine3",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/crimson_forest/shroom1",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/crimson_forest/shroom2",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/crimson_forest/shroom3",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/crimson_forest/twang1",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/crimson_forest/voom1",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/crimson_forest/voom2",
+        "stream": true
+      }
+    ]
+  },
+  "ambient.crimson_forest.constant": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "nb:ambient/crimson_forest/ambience",
+        "stream": true
+      }
+    ]
+  },
+  "ambient.warped_forest.constant": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "nb:ambient/warped_forest/ambience",
+        "stream": true
+      }
+    ]
+  },
+  "ambient.warped_forest.ambience": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "nb:ambient/warped_forest/addition1",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/addition2",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/addition3",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/addition4",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/addition5",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/addition6",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/creak1",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/creak2",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/creak3",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/creak4",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/creak5",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/enish1",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/enish2",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/enish3",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/help1",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/help2",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/here1",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/here2",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/here3",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/mood1",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/mood2",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/mood3",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/mood4",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/mood5",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/mood6",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/mood7",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/mood8",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/warped_forest/mood9",
+        "stream": true
+      }
+    ]
+  },
+  "ambient.soulsand_valley.constant": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "nb:ambient/soulsand_valley/ambience",
+        "stream": true
+      }
+    ]
+  },
+  "ambient.soulsand_valley.ambience": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "nb:ambient/soulsand_valley/mood1",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/soulsand_valley/mood2",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/soulsand_valley/mood3",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/soulsand_valley/mood4",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/soulsand_valley/sand1",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/soulsand_valley/sand2",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/soulsand_valley/sand3",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/soulsand_valley/voices1",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/soulsand_valley/voices2",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/soulsand_valley/voices3",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/soulsand_valley/voices4",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/soulsand_valley/voices5",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/soulsand_valley/whisper1",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/soulsand_valley/whisper2",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/soulsand_valley/whisper3",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/soulsand_valley/whisper4",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/soulsand_valley/whisper5",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/soulsand_valley/whisper6",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/soulsand_valley/whisper7",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/soulsand_valley/whisper8",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/soulsand_valley/wind1",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/soulsand_valley/wind2",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/soulsand_valley/wind3",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/soulsand_valley/wind4",
+        "stream": true
+      },
+      {
+        "name": "nb:ambient/soulsand_valley/with1",
+        "stream": true
+      }
+
     ]
   }
 

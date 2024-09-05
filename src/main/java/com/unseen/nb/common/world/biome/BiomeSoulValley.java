@@ -11,10 +11,15 @@ import com.unseen.nb.common.world.terrain.plants.WorldGenWarpedPlant;
 import com.unseen.nb.common.world.terrain.plants.WorldGenWarpedVines;
 import com.unseen.nb.common.world.terrain.trees.WorldGenWarpedTree;
 import com.unseen.nb.init.ModBlocks;
+import com.unseen.nb.init.ModSoundHandler;
 import com.unseen.nb.util.ModRand;
 import com.unseen.nb.util.ModUtils;
 import git.jbredwards.nether_api.api.audio.IMusicType;
+import git.jbredwards.nether_api.api.audio.ISoundAmbience;
+import git.jbredwards.nether_api.api.audio.impl.SoundAmbience;
+import git.jbredwards.nether_api.api.biome.IAmbienceBiome;
 import git.jbredwards.nether_api.api.biome.INetherBiome;
+import git.jbredwards.nether_api.api.event.NetherAPIBiomeSizeEvent;
 import git.jbredwards.nether_api.api.registry.INetherAPIRegistryListener;
 import git.jbredwards.nether_api.api.world.INetherAPIChunkGenerator;
 import git.jbredwards.nether_api.mod.common.config.NetherAPIConfig;
@@ -24,6 +29,7 @@ import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -33,9 +39,10 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import javax.annotation.Nonnull;
 import java.util.Random;
 
-public class BiomeSoulValley extends Biome implements INetherBiome, INetherAPIRegistryListener {
+public class BiomeSoulValley extends Biome implements INetherBiome, INetherAPIRegistryListener, IAmbienceBiome {
     public static BiomeProperties properties = new BiomeProperties("Soul Sand Valley");
     private static final IBlockState CRIMSON_FLOOR = ModBlocks.SOUL_SOIL.getDefaultState();
+
 
     private final WorldGenNB[] fossils = {new WorldGenFossils("fossil_1"), new WorldGenFossils("fossil_2"), new WorldGenFossils("fossil_3"), new WorldGenFossils("fossil_4"),
             new WorldGenFossils("fossil_5"), new WorldGenFossils("fossil_6"), new WorldGenFossils("fossil_7"), new WorldGenFossils("fossil_8")};
@@ -175,5 +182,16 @@ public class BiomeSoulValley extends Biome implements INetherBiome, INetherAPIRe
             currentY--;
         }
         return 0;
+    }
+
+
+    @Override
+    public ISoundAmbience getRandomAmbientSound() {
+        return new SoundAmbience(ModSoundHandler.SOUL_SAND_VALLEY_AMBIENT, 0.001);
+    }
+
+    @Override
+    public SoundEvent getAmbientSound() {
+        return ModSoundHandler.SOUL_SAND_VALLEY_AMBIENT_CONSTANT;
     }
 }
