@@ -3,6 +3,10 @@ package com.unseen.nb.util;
 import com.google.common.collect.Lists;
 import com.unseen.nb.config.ModConfig;
 import com.unseen.nb.init.ModBlocks;
+import net.minecraft.block.BlockDirt;
+import net.minecraft.block.BlockGrass;
+import net.minecraft.block.BlockSand;
+import net.minecraft.block.BlockStone;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -70,6 +74,38 @@ public class ModUtils {
         for(BlockPos blockPos : affectedConversionPositions) {
             if(world.getBlockState(blockPos).getBlock() == ModBlocks.SOUL_SOIL) {
                 world.setBlockState(blockPos, Blocks.SOUL_SAND.getDefaultState());
+            }
+        }
+    }
+
+
+    public static void createNetherrackCorruption(World world, int radius, double x, double y, double z) {
+
+        //This is for the Conversion to Ash Wastelands blocks
+        List<BlockPos> affectedConversionPositions = Lists.newArrayList();
+        int radius_int_conversion = (int) Math.ceil(radius);
+
+        for (int dx = -radius_int_conversion; dx < radius_int_conversion + 1; dx++) {
+            // fast calculate affected blocks
+            int y_lim = (int) Math.sqrt(radius_int_conversion*radius_int_conversion-dx*dx);
+            for (int dy = -y_lim; dy < y_lim + 1; dy++) {
+                int z_lim = (int) Math.sqrt(radius_int_conversion*radius_int_conversion-dx*dx-dy*dy);
+                for (int dz = -z_lim; dz < z_lim + 1; dz++) {
+                    BlockPos blockPos = new BlockPos(x + dx, y + dy, z + dz);
+                    double power = interperetVar(Math.sqrt(dx*dx+dy*dy+dz*dz), radius);
+                    if ((power>1) ||(power > new Random().nextDouble())){
+                        affectedConversionPositions.add(blockPos);
+                    }
+                }
+            }
+        }
+
+        for(BlockPos blockPos : affectedConversionPositions) {
+            if(world.rand.nextInt(5) != 0) {
+                if (world.getBlockState(blockPos).getBlock() instanceof BlockDirt || world.getBlockState(blockPos).getBlock() instanceof BlockSand || world.getBlockState(blockPos).getBlock() instanceof BlockGrass ||
+                        world.getBlockState(blockPos).getBlock() instanceof BlockStone) {
+                    world.setBlockState(blockPos, Blocks.NETHERRACK.getDefaultState());
+                }
             }
         }
     }

@@ -3,6 +3,7 @@ package com.unseen.nb.common.world.terrain.basaltPillars;
 import com.unseen.nb.common.world.base.WorldGenNB;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.util.ModRand;
+import git.jbredwards.nether_api.mod.common.config.NetherAPIConfig;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -18,13 +19,11 @@ public class WorldGenBasaltTop extends WorldGenNB {
 
     @Override
     public boolean generate(World worldIn, Random rand, BlockPos position) {
-        int yVar = getNetherSurfaceHeight(worldIn, position.add(3, 1, 3), 32, 120);
+        int yVar = getNetherSurfaceHeight(worldIn, position.add(3, 1, 3), 32, NetherAPIConfig.tallNether ? 240 : 120);
         if(yVar != 0) {
             replaceandBuildPillar(worldIn, new BlockPos(position.getX() + 3, position.getY() + 1, position.getZ() + 3), rand, yVar);
-            System.out.println("Passes at coords" + position);
-            return super.generate(worldIn, rand, new BlockPos(position.getX(), 31, position.getZ()));
+               return super.generate(worldIn, rand, new BlockPos(position.getX(), 31, position.getZ()));
         }
-        System.out.println("Failed to draw line to lava");
         return false;
     }
 
@@ -33,7 +32,6 @@ public class WorldGenBasaltTop extends WorldGenNB {
         int isDouble = ModRand.range(1, 5);
         int isTriple = ModRand.range(1, 6);
         for(int i = pos.getY(); i <= highYHeight; i++) {
-            System.out.println("Blocks Being built");
             BlockPos modifiedPos = new BlockPos(pos.getX(), i, pos.getZ());
             world.setBlockState(modifiedPos, ModBlocks.BASALT.getDefaultState());
 

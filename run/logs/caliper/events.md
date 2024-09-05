@@ -18,8 +18,8 @@ submitted to any online service.
 | PlayerInteractEvent                          | 1              |
 | TextureStitchEvent$Pre                       | 1              |
 | AnvilUpdateEvent                             | 1              |
-| PlayerSetSpawnEvent                          | 1              |
 | AttachCapabilitiesEvent                      | 1              |
+| PlayerSetSpawnEvent                          | 1              |
 | TickEvent$ServerTickEvent                    | 1              |
 | FMLNetworkEvent$ClientConnectedToServerEvent | 1              |
 | CommandEvent                                 | 1              |
@@ -64,8 +64,8 @@ submitted to any online service.
 | Owner            | Method          | Location                                                    | Priority | Source                                                     | RecieveCanceled |
 |------------------|-----------------|-------------------------------------------------------------|----------|------------------------------------------------------------|-----------------|
 | Minecraft Forge  | onConfigChanged | forge                                                       | normal   | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | false           |
-| Nether API       | sync            | git.jbredwards.nether_api.mod.common.config.NetherAPIConfig | normal   | nether-API-f2f48d7b8b_mapped_stable_39-1.12.jar            | false           |
 | Had Enough Items | onConfigChanged | mezz.jei.startup.ProxyCommonClient                          | normal   | had-enough-items-557549-4571247_mapped_stable_39-1.12.jar  | false           |
+| Nether API       | sync            | git.jbredwards.nether_api.mod.common.config.NetherAPIConfig | normal   | nether-API-f2f48d7b8b_mapped_stable_39-1.12.jar            | false           |
 
 
 ## AnvilUpdateEvent
@@ -74,16 +74,16 @@ submitted to any online service.
 | Bookshelf | onAnvilUpdate | net.darkhax.bookshelf.Bookshelf | normal   | Bookshelf-1.12.2-2.3.590 (1).jar | false           |
 
 
-## PlayerSetSpawnEvent
-| Owner                   | Method              | Location                                      | Priority | Source              | RecieveCanceled |
-|-------------------------|---------------------|-----------------------------------------------|----------|---------------------|-----------------|
-| Unseens Nether Backport | setSpawnCheckAnchor | com.unseen.nb.common.event.EventRespawnAnchor | normal   | nb-1.12.2-0.0.1.jar | false           |
-
-
 ## AttachCapabilitiesEvent
 | Owner                   | Method             | Location                                      | Priority | Source              | RecieveCanceled |
 |-------------------------|--------------------|-----------------------------------------------|----------|---------------------|-----------------|
 | Unseens Nether Backport | attachCapabilities | com.unseen.nb.common.event.EventRespawnAnchor | normal   | nb-1.12.2-0.0.1.jar | false           |
+
+
+## PlayerSetSpawnEvent
+| Owner                   | Method              | Location                                      | Priority | Source              | RecieveCanceled |
+|-------------------------|---------------------|-----------------------------------------------|----------|---------------------|-----------------|
+| Unseens Nether Backport | setSpawnCheckAnchor | com.unseen.nb.common.event.EventRespawnAnchor | normal   | nb-1.12.2-0.0.1.jar | false           |
 
 
 ## TickEvent$ServerTickEvent
@@ -154,8 +154,8 @@ submitted to any online service.
 ## WorldEvent$Load
 | Owner           | Method          | Location                                       | Priority | Source                                                     | RecieveCanceled |
 |-----------------|-----------------|------------------------------------------------|----------|------------------------------------------------------------|-----------------|
-| Bookshelf       | onWorldLoaded   | net.darkhax.bookshelf.Bookshelf                | normal   | Bookshelf-1.12.2-2.3.590 (1).jar                           | false           |
 | Minecraft Forge | onDimensionLoad | net.minecraftforge.common.ForgeInternalHandler | highest  | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | false           |
+| Bookshelf       | onWorldLoaded   | net.darkhax.bookshelf.Bookshelf                | normal   | Bookshelf-1.12.2-2.3.590 (1).jar                           | false           |
 
 
 ## WorldEvent$Unload
@@ -185,15 +185,15 @@ submitted to any online service.
 ## WorldEvent$Save
 | Owner            | Method          | Location                                       | Priority | Source                                                     | RecieveCanceled |
 |------------------|-----------------|------------------------------------------------|----------|------------------------------------------------------------|-----------------|
-| Had Enough Items | onWorldSave     | mezz.jei.startup.ProxyCommonClient             | normal   | had-enough-items-557549-4571247_mapped_stable_39-1.12.jar  | false           |
 | Minecraft Forge  | onDimensionSave | net.minecraftforge.common.ForgeInternalHandler | highest  | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | false           |
+| Had Enough Items | onWorldSave     | mezz.jei.startup.ProxyCommonClient             | normal   | had-enough-items-557549-4571247_mapped_stable_39-1.12.jar  | false           |
 
 
 ## EntityJoinWorldEvent
 | Owner                   | Method             | Location                                       | Priority | Source                                                     | RecieveCanceled |
 |-------------------------|--------------------|------------------------------------------------|----------|------------------------------------------------------------|-----------------|
-| Unseens Nether Backport | turnItemsFireproof | com.unseen.nb.common.EntityEvents              | normal   | nb-1.12.2-0.0.1.jar                                        | false           |
 | Minecraft Forge         | onEntityJoinWorld  | net.minecraftforge.common.ForgeInternalHandler | highest  | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | false           |
+| Unseens Nether Backport | turnItemsFireproof | com.unseen.nb.common.EntityEvents              | normal   | nb-1.12.2-0.0.1.jar                                        | false           |
 
 
 ## PlayerEvent$Clone

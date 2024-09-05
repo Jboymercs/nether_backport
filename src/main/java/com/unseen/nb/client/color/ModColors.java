@@ -1,4 +1,4 @@
-package com.unseen.nb.client.particle;
+package com.unseen.nb.client.color;
 
 import com.unseen.nb.util.ModRand;
 import net.minecraft.util.math.Vec3d;

@@ -1,13 +1,13 @@
 package com.unseen.nb.common.blocks;
 
-import com.unseen.nb.client.particle.ModColors;
-import com.unseen.nb.client.particle.ModParticles;
+import com.unseen.nb.Main;
+import com.unseen.nb.client.color.ModColors;
+import com.unseen.nb.client.particles.ParticleObsidianTear;
 import com.unseen.nb.common.blocks.base.BlockBase;
-import net.minecraft.block.BlockLiquid;
+import com.unseen.nb.proxy.ClientProxy;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -37,7 +37,8 @@ public class BlockCryingObsidian extends BlockBase {
             double d7 = d2 + (double)rand.nextFloat();
             //Insert Particles for Crying Obsidian
             //worldIn.spawnParticle(EnumParticleTypes.DRIP_WATER, d3, d5, d7, 0.0D, 0.0D, 0.0D);
-            ModParticles.spawnColoredDrip(worldIn, new Vec3d(d3, d5, d7), ModColors.PURPLE, new Vec3d(0,0,0));
+           // ModParticles.spawnColoredDrip(worldIn, new Vec3d(d3, d5, d7), ModColors.PURPLE, new Vec3d(0,0,0));
+            Main.proxy.spawnParticle(1, d3, d5, d7, 0,0,0);
 
 
         }

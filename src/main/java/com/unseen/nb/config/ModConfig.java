@@ -13,6 +13,22 @@ public class ModConfig {
     @Config.RequiresMcRestart
     public static int bastionFrequency = 90;
 
+    @Config.Name("Portal Ruins Overworld Spawn Rate")
+    @Config.Comment("Change the rate that ruined portals in the overworld spawn at, lower means more frequent, higher means less")
+    @Config.RequiresMcRestart
+    public static int ruined_portal_rate = 125;
+
+    @Config.Name("Portal Ruins Big Portal Chance")
+    @Config.Comment("Change the out of x chance a big portal ruin will spawn instead of a small one, think of it like 1 out of x")
+    @Config.RangeInt(min = 2, max = 20)
+    @Config.RequiresMcRestart
+    public static int portal_big_chance = 15;
+
+    @Config.Name("Portal Ruins NETHER Spawn Rate")
+    @Config.Comment("Change the rate that ruined portals in the nether spawn at, lower means more frequent, higher means less")
+    @Config.RequiresMcRestart
+    public static int nether_ruins_rate = 80;
+
     @Config.Name("Bastion Remnants Mob Spawns")
     @Config.Comment("Change the spawns alloted in the Bastion Remnants, lower means more mobs, higher means less")
     @Config.RangeInt(min = 1, max = 10)
