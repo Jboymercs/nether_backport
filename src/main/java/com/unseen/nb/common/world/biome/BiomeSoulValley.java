@@ -152,7 +152,7 @@ public class BiomeSoulValley extends Biome implements INetherBiome, INetherAPIRe
     @Nonnull
     @Override
     public Vec3d getFogColor(float celestialAngle, float partialTicks) {
-        return INetherBiome.super.getFogColor(celestialAngle, partialTicks);
+        return new Vec3d(0.008,0.78,0.753);
     }
 
     @Nonnull

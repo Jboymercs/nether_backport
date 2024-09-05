@@ -21,7 +21,7 @@ public class WorldGenNetherStructures implements IWorldGenerator {
         BlockPos pos = new BlockPos(x + 8, 0, z + 8);
 
         //using the overworld for testing, change this ID later
-        if(world.provider.getDimension() == 0) {
+        if(world.provider.getDimension() == -1) {
             //This is the connect between the bastion spawn rules and a signal to tell it to try it here
             //WorldGenBastion handles the actual spawn rules
             bastion.generate(world, random, pos);

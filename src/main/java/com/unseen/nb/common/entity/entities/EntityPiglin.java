@@ -7,6 +7,7 @@ import com.unseen.nb.client.animation.IAnimatedEntity;
 import com.unseen.nb.common.entity.EntityNetherBase;
 import com.unseen.nb.common.entity.entities.ai.EntityTimedAttackPiglin;
 import com.unseen.nb.common.entity.entities.ai.IAttack;
+import com.unseen.nb.config.ModConfig;
 import com.unseen.nb.init.ModSoundHandler;
 import com.unseen.nb.util.ModRand;
 import com.unseen.nb.util.ModReference;
@@ -159,11 +160,11 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
 
 
     protected void initRangedAI() {
-        this.tasks.addTask(3, new EntityTimedAttackPiglin<>(this, 1.8D, 60, 14, 0.3F));
+        this.tasks.addTask(2, new EntityTimedAttackPiglin<>(this, 1.8D, 60, 14, 0.3F));
     }
 
     protected void initMeleeAI() {
-        this.tasks.addTask(3, new EntityTimedAttackPiglin<>(this, 1.8D, 60, 2, 0.1F));
+        this.tasks.addTask(2, new EntityTimedAttackPiglin<>(this, 1.8D, 60, 3, 0.25F));
     }
     @Override
     protected void entityInit() {
@@ -220,7 +221,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
 
     protected boolean foundGoldIngot = false;
     private int dimensionCheck = 40;
-    private int countDownToZombie = 300;
+    private int countDownToZombie = ModConfig.zombification_time * 20;
 
     private EntityHoglin foodTarget;
 
@@ -228,6 +229,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
 
     protected boolean hasPlayedAngrySound = false;
 
+    private boolean initiateBastionAI = false;
     protected int isHungryTimer = 60;
 
     @Override
@@ -257,7 +259,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
         }
 
 
-        if(!world.isRemote && world.rand.nextInt(12) == 0) {
+        if(!world.isRemote && world.rand.nextInt(12) == 0 && !this.isInsideBastion()) {
             if(this.isHungryTimer < 0) {
                 List<EntityHoglin> nearbyHoglins = this.world.getEntitiesWithinAABB(EntityHoglin.class, this.getEntityBoundingBox().grow(16D), e -> !e.getIsInvulnerable());
                 if(!nearbyHoglins.isEmpty() && target == null && foodTarget == null) {
@@ -295,7 +297,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
         } else {
             dimensionCheck--;
         }
-        if(this.canTrade) {
+        if(this.canTrade && !this.isInsideBastion()) {
             if(trade_delay < 0) {
                 List<EntityItem> nearbyItems = this.world.getEntitiesWithinAABB(EntityItem.class, this.getEntityBoundingBox().grow(5D), e -> !e.getIsInvulnerable());
                 if(!nearbyItems.isEmpty()) {
@@ -323,10 +325,11 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
 
             }
             trade_delay--;
+
         }
         //Check For Players With Gold Armor nearby
         List<EntityPlayer> nearbyEntities = this.world.getEntitiesWithinAABB(EntityPlayer.class, this.getEntityBoundingBox().grow(14D), e -> !e.getIsInvulnerable());
-        if(!nearbyEntities.isEmpty()) {
+        if(!nearbyEntities.isEmpty() && !this.isInsideBastion()) {
             for(EntityPlayer player : nearbyEntities) {
                 if(player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() != Items.GOLDEN_HELMET && player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() != Items.GOLDEN_CHESTPLATE &&
                         player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() != Items.GOLDEN_LEGGINGS && player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() != Items.GOLDEN_BOOTS) {
@@ -338,18 +341,22 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
                         }
                     }
                 } else {
-                    if(this.getAttackTarget() == player) {
+                    if(this.getAttackTarget() == player && !this.isInsideBastion()) {
                         if(player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == Items.GOLDEN_HELMET || player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == Items.GOLDEN_CHESTPLATE ||
                                 player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() == Items.GOLDEN_LEGGINGS || player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == Items.GOLDEN_BOOTS) {
                             this.setAttackTarget(null);
                         }
                     }
-                    if(this.getAttackTarget() == null) {
+                    if(this.getAttackTarget() == null && !this.isInsideBastion()) {
                         canTrade = true;
                     }
 
                 }
             }
+        }
+
+        if(this.isInsideBastion() && !initiateBastionAI) {
+            this.addBastionChanges();
         }
 
         //NEVER FORGET THIS, OR ELSE ANIMATIONS WILL NOT WORK
@@ -404,6 +411,22 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
         this.targetTasks.addTask(1, new EntityAINearestAttackableTarget<>(this, player.getClass(), 1, true, false, null));
     }
 
+
+    protected void addBastionChanges() {
+        this.targetTasks.addTask(1, new EntityAINearestAttackableTarget<>(this, EntityPlayer.class, 1, true, false, null));
+        this.initiateBastionAI = true;
+    }
+
+    @Override
+    protected boolean canDespawn() {
+        if(this.isInsideBastion()) {
+            return false;
+        }
+        // Edit this to restricting them not despawning in Dungeons
+        return this.ticksExisted > 20 * 60 * 20;
+
+    }
+
     private List<ItemStack> trade_items = Lists.newArrayList();
     protected void getPiglinLootTable() {
         if(!world.isRemote) {
@@ -419,7 +442,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(18D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(7D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20D);
@@ -431,7 +454,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
     protected void initEntityAI() {
         super.initEntityAI();
         this.tasks.addTask(1, new EntityAISwimming(this));
-        this.tasks.addTask(2, new EntityAIWander(this, 1.0D));
+        this.tasks.addTask(3, new EntityAIWander(this, 1.0D));
         this.tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 9.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, true, new Class[0]));
@@ -466,7 +489,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
                 prevAttack.accept(target);
             }
         }
-        return this.isHasMelee() ? 20 : this.isHasRanged() ? 15 : 20;
+        return this.isHasMelee() ? 5 : this.isHasRanged() ? 5 : 6;
     }
 
     private final Consumer<EntityLivingBase> meleeAttackTwo = (target) -> {
@@ -476,7 +499,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
         addEvent(()-> {
             Vec3d offset = this.getPositionVector().add(ModUtils.getRelativeOffset(this, new Vec3d(1.2, 1.2, 0)));
             DamageSource source = DamageSource.causeMobDamage(this);
-            float damage = 7.0F;
+            float damage = 8.0F;
             ModUtils.handleAreaImpact(1.0f, (e)-> damage, this, offset, source, 0.5f, 0, false);
         }, 18);
 
@@ -494,7 +517,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
     addEvent(()-> {
         Vec3d offset = this.getPositionVector().add(ModUtils.getRelativeOffset(this, new Vec3d(1.2, 1.2, 0)));
         DamageSource source = DamageSource.causeMobDamage(this);
-        float damage = 7.0F;
+        float damage = 8.0F;
         ModUtils.handleAreaImpact(1.0f, (e)-> damage, this, offset, source, 0.5f, 0, false);
     }, 18);
 
@@ -515,7 +538,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
         //loads Crossbow
         this.setLoadedACrossBow(true);
     if(ModIntegration.isCrossbow(stack)) {
-        ModIntegration.setCharged(stack, true);
+       // ModIntegration.setCharged(stack, true);
     }
     }, 15);
     addEvent(()-> {
@@ -537,12 +560,12 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
             double d3 = MathHelper.sqrt(d0 * d0 + d2 * d2);
             arrow.shoot(d0, d1 + d3 * 0.20000000298023224, d2, 1.6f, (float)(14 - world.getDifficulty().getId() * 4));
             playSound(SoundEvents.ENTITY_SKELETON_SHOOT, 1, 1f / (this.getRNG().nextFloat() * 0.4f + 0.8f));
-            arrow.setDamage(6.0D);
+            arrow.setDamage(11D);
             world.spawnEntity(arrow);
             //Unloads the crossbow
             ItemStack stack = getItemStackFromSlot(EntityEquipmentSlot.MAINHAND);
             if(ModIntegration.isCrossbow(stack)) {
-                ModIntegration.setCharged(stack, false);
+               // ModIntegration.setCharged(stack, false);
             }
         }, 5);
         addEvent(()-> {

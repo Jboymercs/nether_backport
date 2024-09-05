@@ -150,7 +150,7 @@ public class BiomeWarpedForest extends Biome implements INetherBiome, INetherAPI
     @Nonnull
     @Override
     public Vec3d getFogColor(float celestialAngle, float partialTicks) {
-        return INetherBiome.super.getFogColor(celestialAngle, partialTicks);
+        return new Vec3d(0.839,0.051,0.804);
     }
 
     @Nonnull

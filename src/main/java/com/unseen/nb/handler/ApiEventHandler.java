@@ -1,5 +1,6 @@
 package com.unseen.nb.handler;
 
+import com.unseen.nb.config.ModConfig;
 import com.unseen.nb.init.BiomeRegister;
 import com.unseen.nb.util.ModReference;
 import git.jbredwards.nether_api.api.event.NetherAPIRegistryEvent;
@@ -16,9 +17,9 @@ public class ApiEventHandler {
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     static void onNetherAPIRegistry(@Nonnull final NetherAPIRegistryEvent.Nether event)
     {
-        event.registry.registerBiome(BiomeRegister.CRIMSON_FOREST, 80);
-        event.registry.registerBiome(BiomeRegister.WARPED_FOREST, 80);
-        event.registry.registerBiome(BiomeRegister.SOUL_SAND_VALLEY, 80);
-        event.registry.registerBiome(BiomeRegister.BASALT_DELTAS, 80);
+        event.registry.registerBiome(BiomeRegister.CRIMSON_FOREST, ModConfig.crimsonForestRate);
+        event.registry.registerBiome(BiomeRegister.WARPED_FOREST, ModConfig.warpedForestRate);
+        event.registry.registerBiome(BiomeRegister.SOUL_SAND_VALLEY, ModConfig.soulSandValleyRate);
+        //event.registry.registerBiome(BiomeRegister.BASALT_DELTAS, 80);
     }
 }

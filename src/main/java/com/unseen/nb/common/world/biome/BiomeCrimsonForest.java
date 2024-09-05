@@ -188,7 +188,7 @@ public class BiomeCrimsonForest extends Biome implements INetherBiome, INetherAP
     @Nonnull
     @Override
     public Vec3d getFogColor(float celestialAngle, float partialTicks) {
-        return INetherBiome.super.getFogColor(celestialAngle, partialTicks);
+        return new Vec3d(0.612,0.11,0.016);
     }
 
     @Nonnull
@@ -197,18 +197,5 @@ public class BiomeCrimsonForest extends Biome implements INetherBiome, INetherAP
         return INetherBiome.super.getMusicType();
     }
 
-    private int getNetherSurfaceHeight(World world, BlockPos pos, int min, int max)
-    {
-        int maxY = max;
-        int minY = min;
-        int currentY = maxY;
 
-        while(currentY >= minY)
-        {
-            if(!world.isAirBlock(pos.add(0, currentY, 0)))
-                return currentY;
-            currentY--;
-        }
-        return 0;
-    }
 }

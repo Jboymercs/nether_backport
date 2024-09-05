@@ -11,9 +11,9 @@
     },
     "done": true
   },
-  "minecraft:recipes/tools/wooden_hoe": {
+  "minecraft:story/lava_bucket": {
     "criteria": {
-      "has_stick": "2024-08-31 18:26:05 +0100"
+      "lava_bucket": "2024-09-03 19:42:00 +0100"
     },
     "done": true
   },
@@ -29,11 +29,29 @@
     },
     "done": true
   },
-  "minecraft:adventure/adventuring_time": {
+  "minecraft:recipes/decorations/chest": {
     "criteria": {
-      "plains": "2024-08-31 16:03:29 +0100"
+      "has_lots_of_items": "2024-09-03 19:42:00 +0100"
     },
-    "done": false
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/red_nether_brick": {
+    "criteria": {
+      "has_nether_wart": "2024-09-03 19:42:00 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/painting": {
+    "criteria": {
+      "has_wool": "2024-09-03 19:42:29 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/yellow_bed": {
+    "criteria": {
+      "has_yellow_wool": "2024-09-03 19:42:29 +0100"
+    },
+    "done": true
   },
   "minecraft:recipes/tools/wooden_shovel": {
     "criteria": {
@@ -46,5 +64,41 @@
       "crafting_table": "2024-08-31 16:04:42 +0100"
     },
     "done": true
+  },
+  "minecraft:recipes/decorations/yellow_carpet": {
+    "criteria": {
+      "has_yellow_wool": "2024-09-03 19:42:29 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/yellow_banner": {
+    "criteria": {
+      "has_yellow_wool": "2024-09-03 19:42:29 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/wooden_hoe": {
+    "criteria": {
+      "has_stick": "2024-08-31 18:26:05 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/nether_wart_block": {
+    "criteria": {
+      "has_nether_wart": "2024-09-03 19:42:00 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/gold_ingot_from_block": {
+    "criteria": {
+      "has_gold_block": "2024-09-03 19:42:00 +0100"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "plains": "2024-08-31 16:03:29 +0100"
+    },
+    "done": false
   }
 }

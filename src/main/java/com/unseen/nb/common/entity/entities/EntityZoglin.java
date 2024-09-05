@@ -94,8 +94,8 @@ public class EntityZoglin extends EntityNetherAnimalBase implements IAttack, IAn
     @Override
     protected void initEntityAI() {
         super.initEntityAI();
-        this.tasks.addTask(1, new EntityAIWander(this, 1.0D));
-        this.tasks.addTask(3, new EntityTimedAttackZoglin<>(this, 1.6D, 60, 3, 0.3F));
+        this.tasks.addTask(2, new EntityTimedAttackZoglin<>(this, 1.6D, 60, 3, 0.3F));
+        this.tasks.addTask(3, new EntityAIWander(this, 1.0D));
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new EntityAINearestAttackableTarget<>(this, EntityLivingBase.class, 1, true, false, null));
         this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, true, new Class[0]));
@@ -166,7 +166,7 @@ public class EntityZoglin extends EntityNetherAnimalBase implements IAttack, IAn
             ModUtils.handleAreaImpact(1.0f, (e)-> damage, this, offset, source, 0.9f, 0, false);
         }, 13);
         addEvent(()-> this.setFightMode(false), 20);
-        return 60;
+        return 20;
     }
 
 

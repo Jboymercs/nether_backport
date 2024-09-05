@@ -19,7 +19,7 @@ public abstract class EntityNetherAnimalBase extends EntityAnimal {
 
     protected static final DataParameter<Boolean> IMMOVABLE = EntityDataManager.createKey(EntityNetherAnimalBase.class, DataSerializers.BOOLEAN);
     protected static final DataParameter<Boolean> FIGHT_MODE = EntityDataManager.createKey(EntityNetherAnimalBase.class, DataSerializers.BOOLEAN);
-
+    public static final DataParameter<Boolean> INSIDE_BASTION = EntityDataManager.createKey(EntityNetherAnimalBase.class, DataSerializers.BOOLEAN);
     private PriorityQueue<EntityNetherAnimalBase.TimedEvent> events = new PriorityQueue<EntityNetherAnimalBase.TimedEvent>();
     protected boolean isImmovable() {
         return this.dataManager == null ? false : this.dataManager.get(IMMOVABLE);
@@ -32,6 +32,8 @@ public abstract class EntityNetherAnimalBase extends EntityAnimal {
     public boolean isFightMode() {return this.dataManager.get(FIGHT_MODE);}
 
     protected void setFightMode(boolean value) {this.dataManager.set(FIGHT_MODE, Boolean.valueOf(value));}
+    public boolean isInsideBastion() {return this.dataManager.get(INSIDE_BASTION);}
+    public void setInsideBastion(boolean value) {this.dataManager.set(INSIDE_BASTION, Boolean.valueOf(value));}
 
     public void addEvent(Runnable runnable, int ticksFromNow) {
         events.add(new EntityNetherAnimalBase.TimedEvent(runnable, this.ticksExisted + ticksFromNow));
@@ -78,7 +80,7 @@ public abstract class EntityNetherAnimalBase extends EntityAnimal {
         super.entityInit();
         this.dataManager.register(IMMOVABLE, Boolean.valueOf(false));
         this.dataManager.register(FIGHT_MODE, Boolean.valueOf(false));
-
+        this.dataManager.register(INSIDE_BASTION, Boolean.valueOf(false));
     }
 
     @Override
@@ -86,6 +88,7 @@ public abstract class EntityNetherAnimalBase extends EntityAnimal {
         super.writeEntityToNBT(nbt);
         nbt.setBoolean("Fight_Mode", this.isFightMode());
         nbt.setBoolean("Immovable", this.isImmovable());
+        nbt.setBoolean("Inside_Bastion", this.isInsideBastion());
     }
 
     @Override
@@ -93,6 +96,7 @@ public abstract class EntityNetherAnimalBase extends EntityAnimal {
         super.writeEntityToNBT(nbt);
         this.setFightMode(nbt.getBoolean("Fight_Mode"));
         this.setImmovable(nbt.getBoolean("Immovable"));
+        this.setInsideBastion(nbt.getBoolean("Inside_Bastion"));
     }
 
 

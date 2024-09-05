@@ -1,5 +1,6 @@
 package com.unseen.nb.common.world.bastion;
 
+import com.unseen.nb.config.ModConfig;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -24,7 +25,7 @@ public class WorldGenBastion extends WorldGenerator {
          * MAKE THIS CONFIGURABLE, SPACING IS THE AMOUNT OF EACH TIME IT IS CAPAPABLE OF GENERATING
          */
         //old 525
-        if((spacing / 12) > 100) {
+        if((spacing / 6) > ModConfig.bastionFrequency) {
             getStructureStart(world, pos.getX() >> 4, pos.getZ() >> 4, random)
                     .generateStructure(world, random, new StructureBoundingBox(pos.getX() - 150, pos.getZ() - 150, pos.getX() + 150, pos.getZ() + 150));
             return true;
@@ -62,7 +63,7 @@ public class WorldGenBastion extends WorldGenerator {
                 Rotation rotation = Rotation.values()[(rand2 + i) % Rotation.values().length];
                 components.clear();
                 //Set IAW with the best Position to spawn the first layer of the chambers at
-                BlockPos blockpos = posI.add(0, 100, 0);
+                BlockPos blockpos = posI.add(0, 41, 0);
                 BastionRemnants bastion = new BastionRemnants(world, world.getSaveHandler().getStructureTemplateManager(), components);
                 //Starts the first room within the Trial Chambers
                 bastion.startBastion(blockpos, rotation);

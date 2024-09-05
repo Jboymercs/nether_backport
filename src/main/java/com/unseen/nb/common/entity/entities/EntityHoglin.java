@@ -7,6 +7,7 @@ import com.unseen.nb.client.animation.IAnimatedEntity;
 import com.unseen.nb.common.entity.EntityNetherAnimalBase;
 import com.unseen.nb.common.entity.entities.ai.EntityTimedAttackHoglin;
 import com.unseen.nb.common.entity.entities.ai.IAttack;
+import com.unseen.nb.config.ModConfig;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.init.ModItems;
 import com.unseen.nb.init.ModSoundHandler;
@@ -65,7 +66,7 @@ public class EntityHoglin extends EntityNetherAnimalBase implements IAttack, IAn
     private boolean hasPlayedAngrySound = false;
 
     private int dimensionCheck = 40;
-    private int countDownToZombie = 300;
+    private int countDownToZombie = ModConfig.zombification_time * 20;
 
     public boolean convertTooZombie = false;
     @Override
@@ -176,9 +177,9 @@ public class EntityHoglin extends EntityNetherAnimalBase implements IAttack, IAn
     @Override
     protected void initEntityAI() {
         super.initEntityAI();
-        this.tasks.addTask(1, new EntityAIWander(this, 1.0D));
+        this.tasks.addTask(3, new EntityAIWander(this, 1.0D));
        // this.tasks.addTask(2, new EntityAITempt(this, 1.4D, false, TEMPTATION_ITEMS));
-        this.tasks.addTask(3, new EntityTimedAttackHoglin<>(this, 1.6D, 60, 3, 0.3F));
+        this.tasks.addTask(2, new EntityTimedAttackHoglin<>(this, 1.6D, 60, 3, 0.3F));
         this.tasks.addTask(4, new EntityAIFollowParent(this, 1.0D));
         this.tasks.addTask(7, new EntityAIMate(this, 1.0D));
         this.tasks.addTask(8, new EntityAILookIdle(this));
@@ -235,6 +236,16 @@ public class EntityHoglin extends EntityNetherAnimalBase implements IAttack, IAn
     }
 
     @Override
+    protected boolean canDespawn() {
+        if(this.isInsideBastion()) {
+            return false;
+        }
+        // Edit this to restricting them not despawning in Dungeons
+        return this.ticksExisted > 20 * 60 * 20;
+
+    }
+
+    @Override
     protected SoundEvent getDeathSound() {
         return ModSoundHandler.HOGLIN_DEATH;
     }
@@ -255,7 +266,7 @@ public class EntityHoglin extends EntityNetherAnimalBase implements IAttack, IAn
             ModUtils.handleAreaImpact(1.0f, (e)-> damage, this, offset, source, 0.9f, 0, false);
         }, 13);
         addEvent(()-> this.setFightMode(false), 20);
-        return 60;
+        return 20;
     }
 
     @Override

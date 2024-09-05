@@ -6,6 +6,7 @@ import com.unseen.nb.client.animation.IAnimatedEntity;
 import com.unseen.nb.common.entity.EntityNetherBase;
 import com.unseen.nb.common.entity.entities.ai.EntityTimedAttackPiglinBrute;
 import com.unseen.nb.common.entity.entities.ai.IAttack;
+import com.unseen.nb.config.ModConfig;
 import com.unseen.nb.init.ModSoundHandler;
 import com.unseen.nb.util.ModRand;
 import com.unseen.nb.util.ModReference;
@@ -102,7 +103,7 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
     protected boolean hasPlayedAngrySound = false;
 
     private int dimensionCheck = 40;
-    private int countDownToZombie = 300;
+    private int countDownToZombie = ModConfig.zombification_time * 20;
 
     public boolean convertTooZombie = false;
 
@@ -182,8 +183,8 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
     protected void initEntityAI() {
         super.initEntityAI();
         this.tasks.addTask(1, new EntityAISwimming(this));
-        this.tasks.addTask(2, new EntityAIWander(this, 1.0D));
-        this.tasks.addTask(3, new EntityTimedAttackPiglinBrute<>(this, 1.8D, 20, 2, 0.15F));
+        this.tasks.addTask(2, new EntityTimedAttackPiglinBrute<>(this, 1.8D, 20, 2, 0.15F));
+        this.tasks.addTask(3, new EntityAIWander(this, 1.0D));
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget<>(this, EntityPlayer.class, 1, true, false, null));
         this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, true, new Class[0]));
@@ -203,7 +204,17 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
 
             prevAttack.accept(target);
         }
-        return 20;
+        return 5;
+    }
+
+    @Override
+    protected boolean canDespawn() {
+        if(this.isInsideBastion()) {
+            return false;
+        }
+        // Edit this to restricting them not despawning in Dungeons
+        return this.ticksExisted > 20 * 60 * 20;
+
     }
 
 
