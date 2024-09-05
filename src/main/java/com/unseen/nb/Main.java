@@ -5,10 +5,7 @@ import com.unseen.nb.common.capabilities.CapabilityRespawnAnchor;
 import com.unseen.nb.common.world.WorldGenNetherStructures;
 import com.unseen.nb.common.world.ore.NBOreGen;
 import com.unseen.nb.handler.StructureHandler;
-import com.unseen.nb.init.BiomeRegister;
-import com.unseen.nb.init.ModEntities;
-import com.unseen.nb.init.ModRecipes;
-import com.unseen.nb.init.ModSoundHandler;
+import com.unseen.nb.init.*;
 import com.unseen.nb.proxy.CommonProxy;
 import com.unseen.nb.util.ModReference;
 import com.unseen.nb.util.integration.ModIntegration;
@@ -64,6 +61,7 @@ public class Main {
     public void init(FMLInitializationEvent e) {
         //Biome Init
         BiomeRegister.registerBiomes();
+        ModNetworkPackets.registerNetworkPackets();
         CapabilityManager.INSTANCE.register(CapabilityRespawnAnchor.ICapabilityRespawnAnchor.class, new CapabilityRespawnAnchor.Storage(), CapabilityRespawnAnchor.RespawnAnchorMethods::new);
         //Furnace Anvil Recipes
         ModRecipes.init();
