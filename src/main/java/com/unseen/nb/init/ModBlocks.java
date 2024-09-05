@@ -80,7 +80,7 @@ public class ModBlocks {
     public static final Block POLISHED_BASALT = new BlockPillarBase("polished_basalt", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.BASALT).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
     public static final Block SMOOTH_BASALT = new BlockBase("smooth_basalt", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.BASALT).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-    public static final Block CRYING_OBSIDIAN = new BlockBase("cry_obi", Material.ROCK, OBSIDIAN_HARDNESS, OBSIDIAN_RESISTANCE, SoundType.STONE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS).setLightLevel(0.7F);
+    public static final Block CRYING_OBSIDIAN = new BlockCryingObsidian("cry_obi", Material.ROCK, OBSIDIAN_HARDNESS, OBSIDIAN_RESISTANCE, SoundType.STONE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS).setLightLevel(0.7F);
 
     public static final Block NETHERITE_BLOCK = new BlockBase("netherite_block", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.NETHERITE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
