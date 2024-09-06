@@ -2443,6 +2443,63 @@
       }
 
     ]
+  },
+  "particle.soul.scream": {
+    "category": "particle",
+    "sounds": [
+      {
+        "name": "nb:misc/soul/soulspeed1",
+        "stream": true
+      },
+      {
+        "name": "nb:misc/soul/soulspeed2",
+        "stream": true
+      },
+      {
+        "name": "nb:misc/soul/soulspeed3",
+        "stream": true
+      },
+      {
+        "name": "nb:misc/soul/soulspeed4",
+        "stream": true
+      },
+      {
+        "name": "nb:misc/soul/soulspeed5",
+        "stream": true
+      },
+      {
+        "name": "nb:misc/soul/soulspeed6",
+        "stream": true
+      },
+      {
+        "name": "nb:misc/soul/soulspeed7",
+        "stream": true
+      },
+      {
+        "name": "nb:misc/soul/soulspeed8",
+        "stream": true
+      },
+      {
+        "name": "nb:misc/soul/soulspeed9",
+        "stream": true
+      },
+      {
+        "name": "nb:misc/soul/soulspeed10",
+        "stream": true
+      },
+      {
+        "name": "nb:misc/soul/soulspeed11",
+        "stream": true
+      },
+      {
+        "name": "nb:misc/soul/soulspeed12",
+        "stream": true
+      },
+      {
+        "name": "nb:misc/soul/soulspeed13",
+        "stream": true
+      }
+    ]
   }
 
 }

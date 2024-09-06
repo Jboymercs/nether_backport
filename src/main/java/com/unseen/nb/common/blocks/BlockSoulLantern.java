@@ -29,7 +29,7 @@ public class BlockSoulLantern extends BlockBase {
 
     public BlockSoulLantern(String name, Material material, float hardness, float resistance, SoundType soundType) {
         super(name, material, hardness, resistance, soundType);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(IS_HANGING, false));
+
     }
 
     @Override
@@ -59,17 +59,17 @@ public class BlockSoulLantern extends BlockBase {
 
     @Deprecated
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
-    {   if(facing == EnumFacing.DOWN && isValidBlock(worldIn, pos, worldIn.getBlockState(pos.down()))) {
+    {   if(facing == EnumFacing.UP) {
         return getDefaultState().withProperty(IS_HANGING, false);
     }
-        if(facing == EnumFacing.UP && isValidBlock(worldIn, pos, worldIn.getBlockState(pos.up()))) {
+        if(facing == EnumFacing.DOWN) {
             return getDefaultState().withProperty(IS_HANGING, true);
         }
         return this.getStateFromMeta(meta);
     }
 
     protected boolean isValidBlock(World world, BlockPos pos, IBlockState blockState) {
-        return blockState.isSideSolid(world, pos, EnumFacing.DOWN) || blockState.isSideSolid(world, pos, EnumFacing.UP);
+        return blockState.isSideSolid(world, pos, EnumFacing.DOWN) || blockState.isSideSolid(world, pos, EnumFacing.UP) || world.getBlockState(pos.up()) == ModBlocks.CHAINS.getDefaultState();
     }
 
     @Override
@@ -77,12 +77,6 @@ public class BlockSoulLantern extends BlockBase {
         return new BlockStateContainer(this, new IProperty[]{IS_HANGING});
     }
 
-    @Override
-    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
-        if(!isValidBlock(worldIn, pos.up(), worldIn.getBlockState(pos.up()))) {
-            worldIn.setBlockToAir(pos);
-        }
-    }
 
     @Override
     public boolean isFullCube(IBlockState state)

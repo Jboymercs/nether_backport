@@ -1,13 +1,13 @@
 package com.unseen.nb.util;
 
 import com.google.common.collect.Lists;
+import com.unseen.nb.common.enchantments.NBEnchantmentSoulSpeed;
 import com.unseen.nb.config.ModConfig;
 import com.unseen.nb.init.ModBlocks;
-import net.minecraft.block.BlockDirt;
-import net.minecraft.block.BlockGrass;
-import net.minecraft.block.BlockSand;
-import net.minecraft.block.BlockStone;
+import com.unseen.nb.init.ModEnchantments;
+import net.minecraft.block.*;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.MultiPartEntityPart;
@@ -233,5 +233,19 @@ public class ModUtils {
             }
         }
         return ModConfig.fireproofItemBlacklist;
+    }
+
+    public static boolean hasEnchant(EntityLivingBase entityIn) {
+        return EnchantmentHelper.getMaxEnchantmentLevel(ModEnchantments.SOUL_SPEED, entityIn) > 0;
+    }
+
+
+    public static boolean getBlocksThatCanBeUsed(Block block) {
+        for (String blockName : ModConfig.blocksForEnchant) {
+            if (ForgeRegistries.BLOCKS.getValue(new ResourceLocation(blockName)) == block) {
+                return true;
+            }
+        }
+        return false;
     }
 }

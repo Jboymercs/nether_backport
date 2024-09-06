@@ -1,5 +1,6 @@
 package com.unseen.nb.common.event;
 
+
 import com.unseen.nb.init.ModBlocks;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityBlaze;
@@ -30,4 +31,6 @@ public class EventOnSoulFire {
             }
         }
     }
+
+
 }

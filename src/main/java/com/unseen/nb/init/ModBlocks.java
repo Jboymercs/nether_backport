@@ -133,6 +133,8 @@ public class ModBlocks {
 
     public static Block SOUL_LANTERN = new BlockSoulLantern("soul_lantern", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.LANTERN).setCreativeTab(CreativeTabs.DECORATIONS).setLightLevel(1.0F);
 
+    public static Block SOUL_TORCH = new BlockSoulTorch("soul_torch").setLightLevel(1.1F);
+
 
 
 }

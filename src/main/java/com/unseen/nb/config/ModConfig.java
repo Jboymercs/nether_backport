@@ -79,4 +79,12 @@ public class ModConfig {
     @Config.RequiresMcRestart
     @Config.Comment(value = "Enable this to turn the whitelist for fire resistant items into the opposite. Meaning when set to true, items in the list will act without fire resistance")
     public static boolean fireproofItemBlacklist = false;
+
+
+    @Config.RequiresMcRestart
+    @Config.Comment(value = "Which blocks soul speed.Add new blocks with 'modID:blockName'.")
+    public static String[] blocksForEnchant = new String[] {
+            "minecraft:soul_sand",
+            ModReference.MOD_ID + ":soul_soil"
+    };
 }

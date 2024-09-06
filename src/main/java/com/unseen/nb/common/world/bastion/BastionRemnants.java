@@ -42,7 +42,7 @@ public class BastionRemnants {
 
         BastionTemplate stable_fort = new BastionTemplate(manager, "pig_fort/tower_l_1", pos, rot, 0, true);
 
-        if(ModRand.range(1, 6) <= 3) {
+        if(ModRand.range(1, 10) <= 6) {
             components.add(stable_fort);
             BastionTemplate.resetTemplateCount();
             finishFort(stable_fort, pos, rot);
@@ -101,7 +101,7 @@ public class BastionRemnants {
         components.add(pig_face);
         components.add(pillar_for_bridge);
 
-        if(world.rand.nextInt(3) == 0) {
+        if(world.rand.nextInt(4) == 0) {
             generateSideTowers(pig_face, pos, rot);
         } else {
             generateBridgeTooHold(pig_face, pos, rot);

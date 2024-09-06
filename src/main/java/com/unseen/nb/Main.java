@@ -7,9 +7,11 @@ import com.unseen.nb.common.world.ore.NBOreGen;
 import com.unseen.nb.handler.StructureHandler;
 import com.unseen.nb.init.*;
 import com.unseen.nb.proxy.CommonProxy;
+import com.unseen.nb.util.LootTableExtendedFunc;
 import com.unseen.nb.util.ModReference;
 import com.unseen.nb.util.integration.ModIntegration;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.world.storage.loot.functions.LootFunctionManager;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -55,6 +57,8 @@ public class Main {
         GameRegistry.registerWorldGenerator(new NBOreGen(), 1);
         //Register Bastion Spawning
         GameRegistry.registerWorldGenerator(new WorldGenNetherStructures(), 1);
+        //Loot Table Functions Extension
+        LootFunctionManager.registerFunction(new LootTableExtendedFunc.Serializer());
     }
 
     @EventHandler

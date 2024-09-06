@@ -135,6 +135,9 @@ public class ModSoundHandler {
     public static SoundEvent SOUL_SAND_VALLEY_AMBIENT;
     public static SoundEvent SOUL_SAND_VALLEY_AMBIENT_CONSTANT;
 
+    //MISC
+    public static SoundEvent SOUL_SAND_SCREAM;
+
     public static void registerSounds() {
     NYLIUM_BREAK = registerSound("nether_grass.break", "block");
     NYLIUM_BLOCK_HIT = registerSound("nether_grass.block_hit", "block");
@@ -249,6 +252,9 @@ public class ModSoundHandler {
         WARPED_FOREST_AMBIENT_CONSTANT = registerSound("warped_forest.constant", "ambient");
         SOUL_SAND_VALLEY_AMBIENT = registerSound("soulsand_valley.ambience", "ambient");
         SOUL_SAND_VALLEY_AMBIENT_CONSTANT = registerSound("soulsand_valley.constant", "ambient");
+
+        //MISC
+        SOUL_SAND_SCREAM = registerSound("soul.scream", "particle");
     }
 
 
