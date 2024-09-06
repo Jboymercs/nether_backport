@@ -2,6 +2,7 @@ package com.unseen.nb.proxy;
 
 import com.unseen.nb.client.animation.IAnimatedEntity;
 import com.unseen.nb.client.particles.ParticleObsidianTear;
+import com.unseen.nb.client.particles.ParticleSoulFlame;
 import com.unseen.nb.handler.RenderHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -65,6 +66,8 @@ public class ClientProxy extends CommonProxy{
             default:
             case 0:
                 return new ParticleObsidianTear.Factory();
+            case 1:
+                return new ParticleSoulFlame.Factory();
         }
     }
 }

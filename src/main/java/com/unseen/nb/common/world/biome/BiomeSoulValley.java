@@ -1,5 +1,6 @@
 package com.unseen.nb.common.world.biome;
 
+import com.unseen.nb.client.particles.ParticlePixel;
 import com.unseen.nb.common.entity.entities.EntityStrider;
 import com.unseen.nb.common.world.base.WorldGenNB;
 import com.unseen.nb.common.world.terrain.basaltPillars.WorldGenBasaltTop;
@@ -25,6 +26,7 @@ import git.jbredwards.nether_api.api.world.INetherAPIChunkGenerator;
 import git.jbredwards.nether_api.mod.common.config.NetherAPIConfig;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.monster.EntitySkeleton;
@@ -35,6 +37,8 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
 import java.util.Random;
@@ -184,6 +188,10 @@ public class BiomeSoulValley extends Biome implements INetherBiome, INetherAPIRe
         return 0;
     }
 
+    @Override
+    @SideOnly(Side.CLIENT)
+    public IParticleFactory[] getAmbientParticles()
+    { return new IParticleFactory[] {new ParticlePixel.AshSoulFactory()} ; }
 
     @Override
     public ISoundAmbience getRandomAmbientSound() {

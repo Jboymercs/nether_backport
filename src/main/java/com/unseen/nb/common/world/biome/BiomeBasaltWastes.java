@@ -1,5 +1,6 @@
 package com.unseen.nb.common.world.biome;
 
+import com.unseen.nb.client.particles.ParticlePixel;
 import com.unseen.nb.common.world.base.WorldGenNB;
 import com.unseen.nb.common.world.terrain.basaltHeights.WorldGenBasaltHeights;
 import com.unseen.nb.common.world.terrain.plants.WorldGenCrimsonPlant;
@@ -8,22 +9,26 @@ import com.unseen.nb.common.world.terrain.trees.WorldGenCrimsonTree;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.util.ModRand;
 import git.jbredwards.nether_api.api.audio.IMusicType;
+import git.jbredwards.nether_api.api.biome.IAmbienceBiome;
 import git.jbredwards.nether_api.api.biome.INetherBiome;
 import git.jbredwards.nether_api.api.registry.INetherAPIRegistryListener;
 import git.jbredwards.nether_api.api.world.INetherAPIChunkGenerator;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
 import java.util.Random;
 /**WIP*/
-public class BiomeBasaltWastes extends Biome implements INetherBiome, INetherAPIRegistryListener {
+public class BiomeBasaltWastes extends Biome implements INetherBiome, INetherAPIRegistryListener, IAmbienceBiome {
 
 
     public static BiomeProperties properties = new BiomeProperties("Basalt Deltas");
@@ -129,4 +134,9 @@ public class BiomeBasaltWastes extends Biome implements INetherBiome, INetherAPI
         }
         return 0;
     }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public IParticleFactory[] getAmbientParticles()
+    { return new IParticleFactory[] {new ParticlePixel.AshBasaltFactory()} ; }
 }
