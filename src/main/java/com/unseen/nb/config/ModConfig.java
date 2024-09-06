@@ -62,18 +62,17 @@ public class ModConfig {
             ModReference.MOD_ID + ":netherite_ore",
             ModReference.MOD_ID + ":nether_scrap",
             ModReference.MOD_ID + ":netherite_ingot",
-            ModReference.MOD_ID + ":netherite_block"
-            //ModReference.MOD_ID + ":netherite_sword",
-            //ModReference.MOD_ID + ":netherite_shovel",
-           // ModReference.MOD_ID + ":netherite_pickaxe",
-            //ModReference.MOD_ID + ":netherite_axe",
-           // ModReference.MOD_ID + ":netherite_hoe",
-           // ModReference.MOD_ID + ":netherite_helmet",
-           // ModReference.MOD_ID + ":netherite_chestplate",
-           // ModReference.MOD_ID + ":netherite_leggings",
-           // ModReference.MOD_ID + ":netherite_boots",
-           // ModReference.MOD_ID + ":netherite_horse_armor",
-           // ModReference.MOD_ID + ":netherite_block"
+            ModReference.MOD_ID + ":netherite_block",
+             ModReference.MOD_ID + ":netherite_helmet",
+             ModReference.MOD_ID + ":netherite_chestplate",
+             ModReference.MOD_ID + ":netherite_leggings",
+             ModReference.MOD_ID + ":netherite_boots",
+            ModReference.MOD_ID + ":netherite_sword",
+            ModReference.MOD_ID + ":netherite_shovel",
+            ModReference.MOD_ID + ":netherite_pickaxe",
+            ModReference.MOD_ID + ":netherite_axe",
+            ModReference.MOD_ID + ":netherite_hoe",
+            ModReference.MOD_ID + ":netherite_horse_armor"
     };
 
     @Config.RequiresMcRestart

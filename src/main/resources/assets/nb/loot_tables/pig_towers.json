@@ -185,6 +185,11 @@
         },
         {
           "type": "item",
+          "name": "nb:pig_step_disc",
+          "weight": 3
+        },
+        {
+          "type": "item",
           "name": "minecraft:golden_helmet",
           "weight": 3,
           "functions": [

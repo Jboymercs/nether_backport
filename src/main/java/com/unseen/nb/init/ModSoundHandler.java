@@ -137,6 +137,8 @@ public class ModSoundHandler {
 
     //MISC
     public static SoundEvent SOUL_SAND_SCREAM;
+    public static SoundEvent NETHERITE_EQUIP;
+    public static SoundEvent PIG_STEP_DISC;
 
     public static void registerSounds() {
     NYLIUM_BREAK = registerSound("nether_grass.break", "block");
@@ -255,6 +257,9 @@ public class ModSoundHandler {
 
         //MISC
         SOUL_SAND_SCREAM = registerSound("soul.scream", "particle");
+        NETHERITE_EQUIP = registerSound("netherite.equip", "armor");
+        PIG_STEP_DISC = registerSound("record.pigstep", "music");
+
     }
 
 

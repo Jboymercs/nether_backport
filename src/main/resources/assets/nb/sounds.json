@@ -2500,6 +2500,36 @@
         "stream": true
       }
     ]
+  },
+  "armor.netherite.equip": {
+    "category": "armor",
+    "sounds": [
+      {
+        "name": "nb:misc/armor/equip_netherite1",
+        "stream": true
+      },
+      {
+        "name": "nb:misc/armor/equip_netherite2",
+        "stream": true
+      },
+      {
+        "name": "nb:misc/armor/equip_netherite3",
+        "stream": true
+      },
+      {
+        "name": "nb:misc/armor/equip_netherite4",
+        "stream": true
+      }
+    ]
+  },
+  "music.record.pigstep": {
+    "category": "record",
+    "sounds": [
+      {
+        "name": "nb:music/record/pigstep",
+        "stream": true
+      }
+    ]
   }
 
 }

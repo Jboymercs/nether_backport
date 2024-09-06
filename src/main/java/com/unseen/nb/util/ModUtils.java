@@ -193,6 +193,16 @@ public class ModUtils {
         });
     }
 
+
+    public static float calculateValueWithPrecentage(float precentageOf, float precentageVal) {
+        return (precentageOf * Math.min(precentageVal, 100.0F)) / 100.0F;
+    }
+
+
+    public static float getPercentageOf(float precentageOf, float precentageVal) {
+        return Math.min((precentageVal * 100.0F) / precentageOf, 100.0F);
+    }
+
     public static void handleAreaImpact(float radius, Function<Entity, Float> maxDamage, Entity source, Vec3d pos, DamageSource damageSource) {
         handleAreaImpact(radius, maxDamage, source, pos, damageSource, 1, 0);
     }
