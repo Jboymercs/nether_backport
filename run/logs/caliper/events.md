@@ -14,9 +14,9 @@ submitted to any online service.
 | EntityJoinWorldEvent                         | 2              |
 | WorldEvent$Save                              | 2              |
 | GuiScreenEvent$InitGuiEvent$Post             | 1              |
-| PlayerInteractEvent                          | 1              |
 | PlayerEvent$PlayerLoggedInEvent              | 1              |
 | TextureStitchEvent$Pre                       | 1              |
+| PlayerInteractEvent                          | 1              |
 | AnvilUpdateEvent                             | 1              |
 | AttachCapabilitiesEvent                      | 1              |
 | PlayerSetSpawnEvent                          | 1              |
@@ -42,12 +42,6 @@ submitted to any online service.
 | Had Enough Items | onGuiInit | mezz.jei.input.MouseHelper | normal   | had-enough-items-557549-4571247_mapped_stable_39-1.12.jar | false           |
 
 
-## PlayerInteractEvent
-| Owner     | Method           | Location                                 | Priority | Source                                   | RecieveCanceled |
-|-----------|------------------|------------------------------------------|----------|------------------------------------------|-----------------|
-| WorldEdit | onPlayerInteract | com.sk89q.worldedit.forge.ForgeWorldEdit | normal   | worldedit-forge-mc1.12.2-6.1.10-dist.jar | false           |
-
-
 ## PlayerEvent$PlayerLoggedInEvent
 | Owner           | Method      | Location | Priority | Source                                                     | RecieveCanceled |
 |-----------------|-------------|----------|----------|------------------------------------------------------------|-----------------|
@@ -58,6 +52,12 @@ submitted to any online service.
 | Owner            | Method             | Location                           | Priority | Source                                                    | RecieveCanceled |
 |------------------|--------------------|------------------------------------|----------|-----------------------------------------------------------|-----------------|
 | Had Enough Items | handleTextureRemap | mezz.jei.startup.ProxyCommonClient | normal   | had-enough-items-557549-4571247_mapped_stable_39-1.12.jar | false           |
+
+
+## PlayerInteractEvent
+| Owner     | Method           | Location                                 | Priority | Source                                   | RecieveCanceled |
+|-----------|------------------|------------------------------------------|----------|------------------------------------------|-----------------|
+| WorldEdit | onPlayerInteract | com.sk89q.worldedit.forge.ForgeWorldEdit | normal   | worldedit-forge-mc1.12.2-6.1.10-dist.jar | false           |
 
 
 ## ConfigChangedEvent$OnConfigChangedEvent
@@ -120,10 +120,10 @@ submitted to any online service.
 | Owner           | Method                | Location                                                        | Priority | Source                                                     | RecieveCanceled |
 |-----------------|-----------------------|-----------------------------------------------------------------|----------|------------------------------------------------------------|-----------------|
 | Minecraft Forge | checkSettings         | net.minecraftforge.common.ForgeInternalHandler                  | normal   | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | false           |
-| Nether API      | resetCurrentMusicType | git.jbredwards.nether_api.mod.client.audio.TheEndMusicHandler   | normal   | nether-API-f2f48d7b8b_mapped_stable_39-1.12.jar            | false           |
 | Nether API      | resetCurrentMusicType | git.jbredwards.nether_api.mod.client.audio.NetherMusicHandler   | normal   | nether-API-f2f48d7b8b_mapped_stable_39-1.12.jar            | false           |
-| Bookshelf       | onClientTick          | net.darkhax.bookshelf.Bookshelf                                 | normal   | Bookshelf-1.12.2-2.3.590 (1).jar                           | false           |
+| Nether API      | resetCurrentMusicType | git.jbredwards.nether_api.mod.client.audio.TheEndMusicHandler   | normal   | nether-API-f2f48d7b8b_mapped_stable_39-1.12.jar            | false           |
 | Nether API      | onPlayerTick          | git.jbredwards.nether_api.mod.client.audio.BiomeAmbienceHandler | normal   | nether-API-f2f48d7b8b_mapped_stable_39-1.12.jar            | false           |
+| Bookshelf       | onClientTick          | net.darkhax.bookshelf.Bookshelf                                 | normal   | Bookshelf-1.12.2-2.3.590 (1).jar                           | false           |
 
 
 ## NetherAPIRegistryEvent$Nether

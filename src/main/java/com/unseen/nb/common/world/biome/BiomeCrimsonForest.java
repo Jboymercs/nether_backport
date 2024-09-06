@@ -183,6 +183,8 @@ public class BiomeCrimsonForest extends Biome implements INetherBiome, INetherAP
         return new SoundAmbience(ModSoundHandler.CRIMSON_FOREST_AMBIENT, 0.001);
     }
 
+
+
     @Override
     public SoundEvent getAmbientSound() {
         return ModSoundHandler.CRIMSON_FOREST_AMBIENT_CONSTANT;

@@ -454,6 +454,64 @@
 
     ]
   },
+  "block.soul_lantern.break": {
+    "category": "block",
+    "sounds": [
+      {
+        "name": "nb:block/soul_lantern/break1",
+        "stream": true
+      },
+      {
+        "name": "nb:block/soul_lantern/break2",
+        "stream": true
+      },
+      {
+        "name": "nb:block/soul_lantern/break3",
+        "stream": true
+      },
+      {
+        "name": "nb:block/soul_lantern/break4",
+        "stream": true
+      },
+      {
+        "name": "nb:block/soul_lantern/break5",
+        "stream": true
+      },
+      {
+        "name": "nb:block/soul_lantern/break6",
+        "stream": true
+      }
+    ]
+  },
+  "block.soul_lantern.place": {
+    "category": "block",
+    "sounds": [
+      {
+        "name": "nb:block/soul_lantern/place1",
+        "stream": true
+      },
+      {
+        "name": "nb:block/soul_lantern/place2",
+        "stream": true
+      },
+      {
+        "name": "nb:block/soul_lantern/place3",
+        "stream": true
+      },
+      {
+        "name": "nb:block/soul_lantern/place4",
+        "stream": true
+      },
+      {
+        "name": "nb:block/soul_lantern/place5",
+        "stream": true
+      },
+      {
+        "name": "nb:block/soul_lantern/place6",
+        "stream": true
+      }
+    ]
+  },
   "block.basalt.break": {
     "category": "block",
     "subtitle": "subtitles.block.generic.break",

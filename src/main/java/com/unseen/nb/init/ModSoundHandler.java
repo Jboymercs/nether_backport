@@ -16,6 +16,9 @@ public class ModSoundHandler {
     public static SoundEvent CHAIN_BREAK;
     public static SoundEvent CHAIN_STEP;
 
+    public static SoundEvent SOUL_LANTERN_BREAK;
+    public static SoundEvent SOUL_LANTERN_PlACE;
+
     public static SoundEvent HYPHAE_BREAK;
 
     public static SoundEvent WART_BREAK;
@@ -189,6 +192,9 @@ public class ModSoundHandler {
     ROOTS_HIT = registerSound("roots.hit", "block");
 
     SPROUT_BREAK = registerSound("sprout.break", "block");
+
+    SOUL_LANTERN_BREAK = registerSound("soul_lantern.break", "block");
+    SOUL_LANTERN_PlACE = registerSound("soul_lantern.place", "block");
 
     //ENTITIES
         PIGLIN_STEP = registerSound("piglin.step", "entity");

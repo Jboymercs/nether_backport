@@ -1,0 +1,7 @@
+{
+  "parent": "nb:base/base_lantern",
+  "textures": {
+    "particle": "nb:blocks/soul_lantern",
+    "all": "nb:blocks/soul_lantern"
+  }
+}
