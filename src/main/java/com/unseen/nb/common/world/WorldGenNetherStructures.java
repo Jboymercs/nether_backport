@@ -1,5 +1,6 @@
 package com.unseen.nb.common.world;
 
+import com.google.common.collect.Lists;
 import com.unseen.nb.common.world.bastion.WorldGenBastion;
 import com.unseen.nb.common.world.structures.WorldGenNetherPortal;
 import com.unseen.nb.common.world.structures.WorldGenRuinedPortals;
@@ -7,24 +8,29 @@ import com.unseen.nb.common.world.structures.WorldGenRuinedPortalsGiant;
 import com.unseen.nb.config.ModConfig;
 import com.unseen.nb.init.BiomeRegister;
 import com.unseen.nb.util.ModRand;
+import com.unseen.nb.util.NBLogger;
 import git.jbredwards.nether_api.mod.common.config.NetherAPIConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
+import java.util.List;
 import java.util.Random;
 
 public class WorldGenNetherStructures implements IWorldGenerator {
 
-
+    private static List<Biome> spawnBiomesRemnants;
+    private static List<Biome> spawnBiomesRuinedPortals;
     private static final WorldGenBastion bastion = new WorldGenBastion();
 
     private static final WorldGenRuinedPortals[] list_Of_Portals = {new WorldGenRuinedPortals("ruined_portal_1"), new WorldGenRuinedPortals("ruined_portal_2"),
@@ -51,52 +57,89 @@ public class WorldGenNetherStructures implements IWorldGenerator {
             //This is the connect between the bastion spawn rules and a signal to tell it to try it here
             //WorldGenBastion handles the actual spawn rules
 
-            if(world.getBiomeForCoordsBody(pos) != BiomeRegister.BASALT_DELTAS) {
+            if(world.provider.getBiomeForCoords(pos) != getSpawnBiomesRemnarts().iterator()) {
+                //Bastion Remnants
                 bastion.generate(world, random, pos);
-            }
 
-            //Nether Portal Ruins
-            if(netherPortalSpacing/8 > ModConfig.nether_ruins_rate) {
-                int y = getNetherSurfaceHeight(world, pos, 35, NetherAPIConfig.tallNether ? 240 : 110);
-                BlockPos modifiedPos = new BlockPos(pos.getX() - 2, y, pos.getZ() - 2);
-                if(!world.isAirBlock(modifiedPos) && !world.isAirBlock(modifiedPos.add(3, 0, 3)) && world.isAirBlock(modifiedPos.add(0, 10, 0))) {
-                    WorldGenNetherPortal portal = ModRand.choice(list_of_nether_portals);
-                    portal.generate(world, random, pos.add(0, y, 0));
-                    netherPortalSpacing = 0;
+
+                //Nether Portal Ruins
+                if(netherPortalSpacing/8 > ModConfig.nether_ruins_rate) {
+                    int y = getNetherSurfaceHeight(world, pos, 35, NetherAPIConfig.tallNether ? 240 : 110);
+                    BlockPos modifiedPos = new BlockPos(pos.getX() - 2, y, pos.getZ() - 2);
+                    if(!world.isAirBlock(modifiedPos) && !world.isAirBlock(modifiedPos.add(3, 0, 3)) && world.isAirBlock(modifiedPos.add(0, 10, 0))) {
+                        WorldGenNetherPortal portal = ModRand.choice(list_of_nether_portals);
+                        portal.generate(world, random, pos.add(0, y, 0));
+                        netherPortalSpacing = 0;
+                    }
+                } else {
+                    netherPortalSpacing++;
                 }
-            } else {
-                netherPortalSpacing++;
             }
         }
 
         if (world.provider.getDimension() == 0) {
-            int y = getGroundFromAbove(world, pos.getX(), pos.getZ());
-            //generates regular ruined portals
-            if(y != 0) {
-                BlockPos posModified = new BlockPos(pos.getX(), y, pos.getZ());
-                if(portalSpacing/12 > ModConfig.ruined_portal_rate) {
-                    //Giant Portal Ruins 5% chance of spawning
-                    if(!world.isAirBlock(posModified.down()) && !world.isAirBlock(posModified.add(7, -1, 7)) && world.rand.nextInt(ModConfig.portal_big_chance) == 0) {
-                        WorldGenRuinedPortalsGiant portal = ModRand.choice(list_of_Giant_portals);
-                        portal.generate(world, random, pos.add(0, y, 0));
-                        portalSpacing = 0;
+            if(world.provider.getBiomeForCoords(pos) != getSpawnBiomesRuinedPortals().iterator()) {
+                int y = getGroundFromAbove(world, pos.getX(), pos.getZ());
+                //generates regular ruined portals
+                if (y != 0) {
+                    BlockPos posModified = new BlockPos(pos.getX(), y, pos.getZ());
+                    if (portalSpacing / 12 > ModConfig.ruined_portal_rate) {
+                        //Giant Portal Ruins 5% chance of spawning
+                        if (!world.isAirBlock(posModified.down()) && !world.isAirBlock(posModified.add(7, -1, 7)) && world.rand.nextInt(ModConfig.portal_big_chance) == 0) {
+                            WorldGenRuinedPortalsGiant portal = ModRand.choice(list_of_Giant_portals);
+                            portal.generate(world, random, pos.add(0, y, 0));
+                            portalSpacing = 0;
 
-                        //Small Portal Ruins
-                    } else if (!world.isAirBlock(posModified.down()) && !world.isAirBlock(posModified.add(3, -1, 3))) {
-                        WorldGenRuinedPortals portal = ModRand.choice(list_Of_Portals);
-                        portal.generate(world, random, pos.add(0, y, 0));
-                        portalSpacing = 0;
+                            //Small Portal Ruins
+                        } else if (!world.isAirBlock(posModified.down()) && !world.isAirBlock(posModified.add(3, -1, 3))) {
+                            WorldGenRuinedPortals portal = ModRand.choice(list_Of_Portals);
+                            portal.generate(world, random, pos.add(0, y, 0));
+                            portalSpacing = 0;
+                        }
+                    } else {
+                        portalSpacing++;
                     }
-                }
-                else {
-                    portalSpacing++;
                 }
             }
         }
     }
 
 
+    /**
+     * Credit goes to SmileyCorps for Biomes read from a config
+     * @return
+     */
+    public static List<Biome> getSpawnBiomesRemnarts() {
+        if (spawnBiomesRemnants == null) {
+            spawnBiomesRemnants = Lists.newArrayList();
+            for (String str : ModConfig.remnantsBiomesNotAllowed) {
+                try {
+                    Biome biome = Biome.REGISTRY.getObject(new ResourceLocation(str));
+                    if (biome != null) spawnBiomesRemnants.add(biome);
+                    else NBLogger.logError("Biome " + str + " is not registered", new NullPointerException());
+                } catch (Exception e) {
+                    NBLogger.logError(str + " is not a valid registry name", e);
+                }
+            }
+        }
+        return spawnBiomesRemnants;
+    }
 
+    public static List<Biome> getSpawnBiomesRuinedPortals() {
+        if (spawnBiomesRuinedPortals == null) {
+            spawnBiomesRuinedPortals = Lists.newArrayList();
+            for (String str : ModConfig.ruinsBiomesNotAllowed) {
+                try {
+                    Biome biome = Biome.REGISTRY.getObject(new ResourceLocation(str));
+                    if (biome != null) spawnBiomesRuinedPortals.add(biome);
+                    else NBLogger.logError("Biome " + str + " is not registered", new NullPointerException());
+                } catch (Exception e) {
+                    NBLogger.logError(str + " is not a valid registry name", e);
+                }
+            }
+        }
+        return spawnBiomesRuinedPortals;
+    }
 
     public static int getGroundFromAbove(World world, int x, int z)
     {

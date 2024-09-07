@@ -63,7 +63,7 @@ public class WorldGenBastion extends WorldGenerator {
                 Rotation rotation = Rotation.values()[(rand2 + i) % Rotation.values().length];
                 components.clear();
                 //Set IAW with the best Position to spawn the first layer of the chambers at
-                BlockPos blockpos = posI.add(0, 41, 0);
+                BlockPos blockpos = posI.add(0, ModConfig.bastionYLevel, 0);
                 BastionRemnants bastion = new BastionRemnants(world, world.getSaveHandler().getStructureTemplateManager(), components);
                 //Starts the first room within the Trial Chambers
                 bastion.startBastion(blockpos, rotation);

@@ -320,7 +320,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
                             this.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, Items.GOLD_INGOT.getDefaultInstance());
                             foundGoldIngot = true;
                             this.doTrade();
-                            trade_delay = 160;
+                            trade_delay = ModConfig.piglins_trade_cooldown;
                         }
 
                         } else {
@@ -363,8 +363,10 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
                 }
             }
         }
-
-        if(this.isInsideBastion() && !initiateBastionAI) {
+        if(!ModConfig.piglins_are_aggro && !initiateBastionAI) {
+            this.setInsideBastion(false);
+            this.initiateBastionAI = true;
+        } else if(this.isInsideBastion() && !initiateBastionAI) {
             this.addBastionChanges();
         }
 
@@ -416,6 +418,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
             this.foundGoldIngot = false;
         }, 120);
     }
+
     protected void createTargetFor(EntityLivingBase player) {
         this.targetTasks.addTask(1, new EntityAINearestAttackableTarget<>(this, player.getClass(), 1, true, false, null));
     }

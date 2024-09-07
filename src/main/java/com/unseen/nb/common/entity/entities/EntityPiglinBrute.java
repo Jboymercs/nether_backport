@@ -116,6 +116,13 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
 
         if(target != null && !hasPlayedAngrySound) {
             this.playSound(ModSoundHandler.BRUTE_ANGRY, 1.0f, 1.0f / (rand.nextFloat() * 0.4f + 0.5f));
+            //Allows Brutes to call on nearby Piglins to aid
+            List<EntityPiglin> nearbyPiglins = this.world.getEntitiesWithinAABB(EntityPiglin.class, this.getEntityBoundingBox().grow(12D), e -> !e.getIsInvulnerable());
+            if(!nearbyPiglins.isEmpty()) {
+                for(EntityPiglin piglin : nearbyPiglins) {
+                    piglin.setAttackTarget(target);
+                }
+            }
             hasPlayedAngrySound = true;
         } else if (target == null) {
             hasPlayedAngrySound = false;
