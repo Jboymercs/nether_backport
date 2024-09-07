@@ -20,6 +20,6 @@ public class ApiEventHandler {
         event.registry.registerBiome(BiomeRegister.CRIMSON_FOREST, ModConfig.crimsonForestRate);
         event.registry.registerBiome(BiomeRegister.WARPED_FOREST, ModConfig.warpedForestRate);
         event.registry.registerBiome(BiomeRegister.SOUL_SAND_VALLEY, ModConfig.soulSandValleyRate);
-        //event.registry.registerBiome(BiomeRegister.BASALT_DELTAS, 80);
+        event.registry.registerBiome(BiomeRegister.BASALT_DELTAS, ModConfig.basaltDeltasRate);
     }
 }

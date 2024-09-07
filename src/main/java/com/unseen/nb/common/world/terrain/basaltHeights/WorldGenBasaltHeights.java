@@ -45,9 +45,9 @@ public class WorldGenBasaltHeights extends WorldGenerator {
         for(BlockPos blockPos : affectedConversionPositions) {
             int findSurface = getNetherSurfaceHeight(world, blockPos, blockPos.getY() - 2, blockPos.getY() + 5);
             BlockPos relPos = new BlockPos(blockPos.getX(), findSurface, blockPos.getZ());
-            if(!world.isAirBlock(relPos.down()) && findSurface != 0 && world.getBlockState(relPos).getBlock() == ModBlocks.BASALT) {
+            if(!world.isAirBlock(relPos.down()) && findSurface != 0 && world.getBlockState(relPos).getBlock() == ModBlocks.BASALT && world.isAirBlock(relPos.up())) {
 
-                for(int t = 0; t < ModRand.range(1, 7); t++) {
+                for(int t = 0; t < ModRand.range(1, 5); t++) {
                     world.setBlockState(relPos.add(0,t,0), ModBlocks.BASALT.getDefaultState());
                 }
 

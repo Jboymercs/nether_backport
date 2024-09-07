@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "VRV",
+    "VRV"
+  ],
+  "key": {
+    "V": {
+      "item": "nb:warped_planks",
+      "data" : 0
+    },
+    "R": {
+      "item": "minecraft:stick",
+      "data" : 0
+    }
+  },
+  "result": {
+    "item": "nb:warped_fence",
+    "data": 0,
+    "count": 3
+  }
+}

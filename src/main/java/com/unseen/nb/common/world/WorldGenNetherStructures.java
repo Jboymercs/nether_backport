@@ -5,6 +5,7 @@ import com.unseen.nb.common.world.structures.WorldGenNetherPortal;
 import com.unseen.nb.common.world.structures.WorldGenRuinedPortals;
 import com.unseen.nb.common.world.structures.WorldGenRuinedPortalsGiant;
 import com.unseen.nb.config.ModConfig;
+import com.unseen.nb.init.BiomeRegister;
 import com.unseen.nb.util.ModRand;
 import git.jbredwards.nether_api.mod.common.config.NetherAPIConfig;
 import net.minecraft.block.Block;
@@ -49,7 +50,10 @@ public class WorldGenNetherStructures implements IWorldGenerator {
         if(world.provider.getDimension() == -1) {
             //This is the connect between the bastion spawn rules and a signal to tell it to try it here
             //WorldGenBastion handles the actual spawn rules
-            bastion.generate(world, random, pos);
+
+            if(world.getBiomeForCoordsBody(pos) != BiomeRegister.BASALT_DELTAS) {
+                bastion.generate(world, random, pos);
+            }
 
             //Nether Portal Ruins
             if(netherPortalSpacing/8 > ModConfig.nether_ruins_rate) {

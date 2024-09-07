@@ -38,17 +38,22 @@ public class ModConfig {
     @Config.Name("Warped Forest Biome Frequency")
     @Config.Comment("Change the Frequency of how common the Warped Forest is")
     @Config.RequiresMcRestart
-    public static int warpedForestRate = 70;
+    public static int warpedForestRate = 5;
 
     @Config.Name("Crimson Forest Biome Frequency")
     @Config.Comment("Change the Frequency of how common the Crimson Forest is")
     @Config.RequiresMcRestart
-    public static int crimsonForestRate = 70;
+    public static int crimsonForestRate = 5;
 
     @Config.Name("Soul Sand Valley Biome Frequency")
     @Config.Comment("Change the Frequency of how common the Soul Sand Valley is")
     @Config.RequiresMcRestart
-    public static int soulSandValleyRate = 70;
+    public static int soulSandValleyRate = 2;
+
+    @Config.Name("Basalt Deltas Biome Frequency")
+    @Config.Comment("Change the Frequency of how common the Basalt Deltas is")
+    @Config.RequiresMcRestart
+    public static int basaltDeltasRate = 2;
 
     @Config.Name("Hoglin/Piglin Zombie Conversion Time")
     @Config.Comment("Change how long it takes for a Piglin or Hoglin to Zombify when entering the overworld")

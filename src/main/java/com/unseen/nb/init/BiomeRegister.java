@@ -20,7 +20,7 @@ public class BiomeRegister {
         initBiome(CRIMSON_FOREST, "crimson_forest", Type.NETHER);
         initBiome(WARPED_FOREST, "warped_forest", Type.NETHER);
         initBiome(SOUL_SAND_VALLEY, "soul_sand_valley", Type.NETHER);
-       // initBiome(BASALT_DELTAS, "basalt_deltas", Type.NETHER);
+        initBiome(BASALT_DELTAS, "basalt_deltas", Type.NETHER);
     }
 
     private static void initBiome(Biome biome, String name, BiomeDictionary.Type... types)

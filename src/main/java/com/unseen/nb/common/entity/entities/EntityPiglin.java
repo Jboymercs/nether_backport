@@ -22,6 +22,7 @@ import net.minecraft.entity.ai.*;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityPigZombie;
+import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
@@ -159,7 +160,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
                     this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.BOW.getDefaultInstance());
                 }
                 this.initRangedAI();
-            } else {
+            } else if(this.isHasMelee()) {
                 this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.GOLDEN_SWORD.getDefaultInstance());
                 this.initMeleeAI();
             }
@@ -172,7 +173,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
     }
 
     protected void initMeleeAI() {
-        this.tasks.addTask(2, new EntityTimedAttackPiglin<>(this, 1.8D, 60, 3, 0.25F));
+        this.tasks.addTask(2, new EntityTimedAttackPiglin<>(this, 1.8D, 60, 3, 0.2F));
     }
     @Override
     protected void entityInit() {
@@ -476,15 +477,52 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
         if(!this.isFightMode() && this.getAnimation() == NO_ANIMATION) {
             double distance = Math.sqrt(distanceSq);
             if(this.isHasRanged()) {
+                if(!this.isLoadedACrossBow()) {
+                    this.setFightMode(true);
+                    this.setRangedAttack(true);
+                    this.setImmovable(true);
 
-                List<Consumer<EntityLivingBase>> attacks = new ArrayList<>(Arrays.asList(load_crossbow, shoot_crossbow));
-                double[] weights = {
-                        (distance <= 15 && !isLoadedACrossBow()) ? 1/distance : 1,
-                        (distance <= 15 && isLoadedACrossBow()) ? 1/distance : 0
-                };
-                prevAttack = ModRand.choice(attacks, rand, weights).next();
+                    addEvent(()-> {
+                        ItemStack stack = getItemStackFromSlot(EntityEquipmentSlot.MAINHAND);
+                        //loads Crossbow
+                        this.setLoadedACrossBow(true);
+                        if(ModIntegration.isCrossbow(stack)) {
+                            ModIntegration.setCharged(stack, true);
+                        }
+                    }, 15);
+                    addEvent(()-> {
+                        this.setFightMode(false);
+                        this.setImmovable(false);
+                        this.setRangedAttack(false);
+                        this.setAnimation(NO_ANIMATION);
+                    }, 25);
+                } else {
+                    //Shoots Crossbow
+                    this.setFightMode(true);
 
-                prevAttack.accept(target);
+                    addEvent(()-> {
+                        EntityArrow arrow =new EntityTippedArrow(world, this);
+                        double d0 = target.posX - posX;
+                        double d1 = target.getEntityBoundingBox().minY + (double)(target.height / 3f) - arrow.posY;
+                        double d2 = target.posZ - posZ;
+                        double d3 = MathHelper.sqrt(d0 * d0 + d2 * d2);
+                        arrow.shoot(d0, d1 + d3 * 0.20000000298023224, d2, 1.6f, (float)(14 - world.getDifficulty().getId() * 4));
+                        playSound(SoundEvents.ENTITY_SKELETON_SHOOT, 1, 1f / (this.getRNG().nextFloat() * 0.4f + 0.8f));
+                        arrow.setDamage(11D);
+                        world.spawnEntity(arrow);
+                        //Unloads the crossbow
+                        ItemStack stack = getItemStackFromSlot(EntityEquipmentSlot.MAINHAND);
+                        if(ModIntegration.isCrossbow(stack)) {
+                            ModIntegration.setCharged(stack, false);
+                        }
+                    }, 5);
+                    addEvent(()-> {
+                        this.setFightMode(false);
+                        this.setLoadedACrossBow(false);
+                        this.setAnimation(NO_ANIMATION);
+                    }, 10);
+                }
+
             }
             if(this.isHasMelee()) {
                 List<Consumer<EntityLivingBase>> attacks = new ArrayList<>(Arrays.asList(meleeAttack, meleeAttackTwo));
@@ -497,7 +535,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
                 prevAttack.accept(target);
             }
         }
-        return this.isHasMelee() ? 5 : this.isHasRanged() ? 5 : 6;
+        return this.isHasMelee() ? 5 : this.isHasRanged() ? 8 : 6;
     }
 
     private final Consumer<EntityLivingBase> meleeAttackTwo = (target) -> {
@@ -546,7 +584,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
         //loads Crossbow
         this.setLoadedACrossBow(true);
     if(ModIntegration.isCrossbow(stack)) {
-       // ModIntegration.setCharged(stack, true);
+        ModIntegration.setCharged(stack, true);
     }
     }, 15);
     addEvent(()-> {
@@ -561,7 +599,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
         this.setFightMode(true);
 
         addEvent(()-> {
-            EntityArrow arrow =getArrow(30);
+            EntityArrow arrow =new EntityTippedArrow(world, this);
             double d0 = target.posX - posX;
             double d1 = target.getEntityBoundingBox().minY + (double)(target.height / 3f) - arrow.posY;
             double d2 = target.posZ - posZ;
@@ -573,7 +611,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
             //Unloads the crossbow
             ItemStack stack = getItemStackFromSlot(EntityEquipmentSlot.MAINHAND);
             if(ModIntegration.isCrossbow(stack)) {
-               // ModIntegration.setCharged(stack, false);
+                ModIntegration.setCharged(stack, false);
             }
         }, 5);
         addEvent(()-> {

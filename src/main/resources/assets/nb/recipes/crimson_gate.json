@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "VRV",
+    "VRV"
+  ],
+  "key": {
+    "R": {
+      "item": "nb:crimson_planks",
+      "data" : 0
+    },
+    "V": {
+      "item": "minecraft:stick",
+      "data" : 0
+    }
+  },
+  "result": {
+    "item": "nb:crimson_gate",
+    "data": 0,
+    "count": 1
+  }
+}

@@ -3,6 +3,7 @@ package com.unseen.nb.common.entity.entities;
 import com.google.common.collect.Sets;
 import com.unseen.nb.common.entity.entities.ai.EntityAIMoveToLava;
 import com.unseen.nb.common.entity.util.PathNavigateLava;
+import com.unseen.nb.init.BiomeRegister;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.init.ModItems;
 import com.unseen.nb.init.ModSoundHandler;
@@ -213,7 +214,7 @@ public class EntityStrider extends EntityAnimal {
         } else {
             if(!this.world.isRemote) {
                 if(this.rand.nextInt(30) == 0) {
-                    EntityPigZombie zombifiedPiglin = new EntityPigZombie(this.world);
+                    EntityPiglinZombie zombifiedPiglin = new EntityPiglinZombie(this.world);
                     livingData = this.addRider(difficultyIn, zombifiedPiglin, livingData);
                 } else if(this.rand.nextInt(10) == 0) {
                     EntityStrider strider = new EntityStrider(this.world);
@@ -248,6 +249,10 @@ public class EntityStrider extends EntityAnimal {
 
     @Override
     public boolean getCanSpawnHere() {
+        // Check if it's in the Basalt Deltas, we want these to spawn at any height in the Deltas
+        if(world.getBiomeForCoordsBody(getPosition()) == BiomeRegister.BASALT_DELTAS) {
+            return true;
+        }
         // Check For Lava
         if(this.posY <= 38) {
             return true;

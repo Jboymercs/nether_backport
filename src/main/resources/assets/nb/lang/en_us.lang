@@ -59,6 +59,10 @@ tile.crimson_door.name=Crimson Door
 tile.chain_block.name=Chain
 tile.soul_lantern.name=Soul Lantern
 tile.soul_torch.name=Soul Torch
+tile.crimson_fence.name=Crimson Fence
+tile.warped_fence.name=Warped Fence
+tile.warped_gate.name=Warped Fence Gate
+tile.crimson_gate.name=Crimson Fence Gate
 
 #ENCHANTMENT
 enchantment.soul_speed=Soul Speed

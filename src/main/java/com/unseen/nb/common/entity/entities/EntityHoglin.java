@@ -5,6 +5,8 @@ import com.unseen.nb.client.animation.EZAnimation;
 import com.unseen.nb.client.animation.EZAnimationHandler;
 import com.unseen.nb.client.animation.IAnimatedEntity;
 import com.unseen.nb.common.entity.EntityNetherAnimalBase;
+import com.unseen.nb.common.entity.entities.ai.EntityAIMateHoglin;
+import com.unseen.nb.common.entity.entities.ai.EntityAITemptHoglin;
 import com.unseen.nb.common.entity.entities.ai.EntityTimedAttackHoglin;
 import com.unseen.nb.common.entity.entities.ai.IAttack;
 import com.unseen.nb.config.ModConfig;
@@ -29,9 +31,7 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -49,7 +49,7 @@ public class EntityHoglin extends EntityNetherAnimalBase implements IAttack, IAn
     private int animationTick;
     //just a variable that holds what the current animation is
     private EZAnimation currentAnimation;
-
+    private EntityAITemptHoglin temptationAI;
     public boolean hasNearbyBlockItHates = false;
 
     private static final Set<Item> TEMPTATION_ITEMS = Sets.newHashSet(Item.getItemFromBlock(ModBlocks.CRIMSON_FUNGUS));
@@ -68,6 +68,11 @@ public class EntityHoglin extends EntityNetherAnimalBase implements IAttack, IAn
     private int dimensionCheck = 40;
     private int countDownToZombie = ModConfig.zombification_time * 20;
 
+    @Override
+    public boolean getCanSpawnHere()
+    {
+        return true;
+    }
     public boolean convertTooZombie = false;
     @Override
     public void onUpdate() {
@@ -146,6 +151,10 @@ public class EntityHoglin extends EntityNetherAnimalBase implements IAttack, IAn
     }
 
 
+    private boolean isTempted() {
+        return this.temptationAI != null && this.temptationAI.isRunning();
+    }
+
     private void beginZombieTransformation() {
         if(!world.isRemote) {
             addEvent(() -> this.playSound(ModSoundHandler.HOGLIN_CONVERTED, 1.0f, 0.8f), 75);
@@ -176,12 +185,13 @@ public class EntityHoglin extends EntityNetherAnimalBase implements IAttack, IAn
 
     @Override
     protected void initEntityAI() {
-        super.initEntityAI();
-        this.tasks.addTask(3, new EntityAIWander(this, 1.0D));
+        this.tasks.addTask(1, new EntityAIMateHoglin(this, 1.0D));
        // this.tasks.addTask(2, new EntityAITempt(this, 1.4D, false, TEMPTATION_ITEMS));
-        this.tasks.addTask(2, new EntityTimedAttackHoglin<>(this, 1.6D, 60, 3, 0.3F));
-        this.tasks.addTask(4, new EntityAIFollowParent(this, 1.0D));
-        this.tasks.addTask(7, new EntityAIMate(this, 1.0D));
+        this.temptationAI = new EntityAITemptHoglin(this, 1.4D, false, TEMPTATION_ITEMS);
+        this.tasks.addTask(2, temptationAI);
+        this.tasks.addTask(3, new EntityTimedAttackHoglin<>(this, 1.6D, 60, 3, 0.3F));
+        this.tasks.addTask(4, new EntityAIWander(this, 1.0D));
+        this.tasks.addTask(5, new EntityAIFollowParent(this, 1.0D));
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new EntityAINearestAttackableTarget<>(this, EntityPlayer.class, 1, true, false, null));
         this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, true, new Class[0]));
@@ -267,18 +277,6 @@ public class EntityHoglin extends EntityNetherAnimalBase implements IAttack, IAn
         }, 13);
         addEvent(()-> this.setFightMode(false), 20);
         return 20;
-    }
-
-    @Override
-    public boolean canMateWith(EntityAnimal otherAnimal)
-    {
-        if(!(otherAnimal instanceof EntityHoglin)) {
-            return false;
-        } else {
-            EntityHoglin otherHoglin = (EntityHoglin) otherAnimal;
-            return this.isInLove() && otherHoglin.isInLove();
-        }
-
     }
 
 

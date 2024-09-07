@@ -135,6 +135,9 @@ public class ModSoundHandler {
     public static SoundEvent SOUL_SAND_VALLEY_AMBIENT;
     public static SoundEvent SOUL_SAND_VALLEY_AMBIENT_CONSTANT;
 
+    public static SoundEvent BASALT_DELTAS_AMBIENT;
+    public static SoundEvent BASALT_DELTAS_AMBIENT_CONSTANT;
+
     //MISC
     public static SoundEvent SOUL_SAND_SCREAM;
     public static SoundEvent NETHERITE_EQUIP;
@@ -254,6 +257,8 @@ public class ModSoundHandler {
         WARPED_FOREST_AMBIENT_CONSTANT = registerSound("warped_forest.constant", "ambient");
         SOUL_SAND_VALLEY_AMBIENT = registerSound("soulsand_valley.ambience", "ambient");
         SOUL_SAND_VALLEY_AMBIENT_CONSTANT = registerSound("soulsand_valley.constant", "ambient");
+        BASALT_DELTAS_AMBIENT = registerSound("basalt_deltas.ambience", "ambient");
+        BASALT_DELTAS_AMBIENT_CONSTANT = registerSound("basalt_deltas.constant", "ambient");
 
         //MISC
         SOUL_SAND_SCREAM = registerSound("soul.scream", "particle");
