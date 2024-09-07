@@ -15,8 +15,6 @@ online service.
      - Minecraft Forge
 1 - rongmario
      - Had Enough Items
-1 - smileycorp
-     - Crossbows
 1 - jbredwards
      - Nether API
 1 - mezz

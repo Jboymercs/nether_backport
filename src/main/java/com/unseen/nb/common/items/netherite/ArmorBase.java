@@ -5,6 +5,7 @@ import com.google.common.collect.Multimap;
 import com.unseen.nb.Main;
 import com.unseen.nb.handler.IHasModel;
 import com.unseen.nb.init.ModItems;
+import com.unseen.nb.init.ModItemsCompat;
 import com.unseen.nb.util.ModReference;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.creativetab.CreativeTabs;
@@ -35,7 +36,7 @@ public class ArmorBase extends ItemArmor implements IHasModel {
         setTranslationKey(name);
         setRegistryName(name);
         this.texture = textureName;
-        ModItems.ITEMS.add(this);
+        ModItemsCompat.ITEMS.add(this);
         this.knockbackResistance = new AttributeModifier("netheriteKnockbackResistance", 0.1, 0);
     }
 

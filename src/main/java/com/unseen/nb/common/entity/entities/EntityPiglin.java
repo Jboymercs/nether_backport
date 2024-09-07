@@ -1,6 +1,8 @@
 package com.unseen.nb.common.entity.entities;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
+import com.oblivioussp.spartanweaponry.init.ItemRegistrySW;
 import com.unseen.nb.client.animation.EZAnimation;
 import com.unseen.nb.client.animation.EZAnimationHandler;
 import com.unseen.nb.client.animation.IAnimatedEntity;
@@ -8,6 +10,7 @@ import com.unseen.nb.common.entity.EntityNetherBase;
 import com.unseen.nb.common.entity.entities.ai.EntityTimedAttackPiglin;
 import com.unseen.nb.common.entity.entities.ai.IAttack;
 import com.unseen.nb.config.ModConfig;
+import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.init.ModSoundHandler;
 import com.unseen.nb.util.ModRand;
 import com.unseen.nb.util.ModReference;
@@ -32,6 +35,7 @@ import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
@@ -51,10 +55,7 @@ import net.smileycorp.crossbows.common.Crossbows;
 import net.smileycorp.crossbows.common.CrossbowsContent;
 import net.smileycorp.crossbows.common.item.ItemCrossbow;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Consumer;
 
 public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, IAttack {
@@ -63,6 +64,8 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
     public static final EZAnimation ANIMATION_ATTACK_RANGED = EZAnimation.create(25);
     public static final EZAnimation ANIMATION_SHORT_TRADE = EZAnimation.create(120);
     public static final EZAnimation ANIMATION_LONG_TRADE = EZAnimation.create(40);
+
+
 
     private static final ResourceLocation LOOT_TRADE = new ResourceLocation(ModReference.MOD_ID, "piglin_trade");
 
@@ -118,6 +121,9 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
     //just a variable that holds what the current animation is
     private EZAnimation currentAnimation;
 
+
+
+
     public EntityPiglin(World worldIn) {
         super(worldIn);
         this.setSize(0.6F, 1.95F);
@@ -142,26 +148,82 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
             if(worldIn.rand.nextInt(2) == 0) {
                 this.setHasRanged(true);
                 if(ModIntegration.CROSSBOWS_BACKPORT_LOADED) {
+
                     this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, CrossbowsContent.CROSSBOW.getDefaultInstance());
+                } else if (ModIntegration.SPARTAN_WEAPONRY_LOADED) {
+                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.crossbowWood.getDefaultInstance());
                 } else {
-                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.BOW.getDefaultInstance());
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.BOW.getDefaultInstance());
                 }
                 this.initRangedAI();
             } else {
                 this.setHasMelee(true);
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.GOLDEN_SWORD.getDefaultInstance());
+                if(ModIntegration.SPARTAN_WEAPONRY_LOADED && ModConfig.useMeleeSpartanWeapons) {
+                    int randomInterval = ModRand.range(1, 8);
+                    if(randomInterval == 1) {
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.greatswordGold.getDefaultInstance());
+                    }
+                    if(randomInterval == 2) {
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.katanaGold.getDefaultInstance());
+                    }
+                    if(randomInterval == 3) {
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND,  ItemRegistrySW.rapierGold.getDefaultInstance());
+                    }
+                    if(randomInterval == 4) {
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.saberGold.getDefaultInstance());
+                    }
+                    if(randomInterval == 5) {
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND,  ItemRegistrySW.scytheGold.getDefaultInstance());
+                    }
+                    if(randomInterval == 6) {
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.spearGold.getDefaultInstance());
+                    }
+                    if(randomInterval == 7) {
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.GOLDEN_SWORD.getDefaultInstance());
+                    }
+                } else {
+                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.GOLDEN_SWORD.getDefaultInstance());
+                }
                 this.initMeleeAI();
             }
         } else {
             if(this.isHasRanged()) {
                 if(ModIntegration.CROSSBOWS_BACKPORT_LOADED) {
                     this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, CrossbowsContent.CROSSBOW.getDefaultInstance());
-                } else {
+                }  else if (ModIntegration.SPARTAN_WEAPONRY_LOADED) {
+                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.crossbowWood.getDefaultInstance());
+                }else {
                     this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.BOW.getDefaultInstance());
                 }
                 this.initRangedAI();
+
             } else if(this.isHasMelee()) {
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.GOLDEN_SWORD.getDefaultInstance());
+                if(ModIntegration.SPARTAN_WEAPONRY_LOADED && ModConfig.useMeleeSpartanWeapons) {
+                    int randomInterval = ModRand.range(1, 8);
+                    if(randomInterval == 1) {
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.greatswordGold.getDefaultInstance());
+                    }
+                    if(randomInterval == 2) {
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.katanaGold.getDefaultInstance());
+                    }
+                    if(randomInterval == 3) {
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND,  ItemRegistrySW.rapierGold.getDefaultInstance());
+                    }
+                    if(randomInterval == 4) {
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.saberGold.getDefaultInstance());
+                    }
+                    if(randomInterval == 5) {
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND,  ItemRegistrySW.scytheGold.getDefaultInstance());
+                    }
+                    if(randomInterval == 6) {
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.spearGold.getDefaultInstance());
+                    }
+                    if(randomInterval == 7) {
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.GOLDEN_SWORD.getDefaultInstance());
+                    }
+                } else {
+                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.GOLDEN_SWORD.getDefaultInstance());
+                }
                 this.initMeleeAI();
             }
         }

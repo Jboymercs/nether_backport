@@ -5,8 +5,10 @@ import com.unseen.nb.common.entity.entities.EntityPiglin;
 import com.unseen.nb.common.entity.entities.EntityPiglinBrute;
 import com.unseen.nb.common.world.base.NetherStructureTemplate;
 import com.unseen.nb.config.ModConfig;
+import com.unseen.nb.init.ModItemsCompat;
 import com.unseen.nb.util.ModRand;
 import com.unseen.nb.util.ModReference;
+import com.unseen.nb.util.integration.ModIntegration;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
@@ -23,7 +25,11 @@ public class BastionTemplate extends NetherStructureTemplate {
 
     private static final ResourceLocation LOOT_TOWERS = new ResourceLocation(ModReference.MOD_ID, "pig_towers");
     private static final ResourceLocation LOOT_STRONGHOLD = new ResourceLocation(ModReference.MOD_ID, "bastion_hold");
+
+    private static final ResourceLocation LOOT_STRONGHOLD_FUTUREMC = new ResourceLocation(ModReference.MOD_ID, "bastion_hold_futuremc");
     private static final ResourceLocation LOOT_TREASURE = new ResourceLocation(ModReference.MOD_ID, "bastion_treasure");
+
+    private static final ResourceLocation LOOT_TREASURE_FUTUREMC = new ResourceLocation(ModReference.MOD_ID, "bastion_treasure_futuremc");
 
     public BastionTemplate(TemplateManager manager, String type, BlockPos pos, Rotation rot, int distance, boolean overWriteIn) {
         super(manager, type, pos,distance, rot, overWriteIn);
@@ -41,7 +47,11 @@ public class BastionTemplate extends NetherStructureTemplate {
                 world.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
                 if (tileEntity instanceof TileEntityChest) {
                     TileEntityChest chest = (TileEntityChest) tileEntity;
-                    chest.setLootTable(LOOT_STRONGHOLD, rand.nextLong());
+                    if(!ModIntegration.FUTURE_MC_LOADED) {
+                        chest.setLootTable(LOOT_STRONGHOLD, rand.nextLong());
+                    } else {
+                        chest.setLootTable(LOOT_STRONGHOLD_FUTUREMC, rand.nextLong());
+                    }
                 }
             } else {
                 world.setBlockToAir(pos);
@@ -55,7 +65,11 @@ public class BastionTemplate extends NetherStructureTemplate {
                 world.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
                 if (tileEntity instanceof TileEntityChest) {
                     TileEntityChest chest = (TileEntityChest) tileEntity;
-                    chest.setLootTable(LOOT_STRONGHOLD, rand.nextLong());
+                    if(!ModIntegration.FUTURE_MC_LOADED) {
+                        chest.setLootTable(LOOT_STRONGHOLD, rand.nextLong());
+                    } else {
+                        chest.setLootTable(LOOT_STRONGHOLD_FUTUREMC, rand.nextLong());
+                    }
                 }
             } else {
                 world.setBlockToAir(pos);
@@ -82,7 +96,11 @@ public class BastionTemplate extends NetherStructureTemplate {
                 world.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
                 if (tileEntity instanceof TileEntityChest) {
                     TileEntityChest chest = (TileEntityChest) tileEntity;
-                    chest.setLootTable(LOOT_TREASURE, rand.nextLong());
+                    if(!ModIntegration.FUTURE_MC_LOADED) {
+                        chest.setLootTable(LOOT_TREASURE, rand.nextLong());
+                    } else {
+                        chest.setLootTable(LOOT_TREASURE_FUTUREMC, rand.nextLong());
+                    }
                 }
             } else {
                 world.setBlockToAir(pos);

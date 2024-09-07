@@ -1,5 +1,6 @@
 package com.unseen.nb.common.entity.entities;
 
+import com.oblivioussp.spartanweaponry.init.ItemRegistrySW;
 import com.unseen.nb.client.animation.EZAnimation;
 import com.unseen.nb.client.animation.EZAnimationHandler;
 import com.unseen.nb.client.animation.IAnimatedEntity;
@@ -11,6 +12,7 @@ import com.unseen.nb.init.ModSoundHandler;
 import com.unseen.nb.util.ModRand;
 import com.unseen.nb.util.ModReference;
 import com.unseen.nb.util.ModUtils;
+import com.unseen.nb.util.integration.ModIntegration;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -20,6 +22,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -52,7 +55,23 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
 
     public EntityPiglinBrute(World worldIn) {
         super(worldIn);
-        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.GOLDEN_AXE.getDefaultInstance());
+        if(ModIntegration.SPARTAN_WEAPONRY_LOADED && ModConfig.useMeleeSpartanWeapons) {
+            int randomInterval = ModRand.range(1, 5);
+            if(randomInterval == 1) {
+                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.hammerGold.getDefaultInstance());
+            }
+            if(randomInterval == 2) {
+                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.halberdGold.getDefaultInstance());
+            }
+            if(randomInterval == 3) {
+                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.battleaxeGold.getDefaultInstance());
+            }
+            if(randomInterval == 4) {
+                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.GOLDEN_AXE.getDefaultInstance());
+            }
+        } else {
+            this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.GOLDEN_AXE.getDefaultInstance());
+        }
         this.experienceValue = 20;
         this.isImmuneToFire = true;
     }

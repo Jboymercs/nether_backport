@@ -5,6 +5,7 @@ import com.google.common.collect.Multimap;
 import com.unseen.nb.Main;
 import com.unseen.nb.handler.IHasModel;
 import com.unseen.nb.init.ModItems;
+import com.unseen.nb.init.ModItemsCompat;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -36,7 +37,7 @@ public class ToolSword extends ItemSword implements IHasModel {
         setTranslationKey(name);
         setRegistryName(name);
         setCreativeTab(CreativeTabs.COMBAT);
-        ModItems.ITEMS.add(this);
+        ModItemsCompat.ITEMS.add(this);
         this.attackDamage = attackDamage;
         this.level = level;
     }

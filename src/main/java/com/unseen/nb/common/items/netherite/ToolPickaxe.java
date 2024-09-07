@@ -3,6 +3,7 @@ package com.unseen.nb.common.items.netherite;
 import com.unseen.nb.Main;
 import com.unseen.nb.handler.IHasModel;
 import com.unseen.nb.init.ModItems;
+import com.unseen.nb.init.ModItemsCompat;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemPickaxe;
 
@@ -13,7 +14,7 @@ public class ToolPickaxe extends ItemPickaxe implements IHasModel {
         this.setTranslationKey(name);
         this.setRegistryName(name);
         this.setCreativeTab(tab);
-        ModItems.ITEMS.add(this);
+        ModItemsCompat.ITEMS.add(this);
     }
 
     @Override

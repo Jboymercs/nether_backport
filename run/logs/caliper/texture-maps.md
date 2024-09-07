@@ -12,7 +12,6 @@ anonymous, and is not automatically submitted to any online service.
 |-----------|----------|--------|-----------|
 | minecraft | 818      | 227072 | 887 KB    |
 | nb        | 81       | 20736  | 81 KB     |
-| crossbows | 6        | 1536   | 6 KB      |
 | forge     | 3        | 768    | 3 KB      |
 | missingno | 1        | 256    | 1 KB      |
 

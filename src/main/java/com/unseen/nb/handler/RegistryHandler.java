@@ -1,8 +1,12 @@
 package com.unseen.nb.handler;
 
 import com.unseen.nb.init.ModBlocks;
+import com.unseen.nb.init.ModBlocksCompat;
 import com.unseen.nb.init.ModItems;
+import com.unseen.nb.init.ModItemsCompat;
 import com.unseen.nb.util.ModReference;
+import com.unseen.nb.util.ModUtils;
+import com.unseen.nb.util.integration.ModIntegration;
 import com.unseen.nb.util.mapper.AdvancedStateMap;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoor;
@@ -34,16 +38,21 @@ public class RegistryHandler {
             itemRegistry = event.getRegistry();
             event.getRegistry().registerAll(ModItems.ITEMS.toArray(new Item[0]));
             // Items.ALTAR = registerItem(new ItemBlock(Items.ALTAR_BLOCK), "altar");
+            if(!ModIntegration.FUTURE_MC_LOADED) {
+                event.getRegistry().registerAll(ModItemsCompat.ITEMS.toArray(new Item[0]));
+            }
         }
 
 
         @SubscribeEvent
         public static void onBlockRegister(RegistryEvent.Register<Block> event) {
             event.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
+            if(!ModIntegration.FUTURE_MC_LOADED) {
+                //register the fill ins
+                event.getRegistry().registerAll(ModBlocksCompat.BLOCKS.toArray(new Block[0]));
+            }
             // blockRegistry = event.getRegistry();
-            // Items.ALTAR_BLOCK = new BlockAltar();
-            // Items.ALTAR_BLOCK.setCreativeTab(ModCreativeTabs.ITEMS);
-            //  registerGeckoBlock(Items.ALTAR_BLOCK, "altar");
+
 
         }
 
@@ -70,6 +79,7 @@ public class RegistryHandler {
                     ((IHasModel) item).registerModels();
                 }
             }
+
             for (Block block : ModBlocks.BLOCKS) {
                 if (block instanceof IStateMappedBlock) {
                     AdvancedStateMap.Builder builder = new AdvancedStateMap.Builder();
@@ -84,6 +94,26 @@ public class RegistryHandler {
                 }
             }
 
+            if(!ModIntegration.FUTURE_MC_LOADED) {
+                //fill in blocks without futuremc
+                for (Block block : ModBlocksCompat.BLOCKS) {
+                    if (block instanceof IStateMappedBlock) {
+                        AdvancedStateMap.Builder builder = new AdvancedStateMap.Builder();
+                        ((IStateMappedBlock) block).setStateMapper(builder);
+                        ModelLoader.setCustomStateMapper(block, builder.build());
+                    }
+
+                    if (block instanceof IHasModel) {
+                        ((IHasModel) block).registerModels();
+                    }
+                }
+            }
+
+            for (Item item : ModItemsCompat.ITEMS) {
+                if (item instanceof IHasModel) {
+                    ((IHasModel) item).registerModels();
+                }
+            }
 
         }
 

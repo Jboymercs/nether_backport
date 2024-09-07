@@ -2,6 +2,7 @@ package com.unseen.nb.util.integration;
 
 
 import com.unseen.nb.common.entity.entities.EntityPiglin;
+import com.unseen.nb.config.ModConfig;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.item.ItemStack;
@@ -10,20 +11,36 @@ import net.minecraftforge.fml.common.Loader;
 
 public class ModIntegration {
 
-    public static boolean CROSSBOWS_BACKPORT_LOADED = Loader.isModLoaded("crossbows");
+    public static boolean CROSSBOWS_BACKPORT_LOADED = Loader.isModLoaded("crossbows") && !ModConfig.useSpartanWeapons;
     public static boolean NETHER_API_LOADED = Loader.isModLoaded("nether_api");
-
+    public static boolean FUTURE_MC_LOADED = Loader.isModLoaded("futuremc") && ModConfig.futureMCCompat;
+    public static boolean SPARTAN_WEAPONRY_LOADED = Loader.isModLoaded("spartanweaponry") && ModConfig.useSpartanWeapons;
     public static void init() {
         if (CROSSBOWS_BACKPORT_LOADED) CrossbosBackportIntegration.init();
+        if(SPARTAN_WEAPONRY_LOADED) SpartanWeaponryIntegration.init();
     }
 
     public static boolean isCrossbow(ItemStack stack) {
         if (CROSSBOWS_BACKPORT_LOADED && CrossbosBackportIntegration.isCrossbow(stack)) return true;
+        if(SPARTAN_WEAPONRY_LOADED && SpartanWeaponryIntegration.isCrossbow(stack)) return true;
         return false;
+    }
+
+    public static ItemStack[] selectPiglinWeapon() {
+        if(SPARTAN_WEAPONRY_LOADED) SpartanWeaponryIntegration.selectPiglinWeapon();
+
+        return null;
+    }
+
+    public static ItemStack[] selectBruteWeapon() {
+        if(SPARTAN_WEAPONRY_LOADED) SpartanWeaponryIntegration.selectPiglinBruteWeapon();
+
+        return null;
     }
 
     public static void setCharged(ItemStack stack, boolean charged) {
         if (CROSSBOWS_BACKPORT_LOADED && CrossbosBackportIntegration.isCrossbow(stack)) CrossbosBackportIntegration.setCharged(stack, charged);
+        if(SPARTAN_WEAPONRY_LOADED && SpartanWeaponryIntegration.isCrossbow(stack)) SpartanWeaponryIntegration.setCharged(stack, charged);
     }
 
     public static void performShooting(EntityPiglin entity, ItemStack stack, float velocity) {
