@@ -7,6 +7,7 @@ import com.unseen.nb.common.entity.EntityNetherBase;
 import com.unseen.nb.common.entity.entities.ai.EntityTimedAttackPiglinBrute;
 import com.unseen.nb.common.entity.entities.ai.EntityTimedAttackZombie;
 import com.unseen.nb.common.entity.entities.ai.IAttack;
+import com.unseen.nb.config.ModConfig;
 import com.unseen.nb.init.ModSoundHandler;
 import com.unseen.nb.util.ModRand;
 import com.unseen.nb.util.ModReference;
@@ -171,7 +172,7 @@ public class EntityPiglinZombie extends EntityNetherBase implements IAnimatedEnt
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20D * ModConfig.healthScale);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(7D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20D);
@@ -221,7 +222,7 @@ public class EntityPiglinZombie extends EntityNetherBase implements IAnimatedEnt
         addEvent(()-> {
             Vec3d offset = this.getPositionVector().add(ModUtils.getRelativeOffset(this, new Vec3d(1.2, 1.2, 0)));
             DamageSource source = DamageSource.causeMobDamage(this);
-            float damage = 7.0F;
+            float damage = (float) (7.0F * ModConfig.attackDamageScale);
             ModUtils.handleAreaImpact(1.0f, (e)-> damage, this, offset, source, 0.5f, 0, false);
         }, 18);
 
@@ -239,7 +240,7 @@ public class EntityPiglinZombie extends EntityNetherBase implements IAnimatedEnt
         addEvent(()-> {
             Vec3d offset = this.getPositionVector().add(ModUtils.getRelativeOffset(this, new Vec3d(1.2, 1.2, 0)));
             DamageSource source = DamageSource.causeMobDamage(this);
-            float damage = 7.0F;
+            float damage = (float)(7.0F * ModConfig.attackDamageScale);
             ModUtils.handleAreaImpact(1.0f, (e)-> damage, this, offset, source, 0.5f, 0, false);
         }, 18);
 

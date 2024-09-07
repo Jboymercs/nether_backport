@@ -13,14 +13,14 @@ submitted to any online service.
 | LivingEvent$LivingUpdateEvent                | 2              |
 | NetherAPIRegistryEvent$Nether                | 2              |
 | WorldEvent$Load                              | 2              |
-| WorldEvent$Save                              | 2              |
 | EntityJoinWorldEvent                         | 2              |
+| WorldEvent$Save                              | 2              |
 | GuiScreenEvent$InitGuiEvent$Post             | 1              |
-| PlayerInteractEvent                          | 1              |
 | PlayerEvent$PlayerLoggedInEvent              | 1              |
 | TextureStitchEvent$Pre                       | 1              |
-| AttachCapabilitiesEvent                      | 1              |
+| PlayerInteractEvent                          | 1              |
 | PlayerSetSpawnEvent                          | 1              |
+| AttachCapabilitiesEvent                      | 1              |
 | TickEvent$ServerTickEvent                    | 1              |
 | FMLNetworkEvent$ClientConnectedToServerEvent | 1              |
 | CommandEvent                                 | 1              |
@@ -44,12 +44,6 @@ submitted to any online service.
 | Had Enough Items | onGuiInit | mezz.jei.input.MouseHelper | normal   | had-enough-items-557549-4571247_mapped_stable_39-1.12.jar | false           |
 
 
-## PlayerInteractEvent
-| Owner     | Method           | Location                                 | Priority | Source                                   | RecieveCanceled |
-|-----------|------------------|------------------------------------------|----------|------------------------------------------|-----------------|
-| WorldEdit | onPlayerInteract | com.sk89q.worldedit.forge.ForgeWorldEdit | normal   | worldedit-forge-mc1.12.2-6.1.10-dist.jar | false           |
-
-
 ## PlayerEvent$PlayerLoggedInEvent
 | Owner           | Method      | Location | Priority | Source                                                     | RecieveCanceled |
 |-----------------|-------------|----------|----------|------------------------------------------------------------|-----------------|
@@ -62,12 +56,18 @@ submitted to any online service.
 | Had Enough Items | handleTextureRemap | mezz.jei.startup.ProxyCommonClient | normal   | had-enough-items-557549-4571247_mapped_stable_39-1.12.jar | false           |
 
 
+## PlayerInteractEvent
+| Owner     | Method           | Location                                 | Priority | Source                                   | RecieveCanceled |
+|-----------|------------------|------------------------------------------|----------|------------------------------------------|-----------------|
+| WorldEdit | onPlayerInteract | com.sk89q.worldedit.forge.ForgeWorldEdit | normal   | worldedit-forge-mc1.12.2-6.1.10-dist.jar | false           |
+
+
 ## ConfigChangedEvent$OnConfigChangedEvent
 | Owner            | Method          | Location                                                    | Priority | Source                                                     | RecieveCanceled |
 |------------------|-----------------|-------------------------------------------------------------|----------|------------------------------------------------------------|-----------------|
-| Nether API       | sync            | git.jbredwards.nether_api.mod.common.config.NetherAPIConfig | normal   | nether-API-f2f48d7b8b_mapped_stable_39-1.12.jar            | false           |
 | Minecraft Forge  | onConfigChanged | forge                                                       | normal   | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | false           |
 | Had Enough Items | onConfigChanged | mezz.jei.startup.ProxyCommonClient                          | normal   | had-enough-items-557549-4571247_mapped_stable_39-1.12.jar  | false           |
+| Nether API       | sync            | git.jbredwards.nether_api.mod.common.config.NetherAPIConfig | normal   | nether-API-f2f48d7b8b_mapped_stable_39-1.12.jar            | false           |
 
 
 ## AnvilUpdateEvent
@@ -77,23 +77,23 @@ submitted to any online service.
 | Bookshelf               | onAnvilUpdate            | net.darkhax.bookshelf.Bookshelf           | normal   | Bookshelf-1.12.2-2.3.590 (1).jar | false           |
 
 
-## AttachCapabilitiesEvent
-| Owner                   | Method             | Location                                      | Priority | Source              | RecieveCanceled |
-|-------------------------|--------------------|-----------------------------------------------|----------|---------------------|-----------------|
-| Unseens Nether Backport | attachCapabilities | com.unseen.nb.common.event.EventRespawnAnchor | normal   | nb-1.12.2-0.0.1.jar | false           |
-
-
 ## PlayerSetSpawnEvent
 | Owner                   | Method              | Location                                      | Priority | Source              | RecieveCanceled |
 |-------------------------|---------------------|-----------------------------------------------|----------|---------------------|-----------------|
 | Unseens Nether Backport | setSpawnCheckAnchor | com.unseen.nb.common.event.EventRespawnAnchor | normal   | nb-1.12.2-0.0.1.jar | false           |
 
 
+## AttachCapabilitiesEvent
+| Owner                   | Method             | Location                                      | Priority | Source              | RecieveCanceled |
+|-------------------------|--------------------|-----------------------------------------------|----------|---------------------|-----------------|
+| Unseens Nether Backport | attachCapabilities | com.unseen.nb.common.event.EventRespawnAnchor | normal   | nb-1.12.2-0.0.1.jar | false           |
+
+
 ## LivingEvent$LivingUpdateEvent
 | Owner                   | Method                         | Location                                    | Priority | Source              | RecieveCanceled |
 |-------------------------|--------------------------------|---------------------------------------------|----------|---------------------|-----------------|
-| Unseens Nether Backport | addSoulSpeed                   | com.unseen.nb.common.event.EventOnSoulSpeed | normal   | nb-1.12.2-0.0.1.jar | false           |
 | Unseens Nether Backport | removeNetheriteHorseArmorBuffs | com.unseen.nb.common.event.EventOnSoulSpeed | normal   | nb-1.12.2-0.0.1.jar | false           |
+| Unseens Nether Backport | addSoulSpeed                   | com.unseen.nb.common.event.EventOnSoulSpeed | normal   | nb-1.12.2-0.0.1.jar | false           |
 
 
 ## TickEvent$ServerTickEvent
@@ -129,11 +129,11 @@ submitted to any online service.
 ## TickEvent$ClientTickEvent
 | Owner           | Method                | Location                                                        | Priority | Source                                                     | RecieveCanceled |
 |-----------------|-----------------------|-----------------------------------------------------------------|----------|------------------------------------------------------------|-----------------|
-| Nether API      | resetCurrentMusicType | git.jbredwards.nether_api.mod.client.audio.TheEndMusicHandler   | normal   | nether-API-f2f48d7b8b_mapped_stable_39-1.12.jar            | false           |
 | Nether API      | resetCurrentMusicType | git.jbredwards.nether_api.mod.client.audio.NetherMusicHandler   | normal   | nether-API-f2f48d7b8b_mapped_stable_39-1.12.jar            | false           |
-| Bookshelf       | onClientTick          | net.darkhax.bookshelf.Bookshelf                                 | normal   | Bookshelf-1.12.2-2.3.590 (1).jar                           | false           |
-| Minecraft Forge | checkSettings         | net.minecraftforge.common.ForgeInternalHandler                  | normal   | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | false           |
 | Nether API      | onPlayerTick          | git.jbredwards.nether_api.mod.client.audio.BiomeAmbienceHandler | normal   | nether-API-f2f48d7b8b_mapped_stable_39-1.12.jar            | false           |
+| Nether API      | resetCurrentMusicType | git.jbredwards.nether_api.mod.client.audio.TheEndMusicHandler   | normal   | nether-API-f2f48d7b8b_mapped_stable_39-1.12.jar            | false           |
+| Minecraft Forge | checkSettings         | net.minecraftforge.common.ForgeInternalHandler                  | normal   | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | false           |
+| Bookshelf       | onClientTick          | net.darkhax.bookshelf.Bookshelf                                 | normal   | Bookshelf-1.12.2-2.3.590 (1).jar                           | false           |
 
 
 ## NetherAPIRegistryEvent$Nether
@@ -192,18 +192,18 @@ submitted to any online service.
 | WorldEdit | tickStart | com.sk89q.worldedit.forge.ThreadSafeCache | normal   | worldedit-forge-mc1.12.2-6.1.10-dist.jar | false           |
 
 
+## EntityJoinWorldEvent
+| Owner                   | Method             | Location                                       | Priority | Source                                                     | RecieveCanceled |
+|-------------------------|--------------------|------------------------------------------------|----------|------------------------------------------------------------|-----------------|
+| Minecraft Forge         | onEntityJoinWorld  | net.minecraftforge.common.ForgeInternalHandler | highest  | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | false           |
+| Unseens Nether Backport | turnItemsFireproof | com.unseen.nb.common.EntityEvents              | normal   | nb-1.12.2-0.0.1.jar                                        | false           |
+
+
 ## WorldEvent$Save
 | Owner            | Method          | Location                                       | Priority | Source                                                     | RecieveCanceled |
 |------------------|-----------------|------------------------------------------------|----------|------------------------------------------------------------|-----------------|
 | Had Enough Items | onWorldSave     | mezz.jei.startup.ProxyCommonClient             | normal   | had-enough-items-557549-4571247_mapped_stable_39-1.12.jar  | false           |
 | Minecraft Forge  | onDimensionSave | net.minecraftforge.common.ForgeInternalHandler | highest  | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | false           |
-
-
-## EntityJoinWorldEvent
-| Owner                   | Method             | Location                                       | Priority | Source                                                     | RecieveCanceled |
-|-------------------------|--------------------|------------------------------------------------|----------|------------------------------------------------------------|-----------------|
-| Unseens Nether Backport | turnItemsFireproof | com.unseen.nb.common.EntityEvents              | normal   | nb-1.12.2-0.0.1.jar                                        | false           |
-| Minecraft Forge         | onEntityJoinWorld  | net.minecraftforge.common.ForgeInternalHandler | highest  | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | false           |
 
 
 ## PlayerEvent$Clone

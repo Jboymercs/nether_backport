@@ -3,6 +3,7 @@ package com.unseen.nb.common.entity.entities;
 import com.google.common.collect.Sets;
 import com.unseen.nb.common.entity.entities.ai.EntityAIMoveToLava;
 import com.unseen.nb.common.entity.util.PathNavigateLava;
+import com.unseen.nb.config.ModConfig;
 import com.unseen.nb.init.BiomeRegister;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.init.ModItems;
@@ -168,7 +169,7 @@ public class EntityStrider extends EntityAnimal {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(16.0F);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(16.0F * ModConfig.healthScale);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.175F);
     }
 

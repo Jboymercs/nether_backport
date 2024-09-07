@@ -451,7 +451,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20D * ModConfig.healthScale);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(7D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20D);
@@ -481,13 +481,16 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
                     this.setFightMode(true);
                     this.setRangedAttack(true);
                     this.setImmovable(true);
+                    this.setActiveHand(EnumHand.MAIN_HAND);
 
                     addEvent(()-> {
                         ItemStack stack = getItemStackFromSlot(EntityEquipmentSlot.MAINHAND);
                         //loads Crossbow
                         this.setLoadedACrossBow(true);
+                        stack.onPlayerStoppedUsing(world, this, 0);
                         if(ModIntegration.isCrossbow(stack)) {
                             ModIntegration.setCharged(stack, true);
+
                         }
                     }, 15);
                     addEvent(()-> {
@@ -508,10 +511,11 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
                         double d3 = MathHelper.sqrt(d0 * d0 + d2 * d2);
                         arrow.shoot(d0, d1 + d3 * 0.20000000298023224, d2, 1.6f, (float)(14 - world.getDifficulty().getId() * 4));
                         playSound(SoundEvents.ENTITY_SKELETON_SHOOT, 1, 1f / (this.getRNG().nextFloat() * 0.4f + 0.8f));
-                        arrow.setDamage(11D);
+                        arrow.setDamage(11D * ModConfig.attackDamageScale);
                         world.spawnEntity(arrow);
                         //Unloads the crossbow
                         ItemStack stack = getItemStackFromSlot(EntityEquipmentSlot.MAINHAND);
+                        this.resetActiveHand();
                         if(ModIntegration.isCrossbow(stack)) {
                             ModIntegration.setCharged(stack, false);
                         }
@@ -545,7 +549,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
         addEvent(()-> {
             Vec3d offset = this.getPositionVector().add(ModUtils.getRelativeOffset(this, new Vec3d(1.2, 1.2, 0)));
             DamageSource source = DamageSource.causeMobDamage(this);
-            float damage = 8.0F;
+            float damage = (float)(8.0F * ModConfig.attackDamageScale);
             ModUtils.handleAreaImpact(1.0f, (e)-> damage, this, offset, source, 0.5f, 0, false);
         }, 18);
 
@@ -563,7 +567,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
     addEvent(()-> {
         Vec3d offset = this.getPositionVector().add(ModUtils.getRelativeOffset(this, new Vec3d(1.2, 1.2, 0)));
         DamageSource source = DamageSource.causeMobDamage(this);
-        float damage = 8.0F;
+        float damage = (float) (8.0F * ModConfig.attackDamageScale);
         ModUtils.handleAreaImpact(1.0f, (e)-> damage, this, offset, source, 0.5f, 0, false);
     }, 18);
 

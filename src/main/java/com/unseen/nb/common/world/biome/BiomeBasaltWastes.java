@@ -63,6 +63,8 @@ public class BiomeBasaltWastes extends Biome implements INetherBiome, INetherAPI
         random = new Random();
     }
 
+
+
     @Override
     public void decorate(World world, Random rand, BlockPos pos)
     {

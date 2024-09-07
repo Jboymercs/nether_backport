@@ -2,14 +2,14 @@
   {
     "modid": "nb",
     "name": "Unseens Nether Backport",
-    "description": "Backports 1.16.5 features to 1.12.2",
+    "description": "Focuses on Backporting 1.16 Nether content only to 1.12.2. Including mobs, biomes, blocks, and items.",
     "version": "${version}",
     "mcversion": "${mcversion}",
     "url": "modpage",
     "authorList": [
-      "UnseenDontRun"
+      "UnseenDontRun, SirSquidly"
     ],
-    "credits": "FG6 Build template for 1.12.2 made by The_Computerizer",
+    "credits": "Several thanks to SmileyCorps for misc utility functions",
     "logoFile": "modlogo.png",
     "screenshots": [],
     "dependencies": [

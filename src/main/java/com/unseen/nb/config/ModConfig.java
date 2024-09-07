@@ -2,7 +2,10 @@ package com.unseen.nb.config;
 
 
 import com.unseen.nb.util.ModReference;
+import com.unseen.nb.util.ModUtils;
 import net.minecraftforge.common.config.Config;
+
+import java.util.ArrayList;
 
 @Config(modid = ModReference.MOD_ID, name = ModReference.NAME)
 public class ModConfig {
@@ -11,7 +14,7 @@ public class ModConfig {
     @Config.Name("Bastion Remnants Spawn Frequency")
     @Config.Comment("Change the spacing between Bastion Remnants, lower means more frequent, higher means less")
     @Config.RequiresMcRestart
-    public static int bastionFrequency = 90;
+    public static int bastionFrequency = 100;
 
     @Config.Name("Portal Ruins Overworld Spawn Rate")
     @Config.Comment("Change the rate that ruined portals in the overworld spawn at, lower means more frequent, higher means less")
@@ -60,6 +63,15 @@ public class ModConfig {
     @Config.RequiresMcRestart
     public static int zombification_time = 15;
 
+    @Config.Name("Nether Backport Global Health Modifier")
+    @Config.Comment("Modify Health globally of all mobs added in this mod")
+    @Config.RequiresMcRestart
+    public static double healthScale = 1;
+
+    @Config.Name("Nether Backport Global Attack Damage Modifier")
+    @Config.Comment("Modify Attack Damage globally of all mobs added in this mod, only affects Piglin, Pigling Brute, Hoglin, Zoglin, Zombified Piglin")
+    @Config.RequiresMcRestart
+    public static double attackDamageScale = 1;
 
     @Config.RequiresMcRestart
     @Config.Comment(value = "Which items will be affected by fire resistance. To add your own do 'modID:itemName', currently not supporting metaData")

@@ -176,7 +176,7 @@ public class EntityHoglin extends EntityNetherAnimalBase implements IAttack, IAn
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40D * ModConfig.healthScale);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.2D);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(16D);
         this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.6D);
@@ -269,9 +269,9 @@ public class EntityHoglin extends EntityNetherAnimalBase implements IAttack, IAn
             DamageSource source = DamageSource.causeMobDamage(this);
             float damage;
             if(this.isChild()) {
-                damage = 1F;
+                damage = (float) (1F * ModConfig.attackDamageScale);
             } else {
-                damage = 8F;
+                damage = (float)(8F * ModConfig.attackDamageScale);
             }
             ModUtils.handleAreaImpact(1.0f, (e)-> damage, this, offset, source, 0.9f, 0, false);
         }, 13);

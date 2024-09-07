@@ -249,7 +249,6 @@ public class ModUtils {
         return EnchantmentHelper.getMaxEnchantmentLevel(ModEnchantments.SOUL_SPEED, entityIn) > 0;
     }
 
-
     public static boolean getBlocksThatCanBeUsed(Block block) {
         for (String blockName : ModConfig.blocksForEnchant) {
             if (ForgeRegistries.BLOCKS.getValue(new ResourceLocation(blockName)) == block) {
@@ -257,5 +256,12 @@ public class ModUtils {
             }
         }
         return false;
+    }
+
+    public static class CustomBiomeSpawn {
+        public String nameIn;
+        int weight;
+        int min;
+        int max;
     }
 }
