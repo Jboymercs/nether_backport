@@ -99,7 +99,7 @@ public class ModelPiglinBrute extends BasicModelEntity {
 		LArm = new BasicModelPart(this);
 		LArm.setRotationPoint(4.0F, -2.0F, 0.0F);
 		Torso.addChild(LArm);
-		LArm.cubeList.add(new ModelBox(LArm, 24, 16, 0.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, true));
+		LArm.cubeList.add(new ModelBox(LArm, 26, 37, 0.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F, false));
 
 		Head = new BasicModelPart(this);
 		Head.setRotationPoint(0.0F, -6.0F, 0.0F);

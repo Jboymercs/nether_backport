@@ -31,7 +31,8 @@ import javax.annotation.Nullable;
 import java.util.Random;
 
 public class BlockVineBase extends BlockBush implements IHasModel, RegistryHandler.IStateMappedBlock {
-    protected static final AxisAlignedBB CRYSTAL_AABB = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 0.8D, 0.9D);
+    protected static final AxisAlignedBB CRYSTAL_AABB = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 1.0D, 0.9D);
+
     public static final PropertyBool IS_TOP = PropertyBool.create("is_top");
     public static final PropertyBool IS_BOTTOM = PropertyBool.create("is_bottom");
 
@@ -118,6 +119,7 @@ public class BlockVineBase extends BlockBush implements IHasModel, RegistryHandl
 
     @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+
         return CRYSTAL_AABB;
     }
 

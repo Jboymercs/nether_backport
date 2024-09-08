@@ -5,8 +5,6 @@ import com.unseen.nb.common.blocks.base.*;
 
 import com.unseen.nb.common.blocks.base.slab.BlockDoubleSlab;
 import com.unseen.nb.common.blocks.base.slab.BlockHalfSlab;
-import com.unseen.nb.common.blocks.base.slab.BlockSlabBase;
-import com.unseen.nb.util.integration.ModIntegration;
 import net.minecraft.block.*;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;

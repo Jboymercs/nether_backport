@@ -310,7 +310,7 @@ public class EntityPiglinZombie extends EntityNetherBase implements IAnimatedEnt
     @Override
     protected void playStepSound(BlockPos pos, Block blockIn)
     {
-        this.playSound(ModSoundHandler.PIGLIN_STEP, 0.5F, 1.0f / (rand.nextFloat() * 0.4F + 0.2f));
+        this.playSound(ModSoundHandler.PIGLIN_STEP, 0.15F, 1.0f / (rand.nextFloat() * 0.4F + 0.2f));
     }
 
     @Override

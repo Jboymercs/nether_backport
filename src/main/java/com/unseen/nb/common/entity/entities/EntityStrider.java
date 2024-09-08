@@ -205,7 +205,7 @@ public class EntityStrider extends EntityAnimal {
     }
 
     protected void playStepSound(BlockPos pos, Block blockIn) {
-        this.playSound(this.getLavaCheck() ? ModSoundHandler.STRIDER_STEP_LAVA : ModSoundHandler.STRIDER_STEP, 1.0F, 1.0F);
+        this.playSound(this.getLavaCheck() ? ModSoundHandler.STRIDER_STEP_LAVA : ModSoundHandler.STRIDER_STEP, 0.15F, 1.0F);
     }
 
     @Nullable

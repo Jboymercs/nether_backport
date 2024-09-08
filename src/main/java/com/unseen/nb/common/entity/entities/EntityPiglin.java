@@ -1,5 +1,6 @@
 package com.unseen.nb.common.entity.entities;
 
+import com.google.common.base.Predicate;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.oblivioussp.spartanweaponry.init.ItemRegistrySW;
@@ -19,6 +20,7 @@ import com.unseen.nb.util.integration.ModIntegration;
 import net.minecraft.block.Block;
 import net.minecraft.dispenser.BehaviorDefaultDispenseItem;
 import net.minecraft.dispenser.PositionImpl;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
@@ -436,10 +438,15 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
         EZAnimationHandler.INSTANCE.updateAnimations(this);
     }
 
+    public static final Predicate<Entity> CAN_TARGET = entity -> {
+
+        return !(entity instanceof EntityPiglin || entity instanceof EntityPiglinBrute);
+    };
+
     @Override
     public boolean attackEntityFrom(DamageSource source, float amount) {
 
-        if(source.getImmediateSource() == this || source.getImmediateSource() instanceof EntityPiglinBrute) {
+        if (!CAN_TARGET.apply(source.getTrueSource())) {
             return false;
         }
 
@@ -532,7 +539,8 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
         this.tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 9.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, true, new Class[0]));
-        this.targetTasks.addTask(3, new EntityAIAvoidEntity<>(this, EntityPiglinZombie.class, 12F, 1.1D, 1.5D));
+        this.targetTasks.addTask(3, new EntityAIAvoidEntity<>(this, EntityPiglinZombie.class, 16F, 1.5D, 1.8D));
+        this.targetTasks.addTask(4, new EntityAIAvoidEntity<>(this, EntityPigZombie.class, 16F, 1.5D, 1.8D));
     }
 
 
@@ -748,7 +756,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
     @Override
     protected void playStepSound(BlockPos pos, Block blockIn)
     {
-        this.playSound(ModSoundHandler.PIGLIN_STEP, 0.5F, 1.0f / (rand.nextFloat() * 0.4F + 0.2f));
+        this.playSound(ModSoundHandler.PIGLIN_STEP, 0.15F, 1.0f / (rand.nextFloat() * 0.4F + 0.2f));
     }
 
     @Override

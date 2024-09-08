@@ -22,7 +22,7 @@ public class NBOreGen implements IWorldGenerator {
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
     if(world.provider.getDimension() == -1) {
         genOre(ModBlocks.NETHER_GOLD_ORE.getDefaultState(), ModRand.range(1, 16), 10, 10, NetherAPIConfig.tallNether ? 240 : 120, world, random, chunkX, chunkZ);
-        genOre(ModBlocks.BLACK_STONE.getDefaultState(), ModRand.range(6, 24), 10, 10, NetherAPIConfig.tallNether ? 240 : 120, world, random, chunkX, chunkZ);
+        genOre(ModBlocks.BLACK_STONE.getDefaultState(), ModRand.range(32, 64), 10, 10, NetherAPIConfig.tallNether ? 240 : 120, world, random, chunkX, chunkZ);
         if(!ModIntegration.FUTURE_MC_LOADED) {
             genOre(ModBlocksCompat.NETHERITE_ORE.getDefaultState(), ModRand.range(1, 5), 5, 3, 24, world, random, chunkX, chunkZ);
         }

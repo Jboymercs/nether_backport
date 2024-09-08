@@ -1,5 +1,6 @@
 package com.unseen.nb.common.entity.entities;
 
+import com.google.common.base.Predicate;
 import com.oblivioussp.spartanweaponry.init.ItemRegistrySW;
 import com.unseen.nb.client.animation.EZAnimation;
 import com.unseen.nb.client.animation.EZAnimationHandler;
@@ -14,6 +15,7 @@ import com.unseen.nb.util.ModReference;
 import com.unseen.nb.util.ModUtils;
 import com.unseen.nb.util.integration.ModIntegration;
 import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
@@ -286,10 +288,16 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
         return null;
     }
 
+    public static final Predicate<Entity> CAN_TARGET = entity -> {
+
+        return !(entity instanceof EntityPiglin || entity instanceof EntityPiglinBrute);
+    };
+
     @Override
     public boolean attackEntityFrom(DamageSource source, float amount) {
 
-        if(source.getImmediateSource() == this || source.getImmediateSource() instanceof EntityPiglin) {
+
+        if (!CAN_TARGET.apply(source.getTrueSource())) {
             return false;
         }
 
@@ -310,7 +318,7 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
     @Override
     protected void playStepSound(BlockPos pos, Block blockIn)
     {
-        this.playSound(ModSoundHandler.BRUTE_STEP, 0.5F, 1.0f / (rand.nextFloat() * 0.4F + 0.2f));
+        this.playSound(ModSoundHandler.BRUTE_STEP, 0.15F, 1.0f / (rand.nextFloat() * 0.4F + 0.2f));
     }
 
     @Override

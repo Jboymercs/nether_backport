@@ -68,41 +68,9 @@ public class BiomeCrimsonForest extends Biome implements INetherBiome, INetherAP
     @Override
     public void decorate(World world, Random rand, BlockPos pos)
     {
-        //Trees
-        for(int k2 = 0; k2 < ModRand.range(8, 15);k2++) {
-            int l6 = random.nextInt(16) + 8;
-            int k10 = random.nextInt(16) + 8;
-            int depthSignature = 2;
-            for(int y = NetherAPIConfig.tallNether ? 240 : 110; y > 32; y--) {
-                IBlockState currentBlock = world.getBlockState(pos.add(l6, y, k10));
-                if(depthSignature == 1) {
-                    int randTreeSize = ModRand.range(1, 4);
-                    if(randTreeSize == 1) { //small
-                        WorldGenNB tree = ModRand.choice(small_trees);
-                        tree.generate(world, rand, pos.add(l6 -3, y + 1, k10 -3));
-                    } else if (randTreeSize == 2) { //medium
-                        WorldGenNB tree = ModRand.choice(medium_trees);
-                        tree.generate(world, rand, pos.add(l6 -3, y + 1, k10 -3));
-                    } else { //large
-                        WorldGenNB tree = ModRand.choice(small_trees);
-                        WorldGenNB large_tree = ModRand.choice(large_trees);
-                        //Incase it can't spawn a large tree here, it'll try to spawn a small one
-                        if(!large_tree.generate(world, rand, pos.add(l6 - 4, y + 1, k10 - 4))) {
-                            tree.generate(world, rand, pos.add(l6 -3, y + 1, k10 -3));
-                        }
-                    }
-                }
-
-                if(currentBlock == ModBlocks.CRIMSON_GRASS.getDefaultState()) {
-                    depthSignature++;
-                } else if (currentBlock == Blocks.AIR.getDefaultState()) {
-                    depthSignature = 0;
-                }
-            }
-        }
 
         //Plants
-        for(int k2 = 0; k2 < ModRand.range(30, 50);k2++) {
+        for(int k2 = 0; k2 < ModRand.range(40, 50);k2++) {
             int l6 = random.nextInt(16) + 8;
             int k10 = random.nextInt(16) + 8;
             int depthSignature = 2;
@@ -144,6 +112,41 @@ public class BiomeCrimsonForest extends Biome implements INetherBiome, INetherAP
                 }
             }
         }
+
+        //Trees
+        for(int k2 = 0; k2 < ModRand.range(15, 25);k2++) {
+            int l6 = random.nextInt(16) + 8;
+            int k10 = random.nextInt(16) + 8;
+            int depthSignature = 2;
+            for(int y = NetherAPIConfig.tallNether ? 240 : 110; y > 32; y--) {
+                IBlockState currentBlock = world.getBlockState(pos.add(l6, y, k10));
+                if(depthSignature == 1) {
+                    int randTreeSize = ModRand.range(1, 4);
+                    if(randTreeSize == 1) { //small
+                        WorldGenNB tree = ModRand.choice(small_trees);
+                        tree.generate(world, rand, pos.add(l6 -3, y + 2, k10 -3));
+                    } else if (randTreeSize == 2) { //medium
+                        WorldGenNB tree = ModRand.choice(medium_trees);
+                        tree.generate(world, rand, pos.add(l6 -3, y + 2, k10 -3));
+                    } else { //large
+                        WorldGenNB tree = ModRand.choice(small_trees);
+                        WorldGenNB large_tree = ModRand.choice(large_trees);
+                        //Incase it can't spawn a large tree here, it'll try to spawn a small one
+                        if(!large_tree.generate(world, rand, pos.add(l6 - 4, y + 2, k10 - 4))) {
+                            tree.generate(world, rand, pos.add(l6 -3, y + 2, k10 -3));
+                        }
+                    }
+                }
+
+                if(currentBlock == ModBlocks.CRIMSON_GRASS.getDefaultState()) {
+                    depthSignature++;
+                } else if (currentBlock == Blocks.AIR.getDefaultState()) {
+                    depthSignature = 0;
+                }
+            }
+        }
+
+
     }
     @Override
     public void buildSurface(@Nonnull INetherAPIChunkGenerator chunkGenerator, int chunkX, int chunkZ, @Nonnull ChunkPrimer primer, int x, int z, double[] soulSandNoise, double[] gravelNoise, double[] depthBuffer, double terrainNoise) {

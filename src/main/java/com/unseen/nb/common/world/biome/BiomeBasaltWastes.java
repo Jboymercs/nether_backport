@@ -5,6 +5,7 @@ import com.unseen.nb.common.entity.entities.EntityPiglin;
 import com.unseen.nb.common.entity.entities.EntityStrider;
 import com.unseen.nb.common.world.base.WorldGenNB;
 import com.unseen.nb.common.world.terrain.basaltHeights.BasaltDeltas;
+import com.unseen.nb.common.world.terrain.basaltHeights.BasaltFlatAreas;
 import com.unseen.nb.common.world.terrain.basaltHeights.RandomLavaInsertion;
 import com.unseen.nb.common.world.terrain.basaltHeights.WorldGenBasaltHeights;
 import com.unseen.nb.common.world.terrain.plants.WorldGenCrimsonPlant;
@@ -47,6 +48,7 @@ public class BiomeBasaltWastes extends Biome implements INetherBiome, INetherAPI
     private static final IBlockState CRIMSON_FLOOR = ModBlocks.BASALT.getDefaultState();
     private WorldGenBasaltHeights heights = new WorldGenBasaltHeights(ModRand.range(4, 10));
     private BasaltDeltas delta = new BasaltDeltas(ModRand.range(7,9));
+    private BasaltFlatAreas flat_areas = new BasaltFlatAreas(ModRand.range(7, 9));
     private RandomLavaInsertion lava = new RandomLavaInsertion();
     private Random random;
     /**WIP*/
@@ -70,26 +72,47 @@ public class BiomeBasaltWastes extends Biome implements INetherBiome, INetherAPI
     {
 
       //  BASALT HEIGHTS
-       for(int k2 = 0; k2 < ModRand.range(10, 20);k2++) {
-           int l6 = random.nextInt(16) + 8;
+     //  for(int k2 = 0; k2 < ModRand.range(10, 20);k2++) {
+      //     int l6 = random.nextInt(16) + 8;
+       //     int k10 = random.nextInt(16) + 8;
+      //     int depthSignature = 2;
+       //     for(int y = NetherAPIConfig.tallNether ? 240 : 110; y > 32; y--) {
+       //        IBlockState currentBlock = world.getBlockState(pos.add(l6, y, k10));
+       //         if(depthSignature == 1) {
+       //                // heights.generate(world, rand, pos.add(l6, y + 1, k10));
+       //         }
+
+       //         if(currentBlock == ModBlocks.BASALT.getDefaultState()) {
+        //            depthSignature++;
+         //      } else if (currentBlock == Blocks.AIR.getDefaultState()) {
+        //            depthSignature = 0;
+        //       }
+       //    }
+     //   }
+
+       //Basalt Flat Parts
+        for(int k2 = 0; k2 < ModRand.range(3, 5);k2++) {
+            int l6 = random.nextInt(16) + 8;
             int k10 = random.nextInt(16) + 8;
-           int depthSignature = 2;
+            int depthSignature = 2;
             for(int y = NetherAPIConfig.tallNether ? 240 : 110; y > 32; y--) {
-               IBlockState currentBlock = world.getBlockState(pos.add(l6, y, k10));
+                IBlockState currentBlock = world.getBlockState(pos.add(l6, y, k10));
                 if(depthSignature == 1) {
-                       // heights.generate(world, rand, pos.add(l6, y + 1, k10));
+                    if(!world.isAirBlock(pos.add(l6, y, k10))) {
+                        flat_areas.generate(world, rand, pos.add(l6, y, k10));
+                    }
                 }
 
-                if(currentBlock == ModBlocks.BASALT.getDefaultState()) {
+                if(currentBlock == ModBlocks.SMOOTH_BASALT.getDefaultState()) {
                     depthSignature++;
-               } else if (currentBlock == Blocks.AIR.getDefaultState()) {
+                } else if (currentBlock == ModBlocks.BASALT.getDefaultState()) {
                     depthSignature = 0;
-               }
-           }
+                }
+            }
         }
 
         //  BASALT DELTAS
-        for(int k2 = 0; k2 < ModRand.range(2, 5);k2++) {
+        for(int k2 = 0; k2 < ModRand.range(2, 4);k2++) {
             int l6 = random.nextInt(16) + 8;
             int k10 = random.nextInt(16) + 8;
             int depthSignature = 2;

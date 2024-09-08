@@ -1,5 +1,5 @@
 {
-  "parent": "item/generated",
+  "parent": "item/handheld_rod",
   "textures": {
     "layer0": "nb:items/fungus_on_stick"
   }

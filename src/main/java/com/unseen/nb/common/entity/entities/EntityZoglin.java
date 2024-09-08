@@ -143,7 +143,7 @@ public class EntityZoglin extends EntityNetherAnimalBase implements IAttack, IAn
     @Override
     protected void playStepSound(BlockPos pos, Block blockIn)
     {
-        this.playSound(ModSoundHandler.ZOGLIN_STEP, 0.5F, 1.0f / (rand.nextFloat() * 0.4F + 0.2f));
+        this.playSound(ModSoundHandler.ZOGLIN_STEP, 0.15F, 1.0f / (rand.nextFloat() * 0.4F + 0.2f));
     }
 
     @Override

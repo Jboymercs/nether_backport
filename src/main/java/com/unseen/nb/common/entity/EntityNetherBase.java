@@ -1,8 +1,12 @@
 package com.unseen.nb.common.entity;
 
 import akka.japi.pf.FI;
+import com.google.common.base.Predicate;
+import com.unseen.nb.common.entity.entities.EntityPiglin;
+import com.unseen.nb.common.entity.entities.EntityPiglinBrute;
 import com.unseen.nb.common.entity.util.MobGroundNavigate;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.MoverType;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.nbt.NBTTagCompound;
@@ -105,7 +109,6 @@ public abstract class EntityNetherBase extends EntityMob {
         this.setImmovable(nbt.getBoolean("Immovable"));
         this.setInsideBastion(nbt.getBoolean("Inside_Bastion"));
     }
-
 
     @Override
     public boolean attackEntityFrom(DamageSource source, float amount) {
