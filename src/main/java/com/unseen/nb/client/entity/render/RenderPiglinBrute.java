@@ -4,7 +4,6 @@ import com.unseen.nb.client.animation.model.BasicModelEntity;
 import com.unseen.nb.client.entity.RenderModEntity;
 import com.unseen.nb.client.entity.model.ModelPiglinBrute;
 import com.unseen.nb.client.entity.render.layer.LayerBruteItem;
-import com.unseen.nb.common.entity.entities.EntityPiglin;
 import com.unseen.nb.common.entity.entities.EntityPiglinBrute;
 import net.minecraft.client.renderer.entity.RenderManager;
 

@@ -5,12 +5,10 @@ import com.unseen.nb.init.ModBlocksCompat;
 import com.unseen.nb.init.ModItems;
 import com.unseen.nb.init.ModItemsCompat;
 import com.unseen.nb.util.ModReference;
-import com.unseen.nb.util.ModUtils;
 import com.unseen.nb.util.integration.ModIntegration;
 import com.unseen.nb.util.mapper.AdvancedStateMap;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoor;
-import net.minecraft.block.BlockWall;
 import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -22,9 +20,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
-
-import java.util.Map;
-import java.awt.*;
 
 @Mod.EventBusSubscriber
 public class RegistryHandler {

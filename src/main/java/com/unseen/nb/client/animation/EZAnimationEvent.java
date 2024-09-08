@@ -1,9 +1,8 @@
 package com.unseen.nb.client.animation;
 
+import net.minecraft.entity.Entity;
 import net.minecraftforge.fml.common.eventhandler.Cancelable;
 import net.minecraftforge.fml.common.eventhandler.Event;
-
-import net.minecraft.entity.Entity;
 
 public class EZAnimationEvent<T extends Entity & IAnimatedEntity> extends Event {
     protected EZAnimation animation;

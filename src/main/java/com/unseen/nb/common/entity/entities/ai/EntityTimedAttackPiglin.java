@@ -1,11 +1,11 @@
 package com.unseen.nb.common.entity.entities.ai;
 
 import com.unseen.nb.common.entity.entities.EntityPiglin;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 
 import java.util.List;
 
@@ -46,7 +46,7 @@ public class EntityTimedAttackPiglin<T extends EntityPiglin & IAttack> extends E
         List<EntityItem> nearbyItems = this.entity.world.getEntitiesWithinAABB(EntityItem.class, this.entity.getEntityBoundingBox().grow(5D), e -> !e.getIsInvulnerable());
         if(!nearbyItems.isEmpty()) {
             for(EntityItem item : nearbyItems) {
-                if(item.getItem() == Items.GOLD_NUGGET.getDefaultInstance()) {
+                if(item.getItem() == new ItemStack(Items.GOLD_NUGGET)) {
                     return false;
                 }
             }

@@ -12,7 +12,6 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.discovery.ModCandidate;
 
 import javax.annotation.Nullable;
 import java.util.Random;

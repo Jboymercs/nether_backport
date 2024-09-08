@@ -2,7 +2,6 @@ package com.unseen.nb.common.blocks;
 
 import com.unseen.nb.Main;
 import com.unseen.nb.handler.IHasModel;
-import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.init.ModBlocksCompat;
 import com.unseen.nb.init.ModItems;
 import net.minecraft.block.Block;

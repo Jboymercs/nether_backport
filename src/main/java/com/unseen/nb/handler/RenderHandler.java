@@ -2,10 +2,8 @@ package com.unseen.nb.handler;
 
 import com.unseen.nb.client.animation.model.BasicModelEntity;
 import com.unseen.nb.client.entity.RenderModEntity;
-import com.unseen.nb.client.entity.model.ModelPiglin;
 import com.unseen.nb.client.entity.render.*;
 import com.unseen.nb.common.entity.entities.*;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;

@@ -1,7 +1,6 @@
 package com.unseen.nb.common.world.terrain.fossils;
 
 import com.unseen.nb.common.world.base.WorldGenNB;
-import com.unseen.nb.init.ModBlocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 

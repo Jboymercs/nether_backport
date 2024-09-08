@@ -5,7 +5,6 @@ import com.unseen.nb.common.entity.entities.EntityPiglin;
 import com.unseen.nb.common.entity.entities.EntityPiglinBrute;
 import com.unseen.nb.common.world.base.NetherStructureTemplate;
 import com.unseen.nb.config.ModConfig;
-import com.unseen.nb.init.ModItemsCompat;
 import com.unseen.nb.util.ModRand;
 import com.unseen.nb.util.ModReference;
 import com.unseen.nb.util.integration.ModIntegration;

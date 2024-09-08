@@ -1,6 +1,5 @@
 package com.unseen.nb.common.world.ore;
 
-import com.unseen.nb.config.ModConfig;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.init.ModBlocksCompat;
 import com.unseen.nb.util.ModRand;
@@ -12,8 +11,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import thedarkcolour.futuremc.config.FConfig;
-import thedarkcolour.futuremc.registry.FBlocks;
 
 import java.util.Random;
 

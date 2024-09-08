@@ -1,10 +1,7 @@
 package com.unseen.nb.common.world.structures;
 
 import com.unseen.nb.common.world.base.WorldGenNB;
-import com.unseen.nb.util.ModRand;
 import com.unseen.nb.util.ModReference;
-import com.unseen.nb.util.ModUtils;
-import git.jbredwards.nether_api.mod.common.config.NetherAPIConfig;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;

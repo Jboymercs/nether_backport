@@ -1,11 +1,8 @@
 package com.unseen.nb.common.world.terrain.fire;
 
 import com.unseen.nb.init.ModBlocks;
-import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockFire;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;

@@ -9,8 +9,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockFire;
 import net.minecraft.block.BlockTNT;
 import net.minecraft.block.material.MapColor;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockFaceShape;
@@ -42,12 +40,12 @@ public class BlockSoulFire extends BlockFire implements IHasModel {
     public static final PropertyBool SOUTH = PropertyBool.create("south");
     public static final PropertyBool WEST = PropertyBool.create("west");
     public static final PropertyBool UPPER = PropertyBool.create("up");
-    private final Map<Block, Integer> encouragements = Maps.<Block, Integer>newIdentityHashMap();
-    private final Map<Block, Integer> flammabilities = Maps.<Block, Integer>newIdentityHashMap();
+    private final Map<Block, Integer> encouragements = Maps.newIdentityHashMap();
+    private final Map<Block, Integer> flammabilities = Maps.newIdentityHashMap();
 
     public BlockSoulFire(CreativeTabs tab, String name) {
         super();
-        this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, Integer.valueOf(0)).withProperty(NORTH, Boolean.valueOf(false)).withProperty(EAST, Boolean.valueOf(false)).withProperty(SOUTH, Boolean.valueOf(false)).withProperty(WEST, Boolean.valueOf(false)).withProperty(UPPER, Boolean.valueOf(false)));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, 0).withProperty(NORTH, false).withProperty(EAST, false).withProperty(SOUTH, false).withProperty(WEST, false).withProperty(UPPER, false));
         this.setTickRandomly(true);
         this.setCreativeTab(tab);
         this.setRegistryName(name);
@@ -120,8 +118,8 @@ public class BlockSoulFire extends BlockFire implements IHasModel {
     public void setFireInfo(Block blockIn, int encouragement, int flammability)
     {
         if (blockIn == Blocks.AIR) throw new IllegalArgumentException("Tried to set air on fire... This is bad.");
-        this.encouragements.put(blockIn, Integer.valueOf(encouragement));
-        this.flammabilities.put(blockIn, Integer.valueOf(flammability));
+        this.encouragements.put(blockIn, encouragement);
+        this.flammabilities.put(blockIn, flammability);
     }
 
 
@@ -164,7 +162,7 @@ public class BlockSoulFire extends BlockFire implements IHasModel {
             Block block = worldIn.getBlockState(pos.down()).getBlock();
             boolean flag = block.isFireSource(worldIn, pos.down(), EnumFacing.UP) || worldIn.getBlockState(pos.down()) == ModBlocks.SOUL_SOIL.getDefaultState() || worldIn.getBlockState(pos.down()) == Blocks.SOUL_SAND.getDefaultState();
 
-            int i = ((Integer)state.getValue(AGE)).intValue();
+            int i = state.getValue(AGE);
 
             if (!flag && worldIn.isRaining() && this.canDie(worldIn, pos) && rand.nextFloat() < 0.2F + (float)i * 0.03F)
             {
@@ -174,7 +172,7 @@ public class BlockSoulFire extends BlockFire implements IHasModel {
             {
                 if (i < 15)
                 {
-                    state = state.withProperty(AGE, Integer.valueOf(i + rand.nextInt(3) / 2));
+                    state = state.withProperty(AGE, i + rand.nextInt(3) / 2);
                     worldIn.setBlockState(pos, state, 4);
                 }
 
@@ -250,7 +248,7 @@ public class BlockSoulFire extends BlockFire implements IHasModel {
                                             i2 = 15;
                                         }
 
-                                        worldIn.setBlockState(blockpos, state.withProperty(AGE, Integer.valueOf(i2)), 3);
+                                        worldIn.setBlockState(blockpos, state.withProperty(AGE, i2), 3);
                                     }
                                 }
                             }
@@ -275,14 +273,14 @@ public class BlockSoulFire extends BlockFire implements IHasModel {
     public int getFlammability(Block blockIn)
     {
         Integer integer = this.flammabilities.get(blockIn);
-        return integer == null ? 0 : integer.intValue();
+        return integer == null ? 0 : integer;
     }
 
     @Deprecated // Use Block.getFireSpreadSpeed
     public int getEncouragement(Block blockIn)
     {
         Integer integer = this.encouragements.get(blockIn);
-        return integer == null ? 0 : integer.intValue();
+        return integer == null ? 0 : integer;
     }
 
     @Deprecated // Use tryCatchFire with face below
@@ -308,7 +306,7 @@ public class BlockSoulFire extends BlockFire implements IHasModel {
                     j = 15;
                 }
 
-                worldIn.setBlockState(pos, this.getDefaultState().withProperty(AGE, Integer.valueOf(j)), 3);
+                worldIn.setBlockState(pos, this.getDefaultState().withProperty(AGE, j), 3);
             }
             else
             {
@@ -317,7 +315,7 @@ public class BlockSoulFire extends BlockFire implements IHasModel {
 
             if (iblockstate.getBlock() == Blocks.TNT)
             {
-                Blocks.TNT.onPlayerDestroy(worldIn, pos, iblockstate.withProperty(BlockTNT.EXPLODE, Boolean.valueOf(true)));
+                Blocks.TNT.onPlayerDestroy(worldIn, pos, iblockstate.withProperty(BlockTNT.EXPLODE, Boolean.TRUE));
             }
         }
     }
@@ -417,7 +415,7 @@ public class BlockSoulFire extends BlockFire implements IHasModel {
     {
         if (rand.nextInt(24) == 0)
         {
-            worldIn.playSound((double)((float)pos.getX() + 0.5F), (double)((float)pos.getY() + 0.5F), (double)((float)pos.getZ() + 0.5F), SoundEvents.BLOCK_FIRE_AMBIENT, SoundCategory.BLOCKS, 1.0F + rand.nextFloat(), rand.nextFloat() * 0.7F + 0.3F, false);
+            worldIn.playSound((float)pos.getX() + 0.5F, (float)pos.getY() + 0.5F, (float)pos.getZ() + 0.5F, SoundEvents.BLOCK_FIRE_AMBIENT, SoundCategory.BLOCKS, 1.0F + rand.nextFloat(), rand.nextFloat() * 0.7F + 0.3F, false);
         }
 
         if (!worldIn.getBlockState(pos.down()).isSideSolid(worldIn, pos.down(), EnumFacing.UP) && !Blocks.FIRE.canCatchFire(worldIn, pos.down(), EnumFacing.UP))
@@ -492,7 +490,7 @@ public class BlockSoulFire extends BlockFire implements IHasModel {
 
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(AGE, Integer.valueOf(meta));
+        return this.getDefaultState().withProperty(AGE, meta);
     }
 
     @SideOnly(Side.CLIENT)
@@ -503,12 +501,12 @@ public class BlockSoulFire extends BlockFire implements IHasModel {
 
     public int getMetaFromState(IBlockState state)
     {
-        return ((Integer)state.getValue(AGE)).intValue();
+        return state.getValue(AGE);
     }
 
     protected BlockStateContainer createBlockState()
     {
-        return new BlockStateContainer(this, new IProperty[] {AGE, NORTH, EAST, SOUTH, WEST, UPPER});
+        return new BlockStateContainer(this, AGE, NORTH, EAST, SOUTH, WEST, UPPER);
     }
 
     /*================================= Forge Start ======================================*/

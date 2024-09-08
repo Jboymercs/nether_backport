@@ -2,8 +2,6 @@ package com.unseen.nb.init;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.util.SoundEvent;
-import net.minecraftforge.fml.common.Mod;
 
 public class NBSoundTypes {
 

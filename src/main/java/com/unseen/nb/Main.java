@@ -1,6 +1,5 @@
 package com.unseen.nb;
 
-import com.sun.jna.Structure;
 import com.unseen.nb.common.capabilities.CapabilityRespawnAnchor;
 import com.unseen.nb.common.world.WorldGenNetherStructures;
 import com.unseen.nb.common.world.ore.NBOreGen;

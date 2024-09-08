@@ -1,16 +1,13 @@
 package com.unseen.nb.init;
 
-import com.unseen.nb.common.items.*;
-import com.unseen.nb.common.items.netherite.*;
+import com.unseen.nb.common.items.ItemFungusOnStick;
+import com.unseen.nb.common.items.ItemLodeStoneCompass;
+import com.unseen.nb.common.items.ItemPigStepDisc;
+import com.unseen.nb.common.items.netherite.ItemNBHorseArmor;
 import com.unseen.nb.util.ModReference;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.passive.HorseArmorType;
-import net.minecraft.init.SoundEvents;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 
 import java.util.ArrayList;

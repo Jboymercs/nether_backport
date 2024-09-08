@@ -1,11 +1,8 @@
 package com.unseen.nb.client.animation.render.layer;
 
-import com.unseen.nb.Main;
 import com.unseen.nb.client.animation.render.EZRenderLiving;
 import com.unseen.nb.client.entity.model.ModelPiglin;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 

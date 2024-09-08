@@ -1,15 +1,10 @@
 package com.unseen.nb.common.world.biome;
 
 import com.unseen.nb.client.particles.ParticlePixel;
-import com.unseen.nb.common.entity.entities.EntityPiglin;
 import com.unseen.nb.common.entity.entities.EntityStrider;
-import com.unseen.nb.common.world.base.WorldGenNB;
 import com.unseen.nb.common.world.terrain.basaltHeights.BasaltDeltas;
 import com.unseen.nb.common.world.terrain.basaltHeights.RandomLavaInsertion;
 import com.unseen.nb.common.world.terrain.basaltHeights.WorldGenBasaltHeights;
-import com.unseen.nb.common.world.terrain.plants.WorldGenCrimsonPlant;
-import com.unseen.nb.common.world.terrain.plants.WorldGenCrimsonVines;
-import com.unseen.nb.common.world.terrain.trees.WorldGenCrimsonTree;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.init.ModSoundHandler;
 import com.unseen.nb.util.ModRand;
@@ -21,7 +16,6 @@ import git.jbredwards.nether_api.api.biome.INetherBiome;
 import git.jbredwards.nether_api.api.registry.INetherAPIRegistryListener;
 import git.jbredwards.nether_api.api.world.INetherAPIChunkGenerator;
 import git.jbredwards.nether_api.mod.common.config.NetherAPIConfig;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.particle.IParticleFactory;

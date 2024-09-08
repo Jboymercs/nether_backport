@@ -1,6 +1,5 @@
 package com.unseen.nb.common.world.biome;
 
-import com.unseen.nb.client.particles.ParticleObsidianTear;
 import com.unseen.nb.client.particles.ParticlePixel;
 import com.unseen.nb.common.entity.entities.EntityHoglin;
 import com.unseen.nb.common.entity.entities.EntityPiglin;

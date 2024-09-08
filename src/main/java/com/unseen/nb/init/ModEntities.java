@@ -11,7 +11,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeHell;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -34,10 +33,10 @@ public class ModEntities {
 
     public static void registerEntities() {
         //Piglin
-    registerEntityWithID("piglin", EntityPiglin.class, ENTITY_START_ID++, 70, piglin);
-    //Strider
-    registerEntityWithID("strider", EntityStrider.class, ENTITY_START_ID++, 70, strider);
-    //Piglin Brute
+        registerEntityWithID("piglin", EntityPiglin.class, ENTITY_START_ID++, 70, piglin);
+        //Strider
+        registerEntityWithID("strider", EntityStrider.class, ENTITY_START_ID++, 70, strider);
+        //Piglin Brute
         registerEntityWithID("piglin_brute", EntityPiglinBrute.class, ENTITY_START_ID++, 70, piglin_brute);
         //Piglin Zombie
         registerEntityWithID("piglin_zombie", EntityPiglinZombie.class, ENTITY_START_ID++, 70, piglin_zombie);
@@ -50,10 +49,9 @@ public class ModEntities {
     }
 
     public static void RegisterEntitySpawns() {
-    spawnRateBiomeSpecific(EntityPiglin.class, EnumCreatureType.MONSTER, 15, 2, 4, Biomes.HELL);
-    spawnRateBiomeSpecific(EntityStrider.class, EnumCreatureType.CREATURE, 10, 1, 2, Biomes.HELL);
-    spawnRateBiomeSpecific(EntityPiglinZombie.class, EnumCreatureType.MONSTER, 50, 2, 4, Biomes.HELL);
-
+        spawnRateBiomeSpecific(EntityPiglin.class, EnumCreatureType.MONSTER, 15, 2, 4, Biomes.HELL);
+        spawnRateBiomeSpecific(EntityStrider.class, EnumCreatureType.CREATURE, 10, 1, 2, Biomes.HELL);
+        spawnRateBiomeSpecific(EntityPiglinZombie.class, EnumCreatureType.MONSTER, 50, 2, 4, Biomes.HELL);
     }
 
     public static String getID(Class<? extends Entity> entity) {
@@ -85,8 +83,8 @@ public class ModEntities {
     }
 
     private static void spawnRate(Class<? extends EntityLiving> entityClass, EnumCreatureType creatureType, int weight, int min, int max, BiomeDictionary.Type biomesAllowed) {
-        for(Biome biome: BiomeDictionary.getBiomes(biomesAllowed)) {
-            if(biome != null && weight > 0) {
+        for (Biome biome : BiomeDictionary.getBiomes(biomesAllowed)) {
+            if (biome != null && weight > 0) {
                 EntityRegistry.addSpawn(entityClass, weight, min, max, creatureType, biome);
 
             }
@@ -94,7 +92,7 @@ public class ModEntities {
     }
 
     private static void spawnRateBiomeSpecific(Class<? extends EntityLiving> entityClass, EnumCreatureType creatureType, int weight, int min, int max, Biome biome) {
-        if(biome != null && weight > 0) {
+        if (biome != null && weight > 0) {
             EntityRegistry.addSpawn(entityClass, weight, min, max, creatureType, biome);
 
         }

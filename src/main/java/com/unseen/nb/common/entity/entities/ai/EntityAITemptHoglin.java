@@ -7,7 +7,6 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.pathfinding.PathNavigateGround;
 
 import java.util.Set;
 

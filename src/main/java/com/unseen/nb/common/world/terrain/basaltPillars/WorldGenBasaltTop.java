@@ -4,10 +4,8 @@ import com.unseen.nb.common.world.base.WorldGenNB;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.util.ModRand;
 import git.jbredwards.nether_api.mod.common.config.NetherAPIConfig;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import org.lwjgl.Sys;
 
 import java.util.Random;
 

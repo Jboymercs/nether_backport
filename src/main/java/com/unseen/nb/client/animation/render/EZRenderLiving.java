@@ -1,7 +1,6 @@
 package com.unseen.nb.client.animation.render;
 
 import com.unseen.nb.client.animation.model.BasicModelEntity;
-import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;

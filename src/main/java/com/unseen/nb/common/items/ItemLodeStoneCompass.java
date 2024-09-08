@@ -4,7 +4,6 @@ import com.unseen.nb.Main;
 import com.unseen.nb.handler.IHasModel;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.init.ModItems;
-import com.unseen.nb.util.ModReference;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -114,7 +113,7 @@ public class ItemLodeStoneCompass extends ItemCompass implements IHasModel {
         if(worldIn.getBlockState(pos).getBlock() == ModBlocks.LODE_STONE && playerIn.isSneaking()) {
             ItemStack stack = playerIn.getHeldItem(hand);
 
-            ItemStack compass = Items.COMPASS.getDefaultInstance();
+            ItemStack compass = new ItemStack(Items.COMPASS);
             stack.shrink(1);
             playerIn.addItemStackToInventory(compass);
             worldIn.playSound(playerIn, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.NEUTRAL, 1.0F, 1.0F);

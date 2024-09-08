@@ -1,8 +1,6 @@
 package com.unseen.nb.client.animation.model;
 
 
-
-
 import com.unseen.nb.client.animation.EZAnimation;
 import com.unseen.nb.client.animation.IAnimatedEntity;
 import com.unseen.nb.client.animation.util.Transform;
@@ -10,7 +8,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
 
 import java.util.HashMap;
 import java.util.Iterator;

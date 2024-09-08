@@ -25,9 +25,9 @@ public class ParticleSoulFlame extends ParticleBase
         this.motionX = this.motionX * 0.009999999776482582D + movementX;
         this.motionY = this.motionY * 0.009999999776482582D + movementY;
         this.motionZ = this.motionZ * 0.009999999776482582D + movementZ;
-        this.posX += (double)((this.rand.nextFloat() - this.rand.nextFloat()) * 0.05F);
-        this.posY += (double)((this.rand.nextFloat() - this.rand.nextFloat()) * 0.05F);
-        this.posZ += (double)((this.rand.nextFloat() - this.rand.nextFloat()) * 0.05F);
+        this.posX += (this.rand.nextFloat() - this.rand.nextFloat()) * 0.05F;
+        this.posY += (this.rand.nextFloat() - this.rand.nextFloat()) * 0.05F;
+        this.posZ += (this.rand.nextFloat() - this.rand.nextFloat()) * 0.05F;
         this.flameScale = 1.5F;
 
         this.particleMaxAge = (int)(8.0D / (Math.random() * 0.8D + 0.2D)) + 4;

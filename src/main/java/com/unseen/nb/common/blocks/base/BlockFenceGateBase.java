@@ -7,7 +7,6 @@ import com.unseen.nb.init.ModItems;
 import net.minecraft.block.BlockFenceGate;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;

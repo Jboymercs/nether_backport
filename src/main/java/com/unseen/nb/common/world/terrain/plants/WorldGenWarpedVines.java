@@ -1,8 +1,8 @@
 package com.unseen.nb.common.world.terrain.plants;
 
+import com.unseen.nb.common.blocks.BlockNetherVines;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.util.ModRand;
-import net.minecraft.block.BlockBush;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -12,12 +12,12 @@ import java.util.Random;
 
 public class WorldGenWarpedVines extends WorldGenerator {
     private final IBlockState plantState;
-    private final BlockBush plantBlock;
+    private final BlockNetherVines plantBlock;
 
     public WorldGenWarpedVines(IBlockState plant)
     {
         this.plantState = plant;
-        this.plantBlock = (BlockBush) plant.getBlock();
+        this.plantBlock = (BlockNetherVines) plant.getBlock();
     }
 
     public boolean generate(World world, Random rand, BlockPos pos)

@@ -40,7 +40,6 @@ public class WorldGenBastion extends WorldGenerator {
         return new WorldGenBastion.Start(world, rand , chunkX, chunkZ);
     }
 
-
     public static class Start extends StructureStart {
 
         public Start() {

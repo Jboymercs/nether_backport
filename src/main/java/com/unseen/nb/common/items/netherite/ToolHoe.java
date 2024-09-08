@@ -2,7 +2,6 @@ package com.unseen.nb.common.items.netherite;
 
 import com.unseen.nb.Main;
 import com.unseen.nb.handler.IHasModel;
-import com.unseen.nb.init.ModItems;
 import com.unseen.nb.init.ModItemsCompat;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemHoe;

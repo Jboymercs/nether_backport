@@ -1,6 +1,5 @@
 package com.unseen.nb.common.entity.entities.ai;
 
-import com.unseen.nb.common.entity.entities.EntityPiglinBrute;
 import com.unseen.nb.common.entity.entities.EntityPiglinZombie;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;

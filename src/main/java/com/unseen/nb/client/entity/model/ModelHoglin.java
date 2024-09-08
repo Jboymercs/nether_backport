@@ -10,7 +10,6 @@ import com.unseen.nb.client.animation.model.BasicModelPart;
 import com.unseen.nb.client.animation.model.EZModelAnimator;
 import com.unseen.nb.client.animation.util.EZMath;
 import com.unseen.nb.common.entity.entities.EntityHoglin;
-import com.unseen.nb.common.entity.entities.EntityPiglin;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;

@@ -5,7 +5,6 @@ import com.unseen.nb.common.blocks.base.BlockNetherDoor;
 import com.unseen.nb.common.blocks.base.IMetaItem;
 import com.unseen.nb.handler.IHasModel;
 import com.unseen.nb.init.ModItems;
-import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;

@@ -2,18 +2,16 @@ package com.unseen.nb.config;
 
 
 import com.unseen.nb.util.ModReference;
-import com.unseen.nb.util.ModUtils;
 import net.minecraftforge.common.config.Config;
 
+<<<<<<< Updated upstream
+@Config(modid = ModReference.MOD_ID, name = ModReference.NAME)
+=======
 import java.util.ArrayList;
 
-@Config(modid = ModReference.MOD_ID, name = ModReference.NAME)
+@Config(modid = ModReference.MOD_ID, name = "Nether Backport/general_config")
+>>>>>>> Stashed changes
 public class ModConfig {
-
-    @Config.Name("FutureMC Compat")
-    @Config.Comment("This setting allows for easy integration with FutureMC, removing copied blocks & items from here and replacing them with FutureMC, default: true")
-    @Config.RequiresMcRestart
-    public static boolean futureMCCompat = true;
     @Config.Name("Bastion Remnants Spawn Frequency")
     @Config.Comment("Change the spacing between Bastion Remnants, lower means more frequent, higher means less")
     @Config.RequiresMcRestart
@@ -52,7 +50,7 @@ public class ModConfig {
     public static int nether_ruins_rate = 80;
 
     @Config.Name("Bastion Remnants Mob Spawns")
-    @Config.Comment("Change the spawns alloted in the Bastion Remnants, lower means more mobs, higher means less")
+    @Config.Comment("Change the spawns allotted in the Bastion Remnants, lower means more mobs, higher means less")
     @Config.RangeInt(min = 1, max = 10)
     @Config.RequiresMcRestart
     public static int bastionSpawnRate = 5;
@@ -92,16 +90,6 @@ public class ModConfig {
     @Config.RequiresMcRestart
     public static boolean piglins_are_aggro = true;
 
-    @Config.Name("Enable/Disable Piglins use Spartan Weaponry over Crossbows")
-    @Config.Comment("Affects Piglins only, makes Piglins carry Spartan Weaponry items. THIS REQUIRES SPARTAN WEAPONRY TO BE LOADED default: false")
-    @Config.RequiresMcRestart
-    public static boolean useSpartanWeapons = false;
-
-    @Config.Name("Enable/Disable Piglins melee variant use Spartan Weaponry")
-    @Config.Comment("Affects Piglins only, makes Piglins carry Spartan melee items. THIS REQUIRES SPARTAN WEAPONRY TO BE LOADED default:false")
-    @Config.RequiresMcRestart
-    public static boolean useMeleeSpartanWeapons = false;
-
     @Config.Name("Nether Backport Global Health Modifier")
     @Config.Comment("Modify Health globally of all mobs added in this mod")
     @Config.RequiresMcRestart
@@ -134,14 +122,6 @@ public class ModConfig {
     @Config.RequiresMcRestart
     @Config.Comment(value = "Enable this to turn the whitelist for fire resistant items into the opposite. Meaning when set to true, items in the list will act without fire resistance")
     public static boolean fireproofItemBlacklist = false;
-
-
-    @Config.RequiresMcRestart
-    @Config.Comment(value = "Which blocks soul speed.Add new blocks with 'modID:blockName'.")
-    public static String[] blocksForEnchant = new String[] {
-            "minecraft:soul_sand",
-            ModReference.MOD_ID + ":soul_soil"
-    };
 
 
 }

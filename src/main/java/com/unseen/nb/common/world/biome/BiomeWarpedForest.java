@@ -1,7 +1,6 @@
 package com.unseen.nb.common.world.biome;
 
 import com.unseen.nb.client.particles.ParticlePixel;
-import com.unseen.nb.common.entity.entities.EntityPiglin;
 import com.unseen.nb.common.entity.entities.EntityStrider;
 import com.unseen.nb.common.world.base.WorldGenNB;
 import com.unseen.nb.common.world.terrain.plants.WorldGenCrimsonVines;

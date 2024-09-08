@@ -4,7 +4,6 @@ import com.unseen.nb.client.animation.EZAnimation;
 import com.unseen.nb.client.animation.EZAnimationHandler;
 import com.unseen.nb.client.animation.IAnimatedEntity;
 import com.unseen.nb.common.entity.EntityNetherBase;
-import com.unseen.nb.common.entity.entities.ai.EntityTimedAttackPiglinBrute;
 import com.unseen.nb.common.entity.entities.ai.EntityTimedAttackZombie;
 import com.unseen.nb.common.entity.entities.ai.IAttack;
 import com.unseen.nb.config.ModConfig;
@@ -20,11 +19,10 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
-import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -49,7 +47,7 @@ public class EntityPiglinZombie extends EntityNetherBase implements IAnimatedEnt
     private static final UUID ATTACK_SPEED_BOOST_MODIFIER_UUID = UUID.fromString("49455A49-7EC5-45BA-B886-3B90B23A1718");
     private static final AttributeModifier ATTACK_SPEED_BOOST_MODIFIER = (new AttributeModifier(ATTACK_SPEED_BOOST_MODIFIER_UUID, "Attacking speed boost", 0.05D, 0)).setSaved(false);
     protected static final DataParameter<Boolean> MELEE_ATTACK = EntityDataManager.createKey(EntityPiglinZombie.class, DataSerializers.BOOLEAN);
-    protected void setMeleeAttack(boolean value) {this.dataManager.set(MELEE_ATTACK, Boolean.valueOf(value));}
+    protected void setMeleeAttack(boolean value) {this.dataManager.set(MELEE_ATTACK, value);}
     public boolean isMeleeAttack() {return this.dataManager.get(MELEE_ATTACK);}
     private Consumer<EntityLivingBase> prevAttack;
 
@@ -64,7 +62,7 @@ public class EntityPiglinZombie extends EntityNetherBase implements IAnimatedEnt
 
     public EntityPiglinZombie(World worldIn) {
         super(worldIn);
-        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.GOLDEN_SWORD.getDefaultInstance());
+        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_SWORD));
         this.experienceValue = 5;
         this.isImmuneToFire = true;
     }
@@ -72,7 +70,7 @@ public class EntityPiglinZombie extends EntityNetherBase implements IAnimatedEnt
     @Override
     protected void entityInit() {
         super.entityInit();
-        this.dataManager.register(MELEE_ATTACK, Boolean.valueOf(false));
+        this.dataManager.register(MELEE_ATTACK, Boolean.FALSE);
     }
 
     @Override
@@ -190,7 +188,7 @@ public class EntityPiglinZombie extends EntityNetherBase implements IAnimatedEnt
 
         this.targetTasks.addTask(1, new EntityPiglinZombie.AIHurtByAggressor(this));
         this.targetTasks.addTask(2, new EntityPiglinZombie.AITargetAggressor(this));
-        this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, true, new Class[0]));
+        this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, true));
     }
 
     public boolean isAngry()
@@ -204,8 +202,8 @@ public class EntityPiglinZombie extends EntityNetherBase implements IAnimatedEnt
         if(!this.isFightMode()) {
             List<Consumer<EntityLivingBase>> attacks = new ArrayList<>(Arrays.asList(meleeAttack, meleeAttackTwo));
             double[] weights = {
-                    (distance < 3) ? 1 / distance : 1,
-                    (distance < 3) ? 1 / distance : 2
+                    (distance < 3 && distance > 0) ? 1 / distance : 1,
+                    (distance < 3 && distance > 0) ? 1 / distance : 2
             };
             prevAttack = ModRand.choice(attacks, rand, weights).next();
 

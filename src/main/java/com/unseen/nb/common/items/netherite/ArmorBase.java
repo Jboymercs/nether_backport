@@ -4,7 +4,6 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.unseen.nb.Main;
 import com.unseen.nb.handler.IHasModel;
-import com.unseen.nb.init.ModItems;
 import com.unseen.nb.init.ModItemsCompat;
 import com.unseen.nb.util.ModReference;
 import net.minecraft.client.model.ModelBiped;

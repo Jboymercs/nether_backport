@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "nb:blocks/twisting_vines_plant"
+    }
+}

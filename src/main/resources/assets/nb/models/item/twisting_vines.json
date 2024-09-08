@@ -1,0 +1,6 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "nb:blocks/twisting_vines_plant"
+    }
+}

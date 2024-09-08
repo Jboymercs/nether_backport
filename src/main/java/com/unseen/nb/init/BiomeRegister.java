@@ -6,8 +6,8 @@ import com.unseen.nb.common.world.biome.BiomeSoulValley;
 import com.unseen.nb.common.world.biome.BiomeWarpedForest;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.common.BiomeDictionary.Type;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class BiomeRegister {
 

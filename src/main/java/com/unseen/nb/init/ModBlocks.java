@@ -2,15 +2,23 @@ package com.unseen.nb.init;
 
 import com.unseen.nb.common.blocks.*;
 import com.unseen.nb.common.blocks.base.*;
-
 import com.unseen.nb.common.blocks.base.slab.BlockDoubleSlab;
 import com.unseen.nb.common.blocks.base.slab.BlockHalfSlab;
+<<<<<<< Updated upstream
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockPlanks;
+import net.minecraft.block.BlockSlab;
+import net.minecraft.block.SoundType;
+=======
 import com.unseen.nb.common.blocks.base.slab.BlockSlabBase;
 import com.unseen.nb.util.integration.ModIntegration;
+import com.unseen.nb.util.states.EnumNBForestTypes;
 import net.minecraft.block.*;
+>>>>>>> Stashed changes
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.util.EnumFacing;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +34,8 @@ public class ModBlocks {
     public static final float OBSIDIAN_RESISTANCE = 2000;
     public static final List<Block> BLOCKS = new ArrayList<Block>();
 
-    public static final Block CRIMSON_GRASS = new BlockNetherGrass("crimson_grass", Material.ROCK, 0.4F, 0.4F, NBSoundTypes.NYLIUM).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-    public static final Block WARPED_GRASS = new BlockNetherGrass("warped_grass", Material.ROCK, 0.4F, 0.4F, NBSoundTypes.NYLIUM).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block CRIMSON_GRASS = new BlockNetherGrass("crimson_grass", Material.ROCK, 0.4F, 0.4F, NBSoundTypes.NYLIUM, EnumNBForestTypes.CRIMSON).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block WARPED_GRASS = new BlockNetherGrass("warped_grass", Material.ROCK, 0.4F, 0.4F, NBSoundTypes.NYLIUM, EnumNBForestTypes.WARPED).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
     public static final Block CRIMSON_HYPHAE = new BlockBase("crimson_hyphae", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.HYPHAE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     public static final Block WARPED_HYPHAE = new BlockBase("warped_hyphae", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.HYPHAE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
@@ -87,7 +95,6 @@ public class ModBlocks {
     public static final Block SMOOTH_BASALT = new BlockBase("smooth_basalt", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.BASALT).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     public static final Block CRYING_OBSIDIAN = new BlockCryingObsidian("cry_obi", Material.ROCK, OBSIDIAN_HARDNESS, OBSIDIAN_RESISTANCE, SoundType.STONE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS).setLightLevel(0.7F);
 
-
     public static final Block GILDED_BLACKSTONE = new BlockGildedBlackstone("gilded_blackstone", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.NETHER_ORE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
     public static Block NETHER_GOLD_ORE = new BlockNetherOre("nether_gold_ore", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.NETHER_ORE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
@@ -125,16 +132,18 @@ public class ModBlocks {
 
     public static Block WARPED_SPROUT = new BlockSmallPlantBase("warped_sprout", Material.PLANTS, NBSoundTypes.SPROUT);
 
-    public static Block CRIMSON_VINES = new BlockVineBase("crimson_vine", Material.PLANTS, NBSoundTypes.ROOTS);
+    public static Block CRIMSON_VINES = new BlockNetherVines("weeping_vines", Material.PLANTS, MapColor.RED, BlockNetherVines.EnumNetherForestType.CRIMSON, EnumFacing.DOWN, SoundType.PLANT, CreativeTabs.DECORATIONS);
 
-    public static Block WARPED_VINES = new BlockVineUpBase("warped_vine", Material.PLANTS, NBSoundTypes.ROOTS);
+    public static Block WARPED_VINES = new BlockNetherVines("twisting_vines", Material.PLANTS, MapColor.CYAN, BlockNetherVines.EnumNetherForestType.WARPED, EnumFacing.UP, SoundType.PLANT, CreativeTabs.DECORATIONS);
 
     public static Block SOUL_FIRE = new BlockSoulFire(CreativeTabs.DECORATIONS, "soul_fire").setLightLevel(1.0F);
 
     public static Block CHAINS = new BlockChainNew("chain_block", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.CHAIN).setCreativeTab(CreativeTabs.DECORATIONS);
 
     public static Block SOUL_LANTERN = new BlockSoulLantern("soul_lantern", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.LANTERN).setCreativeTab(CreativeTabs.DECORATIONS).setLightLevel(1.0F);
+
     public static Block SOUL_TORCH = new BlockSoulTorch("soul_torch").setLightLevel(0.7F);
+
 
 
 }

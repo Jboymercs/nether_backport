@@ -1,8 +1,6 @@
 package com.unseen.nb.init;
 
 import com.unseen.nb.common.blocks.BlockBaseCompat;
-import com.unseen.nb.common.blocks.BlockSoulTorch;
-import com.unseen.nb.common.blocks.base.BlockBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;

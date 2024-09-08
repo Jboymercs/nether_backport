@@ -41,7 +41,7 @@ public class ParticleObsidianTear extends ParticleBase
             if (!this.onGround)
             {
                 this.texSpot = 0;
-                this.motionY -= (double)0.01F;
+                this.motionY -= 0.01F;
             }
             else
             {

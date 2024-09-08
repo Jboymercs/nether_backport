@@ -11,7 +11,8 @@ anonymous, and is not automatically submitted to any online service.
 | Mod ID    | Textures | Pixels | Est. Size |
 |-----------|----------|--------|-----------|
 | minecraft | 818      | 227072 | 887 KB    |
-| nb        | 81       | 20736  | 81 KB     |
+| futuremc  | 153      | 39168  | 153 KB    |
+| nb        | 67       | 17152  | 67 KB     |
 | forge     | 3        | 768    | 3 KB      |
 | missingno | 1        | 256    | 1 KB      |
 

@@ -1,13 +1,11 @@
 package com.unseen.nb.common.world.bastion;
 
 import com.unseen.nb.util.ModRand;
-import com.unseen.nb.util.ModReference;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.StructureComponent;
 import net.minecraft.world.gen.structure.template.TemplateManager;
-import net.minecraftforge.fml.common.Mod;
 
 import java.util.List;
 

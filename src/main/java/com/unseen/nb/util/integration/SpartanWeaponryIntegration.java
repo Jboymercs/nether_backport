@@ -12,22 +12,24 @@ public class SpartanWeaponryIntegration {
 
     }
 
-
-
     public static boolean isCrossbow(ItemStack stack) {
         return stack.getItem() instanceof ItemCrossbow;
     }
 
+    public static ItemStack getCrossBow() {
+        return new ItemStack(ItemRegistrySW.crossbowWood);
+    }
+
     public static ItemStack[] selectPiglinWeapon() {
-        return new ItemStack[]{ItemRegistrySW.glaiveGold.getDefaultInstance(), ItemRegistrySW.greatswordGold.getDefaultInstance(),
-                ItemRegistrySW.daggerGold.getDefaultInstance(), ItemRegistrySW.katanaGold.getDefaultInstance(),
-                ItemRegistrySW.rapierGold.getDefaultInstance(), ItemRegistrySW.saberGold.getDefaultInstance(),
-                ItemRegistrySW.scytheGold.getDefaultInstance(), ItemRegistrySW.spearGold.getDefaultInstance(), Items.GOLDEN_SWORD.getDefaultInstance()};
+        return new ItemStack[]{new ItemStack(ItemRegistrySW.glaiveGold), new ItemStack(ItemRegistrySW.greatswordGold),
+                new ItemStack(ItemRegistrySW.daggerGold), new ItemStack(ItemRegistrySW.katanaGold),
+                new ItemStack(ItemRegistrySW.rapierGold), new ItemStack(ItemRegistrySW.saberGold),
+                new ItemStack(ItemRegistrySW.scytheGold), new ItemStack(ItemRegistrySW.spearGold), new ItemStack(Items.GOLDEN_SWORD)};
     }
 
     public static ItemStack[] selectPiglinBruteWeapon() {
-        return new ItemStack[]{ItemRegistrySW.battleaxeGold.getDefaultInstance(), ItemRegistrySW.clubStudded.getDefaultInstance(),
-                ItemRegistrySW.hammerGold.getDefaultInstance(), ItemRegistrySW.halberdGold.getDefaultInstance(), Items.GOLDEN_AXE.getDefaultInstance()};
+        return new ItemStack[]{new ItemStack(ItemRegistrySW.battleaxeGold), new ItemStack(ItemRegistrySW.clubStudded),
+                new ItemStack(ItemRegistrySW.hammerGold), new ItemStack(ItemRegistrySW.halberdGold), new ItemStack(Items.GOLDEN_AXE)};
     }
 
     public static void setCharged(ItemStack stack, boolean charged) {

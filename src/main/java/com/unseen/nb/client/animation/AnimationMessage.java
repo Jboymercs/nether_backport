@@ -1,18 +1,11 @@
 package com.unseen.nb.client.animation;
 
 
-
 import com.unseen.nb.Main;
 import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelHandler;
-import net.minecraftforge.fml.common.eventhandler.Event;
-import net.minecraftforge.fml.common.network.NetworkEventFiringHandler;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-
-import java.util.function.Supplier;
 
 public class AnimationMessage implements IMessage {
 

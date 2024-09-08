@@ -63,10 +63,10 @@ public class ParticleBase extends Particle
         /* Cram it in a Ver3d, makes it easier to store and read, vanilla was onto something good here. */
         Vec3d[] avec3d = new Vec3d[]
                 {
-                        new Vec3d((double)(-rotationX * particleSize - rotationXY * particleSize), (double)(-rotationZ * particleSize), (double)(-rotationYZ * particleSize - rotationXZ * particleSize)),
-                        new Vec3d((double)(-rotationX * particleSize + rotationXY * particleSize), (double)(rotationZ * particleSize), (double)(-rotationYZ * particleSize + rotationXZ * particleSize)),
-                        new Vec3d((double)(rotationX * particleSize + rotationXY * particleSize), (double)(rotationZ * particleSize), (double)(rotationYZ * particleSize + rotationXZ * particleSize)),
-                        new Vec3d((double)(rotationX * particleSize - rotationXY * particleSize), (double)(-rotationZ * particleSize), (double)(rotationYZ * particleSize - rotationXZ * particleSize))
+                        new Vec3d(-rotationX * particleSize - rotationXY * particleSize, -rotationZ * particleSize, -rotationYZ * particleSize - rotationXZ * particleSize),
+                        new Vec3d(-rotationX * particleSize + rotationXY * particleSize, rotationZ * particleSize, -rotationYZ * particleSize + rotationXZ * particleSize),
+                        new Vec3d(rotationX * particleSize + rotationXY * particleSize, rotationZ * particleSize, rotationYZ * particleSize + rotationXZ * particleSize),
+                        new Vec3d(rotationX * particleSize - rotationXY * particleSize, -rotationZ * particleSize, rotationYZ * particleSize - rotationXZ * particleSize)
                 };
         GlStateManager.enableBlend();
         GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);

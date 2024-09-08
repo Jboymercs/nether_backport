@@ -5,7 +5,6 @@ import com.unseen.nb.client.animation.render.layer.EZLayerHeldItem;
 import com.unseen.nb.client.entity.RenderModEntity;
 import com.unseen.nb.client.entity.model.ModelPiglin;
 import com.unseen.nb.common.entity.entities.EntityPiglin;
-import com.unseen.nb.common.entity.entities.EntityStrider;
 import net.minecraft.client.renderer.entity.RenderManager;
 
 public class RenderPiglin extends RenderModEntity<EntityPiglin> {

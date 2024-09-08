@@ -3,7 +3,6 @@ package com.unseen.nb.common.world.terrain.basaltHeights;
 import com.google.common.collect.Lists;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.util.ModRand;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
