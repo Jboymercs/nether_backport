@@ -3,6 +3,7 @@ package com.unseen.nb.common.world.biome;
 import com.unseen.nb.client.particles.ParticlePixel;
 import com.unseen.nb.common.entity.entities.EntityStrider;
 import com.unseen.nb.common.world.base.WorldGenNB;
+import com.unseen.nb.common.world.terrain.basaltHeights.BasaltFlatAreas;
 import com.unseen.nb.common.world.terrain.basaltPillars.WorldGenBasaltTop;
 import com.unseen.nb.common.world.terrain.fire.WorldGenSoulFire;
 import com.unseen.nb.common.world.terrain.fossils.WorldGenFossils;
@@ -10,6 +11,7 @@ import com.unseen.nb.common.world.terrain.fossils.WorldGenReplaceOnRand;
 import com.unseen.nb.common.world.terrain.plants.WorldGenCrimsonVines;
 import com.unseen.nb.common.world.terrain.plants.WorldGenWarpedPlant;
 import com.unseen.nb.common.world.terrain.plants.WorldGenWarpedVines;
+import com.unseen.nb.common.world.terrain.soulsandPatches.WorldGenSoulSandPatches;
 import com.unseen.nb.common.world.terrain.trees.WorldGenWarpedTree;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.init.ModSoundHandler;
@@ -54,6 +56,8 @@ public class BiomeSoulValley extends Biome implements INetherBiome, INetherAPIRe
             new WorldGenFossils("fossil_5"), new WorldGenFossils("fossil_6"), new WorldGenFossils("fossil_7"), new WorldGenFossils("fossil_8")};
     private Random random;
 
+    private WorldGenSoulSandPatches soul_sand_patches = new WorldGenSoulSandPatches();
+
     private final WorldGenNB[] basaltPillarsSmall = {new WorldGenBasaltTop("basalt_pillar_1"), new WorldGenBasaltTop("basalt_pillar_2"), new WorldGenBasaltTop("basalt_pillar_3")
             , new WorldGenBasaltTop("basalt_pillar_4"), new WorldGenBasaltTop("basalt_pillar_5"), new WorldGenBasaltTop("basalt_pillar_6")};
 
@@ -66,10 +70,10 @@ public class BiomeSoulValley extends Biome implements INetherBiome, INetherAPIRe
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
         this.spawnableCaveCreatureList.clear();
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityEnderman.class, 2, 1, 1));
-        this.spawnableMonsterList.add(new SpawnListEntry(EntitySkeleton.class, 20, 1, 2));
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityGhast.class, 18, 1, 2));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityStrider.class, 20, 2, 4));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityEnderman.class, 4, 1, 1));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntitySkeleton.class, 40, 1, 2));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityGhast.class, 36, 1, 2));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityStrider.class, 40, 2, 4));
         //Add Strider weight 10, min 2, max 4
         this.topBlock = CRIMSON_FLOOR;
         random = new Random();
@@ -78,7 +82,7 @@ public class BiomeSoulValley extends Biome implements INetherBiome, INetherAPIRe
     @Override
     public void decorate(World world, Random rand, BlockPos pos) {
         //Fossils
-        if (rand.nextInt(5) == 0) {
+        if (rand.nextInt(8) == 0) {
             for (int k2 = 0; k2 < ModRand.range(1, 2); k2++) {
                 int l6 = random.nextInt(16) + 8;
                 int k10 = random.nextInt(16) + 8;
@@ -99,6 +103,27 @@ public class BiomeSoulValley extends Biome implements INetherBiome, INetherAPIRe
             }
         }
 
+        //Basalt Flat Parts
+        for(int k2 = 0; k2 < ModRand.range(1, 3);k2++) {
+            int l6 = random.nextInt(16) + 8;
+            int k10 = random.nextInt(16) + 8;
+            int depthSignature = 2;
+            for(int y = NetherAPIConfig.tallNether ? 240 : 110; y > 32; y--) {
+                IBlockState currentBlock = world.getBlockState(pos.add(l6, y, k10));
+                if(depthSignature == 1) {
+                    if(!world.isAirBlock(pos.add(l6, y, k10))) {
+                        soul_sand_patches.generate(world, rand, pos.add(l6, y, k10));
+                    }
+                }
+
+                if(currentBlock == ModBlocks.SOUL_SOIL.getDefaultState()) {
+                    depthSignature++;
+                } else if (currentBlock == Blocks.AIR.getDefaultState()) {
+                    depthSignature = 0;
+                }
+            }
+        }
+
 
         //FIRE
         if(world.rand.nextInt(8) == 0) {
@@ -111,7 +136,7 @@ public class BiomeSoulValley extends Biome implements INetherBiome, INetherAPIRe
                     if (depthSignature == 1) {
                         soulFire.generate(world, rand, pos.add(l6, y + 1, k10));
                     }
-                    if (currentBlock == ModBlocks.SOUL_SOIL.getDefaultState()) {
+                    if (currentBlock == ModBlocks.SOUL_SOIL.getDefaultState() || currentBlock == Blocks.SOUL_SAND.getDefaultState()) {
                         depthSignature++;
                     } else if (currentBlock == Blocks.AIR.getDefaultState()) {
                         depthSignature = 0;
@@ -143,11 +168,7 @@ public class BiomeSoulValley extends Biome implements INetherBiome, INetherAPIRe
             else if(here.getBlock() == Blocks.NETHERRACK) {
                 if(currDepth == -1) {
                     currDepth = 2 + chunkGenerator.getRand().nextInt(2);
-                    if(random.nextInt(4) == 0) {
-                        primer.setBlockState(x,y,z, Blocks.SOUL_SAND.getDefaultState());
-                    } else {
                         primer.setBlockState(x, y, z, topBlock);
-                    }
                 }
                 else if(currDepth > 0) {
                     --currDepth;

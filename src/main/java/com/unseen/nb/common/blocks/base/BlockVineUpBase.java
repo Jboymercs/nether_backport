@@ -14,7 +14,9 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -100,6 +102,23 @@ public class BlockVineUpBase extends BlockBush implements IHasModel, RegistryHan
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
         if(rand.nextInt(16) == 0 && worldIn.isAirBlock(pos.up()) && this.canGrowAt(worldIn, pos, state)) {
             worldIn.setBlockState(pos.add(0,1,0), this.getDefaultState());
+        }
+    }
+
+    @Override
+    public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
+        if (entityIn instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) entityIn;
+            if (player.motionY < -0.15F) {
+                player.motionY = -0.15F;
+            }
+            if (player.motionY < 0.2F) {
+                if (player.isSneaking()) {
+                   player.motionY = 0.0F;
+                } else {
+                   player.motionY = 0.2F;
+               }
+            }
         }
     }
 

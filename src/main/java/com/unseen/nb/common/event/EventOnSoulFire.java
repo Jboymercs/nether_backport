@@ -2,12 +2,18 @@ package com.unseen.nb.common.event;
 
 
 import com.unseen.nb.init.ModBlocks;
+import com.unseen.nb.util.ModUtils;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.monster.EntityWitherSkeleton;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class EventOnSoulFire {
@@ -31,6 +37,7 @@ public class EventOnSoulFire {
             }
         }
     }
+
 
 
 }

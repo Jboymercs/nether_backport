@@ -1,6 +1,7 @@
 package com.unseen.nb.common.event;
 
 
+import com.unseen.nb.Main;
 import com.unseen.nb.common.enchantments.NBEnchantmentSoulSpeed;
 import com.unseen.nb.common.items.netherite.ItemNBHorseArmor;
 import com.unseen.nb.init.ModEnchantments;
@@ -50,6 +51,7 @@ public class EventOnSoulSpeed {
 
                 if(entityIn.motionX != 0 && entityIn.motionZ != 0 && entityIn.ticksExisted % 5 == 0) {
                     // Main.proxy.spawnParticle(//TempParticles, worldIn, entityIn.posX, entityIn.posY, entityIn.posZ, entityIn.motionX, entityIn.motionY, entityIn.motionZ);
+                    Main.proxy.spawnSoulParticle(worldIn, entityIn.posX, entityIn.posY, entityIn.posZ, entityIn.motionX, entityIn.motionY, entityIn.motionZ);
                     float f = worldIn.rand.nextFloat() * 0.4F + worldIn.rand.nextFloat() > 0.9F ? 0.6F : 0.0F;
                     worldIn.playSound((EntityPlayer)null, blockPos, ModSoundHandler.SOUL_SAND_SCREAM, SoundCategory.AMBIENT, f, 0.6F + worldIn.rand.nextFloat() * 0.4F);
                 }

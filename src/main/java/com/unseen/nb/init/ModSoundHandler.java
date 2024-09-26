@@ -69,7 +69,8 @@ public class ModSoundHandler {
 
     public static SoundEvent SPROUT_BREAK;
 
-
+    public static SoundEvent STEM_BREAK;
+    public static SoundEvent STEM_STEP;
 
     //ENTITIES
     public static SoundEvent PIGLIN_IDLE;
@@ -203,6 +204,9 @@ public class ModSoundHandler {
 
     SOUL_LANTERN_BREAK = registerSound("soul_lantern.break", "block");
     SOUL_LANTERN_PlACE = registerSound("soul_lantern.place", "block");
+
+    STEM_BREAK = registerSound("stem.break", "block");
+    STEM_STEP = registerSound("stem.step", "block");
 
     //ENTITIES
         PIGLIN_STEP = registerSound("piglin.step", "entity");

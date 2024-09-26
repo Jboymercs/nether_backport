@@ -57,10 +57,10 @@ public class BiomeCrimsonForest extends Biome implements INetherBiome, INetherAP
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
         this.spawnableCaveCreatureList.clear();
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityPiglin.class, 10, 2, 4));
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityPiglinZombie.class, 2, 2,4));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityStrider.class, 20, 1, 2));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityHoglin.class, 20, 3, 4));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityPiglin.class, 20, 2, 4));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityPiglinZombie.class, 4, 2,4));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityStrider.class, 40, 1, 2));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityHoglin.class, 40, 3, 4));
         this.topBlock = CRIMSON_FLOOR;
         random = new Random();
     }

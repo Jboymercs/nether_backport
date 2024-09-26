@@ -17,7 +17,6 @@ import thedarkcolour.futuremc.registry.FItems;
 @Mod.EventBusSubscriber(modid = ModReference.MOD_ID)
 public class AnvilNetherite {
 
-
     @SubscribeEvent
     public static void addNetheriteAnvilRecipes(AnvilUpdateEvent event) {
 

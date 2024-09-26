@@ -13,6 +13,10 @@ online service.
 2 - cpw
      - Forge Mod Loader
      - Minecraft Forge
+1 - thedarkcolour
+     - Future MC
+1 - shadowfacts
+     - Shadowfacts' Forgelin
 1 - rongmario
      - Had Enough Items
 1 - jbredwards

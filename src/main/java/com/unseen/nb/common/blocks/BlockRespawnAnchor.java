@@ -13,6 +13,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
@@ -51,6 +52,9 @@ public class BlockRespawnAnchor extends BlockBase
             if (i < 4 && playerIn.getHeldItem(hand).getItem() == Item.getItemFromBlock(Blocks.GLOWSTONE))
             {
                 worldIn.setBlockState(pos, state.withProperty(CHARGES, i + 1), 2);
+                //Shrink Glowstone Value
+                ItemStack stack = playerIn.getHeldItem(hand);
+                stack.shrink(1);
                 worldIn.playSound(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, ModSoundHandler.RESPAWN_ANCHOR_CHARGE, SoundCategory.BLOCKS, 1.0F, worldIn.rand.nextFloat() * 0.7F + 0.3F, false);
                 return true;
             }

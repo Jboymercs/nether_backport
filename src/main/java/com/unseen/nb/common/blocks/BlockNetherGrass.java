@@ -33,12 +33,6 @@ public class BlockNetherGrass extends BlockBase {
     }
 
     @Override
-    @Nullable
-    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return this.getItemDropped(state, rand, fortune);
-    }
-
-    @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
     {
         if (!worldIn.isRemote)

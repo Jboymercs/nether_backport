@@ -60,8 +60,8 @@ public class ModelHoglin extends BasicModelEntity {
 		FRightLeg.cubeList.add(new ModelBox(FRightLeg, 0, 0, -2.5F, 0.0F, -2.5F, 6, 11, 6, 0.0F, false));
 
 		Head = new BasicModelPart(this);
-		Head.setRotationPoint(0.0F, -13.0F, -12.0F);
-		Torso.addChild(Head);
+		Head.setRotationPoint(0.0F, 0.0F, -12.0F);
+		//Torso.addChild(Head);
 		setRotationAngle(Head, 0.7854F, 0.0F, 0.0F);
 		Head.cubeList.add(new ModelBox(Head, 0, 40, -7.0F, -2.0F, -20.0F, 14, 6, 19, 0.0F, false));
 		Head.cubeList.add(new ModelBox(Head, 0, 40, 6.0F, -8.0F, -15.0F, 2, 11, 2, 0.0F, false));
@@ -155,9 +155,13 @@ public class ModelHoglin extends BasicModelEntity {
 			GlStateManager.translate(0, 0.85F, 0);
 			GlStateManager.scale(0.4F, 0.4F, 0.4F);
 			Torso.render(f5);
+			GlStateManager.translate(0, -0.7F, 0.50);
+			GlStateManager.scale(1.4F, 1.4F, 1.4F);
+			Head.render(f5);
 			GlStateManager.popMatrix();
 		} else {
 			Torso.render(f5);
+			Head.render(f5);
 		}
 
 	}

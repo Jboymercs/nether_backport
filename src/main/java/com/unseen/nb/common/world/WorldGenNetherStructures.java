@@ -6,6 +6,7 @@ import com.unseen.nb.common.world.structures.WorldGenNetherPortal;
 import com.unseen.nb.common.world.structures.WorldGenRuinedPortals;
 import com.unseen.nb.common.world.structures.WorldGenRuinedPortalsGiant;
 import com.unseen.nb.config.ModConfig;
+import com.unseen.nb.config.NBWorldConfig;
 import com.unseen.nb.init.BiomeRegister;
 import com.unseen.nb.util.ModRand;
 import com.unseen.nb.util.NBLogger;
@@ -63,7 +64,7 @@ public class WorldGenNetherStructures implements IWorldGenerator {
 
 
                 //Nether Portal Ruins
-                if(netherPortalSpacing/8 > ModConfig.nether_ruins_rate) {
+                if(netherPortalSpacing/8 > NBWorldConfig.nether_ruins_rate) {
                     int y = getNetherSurfaceHeight(world, pos, 35, NetherAPIConfig.tallNether ? 240 : 110);
                     BlockPos modifiedPos = new BlockPos(pos.getX() - 2, y, pos.getZ() - 2);
                     if(!world.isAirBlock(modifiedPos) && !world.isAirBlock(modifiedPos.add(3, 0, 3)) && world.isAirBlock(modifiedPos.add(0, 10, 0))) {
@@ -83,9 +84,9 @@ public class WorldGenNetherStructures implements IWorldGenerator {
                 //generates regular ruined portals
                 if (y != 0) {
                     BlockPos posModified = new BlockPos(pos.getX(), y, pos.getZ());
-                    if (portalSpacing / 12 > ModConfig.ruined_portal_rate) {
+                    if (portalSpacing / 12 > NBWorldConfig.ruined_portal_rate) {
                         //Giant Portal Ruins 5% chance of spawning
-                        if (!world.isAirBlock(posModified.down()) && !world.isAirBlock(posModified.add(7, -1, 7)) && world.rand.nextInt(ModConfig.portal_big_chance) == 0) {
+                        if (!world.isAirBlock(posModified.down()) && !world.isAirBlock(posModified.add(7, -1, 7)) && world.rand.nextInt(NBWorldConfig.portal_big_chance) == 0) {
                             WorldGenRuinedPortalsGiant portal = ModRand.choice(list_of_Giant_portals);
                             portal.generate(world, random, pos.add(0, y, 0));
                             portalSpacing = 0;
@@ -112,7 +113,7 @@ public class WorldGenNetherStructures implements IWorldGenerator {
     public static List<Biome> getSpawnBiomesRemnarts() {
         if (spawnBiomesRemnants == null) {
             spawnBiomesRemnants = Lists.newArrayList();
-            for (String str : ModConfig.remnantsBiomesNotAllowed) {
+            for (String str : NBWorldConfig.remnantsBiomesNotAllowed) {
                 try {
                     Biome biome = Biome.REGISTRY.getObject(new ResourceLocation(str));
                     if (biome != null) spawnBiomesRemnants.add(biome);
@@ -128,7 +129,7 @@ public class WorldGenNetherStructures implements IWorldGenerator {
     public static List<Biome> getSpawnBiomesRuinedPortals() {
         if (spawnBiomesRuinedPortals == null) {
             spawnBiomesRuinedPortals = Lists.newArrayList();
-            for (String str : ModConfig.ruinsBiomesNotAllowed) {
+            for (String str : NBWorldConfig.ruinsBiomesNotAllowed) {
                 try {
                     Biome biome = Biome.REGISTRY.getObject(new ResourceLocation(str));
                     if (biome != null) spawnBiomesRuinedPortals.add(biome);

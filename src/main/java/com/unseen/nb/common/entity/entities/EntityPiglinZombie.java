@@ -8,6 +8,7 @@ import com.unseen.nb.common.entity.entities.ai.EntityTimedAttackPiglinBrute;
 import com.unseen.nb.common.entity.entities.ai.EntityTimedAttackZombie;
 import com.unseen.nb.common.entity.entities.ai.IAttack;
 import com.unseen.nb.config.ModConfig;
+import com.unseen.nb.config.NBEntitiesConfig;
 import com.unseen.nb.init.ModSoundHandler;
 import com.unseen.nb.util.ModRand;
 import com.unseen.nb.util.ModReference;
@@ -25,6 +26,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -64,7 +66,7 @@ public class EntityPiglinZombie extends EntityNetherBase implements IAnimatedEnt
 
     public EntityPiglinZombie(World worldIn) {
         super(worldIn);
-        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.GOLDEN_SWORD.getDefaultInstance());
+        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_SWORD));
         this.experienceValue = 5;
         this.isImmuneToFire = true;
     }
@@ -172,11 +174,13 @@ public class EntityPiglinZombie extends EntityNetherBase implements IAnimatedEnt
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20D * ModConfig.healthScale);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(NBEntitiesConfig.zombie_piglin_health * ModConfig.healthScale);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(7D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20D);
         this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.3D);
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(NBEntitiesConfig.zombie_piglin_armor);
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(NBEntitiesConfig.zombie_piglin_armor_toughness);
     }
 
 
@@ -222,7 +226,7 @@ public class EntityPiglinZombie extends EntityNetherBase implements IAnimatedEnt
         addEvent(()-> {
             Vec3d offset = this.getPositionVector().add(ModUtils.getRelativeOffset(this, new Vec3d(1.2, 1.2, 0)));
             DamageSource source = DamageSource.causeMobDamage(this);
-            float damage = (float) (7.0F * ModConfig.attackDamageScale);
+            float damage = (float) (NBEntitiesConfig.zombie_piglin_attack_damange * ModConfig.attackDamageScale);
             ModUtils.handleAreaImpact(1.0f, (e)-> damage, this, offset, source, 0.5f, 0, false);
         }, 18);
 
@@ -240,7 +244,7 @@ public class EntityPiglinZombie extends EntityNetherBase implements IAnimatedEnt
         addEvent(()-> {
             Vec3d offset = this.getPositionVector().add(ModUtils.getRelativeOffset(this, new Vec3d(1.2, 1.2, 0)));
             DamageSource source = DamageSource.causeMobDamage(this);
-            float damage = (float)(7.0F * ModConfig.attackDamageScale);
+            float damage = (float)(NBEntitiesConfig.zombie_piglin_attack_damange * ModConfig.attackDamageScale);
             ModUtils.handleAreaImpact(1.0f, (e)-> damage, this, offset, source, 0.5f, 0, false);
         }, 18);
 

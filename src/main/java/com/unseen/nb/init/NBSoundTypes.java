@@ -16,6 +16,9 @@ public class NBSoundTypes {
     public static final SoundType CHAIN = new SoundType(1, 1, ModSoundHandler.CHAIN_BREAK, ModSoundHandler.CHAIN_STEP,
             ModSoundHandler.CHAIN_STEP, ModSoundHandler.CHAIN_BREAK, ModSoundHandler.CHAIN_STEP);
 
+    public static final SoundType STEM_TYPE = new SoundType(1, 1, ModSoundHandler.STEM_BREAK, ModSoundHandler.STEM_STEP,
+            ModSoundHandler.STEM_STEP, ModSoundHandler.STEM_BREAK, ModSoundHandler.STEM_STEP);
+
     public static final SoundType LANTERN = new SoundType(1, 1, ModSoundHandler.SOUL_LANTERN_BREAK, ModSoundHandler.SOUL_LANTERN_PlACE,
             ModSoundHandler.SOUL_LANTERN_PlACE, ModSoundHandler.SOUL_LANTERN_BREAK, ModSoundHandler.SOUL_LANTERN_PlACE);
     public static final SoundType WART = new SoundType(1, 1, ModSoundHandler.WART_BREAK, ModSoundHandler.WART_STEP,

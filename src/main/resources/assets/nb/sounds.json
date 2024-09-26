@@ -148,6 +148,65 @@
       }
     ]
   },
+  "block.stem.break": {
+    "category": "block",
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      {
+        "name": "nb:block/stem/break1",
+        "stream": true
+      },
+      {
+        "name": "nb:block/stem/break2",
+        "stream": true
+      },
+      {
+        "name": "nb:block/stem/break3",
+        "stream": true
+      },
+      {
+        "name": "nb:block/stem/break4",
+        "stream": true
+      },
+      {
+        "name": "nb:block/stem/break5",
+        "stream": true
+      },
+      {
+        "name": "nb:block/stem/break16",
+        "stream": true
+      }
+    ]
+  },
+  "block.stem.step": {
+    "category": "block",
+    "sounds": [
+      {
+        "name": "nb:block/stem/step1",
+        "stream": true
+      },
+      {
+        "name": "nb:block/stem/step2",
+        "stream": true
+      },
+      {
+        "name": "nb:block/stem/step3",
+        "stream": true
+      },
+      {
+        "name": "nb:block/stem/step4",
+        "stream": true
+      },
+      {
+        "name": "nb:block/stem/step5",
+        "stream": true
+      },
+      {
+        "name": "nb:block/stem/step6",
+        "stream": true
+      }
+    ]
+  },
   "block.hyphae.break": {
     "category": "block",
     "subtitle": "subtitles.block.generic.hit",

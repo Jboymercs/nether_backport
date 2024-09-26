@@ -30,7 +30,7 @@ public class BlockLodeStone extends BlockBase {
         ItemStack stack = playerIn.getHeldItem(hand);
 
         if(!playerIn.isSneaking() && (stack.getItem() == Items.COMPASS || stack.getItem() == ModItems.LODE_STONE_COMPASS)) {
-            ItemStack lodestoneCompass = ModItems.LODE_STONE_COMPASS.getDefaultInstance();
+            ItemStack lodestoneCompass = new ItemStack(ModItems.LODE_STONE_COMPASS);
             lodestoneCompass.setTagCompound(this.setupLodestoneCompass(pos, worldIn));
 
             if(!playerIn.capabilities.isCreativeMode) stack.shrink(1);

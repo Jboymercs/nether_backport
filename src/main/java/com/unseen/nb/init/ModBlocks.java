@@ -30,8 +30,8 @@ public class ModBlocks {
     public static final Block CRIMSON_HYPHAE = new BlockBase("crimson_hyphae", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.HYPHAE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     public static final Block WARPED_HYPHAE = new BlockBase("warped_hyphae", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.HYPHAE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
-    public static final Block WARPED_STEM = new BlockLogBase("warped_stem",  WOOD_HARDNESS, WOOD_RESISTANCE, NBSoundTypes.HYPHAE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-    public static final Block CRIMSON_STEM = new BlockLogBase("crimson_stem", WOOD_HARDNESS, WOOD_RESISTANCE, NBSoundTypes.HYPHAE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block WARPED_STEM = new BlockLogBase("warped_stem",  WOOD_HARDNESS, WOOD_RESISTANCE, NBSoundTypes.STEM_TYPE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block CRIMSON_STEM = new BlockLogBase("crimson_stem", WOOD_HARDNESS, WOOD_RESISTANCE, NBSoundTypes.STEM_TYPE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
     public static final Block CRIMSON_WART = new BlockBase("crimson_wart", Material.GRASS, WOOD_HARDNESS, WOOD_RESISTANCE, NBSoundTypes.WART).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     public static final Block WARPED_WART = new BlockBase("warped_wart", Material.GRASS, WOOD_HARDNESS, WOOD_RESISTANCE, NBSoundTypes.WART).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);

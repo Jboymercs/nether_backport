@@ -2,7 +2,9 @@ package com.unseen.nb.util;
 
 import com.google.common.collect.Lists;
 import com.unseen.nb.common.enchantments.NBEnchantmentSoulSpeed;
+import com.unseen.nb.config.BlocksConfig;
 import com.unseen.nb.config.ModConfig;
+import com.unseen.nb.config.NBEntitiesConfig;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.init.ModEnchantments;
 import net.minecraft.block.*;
@@ -235,20 +237,16 @@ public class ModUtils {
 
 
     public static boolean isFireproof(Item item) {
-        for (String itemName : ModConfig.fireproofItemList) {
+        for (String itemName : BlocksConfig.fireproofItemList) {
             if (ForgeRegistries.ITEMS.getValue(new ResourceLocation(itemName)) == item) {
-                return !ModConfig.fireproofItemBlacklist;
+                return !BlocksConfig.fireproofItemBlacklist;
             }
         }
-        return ModConfig.fireproofItemBlacklist;
+        return BlocksConfig.fireproofItemBlacklist;
     }
 
-    public static boolean hasEnchant(EntityLivingBase entityIn) {
-        return EnchantmentHelper.getMaxEnchantmentLevel(ModEnchantments.SOUL_SPEED, entityIn) > 0;
-    }
-
-    public static boolean getBlocksThatCanBeUsed(Block block) {
-        for (String blockName : ModConfig.blocksForEnchant) {
+    public static boolean getblockApplicableToSoulFire(Block block) {
+        for (String blockName : BlocksConfig.soulBlocks) {
             if (ForgeRegistries.BLOCKS.getValue(new ResourceLocation(blockName)) == block) {
                 return true;
             }
@@ -256,12 +254,34 @@ public class ModUtils {
         return false;
     }
 
+    public static boolean hasEnchant(EntityLivingBase entityIn) {
+        return EnchantmentHelper.getMaxEnchantmentLevel(ModEnchantments.SOUL_SPEED, entityIn) > 0;
+    }
 
+    public static boolean getBlocksThatCanBeUsed(Block block) {
+        for (String blockName : BlocksConfig.blocksForEnchant) {
+            if (ForgeRegistries.BLOCKS.getValue(new ResourceLocation(blockName)) == block) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-    public static class CustomBiomeSpawn {
-        public String nameIn;
-        int weight;
-        int min;
-        int max;
+    public static boolean getItemsForBarter(Item item) {
+        for(String itemName : NBEntitiesConfig.itemsForBarter) {
+            if(ForgeRegistries.ITEMS.getValue(new ResourceLocation(itemName)) == item) {
+                return true;
+            }
+        }
+         return false;
+    }
+
+    public static boolean isHoeWhitelisted(Block block) {
+        for (String blockName : BlocksConfig.hoeWhitelistedBlocks) {
+            if (ForgeRegistries.BLOCKS.getValue(new ResourceLocation(blockName)) == block || block instanceof BlockLeaves) {
+                return true;
+            }
+        }
+        return false;
     }
 }

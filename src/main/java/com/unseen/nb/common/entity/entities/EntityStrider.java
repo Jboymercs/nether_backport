@@ -4,6 +4,7 @@ import com.google.common.collect.Sets;
 import com.unseen.nb.common.entity.entities.ai.EntityAIMoveToLava;
 import com.unseen.nb.common.entity.util.PathNavigateLava;
 import com.unseen.nb.config.ModConfig;
+import com.unseen.nb.config.NBEntitiesConfig;
 import com.unseen.nb.init.BiomeRegister;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.init.ModItems;
@@ -87,7 +88,9 @@ public class EntityStrider extends EntityAnimal {
             this.playSound(ModSoundHandler.STRIDER_RETREAT, 1.0F, this.getSoundPitch());
         }
 
-        if(this.getLavaCheck()) {
+         if (this.getLavaCheck() && world.getBlockState(this.getPosition()) == Blocks.LAVA.getDefaultState()) {
+            this.motionY = 0.1;
+        } else if(this.getLavaCheck()) {
             this.motionY = 0.0F;
             this.onGround = true;
         }
@@ -169,8 +172,10 @@ public class EntityStrider extends EntityAnimal {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(16.0F * ModConfig.healthScale);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(NBEntitiesConfig.strider_health * ModConfig.healthScale);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.175F);
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(NBEntitiesConfig.strider_armor);
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(NBEntitiesConfig.strider_armor_toughness);
     }
 
     @Override
@@ -232,7 +237,7 @@ public class EntityStrider extends EntityAnimal {
         entityIn.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
         entityIn.onInitialSpawn(difficultyIn, livingData);
         this.world.spawnEntity(entityIn);
-        entityIn.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ModItems.FUNGUS_ON_STICK.getDefaultInstance());
+        entityIn.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.FUNGUS_ON_STICK));
         entityIn.startRiding(this);
         return livingData;
     }

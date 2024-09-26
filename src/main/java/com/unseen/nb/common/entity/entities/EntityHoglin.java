@@ -10,6 +10,7 @@ import com.unseen.nb.common.entity.entities.ai.EntityAITemptHoglin;
 import com.unseen.nb.common.entity.entities.ai.EntityTimedAttackHoglin;
 import com.unseen.nb.common.entity.entities.ai.IAttack;
 import com.unseen.nb.config.ModConfig;
+import com.unseen.nb.config.NBEntitiesConfig;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.init.ModItems;
 import com.unseen.nb.init.ModSoundHandler;
@@ -66,7 +67,7 @@ public class EntityHoglin extends EntityNetherAnimalBase implements IAttack, IAn
     private boolean hasPlayedAngrySound = false;
 
     private int dimensionCheck = 40;
-    private int countDownToZombie = ModConfig.zombification_time * 20;
+    private int countDownToZombie = NBEntitiesConfig.zombification_time * 20;
 
     @Override
     public boolean getCanSpawnHere()
@@ -176,10 +177,12 @@ public class EntityHoglin extends EntityNetherAnimalBase implements IAttack, IAn
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40D * ModConfig.healthScale);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(NBEntitiesConfig.hoglin_health * ModConfig.healthScale);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.2D);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(16D);
         this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.6D);
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(NBEntitiesConfig.hoglin_armor);
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(NBEntitiesConfig.hoglin_armor_toughness);
     }
 
 
@@ -271,7 +274,7 @@ public class EntityHoglin extends EntityNetherAnimalBase implements IAttack, IAn
             if(this.isChild()) {
                 damage = (float) (1F * ModConfig.attackDamageScale);
             } else {
-                damage = (float)(8F * ModConfig.attackDamageScale);
+                damage = (float)(NBEntitiesConfig.hoglin_attack_damange * ModConfig.attackDamageScale);
             }
             ModUtils.handleAreaImpact(1.0f, (e)-> damage, this, offset, source, 0.9f, 0, false);
         }, 13);

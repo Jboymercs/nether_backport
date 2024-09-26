@@ -14,7 +14,9 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -24,13 +26,14 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public class BlockVineBase extends BlockBush implements IHasModel, RegistryHandler.IStateMappedBlock {
+public class BlockVineBase extends BlockBush implements IHasModel, RegistryHandler.IStateMappedBlock, IPlantable {
     protected static final AxisAlignedBB CRYSTAL_AABB = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 1.0D, 0.9D);
 
     public static final PropertyBool IS_TOP = PropertyBool.create("is_top");
@@ -114,6 +117,23 @@ public class BlockVineBase extends BlockBush implements IHasModel, RegistryHandl
     @Override
     protected boolean canSustainBush(IBlockState state) {
         return state.getBlock() == ModBlocks.WARPED_WART || state.getBlock() == ModBlocks.CRIMSON_WART || blockState.getBlock() == Blocks.NETHERRACK;
+    }
+
+    @Override
+    public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
+        if (entityIn instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) entityIn;
+            if (player.motionY < -0.15F) {
+                player.motionY = -0.15F;
+            }
+            if (player.motionY < 0.2F) {
+                if (player.isSneaking()) {
+                    player.motionY = 0.0F;
+                } else {
+                    player.motionY = 0.2F;
+                }
+            }
+        }
     }
 
 

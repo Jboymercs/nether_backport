@@ -9,6 +9,7 @@ import com.unseen.nb.common.entity.EntityNetherBase;
 import com.unseen.nb.common.entity.entities.ai.EntityTimedAttackPiglinBrute;
 import com.unseen.nb.common.entity.entities.ai.IAttack;
 import com.unseen.nb.config.ModConfig;
+import com.unseen.nb.config.NBEntitiesConfig;
 import com.unseen.nb.init.ModSoundHandler;
 import com.unseen.nb.util.ModRand;
 import com.unseen.nb.util.ModReference;
@@ -60,19 +61,19 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
         if(ModIntegration.SPARTAN_WEAPONRY_LOADED && ModConfig.useMeleeSpartanWeapons) {
             int randomInterval = ModRand.range(1, 5);
             if(randomInterval == 1) {
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.hammerGold.getDefaultInstance());
+                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemRegistrySW.hammerGold));
             }
             if(randomInterval == 2) {
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.halberdGold.getDefaultInstance());
+                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemRegistrySW.halberdGold));
             }
             if(randomInterval == 3) {
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.battleaxeGold.getDefaultInstance());
+                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemRegistrySW.battleaxeGold));
             }
             if(randomInterval == 4) {
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.GOLDEN_AXE.getDefaultInstance());
+                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_AXE));
             }
         } else {
-            this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.GOLDEN_AXE.getDefaultInstance());
+            this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_AXE));
         }
         this.experienceValue = 20;
         this.isImmuneToFire = true;
@@ -124,7 +125,7 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
     protected boolean hasPlayedAngrySound = false;
 
     private int dimensionCheck = 40;
-    private int countDownToZombie = ModConfig.zombification_time * 20;
+    private int countDownToZombie = NBEntitiesConfig.zombification_time * 20;
 
     public boolean convertTooZombie = false;
 
@@ -199,11 +200,13 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(50D * ModConfig.healthScale);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(NBEntitiesConfig.piglin_brute_health * ModConfig.healthScale);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(9D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20D);
         this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.3D);
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(NBEntitiesConfig.piglin_brute_armor);
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(NBEntitiesConfig.piglin_brute_armor_toughness);
     }
 
 
@@ -253,7 +256,7 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
         addEvent(()-> {
             Vec3d offset = this.getPositionVector().add(ModUtils.getRelativeOffset(this, new Vec3d(1.2, 1.2, 0)));
             DamageSource source = DamageSource.causeMobDamage(this);
-            float damage = (float) (10.0F * ModConfig.attackDamageScale);
+            float damage = (float) (NBEntitiesConfig.piglin_brute_attack_damange * ModConfig.attackDamageScale);
             ModUtils.handleAreaImpact(1.0f, (e)-> damage, this, offset, source, 0.5f, 0, false);
         }, 18);
 
@@ -271,7 +274,7 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
         addEvent(()-> {
             Vec3d offset = this.getPositionVector().add(ModUtils.getRelativeOffset(this, new Vec3d(1.2, 1.2, 0)));
             DamageSource source = DamageSource.causeMobDamage(this);
-            float damage = (float) (10.0F * ModConfig.attackDamageScale);
+            float damage = (float) (NBEntitiesConfig.piglin_brute_attack_damange * ModConfig.attackDamageScale);
             ModUtils.handleAreaImpact(1.0f, (e)-> damage, this, offset, source, 0.5f, 0, false);
         }, 18);
 

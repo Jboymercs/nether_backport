@@ -11,6 +11,8 @@ import com.unseen.nb.common.entity.EntityNetherBase;
 import com.unseen.nb.common.entity.entities.ai.EntityTimedAttackPiglin;
 import com.unseen.nb.common.entity.entities.ai.IAttack;
 import com.unseen.nb.config.ModConfig;
+import com.unseen.nb.config.NBEntitiesConfig;
+import com.unseen.nb.config.NBWorldConfig;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.init.ModSoundHandler;
 import com.unseen.nb.util.ModRand;
@@ -151,11 +153,11 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
                 this.setHasRanged(true);
                 if(ModIntegration.CROSSBOWS_BACKPORT_LOADED) {
 
-                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, CrossbowsContent.CROSSBOW.getDefaultInstance());
+                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(CrossbowsContent.CROSSBOW));
                 } else if (ModIntegration.SPARTAN_WEAPONRY_LOADED) {
-                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.crossbowWood.getDefaultInstance());
+                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemRegistrySW.crossbowWood));
                 } else {
-                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.BOW.getDefaultInstance());
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
                 }
                 this.initRangedAI();
             } else {
@@ -163,39 +165,39 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
                 if(ModIntegration.SPARTAN_WEAPONRY_LOADED && ModConfig.useMeleeSpartanWeapons) {
                     int randomInterval = ModRand.range(1, 8);
                     if(randomInterval == 1) {
-                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.greatswordGold.getDefaultInstance());
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemRegistrySW.greatswordGold));
                     }
                     if(randomInterval == 2) {
-                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.katanaGold.getDefaultInstance());
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemRegistrySW.katanaGold));
                     }
                     if(randomInterval == 3) {
-                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND,  ItemRegistrySW.rapierGold.getDefaultInstance());
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemRegistrySW.rapierGold));
                     }
                     if(randomInterval == 4) {
-                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.saberGold.getDefaultInstance());
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemRegistrySW.saberGold));
                     }
                     if(randomInterval == 5) {
-                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND,  ItemRegistrySW.scytheGold.getDefaultInstance());
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemRegistrySW.scytheGold));
                     }
                     if(randomInterval == 6) {
-                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.spearGold.getDefaultInstance());
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemRegistrySW.spearGold));
                     }
                     if(randomInterval == 7) {
-                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.GOLDEN_SWORD.getDefaultInstance());
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_SWORD));
                     }
                 } else {
-                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.GOLDEN_SWORD.getDefaultInstance());
+                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_SWORD));
                 }
                 this.initMeleeAI();
             }
         } else {
             if(this.isHasRanged()) {
                 if(ModIntegration.CROSSBOWS_BACKPORT_LOADED) {
-                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, CrossbowsContent.CROSSBOW.getDefaultInstance());
+                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(CrossbowsContent.CROSSBOW));
                 }  else if (ModIntegration.SPARTAN_WEAPONRY_LOADED) {
-                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.crossbowWood.getDefaultInstance());
+                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemRegistrySW.crossbowWood));
                 }else {
-                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.BOW.getDefaultInstance());
+                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
                 }
                 this.initRangedAI();
 
@@ -203,28 +205,28 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
                 if(ModIntegration.SPARTAN_WEAPONRY_LOADED && ModConfig.useMeleeSpartanWeapons) {
                     int randomInterval = ModRand.range(1, 8);
                     if(randomInterval == 1) {
-                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.greatswordGold.getDefaultInstance());
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemRegistrySW.greatswordGold));
                     }
                     if(randomInterval == 2) {
-                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.katanaGold.getDefaultInstance());
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemRegistrySW.katanaGold));
                     }
                     if(randomInterval == 3) {
-                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND,  ItemRegistrySW.rapierGold.getDefaultInstance());
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemRegistrySW.rapierGold));
                     }
                     if(randomInterval == 4) {
-                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.saberGold.getDefaultInstance());
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemRegistrySW.saberGold));
                     }
                     if(randomInterval == 5) {
-                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND,  ItemRegistrySW.scytheGold.getDefaultInstance());
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemRegistrySW.scytheGold));
                     }
                     if(randomInterval == 6) {
-                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemRegistrySW.spearGold.getDefaultInstance());
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemRegistrySW.spearGold));
                     }
                     if(randomInterval == 7) {
-                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.GOLDEN_SWORD.getDefaultInstance());
+                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_SWORD));
                     }
                 } else {
-                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Items.GOLDEN_SWORD.getDefaultInstance());
+                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_SWORD));
                 }
                 this.initMeleeAI();
             }
@@ -294,7 +296,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
 
     protected boolean foundGoldIngot = false;
     private int dimensionCheck = 40;
-    private int countDownToZombie = ModConfig.zombification_time * 20;
+    private int countDownToZombie = NBEntitiesConfig.zombification_time * 20;
 
     private EntityHoglin foodTarget;
 
@@ -376,15 +378,15 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
                 if(!nearbyItems.isEmpty()) {
                     for(EntityItem item: nearbyItems) {
                         ItemStack itemStack = item.getItem();
-                        if(itemStack.getItem() == Items.GOLD_INGOT && !foundGoldIngot) {
+                        if(ModUtils.getItemsForBarter(itemStack.getItem()) && !foundGoldIngot) {
                         double distSq = this.getDistanceSq(item.posX, item.getEntityBoundingBox().minY, item.posZ);
                         this.getNavigator().tryMoveToEntityLiving(item, 1.2D);
                         if(distSq < 2) {
+                            this.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, new ItemStack(itemStack.getItem()));
                             item.getItem().shrink(1);
-                            this.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, Items.GOLD_INGOT.getDefaultInstance());
                             foundGoldIngot = true;
                             this.doTrade();
-                            trade_delay = ModConfig.piglins_trade_cooldown;
+                            trade_delay = NBEntitiesConfig.piglins_trade_cooldown;
                         }
 
                         } else {
@@ -427,7 +429,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
                 }
             }
         }
-        if(!ModConfig.piglins_are_aggro && !initiateBastionAI) {
+        if(!NBEntitiesConfig.piglins_are_aggro && !initiateBastionAI) {
             this.setInsideBastion(false);
             this.initiateBastionAI = true;
         } else if(this.isInsideBastion() && !initiateBastionAI) {
@@ -482,7 +484,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
         addEvent(()-> {
             this.setFightMode(false);
             this.setShortTrade(false);
-            this.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, Items.AIR.getDefaultInstance());
+            this.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, new ItemStack(Items.AIR));
             this.setAnimation(NO_ANIMATION);
             this.foundGoldIngot = false;
         }, 120);
@@ -523,11 +525,13 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20D * ModConfig.healthScale);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(NBEntitiesConfig.piglin_health * ModConfig.healthScale);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(7D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20D);
         this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.8D);
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(NBEntitiesConfig.piglin_armor);
+        this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(NBEntitiesConfig.piglin_armor_toughness);
     }
 
 
@@ -584,7 +588,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
                         double d3 = MathHelper.sqrt(d0 * d0 + d2 * d2);
                         arrow.shoot(d0, d1 + d3 * 0.20000000298023224, d2, 1.6f, (float)(14 - world.getDifficulty().getId() * 4));
                         playSound(SoundEvents.ENTITY_SKELETON_SHOOT, 1, 1f / (this.getRNG().nextFloat() * 0.4f + 0.8f));
-                        arrow.setDamage(11D * ModConfig.attackDamageScale);
+                        arrow.setDamage(NBEntitiesConfig.piglin_attack_damage_ranged * ModConfig.attackDamageScale);
                         world.spawnEntity(arrow);
                         //Unloads the crossbow
                         ItemStack stack = getItemStackFromSlot(EntityEquipmentSlot.MAINHAND);
@@ -622,7 +626,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
         addEvent(()-> {
             Vec3d offset = this.getPositionVector().add(ModUtils.getRelativeOffset(this, new Vec3d(1.2, 1.2, 0)));
             DamageSource source = DamageSource.causeMobDamage(this);
-            float damage = (float)(8.0F * ModConfig.attackDamageScale);
+            float damage = (float)(NBEntitiesConfig.piglin_attack_damange * ModConfig.attackDamageScale);
             ModUtils.handleAreaImpact(1.0f, (e)-> damage, this, offset, source, 0.5f, 0, false);
         }, 18);
 
@@ -640,7 +644,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
     addEvent(()-> {
         Vec3d offset = this.getPositionVector().add(ModUtils.getRelativeOffset(this, new Vec3d(1.2, 1.2, 0)));
         DamageSource source = DamageSource.causeMobDamage(this);
-        float damage = (float) (8.0F * ModConfig.attackDamageScale);
+        float damage = (float) (NBEntitiesConfig.piglin_attack_damange * ModConfig.attackDamageScale);
         ModUtils.handleAreaImpact(1.0f, (e)-> damage, this, offset, source, 0.5f, 0, false);
     }, 18);
 

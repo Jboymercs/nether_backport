@@ -37,4 +37,7 @@ public class CommonProxy {
 
     /** This exists to be overridden in the ClientProxy! */
     public void spawnParticle(int particleId, double posX, double posY, double posZ, double speedX, double speedY, double speedZ, int... parameters) {}
+
+    public void spawnSoulParticle(World worldIn, double x, double y, double z, double motX, double motY, double motZ) {
+    }
 }

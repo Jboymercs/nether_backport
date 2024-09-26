@@ -43,10 +43,8 @@ public class BasaltFlatAreas extends WorldGenerator {
             }
         }
         int randomDeterminedSize = new Random().nextInt(16) + 220;
-        System.out.println("Generating Flat Areas");
         for(BlockPos blockPos : affectedConversionPositions) {
             if(randomDeterminedSize < 0) {
-                System.out.println("Broke Line");
                 break;
             }
             for(int c = (int) y + 9; c >= y - 10; c--) {

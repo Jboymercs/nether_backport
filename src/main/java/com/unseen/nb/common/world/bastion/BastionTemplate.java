@@ -5,6 +5,7 @@ import com.unseen.nb.common.entity.entities.EntityPiglin;
 import com.unseen.nb.common.entity.entities.EntityPiglinBrute;
 import com.unseen.nb.common.world.base.NetherStructureTemplate;
 import com.unseen.nb.config.ModConfig;
+import com.unseen.nb.config.NBWorldConfig;
 import com.unseen.nb.init.ModItemsCompat;
 import com.unseen.nb.util.ModRand;
 import com.unseen.nb.util.ModReference;
@@ -143,7 +144,7 @@ public class BastionTemplate extends NetherStructureTemplate {
 
     private boolean generateMobSpawn() {
         int random = ModRand.range(1, 11);
-        if(random >= ModConfig.bastionSpawnRate) {
+        if(random >= NBWorldConfig.bastionSpawnRate) {
             return true;
         }
         return false;
@@ -151,7 +152,7 @@ public class BastionTemplate extends NetherStructureTemplate {
 
     private boolean generateRegularChest() {
         int random = ModRand.range(1, 10);
-        if(random >= 7) {
+        if(random >= NBWorldConfig.bastionregularChestChance) {
             return true;
         }
         return false;
@@ -159,7 +160,7 @@ public class BastionTemplate extends NetherStructureTemplate {
 
     private boolean generateHoldRegular() {
         int random = ModRand.range(1, 10);
-        if(random >= 6) {
+        if(random >= NBWorldConfig.bastionHoldChestChance) {
             return true;
         }
         return false;

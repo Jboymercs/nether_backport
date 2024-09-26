@@ -58,8 +58,8 @@ public class BiomeWarpedForest extends Biome implements INetherBiome, INetherAPI
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
         this.spawnableCaveCreatureList.clear();
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityEnderman.class, 2, 1, 4));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityStrider.class, 20, 1, 2));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityEnderman.class, 4, 1, 4));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityStrider.class, 40, 1, 2));
         this.topBlock = CRIMSON_FLOOR;
         random = new Random();
     }

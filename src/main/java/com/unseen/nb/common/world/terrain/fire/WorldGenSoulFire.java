@@ -24,7 +24,7 @@ public class WorldGenSoulFire extends WorldGenerator {
 
     public boolean generate(World world, Random rand, BlockPos pos)
     {
-        if(world.getBlockState(pos) == ModBlocks.SOUL_SOIL.getDefaultState()) {
+        if(world.getBlockState(pos) == ModBlocks.SOUL_SOIL.getDefaultState() || world.getBlockState(pos) == Blocks.SOUL_SAND.getDefaultState()) {
             world.setBlockState(pos.up(), plantState);
         }
         return true;
