@@ -12,7 +12,7 @@ anonymous, and is not automatically submitted to any online service.
 |-----------|----------|--------|-----------|
 | minecraft | 818      | 227072 | 887 KB    |
 | futuremc  | 153      | 39168  | 153 KB    |
-| nb        | 67       | 17152  | 67 KB     |
+| nb        | 66       | 16896  | 66 KB     |
 | forge     | 3        | 768    | 3 KB      |
 | missingno | 1        | 256    | 1 KB      |
 

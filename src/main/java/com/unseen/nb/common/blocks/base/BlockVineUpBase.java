@@ -115,7 +115,7 @@ public class BlockVineUpBase extends BlockBush implements IHasModel, RegistryHan
             if (player.motionY < 0.2F) {
                 if (player.isSneaking()) {
                    player.motionY = 0.0F;
-                } else {
+                } else if (!player.isSprinting()) {
                    player.motionY = 0.2F;
                }
             }

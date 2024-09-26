@@ -933,7 +933,7 @@
   },
   "block.lode_stone.lock": {
     "category": "block",
-    "subtitle": "subtitles.block.generic.place",
+    "subtitle": "nb.block.lode_stone.lock",
     "sounds": [
       {
         "name": "nb:block/lode_stone/lock1",
@@ -947,7 +947,7 @@
   },
   "block.respawn_anchor.ambient": {
     "category": "block",
-    "subtitle": "block.respawn_anchor.ambient",
+    "subtitle": "nb.block.respawn_anchor.ambient",
     "sounds": [
       {
         "name": "nb:block/respawn_anchor/ambient1",
@@ -965,7 +965,7 @@
   },
   "block.respawn_anchor.charge": {
     "category": "block",
-    "subtitle": "block.respawn_anchor.charge",
+    "subtitle": "nb.block.respawn_anchor.charge",
     "sounds": [
       {
         "name": "nb:block/respawn_anchor/charge1",
@@ -983,7 +983,7 @@
   },
   "block.respawn_anchor.deplete": {
     "category": "block",
-    "subtitle": "block.respawn_anchor.deplete",
+    "subtitle": "nb.block.respawn_anchor.deplete",
     "sounds": [
       {
         "name": "nb:block/respawn_anchor/deplete1",
@@ -997,7 +997,7 @@
   },
   "block.respawn_anchor.set_spawn": {
     "category": "block",
-    "subtitle": "block.respawn_anchor.set_spawn",
+    "subtitle": "nb.block.respawn_anchor.set_spawn",
     "sounds": [
       {
         "name": "nb:block/respawn_anchor/set_spawn1",
@@ -1265,7 +1265,7 @@
   },
   "entity.piglin.step": {
     "category": "entity",
-    "subtitle": "entity.piglin.step",
+    "subtitle": "nb.entity.piglin.step",
     "sounds": [
       {
         "name": "nb:entity/piglin/step1",
@@ -1291,7 +1291,7 @@
   },
   "entity.piglin.hurt": {
     "category": "entity",
-    "subtitle": "entity.piglin.hurt",
+    "subtitle": "nb.entity.piglin.hurt",
     "sounds": [
       {
         "name": "nb:entity/piglin/hurt1",
@@ -1309,7 +1309,7 @@
   },
   "entity.piglin.idle": {
     "category": "entity",
-    "subtitle": "entity.piglin.idle",
+    "subtitle": "nb.entity.piglin.idle",
     "sounds": [
       {
         "name": "nb:entity/piglin/idle1",
@@ -1335,7 +1335,7 @@
   },
   "entity.piglin.death": {
     "category": "entity",
-    "subtitle": "entity.piglin.death",
+    "subtitle": "nb.entity.piglin.death",
     "sounds": [
       {
         "name": "nb:entity/piglin/death1",
@@ -1353,7 +1353,7 @@
   },
   "entity.piglin.admire": {
     "category": "entity",
-    "subtitle": "entity.piglin.admire",
+    "subtitle": "nb.entity.piglin.admire",
     "sounds": [
       {
         "name": "nb:entity/piglin/admire1",
@@ -1367,7 +1367,7 @@
   },
   "entity.piglin.jealous": {
     "category": "entity",
-    "subtitle": "entity.piglin.jealous",
+    "subtitle": "nb.entity.piglin.jealous",
     "sounds": [
       {
         "name": "nb:entity/piglin/jealous1",
@@ -1393,7 +1393,7 @@
   },
   "entity.piglin.angry": {
     "category": "entity",
-    "subtitle": "entity.piglin.angry",
+    "subtitle": "nb.entity.piglin.angry",
     "sounds": [
       {
         "name": "nb:entity/piglin/angry1",
@@ -1415,7 +1415,7 @@
   },
   "entity.piglin.celebrate": {
     "category": "entity",
-    "subtitle": "entity.piglin.celebrate",
+    "subtitle": "nb.entity.piglin.celebrate",
     "sounds": [
       {
         "name": "nb:entity/piglin/celebrate1",
@@ -1437,7 +1437,7 @@
   },
   "entity.piglin.retreat": {
     "category": "entity",
-    "subtitle": "entity.piglin.retreat",
+    "subtitle": "nb.entity.piglin.retreat",
     "sounds": [
       {
         "name": "nb:entity/piglin/retreat1",
@@ -1459,7 +1459,7 @@
   },
   "entity.piglin.converted": {
     "category": "entity",
-    "subtitle": "entity.piglin.converted",
+    "subtitle": "nb.entity.piglin.converted",
     "sounds": [
       {
         "name": "nb:entity/piglin/converted1",
@@ -1473,7 +1473,7 @@
   },
   "entity.strider.step": {
     "category": "entity",
-    "subtitle": "entity.strider.step",
+    "subtitle": "nb.entity.strider.step",
     "sounds": [
       {
         "name": "nb:entity/strider/step1",
@@ -1499,7 +1499,7 @@
   },
   "entity.strider.step_lava": {
     "category": "entity",
-    "subtitle": "entity.strider.step_lava",
+    "subtitle": "nb.entity.strider.step_lava",
     "sounds": [
       {
         "name": "nb:entity/strider/step_lava1",
@@ -1529,7 +1529,7 @@
   },
   "entity.strider.hurt": {
     "category": "entity",
-    "subtitle": "entity.strider.hurt",
+    "subtitle": "nb.entity.strider.hurt",
     "sounds": [
       {
         "name": "nb:entity/strider/hurt1",
@@ -1551,7 +1551,7 @@
   },
   "entity.strider.death": {
     "category": "entity",
-    "subtitle": "entity.strider.death",
+    "subtitle": "nb.entity.strider.death",
     "sounds": [
       {
         "name": "nb:entity/strider/death1",
@@ -1573,7 +1573,7 @@
   },
   "entity.strider.retreat": {
     "category": "entity",
-    "subtitle": "entity.strider.retreat",
+    "subtitle": "nb.entity.strider.retreat",
     "sounds": [
       {
         "name": "nb:entity/strider/retreat1",
@@ -1599,7 +1599,7 @@
   },
   "entity.strider.chirp": {
     "category": "entity",
-    "subtitle": "entity.strider.chirp",
+    "subtitle": "nb.entity.strider.chirp",
     "sounds": [
       {
         "name": "nb:entity/strider/idle1",
@@ -1629,7 +1629,7 @@
   },
   "entity.strider.warble": {
     "category": "entity",
-    "subtitle": "entity.strider.happy",
+    "subtitle": "nb.entity.strider.happy",
     "sounds": [
       {
         "name": "nb:entity/strider/happy1",
@@ -1655,7 +1655,7 @@
   },
   "entity.brute.idle": {
     "category": "entity",
-    "subtitle": "entity.brute.idle",
+    "subtitle": "nb.entity.brute.idle",
     "sounds": [
       {
         "name": "nb:entity/brute/idle1",
@@ -1697,7 +1697,7 @@
   },
   "entity.brute.step": {
     "category": "entity",
-    "subtitle": "entity.brute.step",
+    "subtitle": "nb.entity.brute.step",
     "sounds": [
       {
         "name": "nb:entity/brute/step1",
@@ -1723,7 +1723,7 @@
   },
   "entity.brute.hurt": {
     "category": "entity",
-    "subtitle": "entity.brute.hurt",
+    "subtitle": "nb.entity.brute.hurt",
     "sounds": [
       {
         "name": "nb:entity/brute/hurt1",
@@ -1745,7 +1745,7 @@
   },
   "entity.brute.death": {
     "category": "entity",
-    "subtitle": "entity.brute.death",
+    "subtitle": "nb.entity.brute.death",
     "sounds": [
       {
         "name": "nb:entity/brute/death1",
@@ -1763,7 +1763,7 @@
   },
   "entity.brute.angry": {
     "category": "entity",
-    "subtitle": "entity.brute.angry",
+    "subtitle": "nb.entity.brute.angry",
     "sounds": [
       {
         "name": "nb:entity/brute/angry1",
@@ -1789,7 +1789,7 @@
   },
   "entity.zpig.angry": {
     "category": "entity",
-    "subtitle": "entity.zpig.angry",
+    "subtitle": "nb.entity.zpig.angry",
     "sounds": [
       {
         "name": "nb:entity/zpig/angry1",
@@ -1811,7 +1811,7 @@
   },
   "entity.zpig.idle": {
     "category": "entity",
-    "subtitle": "entity.zpig.idle",
+    "subtitle": "nb.entity.zpig.idle",
     "sounds": [
       {
         "name": "nb:entity/zpig/idle1",
@@ -1833,7 +1833,7 @@
   },
   "entity.zpig.hurt": {
     "category": "entity",
-    "subtitle": "entity.zpig.hurt",
+    "subtitle": "nb.entity.zpig.hurt",
     "sounds": [
       {
         "name": "nb:entity/zpig/hurt1",
@@ -1847,7 +1847,7 @@
   },
   "entity.zpig.death": {
     "category": "entity",
-    "subtitle": "entity.zpig.death",
+    "subtitle": "nb:entity.zpig.death",
     "sounds": [
       {
         "name": "nb:entity/zpig/death1",
@@ -1857,7 +1857,7 @@
   },
   "entity.hoglin.death": {
     "category": "entity",
-    "subtitle": "entity.hoglin.death",
+    "subtitle": "nb.entity.hoglin.death",
     "sounds": [
       {
         "name": "nb:entity/hoglin/death1",
@@ -1875,7 +1875,7 @@
   },
   "entity.hoglin.step": {
     "category": "entity",
-    "subtitle": "entity.hoglin.step",
+    "subtitle": "nb.entity.hoglin.step",
     "sounds": [
       {
         "name": "nb:entity/hoglin/step1",
@@ -1905,7 +1905,7 @@
   },
   "entity.hoglin.idle": {
     "category": "entity",
-    "subtitle": "entity.hoglin.idle",
+    "subtitle": "nb.entity.hoglin.idle",
     "sounds": [
       {
         "name": "nb:entity/hoglin/idle1",
@@ -1955,7 +1955,7 @@
   },
   "entity.hoglin.hurt": {
     "category": "entity",
-    "subtitle": "entity.hoglin.hurt",
+    "subtitle": "nb.entity.hoglin.hurt",
     "sounds": [
       {
         "name": "nb:entity/hoglin/hurt1",
@@ -1977,7 +1977,7 @@
   },
   "entity.hoglin.angry": {
     "category": "entity",
-    "subtitle": "entity.hoglin.angry",
+    "subtitle": "nb.entity.hoglin.angry",
     "sounds": [
       {
         "name": "nb:entity/hoglin/angry1",
@@ -2007,7 +2007,7 @@
   },
   "entity.hoglin.retreat": {
     "category": "entity",
-    "subtitle": "entity.hoglin.retreat",
+    "subtitle": "nb.entity.hoglin.retreat",
     "sounds": [
       {
         "name": "nb:entity/hoglin/retreat1",
@@ -2025,7 +2025,7 @@
   },
   "entity.hoglin.attack": {
     "category": "entity",
-    "subtitle": "entity.hoglin.attack",
+    "subtitle": "nb.entity.hoglin.attack",
     "sounds": [
       {
         "name": "nb:entity/hoglin/attack1",
@@ -2039,7 +2039,7 @@
   },
   "entity.hoglin.converted": {
     "category": "entity",
-    "subtitle": "entity.hoglin.converted",
+    "subtitle": "nb.entity.hoglin.converted",
     "sounds": [
       {
         "name": "nb:entity/hoglin/converted1",
@@ -2053,7 +2053,7 @@
   },
   "entity.zoglin.hurt": {
     "category": "entity",
-    "subtitle": "entity.zoglin.hurt",
+    "subtitle": "nb.entity.zoglin.hurt",
     "sounds": [
       {
         "name": "nb:entity/zoglin/hurt1",
@@ -2071,7 +2071,7 @@
   },
   "entity.zoglin.idle": {
     "category": "entity",
-    "subtitle": "entity.zoglin.idle",
+    "subtitle": "nb.entity.zoglin.idle",
     "sounds": [
       {
         "name": "nb:entity/zoglin/idle1",
@@ -2101,7 +2101,7 @@
   },
   "entity.zoglin.step": {
     "category": "entity",
-    "subtitle": "entity.zoglin.step",
+    "subtitle": "nb.entity.zoglin.step",
     "sounds": [
       {
         "name": "nb:entity/zoglin/step1",
@@ -2127,7 +2127,7 @@
   },
   "entity.zoglin.death": {
     "category": "entity",
-    "subtitle": "entity.zoglin.death",
+    "subtitle": "nb.entity.zoglin.death",
     "sounds": [
       {
         "name": "nb:entity/zoglin/death1",
@@ -2145,7 +2145,7 @@
   },
   "entity.zoglin.angry": {
     "category": "entity",
-    "subtitle": "entity.zoglin.angry",
+    "subtitle": "nb.entity.zoglin.angry",
     "sounds": [
       {
         "name": "nb:entity/zoglin/angry1",
@@ -2163,7 +2163,7 @@
   },
   "entity.zoglin.attack": {
     "category": "entity",
-    "subtitle": "entity.zoglin.attack",
+    "subtitle": "nb.entity.zoglin.attack",
     "sounds": [
       {
         "name": "nb:entity/zoglin/attack1",
@@ -2177,7 +2177,6 @@
   },
   "ambient.crimson_forest.ambience": {
     "category": "ambient",
-    "subtitle": "ambient.biome",
     "sounds": [
       {
         "name": "nb:ambient/crimson_forest/addition1",

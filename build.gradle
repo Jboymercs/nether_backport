@@ -206,13 +206,11 @@ jar {
                 'Specification-Version': project.version,
                 'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
                 'FMLAT': 'nb_at.cfg',
-
                 'FMLCorePluginContainsFMLMod': true,
                 'ForceLoadAsMod': true
         ])
     }
 }
-
 
 /**
  * These let the shadowJar task run at the correct time when the project is being built. They can be removed if the

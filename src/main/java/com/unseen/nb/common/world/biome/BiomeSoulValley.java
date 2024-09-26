@@ -20,6 +20,7 @@ import com.unseen.nb.util.ModUtils;
 import com.unseen.nb.util.integration.ModIntegration;
 import git.jbredwards.nether_api.api.audio.IMusicType;
 import git.jbredwards.nether_api.api.audio.ISoundAmbience;
+import git.jbredwards.nether_api.api.audio.impl.DarkSoundAmbience;
 import git.jbredwards.nether_api.api.audio.impl.SoundAmbience;
 import git.jbredwards.nether_api.api.biome.IAmbienceBiome;
 import git.jbredwards.nether_api.api.biome.INetherBiome;
@@ -218,7 +219,7 @@ public class BiomeSoulValley extends Biome implements INetherBiome, INetherAPIRe
 
     @Override
     public ISoundAmbience getRandomAmbientSound() {
-        return new SoundAmbience(ModSoundHandler.SOUL_SAND_VALLEY_AMBIENT, 0.001);
+        return new DarkSoundAmbience(ModSoundHandler.SOUL_SAND_VALLEY_AMBIENT, 0.001, 12, 6);
     }
 
     @Override

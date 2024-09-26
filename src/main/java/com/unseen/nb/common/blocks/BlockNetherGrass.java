@@ -15,13 +15,17 @@ import net.minecraft.init.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 import java.util.Random;
 
 public class BlockNetherGrass extends BlockBase {
+
 
     public BlockNetherGrass(String name, Material material) {
         super(name, material);
@@ -30,6 +34,12 @@ public class BlockNetherGrass extends BlockBase {
     public BlockNetherGrass(String name, Material material, float hardness, float resistance, SoundType soundType) {
         super(name, material, hardness, resistance, soundType);
         this.setTickRandomly(true);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public BlockRenderLayer getRenderLayer()
+    {
+        return BlockRenderLayer.CUTOUT_MIPPED;
     }
 
     @Override

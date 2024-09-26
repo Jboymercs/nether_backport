@@ -16,6 +16,7 @@ import com.unseen.nb.init.ModSoundHandler;
 import com.unseen.nb.util.ModRand;
 import git.jbredwards.nether_api.api.audio.IMusicType;
 import git.jbredwards.nether_api.api.audio.ISoundAmbience;
+import git.jbredwards.nether_api.api.audio.impl.DarkSoundAmbience;
 import git.jbredwards.nether_api.api.audio.impl.SoundAmbience;
 import git.jbredwards.nether_api.api.biome.IAmbienceBiome;
 import git.jbredwards.nether_api.api.biome.INetherBiome;
@@ -233,7 +234,7 @@ public class BiomeBasaltWastes extends Biome implements INetherBiome, INetherAPI
 
     @Override
     public ISoundAmbience getRandomAmbientSound() {
-        return new SoundAmbience(ModSoundHandler.BASALT_DELTAS_AMBIENT, 0.001);
+        return new DarkSoundAmbience(ModSoundHandler.BASALT_DELTAS_AMBIENT, 0.001, 12, 6);
     }
 
     @Override
