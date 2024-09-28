@@ -18,6 +18,9 @@ public class SpartanWeaponryIntegration {
         return stack.getItem() instanceof ItemCrossbow;
     }
 
+    public static ItemStack getCrossBow() {
+        return new ItemStack(ItemRegistrySW.crossbowWood);
+    }
     public static ItemStack[] selectPiglinWeapon() {
         return new ItemStack[]{ItemRegistrySW.glaiveGold.getDefaultInstance(), ItemRegistrySW.greatswordGold.getDefaultInstance(),
                 ItemRegistrySW.daggerGold.getDefaultInstance(), ItemRegistrySW.katanaGold.getDefaultInstance(),

@@ -59,18 +59,8 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
     public EntityPiglinBrute(World worldIn) {
         super(worldIn);
         if(ModIntegration.SPARTAN_WEAPONRY_LOADED && ModConfig.useMeleeSpartanWeapons) {
-            int randomInterval = ModRand.range(1, 5);
-            if(randomInterval == 1) {
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemRegistrySW.hammerGold));
-            }
-            if(randomInterval == 2) {
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemRegistrySW.halberdGold));
-            }
-            if(randomInterval == 3) {
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ItemRegistrySW.battleaxeGold));
-            }
-            if(randomInterval == 4) {
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_AXE));
+            for (ItemStack randStack : ModIntegration.selectBruteWeapon()) {
+                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, randStack);
             }
         } else {
             this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_AXE));

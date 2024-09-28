@@ -13,9 +13,8 @@ public class ModRecipes {
 
         public static void init() {
                 //Smelting Recipes
-                if(!ModIntegration.FUTURE_MC_LOADED) {
-                        GameRegistry.addSmelting(ModBlocksCompat.NETHERITE_ORE, new ItemStack(ModItemsCompat.NETHERITE_SCRAP, 2), 2);
-                }
+
+                GameRegistry.addSmelting(ModBlocksCompat.NETHERITE_ORE, new ItemStack(ModItemsCompat.NETHERITE_SCRAP, 2), 2);
                 GameRegistry.addSmelting(ModBlocks.BLACK_STONE_BRICKS, new ItemStack(ModBlocks.CRACKED_STONE_BRICKS), 1);
                 GameRegistry.addSmelting(ModBlocks.BASALT, new ItemStack(ModBlocks.SMOOTH_BASALT), 1);
                 //OreRegistry
@@ -32,6 +31,10 @@ public class ModRecipes {
                 OreDictionary.registerOre("trapDoor", ModBlocks.CRIMSON_TRAPDOOR);
                 OreDictionary.registerOre("trapDoor", ModBlocks.WARPED_TRAPDOOR);
                 OreDictionary.registerOre("trapDoor", Blocks.TRAPDOOR);
+
+                //Material
+                OreDictionary.registerOre("ingotNetherite", ModItemsCompat.NETHERITE_INGOT);
+                OreDictionary.registerOre("blockNetherite", ModBlocksCompat.NETHERITE_BLOCK);
         }
 
 }

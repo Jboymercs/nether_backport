@@ -215,7 +215,9 @@ public class BiomeSoulValley extends Biome implements INetherBiome, INetherAPIRe
     @Override
     @SideOnly(Side.CLIENT)
     public IParticleFactory[] getAmbientParticles()
-    { return new IParticleFactory[] {new ParticlePixel.AshSoulFactory()} ; }
+
+    { if(random.nextInt(2) == 0) {return new IParticleFactory[] {new ParticlePixel.AshSoulFactory()} ; }
+                 return null; }
 
     @Override
     public ISoundAmbience getRandomAmbientSound() {

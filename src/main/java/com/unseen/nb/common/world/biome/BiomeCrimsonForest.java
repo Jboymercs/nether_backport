@@ -71,7 +71,7 @@ public class BiomeCrimsonForest extends Biome implements INetherBiome, INetherAP
     {
 
         //Plants
-        for(int k2 = 0; k2 < ModRand.range(40, 50);k2++) {
+        for(int k2 = 0; k2 < ModRand.range(30, 45);k2++) {
             int l6 = random.nextInt(16) + 8;
             int k10 = random.nextInt(16) + 8;
             int depthSignature = 2;
@@ -95,7 +95,7 @@ public class BiomeCrimsonForest extends Biome implements INetherBiome, INetherAP
 
 
         //Vines
-        for(int k2 = 0; k2< ModRand.range(10, 30); k2++) {
+        for(int k2 = 0; k2< ModRand.range(10, 20); k2++) {
             int l6 = random.nextInt(16) + 8;
             int k10 = random.nextInt(16) + 8;
             int depthSignature = 2;
@@ -115,7 +115,7 @@ public class BiomeCrimsonForest extends Biome implements INetherBiome, INetherAP
         }
 
         //Trees
-        for(int k2 = 0; k2 < ModRand.range(15, 25);k2++) {
+        for(int k2 = 0; k2 < ModRand.range(15, 20);k2++) {
             int l6 = random.nextInt(16) + 8;
             int k10 = random.nextInt(16) + 8;
             int depthSignature = 2;
@@ -188,8 +188,12 @@ public class BiomeCrimsonForest extends Biome implements INetherBiome, INetherAP
 
     @Override
     @SideOnly(Side.CLIENT)
-    public IParticleFactory[] getAmbientParticles()
-    { return new IParticleFactory[] {new ParticlePixel.SporeCrimsonFactory()} ; }
+    public IParticleFactory[] getAmbientParticles() {
+        if(random.nextInt(4) == 0) {
+            return new IParticleFactory[]{new ParticlePixel.SporeCrimsonFactory()};
+        }
+        return null;
+    }
 
     @Override
     public ISoundAmbience getRandomAmbientSound() {
