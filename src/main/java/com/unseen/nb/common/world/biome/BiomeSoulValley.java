@@ -65,6 +65,9 @@ public class BiomeSoulValley extends Biome implements INetherBiome, INetherAPIRe
     private final WorldGenSoulFire soulFire = new WorldGenSoulFire(ModBlocks.SOUL_FIRE.getDefaultState());
 
     private final WorldGenReplaceOnRand soul_sand_replacer = new WorldGenReplaceOnRand();
+    /** '1 / this' chance for a particle to spawn. */
+    private int particleRate = 300;
+
     public BiomeSoulValley() {
         super(properties.setRainDisabled());
         this.spawnableMonsterList.clear();
@@ -215,9 +218,10 @@ public class BiomeSoulValley extends Biome implements INetherBiome, INetherAPIRe
     @Override
     @SideOnly(Side.CLIENT)
     public IParticleFactory[] getAmbientParticles()
-
-    { if(random.nextInt(2) == 0) {return new IParticleFactory[] {new ParticlePixel.AshSoulFactory()} ; }
-                 return null; }
+    {
+        if (random.nextInt(particleRate) == 0) return new IParticleFactory[] {new ParticlePixel.AshSoulFactory()} ;
+        else return null;
+    }
 
     @Override
     public ISoundAmbience getRandomAmbientSound() {

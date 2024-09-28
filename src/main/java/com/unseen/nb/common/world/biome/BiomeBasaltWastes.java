@@ -51,6 +51,8 @@ public class BiomeBasaltWastes extends Biome implements INetherBiome, INetherAPI
     private BasaltDeltas delta = new BasaltDeltas(ModRand.range(7,9));
     private BasaltFlatAreas flat_areas = new BasaltFlatAreas(ModRand.range(7, 9));
     private RandomLavaInsertion lava = new RandomLavaInsertion();
+    /** '1 / this' chance for a particle to spawn. */
+    private int particleRate = 100;
     private Random random;
     /**WIP*/
     public BiomeBasaltWastes() {
@@ -72,7 +74,24 @@ public class BiomeBasaltWastes extends Biome implements INetherBiome, INetherAPI
     public void decorate(World world, Random rand, BlockPos pos)
     {
 
+      //  BASALT HEIGHTS
+     //  for(int k2 = 0; k2 < ModRand.range(10, 20);k2++) {
+      //     int l6 = random.nextInt(16) + 8;
+       //     int k10 = random.nextInt(16) + 8;
+      //     int depthSignature = 2;
+       //     for(int y = NetherAPIConfig.tallNether ? 240 : 110; y > 32; y--) {
+       //        IBlockState currentBlock = world.getBlockState(pos.add(l6, y, k10));
+       //         if(depthSignature == 1) {
+       //                // heights.generate(world, rand, pos.add(l6, y + 1, k10));
+       //         }
 
+       //         if(currentBlock == ModBlocks.BASALT.getDefaultState()) {
+        //            depthSignature++;
+         //      } else if (currentBlock == Blocks.AIR.getDefaultState()) {
+        //            depthSignature = 0;
+        //       }
+       //    }
+     //   }
 
        //Basalt Flat Parts
         for(int k2 = 0; k2 < ModRand.range(3, 5);k2++) {
@@ -214,8 +233,8 @@ public class BiomeBasaltWastes extends Biome implements INetherBiome, INetherAPI
     @SideOnly(Side.CLIENT)
     public IParticleFactory[] getAmbientParticles()
     {
-        if(random.nextInt(4) == 0) {return new IParticleFactory[] {new ParticlePixel.AshBasaltFactory()} ;}
-        return null;
+        if (random.nextInt(particleRate) == 0) return new IParticleFactory[] {new ParticlePixel.AshBasaltFactory()} ;
+        else return null;
     }
 
     @Override

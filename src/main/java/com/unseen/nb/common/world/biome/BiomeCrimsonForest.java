@@ -50,6 +50,8 @@ public class BiomeCrimsonForest extends Biome implements INetherBiome, INetherAP
     public static final WorldGenCrimsonVines crimson_vines = new WorldGenCrimsonVines(ModBlocks.CRIMSON_VINES.getDefaultState());
     public static BiomeProperties properties = new BiomeProperties("Crimson Forest");
     private static final IBlockState CRIMSON_FLOOR = ModBlocks.CRIMSON_GRASS.getDefaultState();
+    /** '1 / this' chance for a particle to spawn. */
+    private int particleRate = 100;
     private Random random;
 
     public BiomeCrimsonForest() {
@@ -71,7 +73,7 @@ public class BiomeCrimsonForest extends Biome implements INetherBiome, INetherAP
     {
 
         //Plants
-        for(int k2 = 0; k2 < ModRand.range(30, 45);k2++) {
+        for(int k2 = 0; k2 < ModRand.range(40, 50);k2++) {
             int l6 = random.nextInt(16) + 8;
             int k10 = random.nextInt(16) + 8;
             int depthSignature = 2;
@@ -95,7 +97,7 @@ public class BiomeCrimsonForest extends Biome implements INetherBiome, INetherAP
 
 
         //Vines
-        for(int k2 = 0; k2< ModRand.range(10, 20); k2++) {
+        for(int k2 = 0; k2< ModRand.range(10, 30); k2++) {
             int l6 = random.nextInt(16) + 8;
             int k10 = random.nextInt(16) + 8;
             int depthSignature = 2;
@@ -115,7 +117,7 @@ public class BiomeCrimsonForest extends Biome implements INetherBiome, INetherAP
         }
 
         //Trees
-        for(int k2 = 0; k2 < ModRand.range(15, 20);k2++) {
+        for(int k2 = 0; k2 < ModRand.range(15, 25);k2++) {
             int l6 = random.nextInt(16) + 8;
             int k10 = random.nextInt(16) + 8;
             int depthSignature = 2;
@@ -188,11 +190,10 @@ public class BiomeCrimsonForest extends Biome implements INetherBiome, INetherAP
 
     @Override
     @SideOnly(Side.CLIENT)
-    public IParticleFactory[] getAmbientParticles() {
-        if(random.nextInt(4) == 0) {
-            return new IParticleFactory[]{new ParticlePixel.SporeCrimsonFactory()};
-        }
-        return null;
+    public IParticleFactory[] getAmbientParticles()
+    {
+        if (random.nextInt(particleRate) == 0) return new IParticleFactory[] {new ParticlePixel.SporeCrimsonFactory()} ;
+        else return null;
     }
 
     @Override
