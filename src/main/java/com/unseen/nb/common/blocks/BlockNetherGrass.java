@@ -1,32 +1,20 @@
 package com.unseen.nb.common.blocks;
 
 import com.unseen.nb.common.blocks.base.BlockBase;
-import com.unseen.nb.init.ModBlocks;
-import net.minecraft.block.BlockBush;
-import net.minecraft.block.BlockDirt;
-import net.minecraft.block.BlockGrass;
-import net.minecraft.block.SoundType;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Enchantments;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.Nullable;
 import java.util.Random;
 
-public class BlockNetherGrass extends BlockBase {
-
-
+public class BlockNetherGrass extends BlockBase implements IGrowable
+{
     public BlockNetherGrass(String name, Material material) {
         super(name, material);
     }
@@ -50,16 +38,24 @@ public class BlockNetherGrass extends BlockBase {
             if (!worldIn.isAreaLoaded(pos, 3)) {
                 return; // Forge: prevent loading unloaded chunks when checking neighbor's light and spreading
             }
-                IBlockState state1 = worldIn.getBlockState(pos.up());
-            if(state1 == Blocks.AIR.getDefaultState() && !state1.isFullBlock() || state1 instanceof BlockBush || state1 == ModBlocks.CRIMSON_GRASS.getDefaultState() || state1 == ModBlocks.CRIMSON_ROOTS.getDefaultState()
-            || state1 == ModBlocks.CRIMSON_FUNGUS.getDefaultState() || state1 == ModBlocks.WARPED_FUNGUS.getDefaultState() || state1 == ModBlocks.WARPED_GRASS.getDefaultState() || state1 == ModBlocks.WARPED_ROOTS.getDefaultState() ||
-            state1 == ModBlocks.WARPED_VINES.getDefaultState() || state1 == ModBlocks.WARPED_SPROUT.getDefaultState() || state1 == ModBlocks.CRIMSON_VINES.getDefaultState()) {
-                return; //If the above block is not air
-            } else {
-                worldIn.setBlockState(pos, Blocks.NETHERRACK.getDefaultState());
-            }
+                IBlockState stateAbove = worldIn.getBlockState(pos.up());
 
-
+            /* Decay only needs to occur if directly above this is a full non-opaque block. */
+            if(stateAbove.isFullCube())
+            { worldIn.setBlockState(pos, Blocks.NETHERRACK.getDefaultState()); }
         }
     }
+
+    @Override
+    public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient)
+    { return true; }
+
+    @Override
+    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state)
+    { return true; }
+
+    /** TODO: Add logic for Nether plant generation, requires research */
+    @Override
+    public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state)
+    {}
 }

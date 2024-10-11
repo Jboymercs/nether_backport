@@ -14,6 +14,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -119,22 +120,23 @@ public class BlockVineBase extends BlockBush implements IHasModel, RegistryHandl
         return state.getBlock() == ModBlocks.WARPED_WART || state.getBlock() == ModBlocks.CRIMSON_WART || blockState.getBlock() == Blocks.NETHERRACK;
     }
 
+    // TODO: Test in Multiplayer/over a Server!
     @Override
-    public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
-        if (entityIn instanceof EntityPlayer) {
+    public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
+    {
+        if (entityIn instanceof EntityPlayer)
+        {
             EntityPlayer player = (EntityPlayer) entityIn;
-            if (player.motionY < -0.15F) {
-                player.motionY = -0.15F;
-            }
-            if (player.motionY < 0.2F) {
-                if (player.isSneaking()) {
-                    player.motionY = 0.0F;
-                } else if (!player.isSprinting()){
-                    player.motionY = 0.2F;
-                }
+
+            if (Minecraft.getMinecraft().gameSettings.keyBindJump.isKeyDown())
+            {
+                player.motionY = 0.2D;
+                player.fallDistance = 0.0F;
             }
         }
     }
+
+    @Override public boolean isLadder(IBlockState state, IBlockAccess world, BlockPos pos, EntityLivingBase entity) { return true; }
 
 
     @Override
