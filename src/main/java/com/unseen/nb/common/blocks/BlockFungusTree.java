@@ -45,8 +45,10 @@ public class BlockFungusTree extends BlockPlantBase implements IGrowable {
     @Override
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
         if(!isValidBlock(worldIn, pos.down(), worldIn.getBlockState(pos.down()))) {
+            this.getItemDropped(state, new Random(), 1);
             worldIn.setBlockToAir(pos);
         }
+
     }
 
     protected boolean isValidBlock(World world, BlockPos pos, IBlockState blockState) {
@@ -82,13 +84,13 @@ public class BlockFungusTree extends BlockPlantBase implements IGrowable {
         if(worldIn.isAirBlock(pos.up()) && worldIn.isAirBlock(pos.add(0, 9,0))) {
             this.generateTree(worldIn, pos, rand);
         }
+
     }
 
     private void generateTree(World world, BlockPos pos, Random random) {
         int randTreeSize = ModRand.range(1, 4);
         if(!world.isRemote) {
                 //Warped
-                world.setBlockToAir(pos);
                 if(randTreeSize == 1) {
                     WorldGenNB tree = ModRand.choice(small_trees);
                     tree.generate(world, random, pos.add(-2,0,-2));

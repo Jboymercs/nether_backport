@@ -52,6 +52,7 @@ public class BlockPlantBase extends BlockBush implements IHasModel {
         if(!isValidBlock(worldIn, pos.down(), worldIn.getBlockState(pos.down()))) {
             worldIn.setBlockToAir(pos);
         }
+
     }
 
     protected boolean isValidBlock(World world, BlockPos pos, IBlockState blockState) {

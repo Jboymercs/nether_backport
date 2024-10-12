@@ -90,31 +90,32 @@ public class BlockNetherDoor extends BlockDoor implements IHasModel, IBlockPrope
             IBlockState iblockstate = world.getBlockState(blockpos);
             if (!(iblockstate.getBlock() instanceof BlockNetherDoor)) world.setBlockToAir(pos);
             else if (!(block instanceof BlockNetherDoor)) iblockstate.neighborChanged(world, blockpos, block, fromPos);
-            return;
+
         }
         BlockPos otherpos = pos.up();
         IBlockState other = world.getBlockState(otherpos);
         if (!(other.getBlock() instanceof BlockNetherDoor)) {
             world.setBlockToAir(pos);
             if (!world.isRemote) dropBlockAsItem(world, pos, state, 0);
-            return;
+
         }
         if (!world.getBlockState(pos.down()).isSideSolid(world, pos.down(), EnumFacing.UP)) {
             world.setBlockToAir(pos);
             if (!(other.getBlock() instanceof BlockNetherDoor)) world.setBlockToAir(otherpos);
             if (!world.isRemote) dropBlockAsItem(world, pos, state, 0);
-            return;
+
         }
         boolean power = world.isBlockPowered(pos) || world.isBlockPowered(otherpos);
         if (block instanceof BlockNetherDoor |! (power && block.getDefaultState().canProvidePower())
-                || power == other.getValue(POWERED)) return;
+                || power == other.getValue(POWERED))
         world.setBlockState(otherpos, other.withProperty(POWERED, power), 2);
-        if (power == state.getValue(OPEN)) return;
+        if (power == state.getValue(OPEN))
         world.setBlockState(pos, state.withProperty(OPEN, power), 2);
         world.markBlockRangeForRenderUpdate(pos, pos);
         world.playSound(null, pos.getX() + 0.5f, pos.getY() + 0.5f, pos.getZ() + 0.5f,
                 state.getValue(OPEN) ? SoundEvents.BLOCK_WOODEN_DOOR_OPEN : SoundEvents.BLOCK_WOODEN_DOOR_CLOSE,
                 SoundCategory.BLOCKS, 1, 1);
+
     }
 
 

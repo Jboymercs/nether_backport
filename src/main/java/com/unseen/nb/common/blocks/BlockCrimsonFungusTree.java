@@ -37,6 +37,7 @@ public class BlockCrimsonFungusTree extends BlockPlantBase implements IGrowable 
         if(!isValidBlock(worldIn, pos.down(), worldIn.getBlockState(pos.down()))) {
             worldIn.setBlockToAir(pos);
         }
+
     }
 
     protected boolean isValidBlock(World world, BlockPos pos, IBlockState blockState) {
@@ -78,7 +79,6 @@ public class BlockCrimsonFungusTree extends BlockPlantBase implements IGrowable 
         int randTreeSize = ModRand.range(1, 4);
         if(!world.isRemote) {
                 //Crimson
-                world.setBlockToAir(pos);
                 if(randTreeSize == 1) {
                     WorldGenNB tree = ModRand.choice(c_small_trees);
                     tree.generate(world, random, pos.add(-2,0,-2));

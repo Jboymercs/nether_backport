@@ -7,9 +7,14 @@ import net.minecraftforge.common.config.Config;
 public class NBWorldConfig {
 
     @Config.Name("Bastion Remnants Spawn Frequency")
-    @Config.Comment("Change the spacing between Bastion Remnants, lower means more frequent, higher means less")
+    @Config.Comment("Change the spacing between Bastion Remnants, lower means more frequent, higher means less (Block spacing / 6 > frequency)")
     @Config.RequiresMcRestart
     public static int bastionFrequency = 100;
+
+    @Config.Name("Bastion Remnants Enable/Disable")
+    @Config.Comment("When set to false, this will disable Bastion Remnants from spawning")
+    @Config.RequiresMcRestart
+    public static boolean bastion_enabled = true;
 
     @Config.Name("Bastion Remnants Y-level")
     @Config.Comment("Change the Y-level the Bastion Remnants spawn at, NOTE: this is the level that bridges for will spawn at")
@@ -40,9 +45,14 @@ public class NBWorldConfig {
     public static String[] remnantsBiomesNotAllowed = {"nb:basalt_deltas"};
 
     @Config.Name("Portal Ruins Overworld Spawn Rate")
-    @Config.Comment("Change the rate that ruined portals in the overworld spawn at, lower means more frequent, higher means less")
+    @Config.Comment("Change the rate that ruined portals in the overworld spawn at, lower means more frequent, higher means less (Block spacing > frequency)")
     @Config.RequiresMcRestart
-    public static int ruined_portal_rate = 125;
+    public static int ruined_portal_rate = 1400;
+
+    @Config.Name("Portal Ruins Overworld Enable/Disable")
+    @Config.Comment("When set to false, this will disable Ruined Portals from spawning in the Overworld")
+    @Config.RequiresMcRestart
+    public static boolean ruined_portal_enabled = true;
 
     @Config.Name("Portal Ruins Big Portal Chance")
     @Config.Comment("Change the out of x chance a big portal ruin will spawn instead of a small one, think of it like 1 out of x")
@@ -56,9 +66,14 @@ public class NBWorldConfig {
     public static String[] ruinsBiomesNotAllowed = {"minecraft:ice_mountains", "minecraft:frozen_ocean"};
 
     @Config.Name("Portal Ruins NETHER Spawn Rate")
-    @Config.Comment("Change the rate that ruined portals in the nether spawn at, lower means more frequent, higher means less")
+    @Config.Comment("Change the rate that ruined portals in the nether spawn at, lower means more frequent, higher means less (Block spacing > frequency)")
     @Config.RequiresMcRestart
-    public static int nether_ruins_rate = 80;
+    public static int nether_ruins_rate = 840;
+
+    @Config.Name("Portal Ruins NETHER Enable/Disable")
+    @Config.Comment("When set to false, this will disable Ruined Portals in the Nether from Spawning")
+    @Config.RequiresMcRestart
+    public static boolean nether_ruined_portal_enabled = true;
 
     @Config.Name("Warped Forest Biome Frequency")
     @Config.Comment("Change the Frequency of how common the Warped Forest is")

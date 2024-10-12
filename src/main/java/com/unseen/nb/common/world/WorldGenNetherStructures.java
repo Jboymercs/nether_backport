@@ -60,31 +60,35 @@ public class WorldGenNetherStructures implements IWorldGenerator {
 
             if(world.provider.getBiomeForCoords(pos) != getSpawnBiomesRemnarts().iterator()) {
                 //Bastion Remnants
-                bastion.generate(world, random, pos);
+                if(NBWorldConfig.bastion_enabled) {
+                    bastion.generate(world, random, pos);
+                }
 
 
                 //Nether Portal Ruins
-                if(netherPortalSpacing/8 > NBWorldConfig.nether_ruins_rate) {
-                    int y = getNetherSurfaceHeight(world, pos, 35, NetherAPIConfig.tallNether ? 240 : 110);
-                    BlockPos modifiedPos = new BlockPos(pos.getX() - 2, y, pos.getZ() - 2);
-                    if(!world.isAirBlock(modifiedPos) && !world.isAirBlock(modifiedPos.add(3, 0, 3)) && world.isAirBlock(modifiedPos.add(0, 10, 0))) {
-                        WorldGenNetherPortal portal = ModRand.choice(list_of_nether_portals);
-                        portal.generate(world, random, pos.add(0, y, 0));
-                        netherPortalSpacing = 0;
+                if(NBWorldConfig.nether_ruined_portal_enabled) {
+                    if (netherPortalSpacing > NBWorldConfig.nether_ruins_rate) {
+                        int y = getNetherSurfaceHeight(world, pos, 35, NetherAPIConfig.tallNether ? 240 : 110);
+                        BlockPos modifiedPos = new BlockPos(pos.getX() - 2, y, pos.getZ() - 2);
+                        if (!world.isAirBlock(modifiedPos) && !world.isAirBlock(modifiedPos.add(3, 0, 3)) && world.isAirBlock(modifiedPos.add(0, 10, 0))) {
+                            WorldGenNetherPortal portal = ModRand.choice(list_of_nether_portals);
+                            portal.generate(world, random, pos.add(0, y, 0));
+                            netherPortalSpacing = 0;
+                        }
+                    } else {
+                        netherPortalSpacing++;
                     }
-                } else {
-                    netherPortalSpacing++;
                 }
             }
         }
 
-        if (world.provider.getDimension() == 0) {
+        if (world.provider.getDimension() == 0 && NBWorldConfig.ruined_portal_enabled) {
             if(world.provider.getBiomeForCoords(pos) != getSpawnBiomesRuinedPortals().iterator()) {
                 int y = getGroundFromAbove(world, pos.getX(), pos.getZ());
                 //generates regular ruined portals
                 if (y != 0) {
                     BlockPos posModified = new BlockPos(pos.getX(), y, pos.getZ());
-                    if (portalSpacing / 12 > NBWorldConfig.ruined_portal_rate) {
+                    if (portalSpacing > NBWorldConfig.ruined_portal_rate) {
                         //Giant Portal Ruins 5% chance of spawning
                         if (!world.isAirBlock(posModified.down()) && !world.isAirBlock(posModified.add(7, -1, 7)) && world.rand.nextInt(NBWorldConfig.portal_big_chance) == 0) {
                             WorldGenRuinedPortalsGiant portal = ModRand.choice(list_of_Giant_portals);
