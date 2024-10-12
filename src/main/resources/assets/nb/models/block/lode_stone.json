@@ -1,7 +1,12 @@
 {
-  "parent": "block/cube_column",
+  "parent": "block/cube",
   "textures": {
-    "end": "nb:blocks/lode_stone_top",
-    "side": "nb:blocks/lode_stone_side"
+    "down": "nb:blocks/lode_stone_top",
+    "up": "nb:blocks/lode_stone_top",
+    "north": "nb:blocks/lode_stone_sides",
+    "south": "nb:blocks/lode_stone_siden",
+    "west": "nb:blocks/lode_stone_sidee",
+    "east": "nb:blocks/lode_stone_sidew",
+    "particle": "nb:blocks/lode_stone_top"
   }
 }
