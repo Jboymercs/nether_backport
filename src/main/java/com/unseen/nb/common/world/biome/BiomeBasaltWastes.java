@@ -11,6 +11,7 @@ import com.unseen.nb.common.world.terrain.basaltHeights.WorldGenBasaltHeights;
 import com.unseen.nb.common.world.terrain.plants.WorldGenCrimsonPlant;
 import com.unseen.nb.common.world.terrain.plants.WorldGenCrimsonVines;
 import com.unseen.nb.common.world.terrain.trees.WorldGenCrimsonTree;
+import com.unseen.nb.config.NBWorldConfig;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.init.ModSoundHandler;
 import com.unseen.nb.util.ModRand;
@@ -52,7 +53,7 @@ public class BiomeBasaltWastes extends Biome implements INetherBiome, INetherAPI
     private BasaltFlatAreas flat_areas = new BasaltFlatAreas(ModRand.range(7, 9));
     private RandomLavaInsertion lava = new RandomLavaInsertion();
     /** '1 / this' chance for a particle to spawn. */
-    private int particleRate = 100;
+    public int particleRate = NBWorldConfig.basaltDeltasparticleRate;
     private Random random;
     /**WIP*/
     public BiomeBasaltWastes() {

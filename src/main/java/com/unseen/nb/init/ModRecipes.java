@@ -4,6 +4,7 @@ package com.unseen.nb.init;
 import com.unseen.nb.util.ModReference;
 import com.unseen.nb.util.integration.ModIntegration;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -35,6 +36,8 @@ public class ModRecipes {
                 //Material
                 OreDictionary.registerOre("ingotNetherite", ModItemsCompat.NETHERITE_INGOT);
                 OreDictionary.registerOre("blockNetherite", ModBlocksCompat.NETHERITE_BLOCK);
+
+
         }
 
 }

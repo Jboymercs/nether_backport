@@ -8,6 +8,8 @@ import com.unseen.nb.common.world.terrain.plants.WorldGenCrimsonVines;
 import com.unseen.nb.common.world.terrain.plants.WorldGenWarpedPlant;
 import com.unseen.nb.common.world.terrain.plants.WorldGenWarpedVines;
 import com.unseen.nb.common.world.terrain.trees.WorldGenWarpedTree;
+import com.unseen.nb.config.ModConfig;
+import com.unseen.nb.config.NBWorldConfig;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.init.ModSoundHandler;
 import com.unseen.nb.util.ModRand;
@@ -52,7 +54,7 @@ public class BiomeWarpedForest extends Biome implements INetherBiome, INetherAPI
     public static BiomeProperties properties = new BiomeProperties("Warped Forest");
     private static final IBlockState CRIMSON_FLOOR = ModBlocks.WARPED_GRASS.getDefaultState();
     /** '1 / this' chance for a particle to spawn. */
-    private int particleRate = 100;
+    public int particleRate = NBWorldConfig.warpedForestparticleRate;
     private Random random;
 
     public BiomeWarpedForest() {

@@ -13,6 +13,7 @@ import com.unseen.nb.common.world.terrain.plants.WorldGenWarpedPlant;
 import com.unseen.nb.common.world.terrain.plants.WorldGenWarpedVines;
 import com.unseen.nb.common.world.terrain.soulsandPatches.WorldGenSoulSandPatches;
 import com.unseen.nb.common.world.terrain.trees.WorldGenWarpedTree;
+import com.unseen.nb.config.NBWorldConfig;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.init.ModSoundHandler;
 import com.unseen.nb.util.ModRand;
@@ -66,7 +67,7 @@ public class BiomeSoulValley extends Biome implements INetherBiome, INetherAPIRe
 
     private final WorldGenReplaceOnRand soul_sand_replacer = new WorldGenReplaceOnRand();
     /** '1 / this' chance for a particle to spawn. */
-    private int particleRate = 300;
+    public int particleRate = NBWorldConfig.soulSandValleyparticleRate;
 
     public BiomeSoulValley() {
         super(properties.setRainDisabled());

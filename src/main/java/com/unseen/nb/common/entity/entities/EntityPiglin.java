@@ -29,6 +29,7 @@ import net.minecraft.entity.ai.*;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityPigZombie;
+import net.minecraft.entity.monster.EntityWitherSkeleton;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.player.EntityPlayer;
@@ -47,6 +48,7 @@ import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.*;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
@@ -171,27 +173,6 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
                 }
                 this.initMeleeAI();
             }
-        } else {
-            if(this.isHasRanged()) {
-                if(ModIntegration.CROSSBOWS_BACKPORT_LOADED) {
-                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(CrossbowsContent.CROSSBOW));
-                }  else if (ModIntegration.SPARTAN_WEAPONRY_LOADED) {
-                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ModIntegration.getCrossBow());
-                }else {
-                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
-                }
-                this.initRangedAI();
-
-            } else if(this.isHasMelee()) {
-                if(ModIntegration.SPARTAN_WEAPONRY_LOADED && ModConfig.useMeleeSpartanWeapons) {
-                    for (ItemStack randStack : ModIntegration.selectPiglinWeapon()) {
-                        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, randStack);
-                    }
-                } else {
-                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_SWORD));
-                }
-                this.initMeleeAI();
-            }
         }
     }
 
@@ -269,9 +250,47 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
     private boolean initiateBastionAI = false;
     protected int isHungryTimer = 60;
 
+    private boolean hasNearbyBlockItHates = false;
+
+    private boolean setGear = false;
+
+    private int tickOut = 100;
+    private int checkForBlocksTimer = 30;
+
+    public void initiateStuff() {
+        if(this.isHasRanged()) {
+            if(ModIntegration.CROSSBOWS_BACKPORT_LOADED) {
+                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(CrossbowsContent.CROSSBOW));
+            }  else if (ModIntegration.SPARTAN_WEAPONRY_LOADED) {
+                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ModIntegration.getCrossBow());
+            }else {
+                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
+            }
+            this.initRangedAI();
+
+        } else if(this.isHasMelee()) {
+            if(ModIntegration.SPARTAN_WEAPONRY_LOADED && ModConfig.useMeleeSpartanWeapons) {
+                for (ItemStack randStack : ModIntegration.selectPiglinWeapon()) {
+                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, randStack);
+                }
+            } else {
+                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_SWORD));
+            }
+            this.initMeleeAI();
+        }
+        setGear = true;
+    }
+
     @Override
     public void onUpdate() {
         super.onUpdate();
+
+        //function to set gear on each load of the entity, only occurs once per load
+        if(!setGear && !world.isRemote) {
+            if(this.isHasMelee() || this.isHasRanged()) {
+                this.initiateStuff();
+            }
+        }
 
         if(this.isFightMode() && this.getAnimation() == NO_ANIMATION) {
             if(this.isMeleeAttack()) {
@@ -293,6 +312,61 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
             hasPlayedAngrySound = true;
         } else if (target == null) {
             hasPlayedAngrySound = false;
+        }
+
+        //helper to set targeted to null if the intended target is dead
+        if(target != null && !world.isRemote) {
+            boolean canSee = this.getEntitySenses().canSee(target);
+
+            if(!target.isEntityAlive() || !canSee || hasNearbyBlockItHates) {
+                if(tickOut < 0) {
+                    this.setAttackTarget(null);
+                    tickOut = 100;
+                } else {
+                    tickOut--;
+                }
+            }
+
+
+        }
+
+        //Flee from XyZ blocks
+        if(!world.isRemote) {
+            AxisAlignedBB box = getEntityBoundingBox().grow(16, 6, 16);
+            //This checks for the nearby blocks this entity is scared of
+            BlockPos posToo = this.getPosition();
+
+            if(checkForBlocksTimer < 0) {
+                //Search for Soul Fire
+                if(ModUtils.searchForBlocks(box, world, this, ModBlocks.SOUL_FIRE.getDefaultState()) != null) {
+                    hasNearbyBlockItHates = true;
+                    posToo = ModUtils.searchForBlocks(box, world, this, ModBlocks.SOUL_FIRE.getDefaultState());
+                }
+                //Search for Soul Torches
+                else if(ModUtils.searchForBlocks(box, world, this, ModBlocks.SOUL_TORCH.getDefaultState()) != null) {
+                    hasNearbyBlockItHates = true;
+                    posToo = ModUtils.searchForBlocks(box, world, this, ModBlocks.SOUL_TORCH.getDefaultState());
+                }
+                //Since Lanterns are inside of Bastions, just as a check, might make this configurable
+                else if(ModUtils.searchForBlocks(box, world, this, ModBlocks.SOUL_LANTERN.getDefaultState()) != null && !isInsideBastion()) {
+                    hasNearbyBlockItHates = true;
+                    posToo = ModUtils.searchForBlocks(box, world, this, ModBlocks.SOUL_LANTERN.getDefaultState());
+                } else {
+                    //sets to false
+                    hasNearbyBlockItHates = false;
+                    posToo = null;
+                }
+                checkForBlocksTimer = 30;
+            } else {
+                checkForBlocksTimer--;
+            }
+
+            // if it has a nearby block it hates run away from that Pos
+            if(hasNearbyBlockItHates && posToo != null) {
+                Vec3d away = this.getPositionVector().subtract(new Vec3d(posToo.getX(), posToo.getY(), posToo.getZ())).normalize();
+                Vec3d pos = this.getPositionVector().add(away.scale(8)).add(ModRand.randVec().scale(4));
+                this.getNavigator().tryMoveToXYZ(pos.x, pos.y, pos.z, 1.8D);
+            }
         }
 
 
@@ -491,7 +565,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(7D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(20D);
-        this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.8D);
+        this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.25D);
         this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(NBEntitiesConfig.piglin_armor);
         this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(NBEntitiesConfig.piglin_armor_toughness);
     }
@@ -507,6 +581,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
         this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, true, new Class[0]));
         this.targetTasks.addTask(3, new EntityAIAvoidEntity<>(this, EntityPiglinZombie.class, 16F, 1.5D, 1.8D));
         this.targetTasks.addTask(4, new EntityAIAvoidEntity<>(this, EntityPigZombie.class, 16F, 1.5D, 1.8D));
+        this.targetTasks.addTask(4, new EntityAINearestAttackableTarget<>(this, EntityWitherSkeleton.class, 1, true, false, null));
     }
 
 

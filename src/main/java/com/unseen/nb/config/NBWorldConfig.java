@@ -65,18 +65,38 @@ public class NBWorldConfig {
     @Config.RequiresMcRestart
     public static int warpedForestRate = 5;
 
+    @Config.Name("Warped Forest Particle Rate")
+    @Config.Comment("Change the Particle Rate of the Warped Forest to help with performance, higher number means less particles")
+    @Config.RequiresMcRestart
+    public static int warpedForestparticleRate = 150;
+
     @Config.Name("Crimson Forest Biome Frequency")
     @Config.Comment("Change the Frequency of how common the Crimson Forest is")
     @Config.RequiresMcRestart
     public static int crimsonForestRate = 5;
+
+    @Config.Name("Crimson Forest Particle Rate")
+    @Config.Comment("Change the Particle Rate of the Crimson Forest to help with performance, higher number means less particles")
+    @Config.RequiresMcRestart
+    public static int crimsonForestparticleRate = 150;
 
     @Config.Name("Soul Sand Valley Biome Frequency")
     @Config.Comment("Change the Frequency of how common the Soul Sand Valley is")
     @Config.RequiresMcRestart
     public static int soulSandValleyRate = 2;
 
+    @Config.Name("Soul Sand Valley Particle Rate")
+    @Config.Comment("Change the Particle Rate of the Soul Sand Valley to help with performance, higher number means less particles")
+    @Config.RequiresMcRestart
+    public static int soulSandValleyparticleRate = 325;
+
     @Config.Name("Basalt Deltas Biome Frequency")
     @Config.Comment("Change the Frequency of how common the Basalt Deltas is")
     @Config.RequiresMcRestart
     public static int basaltDeltasRate = 2;
+
+    @Config.Name("Basalt Deltas Particle Rate")
+    @Config.Comment("Change the Particle Rate of the Basalt Deltas to help with performance, higher number means less particles")
+    @Config.RequiresMcRestart
+    public static int basaltDeltasparticleRate = 150;
 }

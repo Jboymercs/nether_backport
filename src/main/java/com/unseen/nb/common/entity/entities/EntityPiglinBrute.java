@@ -21,6 +21,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityPigZombie;
+import net.minecraft.entity.monster.EntityWitherSkeleton;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
@@ -118,7 +119,7 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
     private int countDownToZombie = NBEntitiesConfig.zombification_time * 20;
 
     public boolean convertTooZombie = false;
-
+    private int tickOut = 200;
 
     @Override
     public void onUpdate() {
@@ -138,6 +139,22 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
             hasPlayedAngrySound = true;
         } else if (target == null) {
             hasPlayedAngrySound = false;
+        }
+
+        //helper to set targeted to null if the intended target is dead
+        if(target != null && !world.isRemote) {
+            boolean canSee = this.getEntitySenses().canSee(target);
+
+            if(!target.isEntityAlive() || !canSee) {
+                if(tickOut < 0) {
+                    this.setAttackTarget(null);
+                    tickOut = 200;
+                } else {
+                    tickOut--;
+                }
+            }
+
+
         }
 
         if(this.isFightMode() && this.getAnimation() == NO_ANIMATION) {
@@ -210,6 +227,7 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
         this.targetTasks.addTask(2, new EntityAINearestAttackableTarget<>(this, EntityPlayer.class, 1, true, false, null));
         this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, true, new Class[0]));
         this.targetTasks.addTask(4, new EntityAINearestAttackableTarget<>(this, EntityPigZombie.class, 1, true, false, null));
+        this.targetTasks.addTask(5, new EntityAINearestAttackableTarget<>(this, EntityWitherSkeleton.class, 1, true, false, null));
     }
 
     @Override

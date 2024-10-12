@@ -10,6 +10,7 @@ import com.unseen.nb.common.world.base.WorldGenNB;
 import com.unseen.nb.common.world.terrain.plants.WorldGenCrimsonPlant;
 import com.unseen.nb.common.world.terrain.plants.WorldGenCrimsonVines;
 import com.unseen.nb.common.world.terrain.trees.WorldGenCrimsonTree;
+import com.unseen.nb.config.NBWorldConfig;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.init.ModSoundHandler;
 import com.unseen.nb.util.ModRand;
@@ -51,7 +52,7 @@ public class BiomeCrimsonForest extends Biome implements INetherBiome, INetherAP
     public static BiomeProperties properties = new BiomeProperties("Crimson Forest");
     private static final IBlockState CRIMSON_FLOOR = ModBlocks.CRIMSON_GRASS.getDefaultState();
     /** '1 / this' chance for a particle to spawn. */
-    private int particleRate = 100;
+    public int particleRate = NBWorldConfig.crimsonForestparticleRate;
     private Random random;
 
     public BiomeCrimsonForest() {
