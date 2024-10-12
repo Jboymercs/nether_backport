@@ -26,6 +26,8 @@ public class ModSoundHandler {
     public static SoundEvent WART_PLACE;
     public static SoundEvent WART_BLOCK_HIT;
 
+    public static SoundEvent SOUL_FIRE_AMBIENT;
+
     public static SoundEvent SOUL_SOIL_BREAK;
     public static SoundEvent SOUL_SOIL_STEP;
     public static SoundEvent SOUL_SOIL_PLACE;
@@ -159,6 +161,8 @@ public class ModSoundHandler {
     WART_STEP = registerSound("wart.step", "block");
     WART_PLACE = registerSound("wart.place", "block");
     WART_BLOCK_HIT = registerSound("wart.hit", "block");
+
+    SOUL_FIRE_AMBIENT = registerSound("soul_fire.ambient", "block");
 
     SOUL_SOIL_BREAK = registerSound("soul_soil.break", "block");
     SOUL_SOIL_STEP = registerSound("soul_soil.step", "block");

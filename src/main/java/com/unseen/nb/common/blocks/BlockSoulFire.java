@@ -1,15 +1,13 @@
 package com.unseen.nb.common.blocks;
 
-import com.google.common.collect.Maps;
 import com.unseen.nb.Main;
 import com.unseen.nb.handler.IHasModel;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.init.ModItems;
+import com.unseen.nb.init.ModSoundHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFire;
-import net.minecraft.block.BlockTNT;
 import net.minecraft.block.material.MapColor;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyInteger;
@@ -19,7 +17,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.*;
@@ -31,7 +28,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
-import java.util.Map;
 import java.util.Random;
 
 public class BlockSoulFire extends BlockFire implements IHasModel {
@@ -42,8 +38,6 @@ public class BlockSoulFire extends BlockFire implements IHasModel {
     public static final PropertyBool SOUTH = PropertyBool.create("south");
     public static final PropertyBool WEST = PropertyBool.create("west");
     public static final PropertyBool UPPER = PropertyBool.create("up");
-    private final Map<Block, Integer> encouragements = Maps.<Block, Integer>newIdentityHashMap();
-    private final Map<Block, Integer> flammabilities = Maps.<Block, Integer>newIdentityHashMap();
 
     public BlockSoulFire(CreativeTabs tab, String name) {
         super();
@@ -75,81 +69,21 @@ public class BlockSoulFire extends BlockFire implements IHasModel {
         return this.getDefaultState();
     }
 
-
-    public static void init()
-    {
-        Blocks.FIRE.setFireInfo(Blocks.PLANKS, 5, 20);
-        Blocks.FIRE.setFireInfo(Blocks.DOUBLE_WOODEN_SLAB, 5, 20);
-        Blocks.FIRE.setFireInfo(Blocks.WOODEN_SLAB, 5, 20);
-        Blocks.FIRE.setFireInfo(Blocks.OAK_FENCE_GATE, 5, 20);
-        Blocks.FIRE.setFireInfo(Blocks.SPRUCE_FENCE_GATE, 5, 20);
-        Blocks.FIRE.setFireInfo(Blocks.BIRCH_FENCE_GATE, 5, 20);
-        Blocks.FIRE.setFireInfo(Blocks.JUNGLE_FENCE_GATE, 5, 20);
-        Blocks.FIRE.setFireInfo(Blocks.DARK_OAK_FENCE_GATE, 5, 20);
-        Blocks.FIRE.setFireInfo(Blocks.ACACIA_FENCE_GATE, 5, 20);
-        Blocks.FIRE.setFireInfo(Blocks.OAK_FENCE, 5, 20);
-        Blocks.FIRE.setFireInfo(Blocks.SPRUCE_FENCE, 5, 20);
-        Blocks.FIRE.setFireInfo(Blocks.BIRCH_FENCE, 5, 20);
-        Blocks.FIRE.setFireInfo(Blocks.JUNGLE_FENCE, 5, 20);
-        Blocks.FIRE.setFireInfo(Blocks.DARK_OAK_FENCE, 5, 20);
-        Blocks.FIRE.setFireInfo(Blocks.ACACIA_FENCE, 5, 20);
-        Blocks.FIRE.setFireInfo(Blocks.OAK_STAIRS, 5, 20);
-        Blocks.FIRE.setFireInfo(Blocks.BIRCH_STAIRS, 5, 20);
-        Blocks.FIRE.setFireInfo(Blocks.SPRUCE_STAIRS, 5, 20);
-        Blocks.FIRE.setFireInfo(Blocks.JUNGLE_STAIRS, 5, 20);
-        Blocks.FIRE.setFireInfo(Blocks.ACACIA_STAIRS, 5, 20);
-        Blocks.FIRE.setFireInfo(Blocks.DARK_OAK_STAIRS, 5, 20);
-        Blocks.FIRE.setFireInfo(Blocks.LOG, 5, 5);
-        Blocks.FIRE.setFireInfo(Blocks.LOG2, 5, 5);
-        Blocks.FIRE.setFireInfo(Blocks.LEAVES, 30, 60);
-        Blocks.FIRE.setFireInfo(Blocks.LEAVES2, 30, 60);
-        Blocks.FIRE.setFireInfo(Blocks.BOOKSHELF, 30, 20);
-        Blocks.FIRE.setFireInfo(Blocks.TNT, 15, 100);
-        Blocks.FIRE.setFireInfo(Blocks.TALLGRASS, 60, 100);
-        Blocks.FIRE.setFireInfo(Blocks.DOUBLE_PLANT, 60, 100);
-        Blocks.FIRE.setFireInfo(Blocks.YELLOW_FLOWER, 60, 100);
-        Blocks.FIRE.setFireInfo(Blocks.RED_FLOWER, 60, 100);
-        Blocks.FIRE.setFireInfo(Blocks.DEADBUSH, 60, 100);
-        Blocks.FIRE.setFireInfo(Blocks.WOOL, 30, 60);
-        Blocks.FIRE.setFireInfo(Blocks.VINE, 15, 100);
-        Blocks.FIRE.setFireInfo(Blocks.COAL_BLOCK, 5, 5);
-        Blocks.FIRE.setFireInfo(Blocks.HAY_BLOCK, 60, 20);
-        Blocks.FIRE.setFireInfo(Blocks.CARPET, 60, 20);
-    }
-
-    public void setFireInfo(Block blockIn, int encouragement, int flammability)
-    {
-        if (blockIn == Blocks.AIR) throw new IllegalArgumentException("Tried to set air on fire... This is bad.");
-        this.encouragements.put(blockIn, Integer.valueOf(encouragement));
-        this.flammabilities.put(blockIn, Integer.valueOf(flammability));
-    }
-
-
     @Nullable
     public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
-    {
-        return NULL_AABB;
-    }
+    { return NULL_AABB; }
 
     public boolean isOpaqueCube(IBlockState state)
-    {
-        return false;
-    }
+    { return false; }
 
     public boolean isFullCube(IBlockState state)
-    {
-        return false;
-    }
+    { return false; }
 
     public int quantityDropped(Random random)
-    {
-        return 0;
-    }
+    { return 0; }
 
     public int tickRate(World worldIn)
-    {
-        return 30;
-    }
+    { return 30; }
 
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
     {
@@ -160,243 +94,19 @@ public class BlockSoulFire extends BlockFire implements IHasModel {
             {
                 worldIn.setBlockToAir(pos);
             }
-
-            Block block = worldIn.getBlockState(pos.down()).getBlock();
-            boolean flag = block.isFireSource(worldIn, pos.down(), EnumFacing.UP) || worldIn.getBlockState(pos.down()) == ModBlocks.SOUL_SOIL.getDefaultState() || worldIn.getBlockState(pos.down()) == Blocks.SOUL_SAND.getDefaultState();
-
-            int i = ((Integer)state.getValue(AGE)).intValue();
-
-            if (!flag && worldIn.isRaining() && this.canDie(worldIn, pos) && rand.nextFloat() < 0.2F + (float)i * 0.03F)
-            {
-                worldIn.setBlockToAir(pos);
-            }
-            else
-            {
-                if (i < 15)
-                {
-                    state = state.withProperty(AGE, Integer.valueOf(i + rand.nextInt(3) / 2));
-                    worldIn.setBlockState(pos, state, 4);
-                }
-
-                worldIn.scheduleUpdate(pos, this, this.tickRate(worldIn) + rand.nextInt(10));
-
-                if (!flag)
-                {
-                    if (!this.canNeighborCatchFire(worldIn, pos))
-                    {
-                        if (!worldIn.getBlockState(pos.down()).isSideSolid(worldIn, pos.down(), EnumFacing.UP) || i > 3)
-                        {
-                            worldIn.setBlockToAir(pos);
-                        }
-
-                        return;
-                    }
-
-                    if (!this.canCatchFire(worldIn, pos.down(), EnumFacing.UP) && i == 15 && rand.nextInt(4) == 0)
-                    {
-                        worldIn.setBlockToAir(pos);
-                        return;
-                    }
-                }
-
-                boolean flag1 = worldIn.isBlockinHighHumidity(pos);
-                int j = 0;
-
-                if (flag1)
-                {
-                    j = -50;
-                }
-
-                this.tryCatchFire(worldIn, pos.east(), 300 + j, rand, i, EnumFacing.WEST);
-                this.tryCatchFire(worldIn, pos.west(), 300 + j, rand, i, EnumFacing.EAST);
-                this.tryCatchFire(worldIn, pos.down(), 250 + j, rand, i, EnumFacing.UP);
-                this.tryCatchFire(worldIn, pos.up(), 250 + j, rand, i, EnumFacing.DOWN);
-                this.tryCatchFire(worldIn, pos.north(), 300 + j, rand, i, EnumFacing.SOUTH);
-                this.tryCatchFire(worldIn, pos.south(), 300 + j, rand, i, EnumFacing.NORTH);
-
-                for (int k = -1; k <= 1; ++k)
-                {
-                    for (int l = -1; l <= 1; ++l)
-                    {
-                        for (int i1 = -1; i1 <= 4; ++i1)
-                        {
-                            if (k != 0 || i1 != 0 || l != 0)
-                            {
-                                int j1 = 100;
-
-                                if (i1 > 1)
-                                {
-                                    j1 += (i1 - 1) * 100;
-                                }
-
-                                BlockPos blockpos = pos.add(k, i1, l);
-                                int k1 = this.getNeighborEncouragement(worldIn, blockpos);
-
-                                if (k1 > 0)
-                                {
-                                    int l1 = (k1 + 40 + worldIn.getDifficulty().getId() * 7) / (i + 30);
-
-                                    if (flag1)
-                                    {
-                                        l1 /= 2;
-                                    }
-
-                                    if (l1 > 0 && rand.nextInt(j1) <= l1 && (!worldIn.isRaining() || !this.canDie(worldIn, blockpos)))
-                                    {
-                                        int i2 = i + rand.nextInt(5) / 4;
-
-                                        if (i2 > 15)
-                                        {
-                                            i2 = 15;
-                                        }
-
-                                        worldIn.setBlockState(blockpos, state.withProperty(AGE, Integer.valueOf(i2)), 3);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
         }
-    }
-
-    protected boolean canDie(World worldIn, BlockPos pos)
-    {
-        return worldIn.isRainingAt(pos) || worldIn.isRainingAt(pos.west()) || worldIn.isRainingAt(pos.east()) || worldIn.isRainingAt(pos.north()) || worldIn.isRainingAt(pos.south());
-    }
-
-    public boolean requiresUpdates()
-    {
-        return false;
-    }
-
-    @Deprecated // Use Block.getFlammability
-    public int getFlammability(Block blockIn)
-    {
-        Integer integer = this.flammabilities.get(blockIn);
-        return integer == null ? 0 : integer.intValue();
-    }
-
-    @Deprecated // Use Block.getFireSpreadSpeed
-    public int getEncouragement(Block blockIn)
-    {
-        Integer integer = this.encouragements.get(blockIn);
-        return integer == null ? 0 : integer.intValue();
-    }
-
-    @Deprecated // Use tryCatchFire with face below
-    private void catchOnFire(World worldIn, BlockPos pos, int chance, Random random, int age)
-    {
-        this.tryCatchFire(worldIn, pos, chance, random, age, EnumFacing.UP);
-    }
-
-    private void tryCatchFire(World worldIn, BlockPos pos, int chance, Random random, int age, EnumFacing face)
-    {
-        int i = worldIn.getBlockState(pos).getBlock().getFlammability(worldIn, pos, face);
-
-        if (random.nextInt(chance) < i)
-        {
-            IBlockState iblockstate = worldIn.getBlockState(pos);
-
-            if (random.nextInt(age + 10) < 5 && !worldIn.isRainingAt(pos))
-            {
-                int j = age + random.nextInt(5) / 4;
-
-                if (j > 15)
-                {
-                    j = 15;
-                }
-
-                worldIn.setBlockState(pos, this.getDefaultState().withProperty(AGE, Integer.valueOf(j)), 3);
-            }
-            else
-            {
-                worldIn.setBlockToAir(pos);
-            }
-
-            if (iblockstate.getBlock() == Blocks.TNT)
-            {
-                Blocks.TNT.onPlayerDestroy(worldIn, pos, iblockstate.withProperty(BlockTNT.EXPLODE, Boolean.valueOf(true)));
-            }
-        }
-    }
-
-    private boolean canNeighborCatchFire(World worldIn, BlockPos pos)
-    {
-        for (EnumFacing enumfacing : EnumFacing.values())
-        {
-            if (this.canCatchFire(worldIn, pos.offset(enumfacing), enumfacing.getOpposite()))
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-
-    private int getNeighborEncouragement(World worldIn, BlockPos pos)
-    {
-        if (!worldIn.isAirBlock(pos))
-        {
-            return 0;
-        }
-        else
-        {
-            int i = 0;
-
-            for (EnumFacing enumfacing : EnumFacing.values())
-            {
-                i = Math.max(worldIn.getBlockState(pos.offset(enumfacing)).getBlock().getFireSpreadSpeed(worldIn, pos.offset(enumfacing), enumfacing.getOpposite()), i);
-            }
-
-            return i;
-        }
-    }
-
-    public boolean isCollidable()
-    {
-        return false;
-    }
-
-    @Deprecated // Use canCatchFire with face sensitive version below
-    public boolean canCatchFire(IBlockAccess worldIn, BlockPos pos)
-    {
-        return canCatchFire(worldIn, pos, EnumFacing.UP);
-    }
-
-    public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
-    {
-        return worldIn.getBlockState(pos.down()).isTopSolid() || this.canNeighborCatchFire(worldIn, pos);
     }
 
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
     {
-        if (!worldIn.getBlockState(pos.down()).isTopSolid() && !this.canNeighborCatchFire(worldIn, pos))
+        if (!worldIn.getBlockState(pos.down()).isTopSolid() || !canPlaceBlockAt(worldIn, pos))
         {
             worldIn.setBlockToAir(pos);
         }
     }
-
-    public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)
-    {
-        if (worldIn.provider.getDimensionType().getId() > 0 || !Blocks.PORTAL.trySpawnPortal(worldIn, pos))
-        {
-            if (!worldIn.getBlockState(pos.down()).isTopSolid() && !this.canNeighborCatchFire(worldIn, pos))
-            {
-                worldIn.setBlockToAir(pos);
-            }
-            else
-            {
-                worldIn.scheduleUpdate(pos, this, this.tickRate(worldIn) + worldIn.rand.nextInt(10));
-            }
-        }
-    }
-
-
     @Override
-    public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
+    public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
+    {
         if(entityIn.isImmuneToFire()) return;
 
         entityIn.attackEntityFrom(DamageSource.IN_FIRE, 2.0F);
@@ -408,16 +118,14 @@ public class BlockSoulFire extends BlockFire implements IHasModel {
     }
 
     public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
-    {
-        return MapColor.TNT;
-    }
+    { return MapColor.LIGHT_BLUE; }
 
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand)
     {
         if (rand.nextInt(24) == 0)
         {
-            worldIn.playSound((double)((float)pos.getX() + 0.5F), (double)((float)pos.getY() + 0.5F), (double)((float)pos.getZ() + 0.5F), SoundEvents.BLOCK_FIRE_AMBIENT, SoundCategory.BLOCKS, 1.0F + rand.nextFloat(), rand.nextFloat() * 0.7F + 0.3F, false);
+            worldIn.playSound((double)((float)pos.getX() + 0.5F), (double)((float)pos.getY() + 0.5F), (double)((float)pos.getZ() + 0.5F), ModSoundHandler.SOUL_FIRE_AMBIENT, SoundCategory.BLOCKS, 1.0F + rand.nextFloat(), rand.nextFloat() * 0.7F + 0.3F, false);
         }
 
         if (!worldIn.getBlockState(pos.down()).isSideSolid(worldIn, pos.down(), EnumFacing.UP) && !Blocks.FIRE.canCatchFire(worldIn, pos.down(), EnumFacing.UP))
@@ -510,21 +218,6 @@ public class BlockSoulFire extends BlockFire implements IHasModel {
     {
         return new BlockStateContainer(this, new IProperty[] {AGE, NORTH, EAST, SOUTH, WEST, UPPER});
     }
-
-    /*================================= Forge Start ======================================*/
-    /**
-     * Side sensitive version that calls the block function.
-     *
-     * @param world The current world
-     * @param pos Block position
-     * @param face The side the fire is coming from
-     * @return True if the face can catch fire.
-     */
-    public boolean canCatchFire(IBlockAccess world, BlockPos pos, EnumFacing face)
-    {
-        return world.getBlockState(pos).getBlock().isFlammable(world, pos, face);
-    }
-    /*================================= Forge Start ======================================*/
 
     public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
     {

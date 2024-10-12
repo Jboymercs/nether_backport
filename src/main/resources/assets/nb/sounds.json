@@ -349,6 +349,12 @@
       }
     ]
   },
+  "block.soul_fire.ambient":
+  {
+    "category": "block",
+    "subtitle": "nb.block.soul_fire.ambient",
+    "sounds": ["nb:block/soul_fire/ambient"]
+  },
   "block.soul_soil.break": {
     "category": "block",
     "subtitle": "subtitles.block.generic.break",
