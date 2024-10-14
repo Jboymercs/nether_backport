@@ -12,7 +12,6 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.event.entity.player.PlayerSetSpawnEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -54,25 +53,6 @@ public class EventRespawnAnchor
         }
     }
 
-    /** If the player's spawn position is updated, and NOT the same as the Anchor's pos, then they overwrote it, so cancel the Anchor Code. */
-    @SubscribeEvent
-    public static void setSpawnCheckAnchor(PlayerSetSpawnEvent event)
-    {
-        if (event.getEntityPlayer().hasCapability(CapabilityRespawnAnchor.RESPAWN_ANCHOR_CAP, null))
-        {
-            CapabilityRespawnAnchor.ICapabilityRespawnAnchor capRespawnAnchor = event.getEntityPlayer().getCapability(CapabilityRespawnAnchor.RESPAWN_ANCHOR_CAP, null);
-
-            if (capRespawnAnchor.getUsedAnchor())
-            {
-                if (event.getNewSpawn() != capRespawnAnchor.getPlayerSpawnPos())
-                {
-                    capRespawnAnchor.setPlayerSpawnPos(event.getNewSpawn());
-                    capRespawnAnchor.setUsedAnchor(false);
-                }
-            }
-        }
-    }
-
     /** All the calculations used in Respawn Anchor placement... which actually just teleports the Player to the Anchor. */
     @SubscribeEvent
     public static void onRespawnPreformAnchorTeleporting(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent event)
@@ -94,7 +74,7 @@ public class EventRespawnAnchor
                     /* If zero Charges, cancel any further processing. */
                     if (anchorWorld.getBlockState(anchorPos).getValue(BlockRespawnAnchor.CHARGES) <= 0)
                     {
-                        event.player.sendStatusMessage(new TextComponentTranslation("Your respawn anchor has no charge", new Object[0]), false);
+                        event.player.sendStatusMessage(new TextComponentTranslation("tile.respawn_anchor.no_charge", new Object[0]), false);
                         capRespawnAnchor.setUsedAnchor(false);
                         return;
                     }
@@ -114,13 +94,13 @@ public class EventRespawnAnchor
                     }
                     else
                     {
-                        event.player.sendStatusMessage(new TextComponentTranslation("Your respawn anchor was obstructed", new Object[0]), false);
+                        event.player.sendStatusMessage(new TextComponentTranslation("tile.respawn_anchor.obstrucuted", new Object[0]), false);
                         capRespawnAnchor.setUsedAnchor(false);
                     }
                 }
                 else
                 {
-                    event.player.sendStatusMessage(new TextComponentTranslation("You have no respawn anchor", new Object[0]), false);
+                    event.player.sendStatusMessage(new TextComponentTranslation("tile.respawn_anchor.destroyed", new Object[0]), false);
                     capRespawnAnchor.setUsedAnchor(false);
                 }
             }

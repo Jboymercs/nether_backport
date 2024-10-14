@@ -54,19 +54,18 @@ public class BlockRespawnAnchor extends BlockBase
                 worldIn.setBlockState(pos, state.withProperty(CHARGES, i + 1), 2);
                 //Shrink Glowstone Value
                 ItemStack stack = playerIn.getHeldItem(hand);
-                stack.shrink(1);
+                if (!playerIn.isCreative()) stack.shrink(1);
                 worldIn.playSound(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, ModSoundHandler.RESPAWN_ANCHOR_CHARGE, SoundCategory.BLOCKS, 1.0F, worldIn.rand.nextFloat() * 0.7F + 0.3F, false);
                 return true;
             }
             else if (i > 0)
             {
-
                 if (playerIn.hasCapability(CapabilityRespawnAnchor.RESPAWN_ANCHOR_CAP, null))
                 {
                     CapabilityRespawnAnchor.ICapabilityRespawnAnchor capWindCharge = playerIn.getCapability(CapabilityRespawnAnchor.RESPAWN_ANCHOR_CAP, null);
 
                     worldIn.playSound(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, ModSoundHandler.RESPAWN_ANCHOR_SET_SPAWN, SoundCategory.PLAYERS, 1.0F, worldIn.rand.nextFloat() * 0.7F + 0.3F, false);
-                    playerIn.sendStatusMessage(new TextComponentTranslation("respawn point set", new Object[0]), true);
+                    playerIn.sendStatusMessage(new TextComponentTranslation("tile.respawn_anchor.point_set", new Object[0]), true);
                     /* The player's Respawn Point gets scrambled, as it isn't used in the Anchor's logic. */
                     playerIn.setSpawnPoint(null, false);
                     capWindCharge.setUsedAnchor(true);
@@ -74,11 +73,8 @@ public class BlockRespawnAnchor extends BlockBase
                     capWindCharge.setPlayerSpawnPos(pos);
                     capWindCharge.setAnchorDim(worldIn.provider.getDimension());
                 }
-
-                return true;
             }
-
-            return false;
+            return true;
         }
     }
 
