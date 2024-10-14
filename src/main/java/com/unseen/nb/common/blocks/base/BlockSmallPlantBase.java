@@ -12,11 +12,9 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -34,27 +32,10 @@ public class BlockSmallPlantBase extends BlockBush implements IHasModel {
     }
 
     @Override
-    protected void checkAndDropBlock(World worldIn, BlockPos pos, IBlockState state) {
-        if (!this.canBlockStay(worldIn, pos, state)) {
-            this.dropBlockAsItem(worldIn, pos, state, 0);
-            worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
-        }
-    }
-
-    @Override
-    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
-        if(!isValidBlock(worldIn, pos.down(), worldIn.getBlockState(pos.down()))) {
-            worldIn.setBlockToAir(pos);
-        }
-    }
-
-    protected boolean isValidBlock(World world, BlockPos pos, IBlockState blockState) {
-        return blockState.isSideSolid(world, pos, EnumFacing.UP);
-    }
-
-    @Override
-    protected boolean canSustainBush(IBlockState state) {
-        return true;
+    protected boolean canSustainBush(IBlockState state)
+    {
+        Block block = state.getBlock();
+        return block == Blocks.GRASS || block == Blocks.DIRT || block == Blocks.FARMLAND || block == ModBlocks.CRIMSON_GRASS || block == ModBlocks.WARPED_GRASS || block == ModBlocks.SOUL_SOIL;
     }
 
     @Override
