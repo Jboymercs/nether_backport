@@ -12,17 +12,16 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
+import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -37,10 +36,8 @@ import java.util.Random;
 public class BlockVineBase extends BlockBush implements IHasModel, RegistryHandler.IStateMappedBlock, IPlantable {
     protected static final AxisAlignedBB CRYSTAL_AABB = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 1.0D, 0.9D);
 
-    public static final PropertyBool IS_TOP = PropertyBool.create("is_top");
     public static final PropertyBool IS_BOTTOM = PropertyBool.create("is_bottom");
-
-    public static final PropertyBool CAN_GROW = PropertyBool.create("can_grow");
+    public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 15);
 
 
     public BlockVineBase(String name, Material materialIn, SoundType soundType) {
@@ -52,28 +49,20 @@ public class BlockVineBase extends BlockBush implements IHasModel, RegistryHandl
         // Add both an item as a block and the block itself
         ModBlocks.BLOCKS.add(this);
         ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
-        this.setDefaultState(this.blockState.getBaseState().withProperty(IS_TOP, true).withProperty(IS_BOTTOM, false).withProperty(CAN_GROW, true));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, 0).withProperty(IS_BOTTOM, true));
     }
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, new IProperty[]{IS_TOP, IS_BOTTOM, CAN_GROW});
+        return new BlockStateContainer(this, new IProperty[]{AGE, IS_BOTTOM});
     }
 
     @Override
-    public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
-        boolean isTop = worldIn.getBlockState(pos.up()).getBlock() != this;
-        boolean isBottom = worldIn.getBlockState(pos.down()).getBlock() != this;
-        return state.withProperty(IS_TOP, isTop).withProperty(IS_BOTTOM, isBottom);
-    }
+    public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos)
+    { return state.withProperty(IS_BOTTOM, isBottom(worldIn, pos)); }
 
-    @Override
-    protected void checkAndDropBlock(World worldIn, BlockPos pos, IBlockState state) {
-        if (!this.canBlockStay(worldIn, pos, state)) {
-            this.dropBlockAsItem(worldIn, pos, state, 0);
-            worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
-        }
-    }
+    public boolean isBottom(IBlockAccess worldIn, BlockPos pos)
+    { return worldIn.getBlockState(pos.down()).getBlock() != this; }
 
     @Override
     @Nullable
@@ -81,43 +70,34 @@ public class BlockVineBase extends BlockBush implements IHasModel, RegistryHandl
         return null;
     }
 
-    protected boolean isValidBlock(World world, BlockPos pos, IBlockState blockState) {
-        return blockState.isSideSolid(world, pos, EnumFacing.DOWN) || blockState.getBlock() == this || blockState.getBlock() == ModBlocks.CRIMSON_WART || blockState.getBlock() == ModBlocks.WARPED_WART ||
-                blockState.getBlock() == Blocks.NETHERRACK;
-    }
-
+    @Override
+    public boolean canPlaceBlockAt(World world, BlockPos pos)
+    { return canBlockStay(world, pos, world.getBlockState(pos)); }
 
     @Override
-    public boolean canPlaceBlockAt(World world, BlockPos pos) {
-        return isValidBlock(world, pos.up(), world.getBlockState(pos.up())) && canBlockStay(world, pos, world.getBlockState(pos));
-    }
+    public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state)
+    { return worldIn.getBlockState(pos.up()).isSideSolid(worldIn, pos, EnumFacing.DOWN) || worldIn.getBlockState(pos.up()).getBlock() == this; }
 
-    @Override
-    public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state) {
-        return isValidBlock(worldIn, pos.up(), worldIn.getBlockState(pos.up()));
-    }
-
-    @Override
-    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
-        if(!isValidBlock(worldIn, pos.up(), worldIn.getBlockState(pos.up()))) {
-            worldIn.setBlockToAir(pos);
+    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
+    {
+        if (isBottom(worldIn, pos))
+        {
+            if (state.getValue(AGE) == 0) worldIn.setBlockState(pos, state.withProperty(AGE, Integer.valueOf(worldIn.rand.nextInt(14 + 1))), 2);
         }
+        else
+        { worldIn.setBlockState(pos, state.withProperty(AGE, 0), 2); }
+        this.checkAndDropBlock(worldIn, pos, state);
     }
 
     @Override
-    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-        if(rand.nextInt(16) == 0 && worldIn.isAirBlock(pos.down()) && this.canGrowAt(worldIn, pos, state)) {
-            worldIn.setBlockState(pos.down(), this.getDefaultState());
+    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
+    {
+        int currentAge = state.getValue(AGE);
+        if(isBottom(worldIn, pos) && currentAge < 15 && rand.nextInt(16) == 0 && worldIn.isAirBlock(pos.down()))
+        {
+            worldIn.setBlockState(pos, state.withProperty(AGE, 0));
+            worldIn.setBlockState(pos.down(), this.getDefaultState().withProperty(AGE, currentAge + 1));
         }
-    }
-
-    protected boolean canGrowAt(World world, BlockPos pos, IBlockState state) {
-        return state.getValue(CAN_GROW);
-    }
-
-    @Override
-    protected boolean canSustainBush(IBlockState state) {
-        return state.getBlock() == ModBlocks.WARPED_WART || state.getBlock() == ModBlocks.CRIMSON_WART || blockState.getBlock() == Blocks.NETHERRACK;
     }
 
     // TODO: Test in Multiplayer/over a Server!
@@ -156,22 +136,22 @@ public class BlockVineBase extends BlockBush implements IHasModel, RegistryHandl
     }
 
     @Override
-    public int getMetaFromState(IBlockState state) {
-        return state.getValue(CAN_GROW) ? 1 : 0;
-    }
+    public int getMetaFromState(IBlockState state)
+    { return ((Integer)state.getValue(AGE)); }
 
     @Override
-    public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
-        return this.getDefaultState().withProperty(CAN_GROW, true);
-    }
+    public IBlockState getStateFromMeta(int meta)
+    { return this.getDefaultState().withProperty(AGE, meta); }
 
-    @Override
-    public IBlockState getStateFromMeta(int meta) {
-        return this.getDefaultState().withProperty(CAN_GROW, meta == 1);
+    /** Randomize the Age when placed. */
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
+    {
+        Random rand = worldIn.rand;
+        return this.getDefaultState().withProperty(AGE, Integer.valueOf(rand.nextInt(14 + 1)));
     }
 
     @Override
     public void setStateMapper(AdvancedStateMap.Builder builder) {
-        builder.ignore(CAN_GROW);
+        builder.ignore(AGE);
     }
 }
