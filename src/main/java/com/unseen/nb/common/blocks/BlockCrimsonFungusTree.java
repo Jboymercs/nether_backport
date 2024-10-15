@@ -3,6 +3,7 @@ package com.unseen.nb.common.blocks;
 import com.unseen.nb.common.blocks.base.BlockPlantBase;
 import com.unseen.nb.common.world.base.WorldGenNB;
 import com.unseen.nb.common.world.terrain.trees.WorldGenCrimsonTree;
+import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.util.ModRand;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;
@@ -44,15 +45,11 @@ public class BlockCrimsonFungusTree extends BlockPlantBase implements IGrowable 
 
     @Override
     public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient)
-    {
-        return true;
-    }
+    { return worldIn.getBlockState(pos.down()).getBlock() == ModBlocks.CRIMSON_GRASS; }
 
     @Override
     public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state)
-    {
-        return (double)worldIn.rand.nextFloat() < 0.45D;
-    }
+    { return worldIn.getBlockState(pos.down()).getBlock() == ModBlocks.CRIMSON_GRASS && (double)worldIn.rand.nextFloat() < 0.45D; }
 
     @Override
     public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state) {
