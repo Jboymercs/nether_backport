@@ -4,6 +4,7 @@ package com.unseen.nb.common.blocks;
 import com.unseen.nb.common.blocks.base.BlockPillarBase;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
@@ -80,6 +81,9 @@ public class BlockChainNew extends BlockPillarBase {
         return false;
     }
 
+    /** Same shape as a fence if it is oriented straight up */
+    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
+    { return state.getValue(AXIS) == EnumFacing.Axis.Y ? BlockFaceShape.MIDDLE_POLE : BlockFaceShape.UNDEFINED; }
 
     @SideOnly(Side.CLIENT)
     public BlockRenderLayer getRenderLayer()

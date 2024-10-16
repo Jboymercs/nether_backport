@@ -1,9 +1,7 @@
 package com.unseen.nb.common.blocks;
 
 import com.unseen.nb.common.blocks.base.BlockBase;
-import com.unseen.nb.init.ModBlocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
@@ -11,6 +9,7 @@ import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -34,16 +33,12 @@ public class BlockSoulLantern extends BlockBase {
 
     @Override
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
-    {
-        return super.canPlaceBlockAt(worldIn, pos) && isValidBlock(worldIn, pos, worldIn.getBlockState(pos.up())) || isValidBlock(worldIn, pos, worldIn.getBlockState(pos.down()));
-    }
+    { return isValidBlock(worldIn, pos, worldIn.getBlockState(pos.up()), true) || isValidBlock(worldIn, pos, worldIn.getBlockState(pos.down()), false); }
 
     @Deprecated
     @Override
     public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
-    {
-        return BlockFaceShape.UNDEFINED;
-    }
+    { return BlockFaceShape.UNDEFINED; }
 
     @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
@@ -54,6 +49,21 @@ public class BlockSoulLantern extends BlockBase {
     @Deprecated
     public boolean isTopSolid(IBlockState state)
     {
+        return false;
+    }
+
+    /**
+     * If a Lantern can be placed against this block.
+     *
+     * `hanging` bool defines which faces to check when it comes to shape
+     * */
+    public boolean isValidBlock(World worldIn, BlockPos pos, IBlockState state, boolean hanging)
+    {
+        if (state.getBlock() instanceof BlockShulkerBox) return true;
+        if (state.getBlock() instanceof BlockAnvil) return true;
+        if (state.getBlock().canPlaceTorchOnTop(state, worldIn, pos)) return true;
+        BlockFaceShape shape = state.getBlockFaceShape(worldIn, pos, hanging ? EnumFacing.DOWN : EnumFacing.UP);
+        if (shape != BlockFaceShape.BOWL && shape != BlockFaceShape.UNDEFINED) return true;
         return false;
     }
 
@@ -68,9 +78,23 @@ public class BlockSoulLantern extends BlockBase {
         return this.getStateFromMeta(meta);
     }
 
-    protected boolean isValidBlock(World world, BlockPos pos, IBlockState blockState) {
-        return blockState.isSideSolid(world, pos, EnumFacing.DOWN) || blockState.isSideSolid(world, pos, EnumFacing.UP) || world.getBlockState(pos.up()) == ModBlocks.CHAINS.getDefaultState();
+    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
+    {
+        super.neighborChanged(state, worldIn, pos, blockIn, fromPos);
+        this.checkAndDropBlock(worldIn, pos, state);
     }
+
+    protected void checkAndDropBlock(World worldIn, BlockPos pos, IBlockState state)
+    {
+        if (!this.canBlockStay(worldIn, pos, state))
+        {
+            this.dropBlockAsItem(worldIn, pos, state, 0);
+            worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
+        }
+    }
+
+    public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state)
+    { return state.getValue(IS_HANGING) ? isValidBlock(worldIn, pos, worldIn.getBlockState(pos.up()), true) : isValidBlock(worldIn, pos, worldIn.getBlockState(pos.down()), false); }
 
     @Override
     protected BlockStateContainer createBlockState() {
