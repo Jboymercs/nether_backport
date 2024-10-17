@@ -28,6 +28,13 @@ public class BlockBase extends Block implements IHasModel {
         setSoundType(soundType);
     }
 
+    /** An easy method for setting up harvesting per individual block that extends this */
+    public BlockBase setHarvestInfo(String tool, int level)
+    {
+        this.setHarvestLevel(tool, level);
+        return this;
+    }
+
     @Override
     public void registerModels() {
         Main.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");

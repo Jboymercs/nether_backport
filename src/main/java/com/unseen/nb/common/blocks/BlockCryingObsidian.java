@@ -17,10 +17,7 @@ import java.util.Random;
 public class BlockCryingObsidian extends BlockBase
 {
     public BlockCryingObsidian(String name, Material material, float hardness, float resistance, SoundType soundType)
-    {
-        super(name, material, hardness, resistance, soundType);
-        setHarvestLevel("pickaxe", 3);
-    }
+    { super(name, material, hardness, resistance, soundType); }
 
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand)

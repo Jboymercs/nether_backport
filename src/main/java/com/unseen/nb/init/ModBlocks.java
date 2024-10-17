@@ -14,6 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ModBlocks {
+
+    public static final float BASALT_HARDNESS = 1.25f;
+    public static final float BASALT_RESISTANCE = 7.0F;
+
     public static final float STONE_HARDNESS = 1.7f;
     public static final float STONE_RESISTANCE = 10f;
 
@@ -76,19 +80,19 @@ public class ModBlocks {
     public static final Block POLISHED_BRICKS_STONE_WALL = new BlockNetherWall("bricks_stone_wall", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE, CreativeTabs.DECORATIONS);
 
 
-    public static final Block SOUL_SOIL = new BlockBase("soul_soil", Material.GROUND, WOOD_HARDNESS, WOOD_RESISTANCE, NBSoundTypes.SOUL_SOIL).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block SOUL_SOIL = new BlockBase("soul_soil", Material.SAND, 0.5F, 0.5F, NBSoundTypes.SOUL_SOIL).setHarvestInfo("shovel", 0).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
-    public static final Block BASALT = new BlockPillarBase("basalt", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.BASALT).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block BASALT = new BlockPillarBase("basalt", Material.ROCK, BASALT_HARDNESS, BASALT_RESISTANCE, NBSoundTypes.BASALT).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
-    public static final Block POLISHED_BASALT = new BlockPillarBase("polished_basalt", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.BASALT).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block POLISHED_BASALT = new BlockPillarBase("polished_basalt", Material.ROCK, BASALT_HARDNESS, BASALT_RESISTANCE, NBSoundTypes.BASALT).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
-    public static final Block SMOOTH_BASALT = new BlockBase("smooth_basalt", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.BASALT).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-    public static final Block CRYING_OBSIDIAN = new BlockCryingObsidian("cry_obi", Material.ROCK, OBSIDIAN_HARDNESS, OBSIDIAN_RESISTANCE, SoundType.STONE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS).setLightLevel(0.7F);
+    public static final Block SMOOTH_BASALT = new BlockBase("smooth_basalt", Material.ROCK, BASALT_HARDNESS, BASALT_RESISTANCE, NBSoundTypes.BASALT).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block CRYING_OBSIDIAN = new BlockCryingObsidian("cry_obi", Material.ROCK, OBSIDIAN_HARDNESS, OBSIDIAN_RESISTANCE, SoundType.STONE).setHarvestInfo("pickaxe", 3).setCreativeTab(CreativeTabs.BUILDING_BLOCKS).setLightLevel(0.7F);
 
 
     public static final Block GILDED_BLACKSTONE = new BlockGildedBlackstone("gilded_blackstone", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.NETHER_ORE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
-    public static Block NETHER_GOLD_ORE = new BlockNetherOre("nether_gold_ore", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.NETHER_ORE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static Block NETHER_GOLD_ORE = new BlockNetherOre("nether_gold_ore", Material.ROCK, 3.0F, 5.0F, NBSoundTypes.NETHER_ORE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
     public static Block BLACK_STONE = new BlockBase("black_stone", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
@@ -108,7 +112,7 @@ public class ModBlocks {
 
     public static Block LODE_STONE = new BlockLodeStone("lode_stone", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.LODE_STONE).setCreativeTab(CreativeTabs.DECORATIONS);
 
-    public static Block RESPAWN_ANCHOR = new BlockRespawnAnchor("respawn_anchor", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(CreativeTabs.DECORATIONS);
+    public static Block RESPAWN_ANCHOR = new BlockRespawnAnchor("respawn_anchor", Material.ROCK, OBSIDIAN_HARDNESS, OBSIDIAN_RESISTANCE, SoundType.STONE).setHarvestInfo("pickaxe", 3).setCreativeTab(CreativeTabs.DECORATIONS);
 
     public static Block SHROOMLIGHT = new BlockBase("shroom_light", Material.GRASS, WOOD_HARDNESS, WOOD_RESISTANCE, NBSoundTypes.SHROOM_LIGHT).setCreativeTab(CreativeTabs.DECORATIONS).setLightLevel(1.0F);
 
