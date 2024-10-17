@@ -72,7 +72,7 @@ public class EntityHoglin extends EntityNetherAnimalBase implements IAttack, IAn
     @Override
     public boolean getCanSpawnHere()
     {
-        return true;
+       return true;
     }
     public boolean convertTooZombie = false;
     @Override
@@ -250,11 +250,8 @@ public class EntityHoglin extends EntityNetherAnimalBase implements IAttack, IAn
 
     @Override
     protected boolean canDespawn() {
-        if(this.isInsideBastion()) {
-            return false;
-        }
         // Edit this to restricting them not despawning in Dungeons
-        return this.ticksExisted > 20 * 60 * 20;
+        return false;
 
     }
 
@@ -282,6 +279,12 @@ public class EntityHoglin extends EntityNetherAnimalBase implements IAttack, IAn
         return 20;
     }
 
+
+    @Override
+    public float getBlockPathWeight(BlockPos pos)
+    {
+        return 0.0F;
+    }
 
     private static final ResourceLocation LOOT = new ResourceLocation(ModReference.MOD_ID, "hoglin");
 

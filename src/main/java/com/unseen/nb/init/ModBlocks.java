@@ -131,7 +131,7 @@ public class ModBlocks {
 
     public static Block CHAINS = new BlockChainNew("chain_block", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.CHAIN).setCreativeTab(CreativeTabs.DECORATIONS);
 
-    public static Block SOUL_LANTERN = new BlockSoulLantern("soul_lantern", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.LANTERN).setCreativeTab(CreativeTabs.DECORATIONS).setLightLevel(1.0F);
+    public static Block SOUL_LANTERN = new BlockSoulLantern("soul_lantern", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.LANTERN).setCreativeTab(CreativeTabs.DECORATIONS).setLightLevel(0.7F);
     public static Block SOUL_TORCH = new BlockSoulTorch("soul_torch").setLightLevel(0.7F);
 
 

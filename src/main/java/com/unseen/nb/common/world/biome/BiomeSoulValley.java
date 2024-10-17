@@ -78,7 +78,7 @@ public class BiomeSoulValley extends Biome implements INetherBiome, INetherAPIRe
         this.spawnableMonsterList.add(new SpawnListEntry(EntityEnderman.class, 4, 1, 1));
         this.spawnableMonsterList.add(new SpawnListEntry(EntitySkeleton.class, 40, 1, 2));
         this.spawnableMonsterList.add(new SpawnListEntry(EntityGhast.class, 36, 1, 2));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityStrider.class, 40, 2, 4));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityStrider.class, 60, 2, 4));
         //Add Strider weight 10, min 2, max 4
         this.topBlock = CRIMSON_FLOOR;
         random = new Random();

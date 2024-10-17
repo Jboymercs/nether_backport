@@ -40,4 +40,9 @@ public class ModConfig {
     @Config.RequiresMcRestart
     public static boolean disableBasaltDeltas = false;
 
+    @Config.Name("Disable Netherite Anvil Recipes")
+    @Config.Comment("When set to true, this will disable all netherite anvil recipes for modpack users that wish creating netherite gear through a different route")
+    @Config.RequiresMcRestart
+    public static boolean disableAnvilRecipes = false;
+
 }

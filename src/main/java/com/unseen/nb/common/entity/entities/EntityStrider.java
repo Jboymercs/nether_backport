@@ -17,6 +17,7 @@ import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -39,6 +40,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
+import org.lwjgl.Sys;
 
 import javax.annotation.Nullable;
 import java.util.Set;
@@ -68,6 +70,7 @@ public class EntityStrider extends EntityAnimal {
         this.isImmuneToFire = true;
         this.setSize(0.9F, 1.7F);
         this.experienceValue = 2;
+        this.spawnableBlock = Blocks.LAVA;
     }
 
     @Override
@@ -81,7 +84,7 @@ public class EntityStrider extends EntityAnimal {
     @Override
     public void onUpdate() {
         super.onUpdate();
-
+      
         if (this.isTempted() && this.rand.nextInt(140) == 0) {
             this.playSound(ModSoundHandler.STRIDER_WARBLE, 1.0F, this.getSoundPitch());
         } else if (this.isPanicing() && this.rand.nextInt(60) == 0) {
@@ -254,20 +257,6 @@ public class EntityStrider extends EntityAnimal {
     }
 
     @Override
-    public boolean getCanSpawnHere() {
-        // Check if it's in the Basalt Deltas, we want these to spawn at any height in the Deltas
-        if(world.getBiomeForCoordsBody(getPosition()) == BiomeRegister.BASALT_DELTAS) {
-            return true;
-        }
-        // Check For Lava
-        if(this.posY <= 38) {
-            return true;
-        }
-
-        return super.getCanSpawnHere();
-    }
-
-    @Override
     @Nullable
     public Entity getControllingPassenger() {
         return this.getPassengers().isEmpty() ? null : this.getPassengers().get(0);
@@ -360,6 +349,8 @@ public class EntityStrider extends EntityAnimal {
         }
     }
 
+
+
     public double getMountedYOffset() {
         float f = Math.min(0.25F, this.limbSwingAmount);
         float f1 = this.limbSwing;
@@ -385,6 +376,31 @@ public class EntityStrider extends EntityAnimal {
     @Override
     public boolean isBreedingItem(ItemStack stack) {
         return TEMPTATION_ITEMS.contains(stack.getItem());
+    }
+
+
+    @Override
+    public boolean getCanSpawnHere() {
+        // Check if it's in the Basalt Deltas, we want these to spawn at any height in the Deltas
+        int i = MathHelper.floor(this.posX);
+        int j = MathHelper.floor(this.getEntityBoundingBox().minY);
+        int k = MathHelper.floor(this.posZ);
+        BlockPos blockpos = new BlockPos(i, j, k);
+
+
+        return this.world.getBlockState(blockpos.down()).getMaterial() == Material.LAVA;
+    }
+
+    @Override
+    public float getBlockPathWeight(BlockPos pos)
+    {
+        return this.world.getBlockState(pos).getMaterial() == Material.LAVA ? 10.0F : super.getBlockPathWeight(pos);
+    }
+
+    @Override
+    public boolean isNotColliding()
+    {
+    return this.world.checkNoEntityCollision(this.getEntityBoundingBox(), this);
     }
 
 

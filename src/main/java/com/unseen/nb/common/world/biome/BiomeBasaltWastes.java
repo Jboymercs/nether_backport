@@ -64,7 +64,7 @@ public class BiomeBasaltWastes extends Biome implements INetherBiome, INetherAPI
         this.spawnableCaveCreatureList.clear();
         this.spawnableMonsterList.add(new SpawnListEntry(EntityMagmaCube.class, 100, 2, 5));
         this.spawnableMonsterList.add(new SpawnListEntry(EntityGhast.class, 40, 1, 2));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityStrider.class, 40, 2, 4));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityStrider.class, 60, 2, 4));
         this.topBlock = CRIMSON_FLOOR;
         random = new Random();
     }

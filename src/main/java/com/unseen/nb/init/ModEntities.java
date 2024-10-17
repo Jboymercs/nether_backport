@@ -51,8 +51,9 @@ public class ModEntities {
 
     public static void RegisterEntitySpawns() {
     spawnRateBiomeSpecific(EntityPiglin.class, EnumCreatureType.MONSTER, 15, 2, 4, Biomes.HELL);
-    spawnRateBiomeSpecific(EntityStrider.class, EnumCreatureType.CREATURE, 10, 1, 2, Biomes.HELL);
+    spawnRateBiomeSpecific(EntityStrider.class, EnumCreatureType.CREATURE, 60, 1, 2, Biomes.HELL);
     spawnRateBiomeSpecific(EntityPiglinZombie.class, EnumCreatureType.MONSTER, 50, 2, 4, Biomes.HELL);
+    //spawnRateBiomeSpecific(EntityHoglin.class, EnumCreatureType.CREATURE, 60, 3, 4, BiomeRegister.CRIMSON_FOREST);
 
     }
 

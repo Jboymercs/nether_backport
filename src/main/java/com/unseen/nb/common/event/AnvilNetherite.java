@@ -1,5 +1,6 @@
 package com.unseen.nb.common.event;
 
+import com.unseen.nb.config.ModConfig;
 import com.unseen.nb.init.ModItems;
 import com.unseen.nb.init.ModItemsCompat;
 import com.unseen.nb.util.ModReference;
@@ -21,6 +22,7 @@ public class AnvilNetherite {
     @SubscribeEvent
     public static void addNetheriteAnvilRecipes(AnvilUpdateEvent event) {
 
+        if(!ModConfig.disableAnvilRecipes) {
         ItemStack leftInput = event.getLeft();
         ItemStack rightInput = event.getRight();
         ItemStack output = event.getOutput();
@@ -62,6 +64,7 @@ public class AnvilNetherite {
                 }
             }
 
+        }
         }
     }
 

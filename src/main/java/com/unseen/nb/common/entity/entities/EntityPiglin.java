@@ -446,7 +446,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
                         player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() != Items.GOLDEN_LEGGINGS && player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() != Items.GOLDEN_BOOTS) {
                     if(this.getAttackTarget() != player) {
                         if(!player.isSpectator() && !player.isCreative() && this.getAttackTarget() == null) {
-                            canTrade = false;
+                            //canTrade = false;
                             this.createTargetFor(player);
                             this.setAttackTarget(player);
                         }
