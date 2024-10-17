@@ -7,6 +7,7 @@ import com.unseen.nb.init.ModItems;
 import com.unseen.nb.init.ModSoundHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFire;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
@@ -16,6 +17,7 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -44,6 +46,7 @@ public class BlockSoulFire extends BlockFire implements IHasModel {
         this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, Integer.valueOf(0)).withProperty(NORTH, Boolean.valueOf(false)).withProperty(EAST, Boolean.valueOf(false)).withProperty(SOUTH, Boolean.valueOf(false)).withProperty(WEST, Boolean.valueOf(false)).withProperty(UPPER, Boolean.valueOf(false)));
         this.setTickRandomly(true);
         this.setCreativeTab(tab);
+        setSoundType(SoundType.CLOTH);
         this.setRegistryName(name);
         this.setTranslationKey(name);
         ModBlocks.BLOCKS.add(this);
@@ -104,15 +107,19 @@ public class BlockSoulFire extends BlockFire implements IHasModel {
             worldIn.setBlockToAir(pos);
         }
     }
+
     @Override
     public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
     {
         if(entityIn.isImmuneToFire()) return;
 
-        entityIn.attackEntityFrom(DamageSource.IN_FIRE, 2.0F);
-        if(!worldIn.isRemote) {
-            entityIn.setFire(8);
+        if (entityIn instanceof EntityPlayer)
+        {
+            if (((EntityPlayer) entityIn).capabilities.isCreativeMode) return;
         }
+
+        entityIn.attackEntityFrom(DamageSource.IN_FIRE, 2.0F);
+        if(!worldIn.isRemote) entityIn.setFire(8);
 
         super.onEntityCollision(worldIn, pos, state, entityIn);
     }

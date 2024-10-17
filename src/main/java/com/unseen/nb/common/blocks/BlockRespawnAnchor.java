@@ -85,6 +85,14 @@ public class BlockRespawnAnchor extends BlockBase
         return (Integer) state.getValue(CHARGES);
     }
 
+    public int getComparatorInputOverride(IBlockState blockState, World worldIn, BlockPos pos)
+    { return Math.max(0, 4 * blockState.getValue(CHARGES) - 1); }
+
+    public boolean hasComparatorInputOverride(IBlockState state)
+    {
+        return true;
+    }
+
     protected BlockStateContainer createBlockState()
     {
         return new BlockStateContainer(this, new IProperty[] {CHARGES});

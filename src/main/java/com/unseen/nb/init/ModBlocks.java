@@ -37,8 +37,8 @@ public class ModBlocks {
     public static final Block WARPED_STEM = new BlockLogBase("warped_stem",  WOOD_HARDNESS, WOOD_RESISTANCE, NBSoundTypes.STEM_TYPE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     public static final Block CRIMSON_STEM = new BlockLogBase("crimson_stem", WOOD_HARDNESS, WOOD_RESISTANCE, NBSoundTypes.STEM_TYPE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
-    public static final Block CRIMSON_WART = new BlockBase("crimson_wart", Material.GRASS, WOOD_HARDNESS, WOOD_RESISTANCE, NBSoundTypes.WART).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-    public static final Block WARPED_WART = new BlockBase("warped_wart", Material.GRASS, WOOD_HARDNESS, WOOD_RESISTANCE, NBSoundTypes.WART).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block CRIMSON_WART = new BlockBase("crimson_wart", Material.GRASS, 1.0F, 1.0F, NBSoundTypes.WART).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block WARPED_WART = new BlockBase("warped_wart", Material.GRASS, 1.0F, 1.0F, NBSoundTypes.WART).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
     public static final Block CRIMSON_PLANKS = new BlockBase("crimson_planks", Material.ROCK, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     public static final Block WARPED_PLANKS = new BlockBase("warped_planks", Material.ROCK, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
@@ -110,11 +110,11 @@ public class ModBlocks {
 
     public static Block BLACK_STONE_BRICK_STAIRS = new BlockStairBase("black_stone_brick_stairs", ModBlocks.BLACK_STONE_BRICKS.getDefaultState(), STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
-    public static Block LODE_STONE = new BlockLodeStone("lode_stone", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.LODE_STONE).setCreativeTab(CreativeTabs.DECORATIONS);
+    public static Block LODE_STONE = new BlockLodeStone("lode_stone", Material.ROCK, 3.5F, 3.5F, NBSoundTypes.LODE_STONE).setCreativeTab(CreativeTabs.DECORATIONS);
 
     public static Block RESPAWN_ANCHOR = new BlockRespawnAnchor("respawn_anchor", Material.ROCK, OBSIDIAN_HARDNESS, OBSIDIAN_RESISTANCE, SoundType.STONE).setHarvestInfo("pickaxe", 3).setCreativeTab(CreativeTabs.DECORATIONS);
 
-    public static Block SHROOMLIGHT = new BlockBase("shroom_light", Material.GRASS, WOOD_HARDNESS, WOOD_RESISTANCE, NBSoundTypes.SHROOM_LIGHT).setCreativeTab(CreativeTabs.DECORATIONS).setLightLevel(1.0F);
+    public static Block SHROOMLIGHT = new BlockBase("shroom_light", Material.GRASS, 1.0F, 1.0F, NBSoundTypes.SHROOM_LIGHT).setCreativeTab(CreativeTabs.DECORATIONS).setLightLevel(1.0F);
 
     public static Block QUARTZ_BRICKS = new BlockBase("quartz_bricks", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     public static Block CRIMSON_FUNGUS = new BlockCrimsonFungusTree("crimson_fungus", Material.PLANTS, NBSoundTypes.HYPHAE);
@@ -131,11 +131,11 @@ public class ModBlocks {
 
     public static Block WARPED_VINES = new BlockVineUpBase("warped_vine", Material.PLANTS, NBSoundTypes.ROOTS);
 
-    public static Block SOUL_FIRE = new BlockSoulFire(CreativeTabs.DECORATIONS, "soul_fire").setLightLevel(1.0F);
+    public static Block SOUL_FIRE = new BlockSoulFire(CreativeTabs.DECORATIONS, "soul_fire").setLightLevel(0.7F);
 
     public static Block CHAINS = new BlockChainNew("chain_block", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.CHAIN).setCreativeTab(CreativeTabs.DECORATIONS);
 
-    public static Block SOUL_LANTERN = new BlockSoulLantern("soul_lantern", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.LANTERN).setCreativeTab(CreativeTabs.DECORATIONS).setLightLevel(0.7F);
+    public static Block SOUL_LANTERN = new BlockSoulLantern("soul_lantern", Material.ROCK, 3.5F, 3.5F, NBSoundTypes.LANTERN).setCreativeTab(CreativeTabs.DECORATIONS).setLightLevel(0.7F);
     public static Block SOUL_TORCH = new BlockSoulTorch("soul_torch").setLightLevel(0.7F);
 
 

@@ -37,10 +37,11 @@ import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.Nullable;
+import javax.annotation.Nonnull;
+import java.util.List;
 import java.util.Random;
 
-public class BlockVineBase extends BlockBush implements IGrowable, IHasModel, RegistryHandler.IStateMappedBlock, IPlantable {
+public class BlockVineBase extends BlockBush implements IGrowable, IHasModel, RegistryHandler.IStateMappedBlock, IPlantable, net.minecraftforge.common.IShearable {
     protected static final AxisAlignedBB CRYSTAL_AABB = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 1.0D, 0.9D);
 
     public static final PropertyBool IS_BOTTOM = PropertyBool.create("is_bottom");
@@ -71,11 +72,30 @@ public class BlockVineBase extends BlockBush implements IGrowable, IHasModel, Re
     public boolean isBottom(IBlockAccess worldIn, BlockPos pos)
     { return worldIn.getBlockState(pos.down()).getBlock() != this; }
 
+    /** 33% chance to drop, +11% per Fortune level, Fortune 3 or above sets to 100% chance */
     @Override
-    @Nullable
-    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return null;
+    public void getDrops(net.minecraft.util.NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
+    {
+        Random rand = world instanceof World ? ((World)world).rand : new Random();
+        int chance = 33 + fortune * 11;
+        if (fortune >= 3) chance = 100;
+
+        if (rand.nextInt(100) < chance)
+        {
+            ItemStack drop = new ItemStack(getItemDropped(state, rand, fortune), 1, damageDropped(state));
+            if (!drop.isEmpty()) drops.add(drop);
+        }
     }
+
+    /** Allows obtaining via Shears */
+    @Override
+    public boolean isShearable(@Nonnull ItemStack item, IBlockAccess world, BlockPos pos)
+    { return true; }
+
+    @Nonnull
+    @Override
+    public List<ItemStack> onSheared(@Nonnull ItemStack item, IBlockAccess world, BlockPos pos, int fortune)
+    { return java.util.Arrays.asList(new ItemStack(this, 1)); }
 
     @Override
     public boolean canPlaceBlockAt(World world, BlockPos pos)
@@ -119,7 +139,7 @@ public class BlockVineBase extends BlockBush implements IGrowable, IHasModel, Re
         int currentAge = state.getValue(AGE);
         if(isBottom(worldIn, pos) && currentAge < 15 && rand.nextInt(16) == 0 && worldIn.isAirBlock(pos.down()))
         {
-            grow(worldIn, rand, pos, state);
+            growDown(worldIn, rand, pos, state, false);
         }
     }
 
@@ -210,15 +230,15 @@ public class BlockVineBase extends BlockBush implements IGrowable, IHasModel, Re
             /* If growth is occurring NOT at a Vine top (via Bonemeal), climb to and preform the growth at said top. */
             if (!isBottom(worldIn, pos)) growthPos = findBottomPos(worldIn, pos);
 
-            growUp(worldIn, rand, growthPos, state, true);
+            growDown(worldIn, rand, growthPos, state, true);
         }
     }
 
     /**
-     * Grows the Weeping Vine up by 1.
+     * Grows the Weeping Vine down by 1.
      * `randomizeAge` bool sets if the age of the added part is either Randomized, or the below Vine's Age +1
      * */
-    public void growUp(World worldIn, Random rand, BlockPos pos, IBlockState state, boolean randomizeAge)
+    public void growDown(World worldIn, Random rand, BlockPos pos, IBlockState state, boolean randomizeAge)
     {
         int currentAge = worldIn.getBlockState(pos).getValue(AGE);
 

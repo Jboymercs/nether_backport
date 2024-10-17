@@ -34,14 +34,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.List;
 import java.util.Random;
 
-public class BlockVineUpBase extends BlockBush implements IGrowable, IHasModel, RegistryHandler.IStateMappedBlock{
+public class BlockVineUpBase extends BlockBush implements IGrowable, IHasModel, RegistryHandler.IStateMappedBlock, net.minecraftforge.common.IShearable{
     protected static final AxisAlignedBB CRYSTAL_AABB = new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 1.0D, 0.75D);
     public static final PropertyBool IS_TOP = PropertyBool.create("is_top");
     public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 15);
@@ -77,9 +78,30 @@ public class BlockVineUpBase extends BlockBush implements IGrowable, IHasModel, 
     public boolean isTop(IBlockAccess worldIn, BlockPos pos)
     { return worldIn.getBlockState(pos.up()).getBlock() != this; }
 
+    /** 33% chance to drop, +11% per Fortune level, Fortune 3 or above sets to 100% chance */
     @Override
-    @Nullable
-    public Item getItemDropped(IBlockState state, Random rand, int fortune) { return null; }
+    public void getDrops(net.minecraft.util.NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
+    {
+        Random rand = world instanceof World ? ((World)world).rand : new Random();
+        int chance = 33 + fortune * 11;
+        if (fortune >= 3) chance = 100;
+
+        if (rand.nextInt(100) < chance)
+        {
+            ItemStack drop = new ItemStack(getItemDropped(state, rand, fortune), 1, damageDropped(state));
+            if (!drop.isEmpty()) drops.add(drop);
+        }
+    }
+
+    /** Allows obtaining via Shears */
+    @Override
+    public boolean isShearable(@Nonnull ItemStack item, IBlockAccess world, BlockPos pos)
+    { return true; }
+
+    @Nonnull
+    @Override
+    public List<ItemStack> onSheared(@Nonnull ItemStack item, IBlockAccess world, BlockPos pos, int fortune)
+    { return java.util.Arrays.asList(new ItemStack(this, 1)); }
 
     @Override
     public boolean canPlaceBlockAt(World world, BlockPos pos)
