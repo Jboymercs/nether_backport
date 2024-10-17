@@ -102,7 +102,8 @@ public class ItemLodeStoneCompass extends ItemCompass implements IHasModel {
                     blockPos = new BlockPos(getPos(stack)[0], getPos(stack)[1], getPos(stack)[2]);
                 }
 
-                return Math.atan2((double)blockPos.getZ() - entity.posZ, (double)blockPos.getX() - entity.posX);
+                /* +0.5 to the X and Z when rendering the compass angle, so the compass points to the center of the Lodestone Block */
+                return Math.atan2(((double)blockPos.getZ() + 0.5) - entity.posZ, ((double)blockPos.getX() + 0.5) - entity.posX);
             }
         });
 

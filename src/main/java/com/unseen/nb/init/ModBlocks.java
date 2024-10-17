@@ -36,8 +36,8 @@ public class ModBlocks {
     public static final Block CRIMSON_WART = new BlockBase("crimson_wart", Material.GRASS, WOOD_HARDNESS, WOOD_RESISTANCE, NBSoundTypes.WART).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     public static final Block WARPED_WART = new BlockBase("warped_wart", Material.GRASS, WOOD_HARDNESS, WOOD_RESISTANCE, NBSoundTypes.WART).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
-    public static final Block CRIMSON_PLANKS = new BlockBase("crimson_planks", Material.WOOD, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-    public static final Block WARPED_PLANKS = new BlockBase("warped_planks", Material.WOOD, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block CRIMSON_PLANKS = new BlockBase("crimson_planks", Material.ROCK, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block WARPED_PLANKS = new BlockBase("warped_planks", Material.ROCK, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
     public static final Block CRIMSON_STAIRS = new BlockStairBase("crimson_stairs", CRIMSON_PLANKS.getDefaultState(), WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     public static final Block WARPED_STAIRS = new BlockStairBase("warped_stairs", WARPED_PLANKS.getDefaultState(), WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);

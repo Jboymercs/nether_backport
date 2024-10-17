@@ -22,9 +22,9 @@ public class ModBlocksCompat {
     public static final float OBSIDIAN_RESISTANCE = 2000;
     public static final List<Block> BLOCKS = new ArrayList<Block>();
 
-    public static final Block NETHERITE_BLOCK = new BlockBaseCompat("netherite_block", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.NETHERITE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block NETHERITE_BLOCK = new BlockBaseCompat("netherite_block", Material.ROCK, 50, 2000, NBSoundTypes.NETHERITE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
-    public static final Block NETHERITE_ORE = new BlockBaseCompat("netherite_ore", Material.ROCK, OBSIDIAN_HARDNESS, OBSIDIAN_RESISTANCE, NBSoundTypes.ANCIENT_DEBRIS).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block NETHERITE_ORE = new BlockBaseCompat("netherite_ore", Material.ROCK, 30, 2000, NBSoundTypes.ANCIENT_DEBRIS).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
 
 }

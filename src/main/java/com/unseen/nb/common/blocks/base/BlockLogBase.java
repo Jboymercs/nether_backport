@@ -8,6 +8,7 @@ import net.minecraft.block.BlockLog;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -22,7 +23,6 @@ public class BlockLogBase extends BlockLog implements IHasModel {
         setTranslationKey(name);
         setRegistryName(name);
         this.setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
-
         // Add both an item as a block and the block itself
         ModBlocks.BLOCKS.add(this);
         ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
@@ -34,6 +34,11 @@ public class BlockLogBase extends BlockLog implements IHasModel {
         setResistance(resistance);
         setSoundType(soundType);
     }
+
+    /** We are Overriding the material, as inheriting from `BlockLog` tries making it `Material.WOOD`, but we don't want the flammability of that! */
+    @Override
+    public Material getMaterial(IBlockState state)
+    { return Material.ROCK; }
 
     @Override
     public void registerModels() {
