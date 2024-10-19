@@ -1,6 +1,7 @@
 package com.unseen.nb.proxy;
 
 import com.unseen.nb.client.animation.IAnimatedEntity;
+import com.unseen.nb.client.particles.ParticleInversePortal;
 import com.unseen.nb.client.particles.ParticleObsidianTear;
 import com.unseen.nb.client.particles.ParticleSoul;
 import com.unseen.nb.client.particles.ParticleSoulFlame;
@@ -69,6 +70,8 @@ public class ClientProxy extends CommonProxy{
                 return new ParticleObsidianTear.Factory();
             case 1:
                 return new ParticleSoulFlame.Factory();
+            case 2:
+                return new ParticleInversePortal.Factory();
         }
     }
 

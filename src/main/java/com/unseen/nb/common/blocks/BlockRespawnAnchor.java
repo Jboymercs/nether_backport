@@ -1,5 +1,6 @@
 package com.unseen.nb.common.blocks;
 
+import com.unseen.nb.Main;
 import com.unseen.nb.common.blocks.base.BlockBase;
 import com.unseen.nb.common.capabilities.CapabilityRespawnAnchor;
 import com.unseen.nb.init.ModSoundHandler;
@@ -12,14 +13,20 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.Random;
 
 public class BlockRespawnAnchor extends BlockBase
 {
@@ -39,7 +46,7 @@ public class BlockRespawnAnchor extends BlockBase
     {
         boolean inNether = worldIn.provider.getDimension() == -1;
 
-        if (!inNether && false)
+        if (!inNether)
         {
             worldIn.setBlockToAir(pos);
             worldIn.newExplosion((Entity)null, (double)pos.getX() + 0.5D, (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D, 5.0F, true, true);
@@ -78,12 +85,36 @@ public class BlockRespawnAnchor extends BlockBase
         }
     }
 
+    @SideOnly(Side.CLIENT)
+    public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand)
+    {
+        /* No fancy stuff if the Anchor isn't even on! */
+        if (stateIn.getValue(CHARGES) == 0) return;
+
+        if (rand.nextInt(100) == 0)
+        {
+            worldIn.playSound((double)pos.getX() + 0.5D, (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D, ModSoundHandler.RESPAWN_ANCHOR_AMBIENT, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
+        }
+
+        if (!worldIn.getBlockState(pos.offset(EnumFacing.UP)).isOpaqueCube())
+        {
+            for (int i = 0; i < 4; ++i)
+            {
+
+                double x = pos.getX() + 0.5 + (((worldIn.rand.nextDouble() * 0.8) - 0.4));
+                double z = pos.getZ() + 0.5 + (((worldIn.rand.nextDouble() * 0.8) - 0.4));
+
+                //worldIn.spawnParticle(EnumParticleTypes.PORTAL, x, pos.getY()+1, z, 0, rand.nextFloat() + 0.5, 0);
+                Main.proxy.spawnParticle(2, x, pos.getY()+1, z, 0, rand.nextFloat() * 0.01, 0);
+            }
+        }
+    }
+
+
     public IBlockState getStateFromMeta(int meta) { return this.getDefaultState().withProperty(CHARGES, meta); }
 
     public int getMetaFromState(IBlockState state)
-    {
-        return (Integer) state.getValue(CHARGES);
-    }
+    { return (Integer) state.getValue(CHARGES); }
 
     public int getComparatorInputOverride(IBlockState blockState, World worldIn, BlockPos pos)
     { return Math.max(0, 4 * blockState.getValue(CHARGES) - 1); }
