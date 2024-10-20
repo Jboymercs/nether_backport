@@ -40,7 +40,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
-import org.lwjgl.Sys;
+import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 import java.util.Set;
@@ -84,7 +84,7 @@ public class EntityStrider extends EntityAnimal {
     @Override
     public void onUpdate() {
         super.onUpdate();
-      
+
         if (this.isTempted() && this.rand.nextInt(140) == 0) {
             this.playSound(ModSoundHandler.STRIDER_WARBLE, 1.0F, this.getSoundPitch());
         } else if (this.isPanicing() && this.rand.nextInt(60) == 0) {
@@ -387,8 +387,11 @@ public class EntityStrider extends EntityAnimal {
         int k = MathHelper.floor(this.posZ);
         BlockPos blockpos = new BlockPos(i, j, k);
 
+        if(world.getBiomeForCoordsBody(blockpos) == BiomeRegister.BASALT_DELTAS) {
+            return true;
+        }
 
-        return this.world.getBlockState(blockpos.down()).getMaterial() == Material.LAVA;
+        return this.posY < 38;
     }
 
     @Override

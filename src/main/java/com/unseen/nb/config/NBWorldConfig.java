@@ -40,7 +40,7 @@ public class NBWorldConfig {
     public static int bastionHoldChestChance = 7;
 
     @Config.Name("Bastion Remnants & Nether Portal Ruins Biomes Blacklist")
-    @Config.Comment("This list acts as a black list for the remnants & nether portal ruins to NOT spawn in")
+    @Config.Comment("This list acts as a black list for the remnants & nether portal ruins to NOT spawn in, and custom lava lake spawns for Striders")
     @Config.RequiresMcRestart
     public static String[] remnantsBiomesNotAllowed = {"nb:basalt_deltas"};
 

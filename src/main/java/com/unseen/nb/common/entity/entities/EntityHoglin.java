@@ -58,7 +58,7 @@ public class EntityHoglin extends EntityNetherAnimalBase implements IAttack, IAn
     private boolean initChildAI = false;
     public EntityHoglin(World worldIn) {
         super(worldIn);
-        this.setSize(1.9F, 1.8F);
+        this.setSize(1.8F, 1.7F);
         this.experienceValue = 5;
         this.isImmuneToFire = true;
     }

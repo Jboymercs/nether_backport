@@ -147,4 +147,14 @@ public class NBEntitiesConfig {
     @Config.Comment("Change the Armor Toughness of the Strider")
     @Config.RequiresMcRestart
     public static double strider_armor_toughness = 0;
+
+    @Config.Name("Strider Custom Spawnrate")
+    @Config.Comment("This is too help striders spawn in the middle of lava lakes, this is the rate at which they spawn, natural spawns still occur they'll just be on shores, Lower is more frequent, Higher is less")
+    @Config.RequiresMcRestart
+    public static int strider_lava_spawn_rate = 200;
+
+    @Config.Name("Strider Custom Spawnrate Enable/Disable")
+    @Config.Comment("Disable the custom spawnrate in lava lakes")
+    @Config.RequiresMcRestart
+    public static boolean disabledCustomSpawns = false;
 }

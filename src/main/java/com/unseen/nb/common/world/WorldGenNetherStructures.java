@@ -5,7 +5,9 @@ import com.unseen.nb.common.world.bastion.WorldGenBastion;
 import com.unseen.nb.common.world.structures.WorldGenNetherPortal;
 import com.unseen.nb.common.world.structures.WorldGenRuinedPortals;
 import com.unseen.nb.common.world.structures.WorldGenRuinedPortalsGiant;
+import com.unseen.nb.common.world.structures.WorldGenStriderSpawn;
 import com.unseen.nb.config.ModConfig;
+import com.unseen.nb.config.NBEntitiesConfig;
 import com.unseen.nb.config.NBWorldConfig;
 import com.unseen.nb.init.BiomeRegister;
 import com.unseen.nb.util.ModRand;
@@ -44,6 +46,9 @@ public class WorldGenNetherStructures implements IWorldGenerator {
     private static final WorldGenNetherPortal[] list_of_nether_portals = {new WorldGenNetherPortal("nether_portal_1"),new WorldGenNetherPortal("nether_portal_2"),
             new WorldGenNetherPortal("nether_portal_3"),new WorldGenNetherPortal("nether_portal_4"),new WorldGenNetherPortal("nether_portal_5"),
             new WorldGenNetherPortal("nether_portal_6"),new WorldGenNetherPortal("nether_portal_7")};
+
+    private static final WorldGenStriderSpawn strider_spawns = new WorldGenStriderSpawn("strider_spawn");
+
     private int portalSpacing = 0;
     private int netherPortalSpacing = 0;
 
@@ -64,6 +69,10 @@ public class WorldGenNetherStructures implements IWorldGenerator {
                     bastion.generate(world, random, pos);
                 }
 
+                //Custom STrider Spawns
+                if(!NBEntitiesConfig.disabledCustomSpawns) {
+                    strider_spawns.generate(world, random, pos);
+                }
 
                 //Nether Portal Ruins
                 if(NBWorldConfig.nether_ruined_portal_enabled) {
