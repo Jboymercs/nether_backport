@@ -7,6 +7,9 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockRenderLayer;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 import java.util.Random;
@@ -42,4 +45,9 @@ public class BlockNetherOre extends BlockBase {
         else
         { return this.quantityDropped(random); }
     }
+
+    /** Used for Overlay texture. */
+    @SideOnly(Side.CLIENT)
+    public BlockRenderLayer getRenderLayer()
+    { return BlockRenderLayer.CUTOUT_MIPPED; }
 }

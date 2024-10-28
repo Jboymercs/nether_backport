@@ -1,6 +1,38 @@
 {
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "nb:blocks/nether_gold_ore"
-  }
+  "parent": "block/block",
+  "textures":
+  {
+    "cube": "minecraft:blocks/netherrack",
+    "overlay": "nb:blocks/nether_gold_ore",
+    "particle": "minecraft:blocks/netherrack"
+  },
+  "elements":
+  [
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces":
+      {
+        "down":  { "uv": [ 0, 0, 16, 16 ], "texture": "#cube", "cullface": "down"},
+        "up":    { "uv": [ 0, 0, 16, 16 ], "texture": "#cube", "cullface": "up"},
+        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#cube", "cullface": "north"},
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#cube", "cullface": "south"},
+        "west":  { "uv": [ 0, 0, 16, 16 ], "texture": "#cube", "cullface": "west"},
+        "east":  { "uv": [ 0, 0, 16, 16 ], "texture": "#cube", "cullface": "east"}
+      }
+    },
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces":
+      {
+        "down":  { "uv": [ 0, 0, 16, 16 ], "texture": "#overlay", "cullface": "down"},
+        "up":    { "uv": [ 0, 0, 16, 16 ], "texture": "#overlay", "cullface": "up"},
+        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#overlay", "cullface": "north"},
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#overlay", "cullface": "south"},
+        "west":  { "uv": [ 0, 0, 16, 16 ], "texture": "#overlay", "cullface": "west"},
+        "east":  { "uv": [ 0, 0, 16, 16 ], "texture": "#overlay", "cullface": "east"}
+      }
+    }
+  ]
 }
