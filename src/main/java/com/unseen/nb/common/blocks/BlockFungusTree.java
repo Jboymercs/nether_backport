@@ -29,7 +29,7 @@ public class BlockFungusTree extends BlockPlantBase implements IGrowable {
     private final WorldGenNB[] medium_trees = {new WorldGenWarpedTree("m_w_tree_1", 2),new WorldGenWarpedTree("m_w_tree_2", 2), new WorldGenWarpedTree("m_w_tree_3", 2), new WorldGenWarpedTree("m_w_tree_4", 2), new WorldGenWarpedTree("m_w_tree_5", 2) };
 
     private final WorldGenNB[] large_trees = {new WorldGenWarpedTree("l_w_tree_1", 3), new WorldGenWarpedTree("l_w_tree_2", 3), new WorldGenWarpedTree("l_w_tree_3", 3), new WorldGenWarpedTree("l_w_tree_4", 3), new WorldGenWarpedTree("l_w_tree_5", 3)};
-    protected static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
+    protected static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.3D, 0.0D, 0.3D, 0.75D, 0.5D, 0.7D);
 
     public BlockFungusTree(String name, Material materialIn, SoundType soundType) {
         super(name, materialIn, soundType);
