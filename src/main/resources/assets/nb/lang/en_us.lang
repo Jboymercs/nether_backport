@@ -43,6 +43,7 @@ tile.polished_stone_wall.name=Polished Blackstone Wall
 tile.lode_stone.name=Lodestone
 tile.respawn_anchor.name=Respawn Anchor
 tile.respawn_anchor.point_set=Respawn Point set
+tile.respawn_anchor.point_clear=Respawn Point cleared
 tile.respawn_anchor.no_charge=Your respawn anchor has no charge
 tile.respawn_anchor.obstrucuted=Your respawn anchor was obstructed
 tile.respawn_anchor.destroyed=You have no respawn anchor

@@ -42,7 +42,8 @@ import java.util.List;
 import java.util.Random;
 
 public class BlockVineBase extends BlockBush implements IGrowable, IHasModel, RegistryHandler.IStateMappedBlock, IPlantable, net.minecraftforge.common.IShearable {
-    protected static final AxisAlignedBB CRYSTAL_AABB = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 1.0D, 0.9D);
+    protected static final AxisAlignedBB WEEPING_MID = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 1.0D, 0.9D);
+    protected static final AxisAlignedBB WEEPING_BOTTOM = new AxisAlignedBB(0.25D, 0.5625D, 0.25D, 0.75D, 1.0D, 0.75D);
 
     public static final PropertyBool IS_BOTTOM = PropertyBool.create("is_bottom");
     public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 15);
@@ -163,10 +164,8 @@ public class BlockVineBase extends BlockBush implements IGrowable, IHasModel, Re
 
 
     @Override
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-
-        return CRYSTAL_AABB;
-    }
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+    { return isBottom(source, pos) ? WEEPING_BOTTOM : WEEPING_MID; }
 
     @SideOnly(Side.CLIENT)
     public Block.EnumOffsetType getOffsetType() {

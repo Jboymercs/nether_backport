@@ -43,7 +43,9 @@ import java.util.List;
 import java.util.Random;
 
 public class BlockVineUpBase extends BlockBush implements IGrowable, IHasModel, RegistryHandler.IStateMappedBlock, net.minecraftforge.common.IShearable{
-    protected static final AxisAlignedBB CRYSTAL_AABB = new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 1.0D, 0.75D);
+    protected static final AxisAlignedBB TWISTING_MID = new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 1.0D, 0.75D);
+    protected static final AxisAlignedBB TWISTING_TOP = new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 0.9375D, 0.75D);
+
     public static final PropertyBool IS_TOP = PropertyBool.create("is_top");
     public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 15);
 
@@ -170,9 +172,8 @@ public class BlockVineUpBase extends BlockBush implements IGrowable, IHasModel, 
     @Override public boolean isLadder(IBlockState state, IBlockAccess world, BlockPos pos, EntityLivingBase entity) { return true; }
 
     @Override
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-        return CRYSTAL_AABB;
-    }
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+    { return isTop(source, pos) ? TWISTING_TOP : TWISTING_MID; }
 
     @SideOnly(Side.CLIENT)
     public Block.EnumOffsetType getOffsetType() {

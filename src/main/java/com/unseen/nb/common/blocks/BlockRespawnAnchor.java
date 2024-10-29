@@ -16,10 +16,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
@@ -71,14 +68,24 @@ public class BlockRespawnAnchor extends BlockBase
                 {
                     CapabilityRespawnAnchor.ICapabilityRespawnAnchor capWindCharge = playerIn.getCapability(CapabilityRespawnAnchor.RESPAWN_ANCHOR_CAP, null);
 
-                    worldIn.playSound(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, ModSoundHandler.RESPAWN_ANCHOR_SET_SPAWN, SoundCategory.PLAYERS, 1.0F, worldIn.rand.nextFloat() * 0.7F + 0.3F, false);
-                    playerIn.sendStatusMessage(new TextComponentTranslation("tile.respawn_anchor.point_set", new Object[0]), true);
-                    /* The player's Respawn Point gets scrambled, as it isn't used in the Anchor's logic. */
-                    playerIn.setSpawnPoint(null, false);
-                    capWindCharge.setUsedAnchor(true);
-                    capWindCharge.setAnchorPos(pos);
-                    capWindCharge.setPlayerSpawnPos(pos);
-                    capWindCharge.setAnchorDim(worldIn.provider.getDimension());
+                    /** Lets the player clear their Respawn Point, if they do not want it to be set to the Anchor, and don't want ot mine it*/
+                    if (playerIn.isSneaking())
+                    {
+                        worldIn.playSound(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.PLAYERS, 1.0F, worldIn.rand.nextFloat() * 0.7F + 0.3F, false);
+                        playerIn.sendStatusMessage(new TextComponentTranslation("tile.respawn_anchor.point_clear", new Object[0]), true);
+                        capWindCharge.setUsedAnchor(false);
+                    }
+                    else
+                    {
+                        worldIn.playSound(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, ModSoundHandler.RESPAWN_ANCHOR_SET_SPAWN, SoundCategory.PLAYERS, 1.0F, worldIn.rand.nextFloat() * 0.7F + 0.3F, false);
+                        playerIn.sendStatusMessage(new TextComponentTranslation("tile.respawn_anchor.point_set", new Object[0]), true);
+                        /* The player's Respawn Point gets scrambled, as it isn't used in the Anchor's logic. */
+                        playerIn.setSpawnPoint(null, false);
+                        capWindCharge.setUsedAnchor(true);
+                        capWindCharge.setAnchorPos(pos);
+                        capWindCharge.setPlayerSpawnPos(pos);
+                        capWindCharge.setAnchorDim(worldIn.provider.getDimension());
+                    }
                 }
             }
             return true;
