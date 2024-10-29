@@ -3,7 +3,10 @@ package com.unseen.nb.common.blocks;
 import com.unseen.nb.Main;
 import com.unseen.nb.common.blocks.base.BlockBase;
 import com.unseen.nb.common.capabilities.CapabilityRespawnAnchor;
+import com.unseen.nb.config.BlocksConfig;
+import com.unseen.nb.config.ModConfig;
 import com.unseen.nb.init.ModSoundHandler;
+import com.unseen.nb.util.ModUtils;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -41,12 +44,17 @@ public class BlockRespawnAnchor extends BlockBase
 
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
-        boolean inNether = worldIn.provider.getDimension() == -1;
+        boolean inNether = ModUtils.isAllowedDimension(worldIn);
 
         if (!inNether)
         {
-            worldIn.setBlockToAir(pos);
-            worldIn.newExplosion((Entity)null, (double)pos.getX() + 0.5D, (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D, 5.0F, true, true);
+            if(BlocksConfig.doesAnchorExplode) {
+                worldIn.setBlockToAir(pos);
+                worldIn.newExplosion((Entity)null, (double)pos.getX() + 0.5D, (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D, 5.0F, true, true);
+            } else {
+                playerIn.sendStatusMessage(new TextComponentTranslation("tile.respawn_anchor.blocked", new Object[0]), true);
+            }
+
             return true;
         }
         else
@@ -77,14 +85,14 @@ public class BlockRespawnAnchor extends BlockBase
                     }
                     else
                     {
-                        worldIn.playSound(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, ModSoundHandler.RESPAWN_ANCHOR_SET_SPAWN, SoundCategory.PLAYERS, 1.0F, worldIn.rand.nextFloat() * 0.7F + 0.3F, false);
-                        playerIn.sendStatusMessage(new TextComponentTranslation("tile.respawn_anchor.point_set", new Object[0]), true);
-                        /* The player's Respawn Point gets scrambled, as it isn't used in the Anchor's logic. */
-                        playerIn.setSpawnPoint(null, false);
-                        capWindCharge.setUsedAnchor(true);
-                        capWindCharge.setAnchorPos(pos);
-                        capWindCharge.setPlayerSpawnPos(pos);
-                        capWindCharge.setAnchorDim(worldIn.provider.getDimension());
+                            worldIn.playSound(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, ModSoundHandler.RESPAWN_ANCHOR_SET_SPAWN, SoundCategory.PLAYERS, 1.0F, worldIn.rand.nextFloat() * 0.7F + 0.3F, false);
+                            playerIn.sendStatusMessage(new TextComponentTranslation("tile.respawn_anchor.point_set", new Object[0]), true);
+                            /* The player's Respawn Point gets scrambled, as it isn't used in the Anchor's logic. */
+                            playerIn.setSpawnPoint(null, false);
+                            capWindCharge.setUsedAnchor(true);
+                            capWindCharge.setAnchorPos(pos);
+                            capWindCharge.setPlayerSpawnPos(pos);
+                            capWindCharge.setAnchorDim(worldIn.provider.getDimension());
                     }
                 }
             }

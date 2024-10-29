@@ -46,6 +46,7 @@ tile.respawn_anchor.point_set=Respawn Point set
 tile.respawn_anchor.point_clear=Respawn Point cleared
 tile.respawn_anchor.no_charge=Your respawn anchor has no charge
 tile.respawn_anchor.obstrucuted=Your respawn anchor was obstructed
+tile.respawn_anchor.blocked=Respawn anchor cannot be used in this dimension
 tile.respawn_anchor.destroyed=You have no respawn anchor
 tile.shroom_light.name=Shroomlight
 tile.warped_fungus.name=Warped Fungus

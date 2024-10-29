@@ -56,4 +56,15 @@ public class BlocksConfig {
     @Config.Comment(value = "Enable this to turn the whitelist for fire resistant items into the opposite. Meaning when set to true, items in the list will act without fire resistance")
     public static boolean fireproofItemBlacklist = false;
 
+    @Config.RequiresMcRestart
+    @Config.Comment(value = "Which dimensions are authorized for the Respawn Anchor to work in, by dimension ID #")
+    public static int[] allowedDimensions = {
+            1,
+            -1
+    };
+
+    @Config.Name("Respawn Anchor Explodes")
+    @Config.Comment("Change if the Respawn Anchor explodes upon using it in the wrong dimension, default : true")
+    @Config.RequiresMcRestart
+    public static boolean doesAnchorExplode = true;
 }

@@ -13,6 +13,7 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.MultiPartEntityPart;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
@@ -274,6 +275,16 @@ public class ModUtils {
             }
         }
          return false;
+    }
+
+    public static boolean isAllowedDimension(World world) {
+        for(int ids : BlocksConfig.allowedDimensions) {
+            if(world.provider.getDimension() == ids) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public static boolean isHoeWhitelisted(Block block) {
