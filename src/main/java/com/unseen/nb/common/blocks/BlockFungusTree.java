@@ -72,13 +72,13 @@ public class BlockFungusTree extends BlockPlantBase implements IGrowable {
                 //Warped
                 if(randTreeSize == 1) {
                     WorldGenNB tree = ModRand.choice(small_trees);
-                    tree.generate(world, random, pos.add(-2,0,-2));
+                    tree.generate(world, random, pos);
                 } else if (randTreeSize == 2) {
                     WorldGenNB tree = ModRand.choice(medium_trees);
-                    tree.generate(world, random, pos.add(-2,0,-2));
+                    tree.generate(world, random, pos);
                 } else {
                     WorldGenNB large_tree = ModRand.choice(large_trees);
-                    large_tree.generate(world, random, pos.add(- 3,  0,- 3));
+                    large_tree.generate(world, random, pos);
                 }
         }
 
