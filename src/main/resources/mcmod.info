@@ -13,7 +13,7 @@
     "logoFile": "modlogo.png",
     "screenshots": [],
     "dependencies": [
-      "nether-api"
+      "nether_api"
     ]
   }
 ]
