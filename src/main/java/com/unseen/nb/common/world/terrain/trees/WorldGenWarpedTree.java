@@ -10,9 +10,6 @@ import java.util.Random;
 public class WorldGenWarpedTree extends WorldGenNB {
     int size;
 
-
-
-
     public WorldGenWarpedTree(String structureName, int size) {
         super("trees/warped/" + structureName);
         this.size = size;
@@ -27,7 +24,7 @@ public class WorldGenWarpedTree extends WorldGenNB {
                 if(worldIn.getBlockState(position) == ModBlocks.WARPED_FUNGUS.getDefaultState()) {
                     worldIn.setBlockToAir(position);
                 }
-                return super.generate(worldIn, rand, position);
+                return super.generate(worldIn, rand, position.add(-2, 0, -2));
             }
         } else if (size == 2) {
             //medium trees
@@ -35,7 +32,7 @@ public class WorldGenWarpedTree extends WorldGenNB {
                 if(worldIn.getBlockState(position) == ModBlocks.WARPED_FUNGUS.getDefaultState()) {
                     worldIn.setBlockToAir(position);
                 }
-                return super.generate(worldIn, rand, position);
+                return super.generate(worldIn, rand, position.add(-2, 0, -2));
             }
         } else {
             //large trees
@@ -43,7 +40,7 @@ public class WorldGenWarpedTree extends WorldGenNB {
                 if(worldIn.getBlockState(position) == ModBlocks.WARPED_FUNGUS.getDefaultState()) {
                     worldIn.setBlockToAir(position);
                 }
-                return super.generate(worldIn, rand, position);
+                return super.generate(worldIn, rand, position.add(-3, 0, -3));
             }
         }
         return false;

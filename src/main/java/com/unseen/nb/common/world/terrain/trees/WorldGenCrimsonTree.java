@@ -22,13 +22,13 @@ public class WorldGenCrimsonTree extends WorldGenNB {
 
     @Override
     public boolean generate(World worldIn, Random rand, BlockPos position) {
-        if(size == 1) {
+        if (size == 1) {
             //small trees
             if(worldIn.isAirBlock(position.add(0, 7, 0)) && worldIn.getBlockState(position.down()) == ModBlocks.CRIMSON_GRASS.getDefaultState()) {
                 if(worldIn.getBlockState(position) == ModBlocks.CRIMSON_FUNGUS.getDefaultState()) {
                     worldIn.setBlockToAir(position);
                 }
-                return super.generate(worldIn, rand, position);
+                return super.generate(worldIn, rand, position.add(-2, 0, -2));
             }
         } else if (size == 2) {
             //medium trees
@@ -36,7 +36,7 @@ public class WorldGenCrimsonTree extends WorldGenNB {
                 if(worldIn.getBlockState(position) == ModBlocks.CRIMSON_FUNGUS.getDefaultState()) {
                     worldIn.setBlockToAir(position);
                 }
-                return super.generate(worldIn, rand, position);
+                return super.generate(worldIn, rand, position.add(-2, 0, -2));
             }
         } else {
             //large trees
@@ -44,7 +44,7 @@ public class WorldGenCrimsonTree extends WorldGenNB {
                 if(worldIn.getBlockState(position) == ModBlocks.CRIMSON_FUNGUS.getDefaultState()) {
                     worldIn.setBlockToAir(position);
                 }
-                return super.generate(worldIn, rand, position);
+                return super.generate(worldIn, rand, position.add(-3, 0, -3));
             }
         }
         return false;
