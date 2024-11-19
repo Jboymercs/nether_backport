@@ -148,7 +148,7 @@ public class BlockVineBase extends BlockBush implements IGrowable, IHasModel, Re
     @Override
     public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
     {
-        if (entityIn instanceof EntityPlayer)
+        if (worldIn.isRemote && entityIn instanceof EntityPlayer)
         {
             EntityPlayer player = (EntityPlayer) entityIn;
 
