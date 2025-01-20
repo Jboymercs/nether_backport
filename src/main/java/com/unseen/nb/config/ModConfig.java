@@ -15,6 +15,11 @@ public class ModConfig {
     @Config.RequiresMcRestart
     public static boolean futureMCCompat = true;
 
+    @Config.Name("FutureMC Ancient Debris Override")
+    @Config.Comment("Change this setting to true if you wish to use the Backports generation of Future MC's Ancient Debris. Make sure to disable generation in FutureMC's config")
+    @Config.RequiresMcRestart
+    public static boolean use_backport_generation = false;
+
     @Config.Name("Enable/Disable Piglins use Spartan Weaponry over Crossbows")
     @Config.Comment("Affects Piglins only, makes Piglins carry Spartan Weaponry items. THIS REQUIRES SPARTAN WEAPONRY TO BE LOADED default: false")
     @Config.RequiresMcRestart

@@ -64,13 +64,13 @@ public class BlockCrimsonFungusTree extends BlockPlantBase implements IGrowable 
                 //Crimson
                 if(randTreeSize == 1) {
                     WorldGenNB tree = ModRand.choice(c_small_trees);
-                    tree.generate(world, random, pos.add(-2,0,-2));
+                    tree.generate(world, random, pos);;
                 } else if (randTreeSize == 2) {
                     WorldGenNB tree = ModRand.choice(c_medium_trees);
-                    tree.generate(world, random, pos.add(-2,0,-2));
+                    tree.generate(world, random, pos);
                 } else {
                     WorldGenNB large_tree = ModRand.choice(c_large_trees);
-                    large_tree.generate(world, random, pos.add(- 3,  0,- 3));
+                    large_tree.generate(world, random, pos);
                 }
         }
 

@@ -93,26 +93,26 @@ public class WorldGenNetherStructures implements IWorldGenerator {
 
         if (world.provider.getDimension() == 0 && NBWorldConfig.ruined_portal_enabled) {
             if(world.provider.getBiomeForCoords(pos) != getSpawnBiomesRuinedPortals().iterator()) {
+                if(portalSpacing > NBWorldConfig.ruined_portal_rate) {
                 int y = getGroundFromAbove(world, pos.getX(), pos.getZ());
                 //generates regular ruined portals
-                if (y != 0) {
-                    BlockPos posModified = new BlockPos(pos.getX(), y, pos.getZ());
-                    if (portalSpacing > NBWorldConfig.ruined_portal_rate) {
+                BlockPos posModified = new BlockPos(pos.getX(), y, pos.getZ());
+                if (y != 0 && !world.isAirBlock(posModified.add(3, -1, 3)) && !world.isAirBlock(posModified.add(3, -1, 3))) {
+                    //Hopefully this fixes the issue with repeating portals
+
                         //Giant Portal Ruins 5% chance of spawning
                         if (!world.isAirBlock(posModified.down()) && !world.isAirBlock(posModified.add(7, -1, 7)) && world.rand.nextInt(NBWorldConfig.portal_big_chance) == 0) {
                             WorldGenRuinedPortalsGiant portal = ModRand.choice(list_of_Giant_portals);
                             portal.generate(world, random, pos.add(0, y, 0));
-                            portalSpacing = 0;
-
                             //Small Portal Ruins
-                        } else if (!world.isAirBlock(posModified.down()) && !world.isAirBlock(posModified.add(3, -1, 3))) {
+                        } else  {
                             WorldGenRuinedPortals portal = ModRand.choice(list_Of_Portals);
                             portal.generate(world, random, pos.add(0, y, 0));
-                            portalSpacing = 0;
                         }
-                    } else {
-                        portalSpacing++;
+                        portalSpacing = 0;
                     }
+                } else {
+                    portalSpacing++;
                 }
             }
         }

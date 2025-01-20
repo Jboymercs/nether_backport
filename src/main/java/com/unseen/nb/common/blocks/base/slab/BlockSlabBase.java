@@ -40,10 +40,13 @@ public abstract class BlockSlabBase extends BlockSlab implements IHasModel {
         return Item.getItemFromBlock(half);
 
     }
+
     @Override
     public ItemStack getItem(World world, BlockPos pos, IBlockState state) {
         return new ItemStack(half);
     }
+
+
     @Override
     public IBlockState getStateFromMeta(int meta) {
         IBlockState state = this.blockState.getBaseState().withProperty(VARIANT, Variant.DEFAULT);

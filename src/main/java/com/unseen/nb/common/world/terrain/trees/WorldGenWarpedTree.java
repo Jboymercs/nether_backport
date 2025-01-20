@@ -21,13 +21,14 @@ public class WorldGenWarpedTree extends WorldGenNB {
 
     @Override
     public boolean generate(World worldIn, Random rand, BlockPos position) {
+        //Credit PR #16 szymonhajbowicz for fixing tree generation logic
         if(size == 1) {
             //small trees
             if(worldIn.isAirBlock(position.add(0, 7, 0)) && worldIn.getBlockState(position.down()) == ModBlocks.WARPED_GRASS.getDefaultState()) {
                 if(worldIn.getBlockState(position) == ModBlocks.WARPED_FUNGUS.getDefaultState()) {
                     worldIn.setBlockToAir(position);
                 }
-                return super.generate(worldIn, rand, position);
+                return super.generate(worldIn, rand, position.add(-2, 0, -2));
             }
         } else if (size == 2) {
             //medium trees
@@ -35,7 +36,7 @@ public class WorldGenWarpedTree extends WorldGenNB {
                 if(worldIn.getBlockState(position) == ModBlocks.WARPED_FUNGUS.getDefaultState()) {
                     worldIn.setBlockToAir(position);
                 }
-                return super.generate(worldIn, rand, position);
+                return super.generate(worldIn, rand, position.add(-2, 0, -2));
             }
         } else {
             //large trees
@@ -43,7 +44,7 @@ public class WorldGenWarpedTree extends WorldGenNB {
                 if(worldIn.getBlockState(position) == ModBlocks.WARPED_FUNGUS.getDefaultState()) {
                     worldIn.setBlockToAir(position);
                 }
-                return super.generate(worldIn, rand, position);
+                return super.generate(worldIn, rand, position.add(-3, 0, -3));
             }
         }
         return false;

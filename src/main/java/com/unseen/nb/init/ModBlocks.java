@@ -5,6 +5,8 @@ import com.unseen.nb.common.blocks.base.*;
 
 import com.unseen.nb.common.blocks.base.slab.BlockDoubleSlab;
 import com.unseen.nb.common.blocks.base.slab.BlockHalfSlab;
+import com.unseen.nb.common.blocks.base.slab_wood.BlockDoubleSlabWood;
+import com.unseen.nb.common.blocks.base.slab_wood.BlockHalfSlabWood;
 import net.minecraft.block.*;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -27,12 +29,11 @@ public class ModBlocks {
     public static final float OBSIDIAN_HARDNESS = 50;
     public static final float OBSIDIAN_RESISTANCE = 2000;
     public static final List<Block> BLOCKS = new ArrayList<Block>();
-
     public static final Block CRIMSON_GRASS = new BlockNetherGrass("crimson_grass", Material.ROCK, 0.4F, 0.4F, NBSoundTypes.NYLIUM).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     public static final Block WARPED_GRASS = new BlockNetherGrass("warped_grass", Material.ROCK, 0.4F, 0.4F, NBSoundTypes.NYLIUM).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
-    public static final Block CRIMSON_HYPHAE = new BlockBase("crimson_hyphae", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.HYPHAE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-    public static final Block WARPED_HYPHAE = new BlockBase("warped_hyphae", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.HYPHAE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block CRIMSON_HYPHAE = new BlockNetherWood("crimson_hyphae", Material.GROUND, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.HYPHAE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block WARPED_HYPHAE = new BlockNetherWood("warped_hyphae", Material.GROUND, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.HYPHAE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
     public static final Block WARPED_STEM = new BlockLogBase("warped_stem",  WOOD_HARDNESS, WOOD_RESISTANCE, NBSoundTypes.STEM_TYPE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     public static final Block CRIMSON_STEM = new BlockLogBase("crimson_stem", WOOD_HARDNESS, WOOD_RESISTANCE, NBSoundTypes.STEM_TYPE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
@@ -40,28 +41,28 @@ public class ModBlocks {
     public static final Block CRIMSON_WART = new BlockBase("crimson_wart", Material.GRASS, 1.0F, 1.0F, NBSoundTypes.WART).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     public static final Block WARPED_WART = new BlockBase("warped_wart", Material.GRASS, 1.0F, 1.0F, NBSoundTypes.WART).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
-    public static final Block CRIMSON_PLANKS = new BlockBase("crimson_planks", Material.ROCK, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-    public static final Block WARPED_PLANKS = new BlockBase("warped_planks", Material.ROCK, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block CRIMSON_PLANKS = new BlockNetherWood("crimson_planks", Material.GROUND, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block WARPED_PLANKS = new BlockNetherWood("warped_planks", Material.GROUND, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
-    public static final Block CRIMSON_STAIRS = new BlockStairBase("crimson_stairs", CRIMSON_PLANKS.getDefaultState(), WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-    public static final Block WARPED_STAIRS = new BlockStairBase("warped_stairs", WARPED_PLANKS.getDefaultState(), WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block CRIMSON_STAIRS = new BlockStairBaseWood("crimson_stairs", CRIMSON_PLANKS.getDefaultState(), WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block WARPED_STAIRS = new BlockStairBaseWood("warped_stairs", WARPED_PLANKS.getDefaultState(), WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     public static final Block CRIMSON_TRAPDOOR = new BlockNetherTrapDoor("crimson_trapdoor", WOOD_RESISTANCE, WOOD_HARDNESS, CreativeTabs.REDSTONE, SoundType.WOOD);
     public static final Block WARPED_TRAPDOOR = new BlockNetherTrapDoor("warped_trapdoor", WOOD_RESISTANCE, WOOD_HARDNESS, CreativeTabs.REDSTONE, SoundType.WOOD);
     public static final Block WARPED_DOOR = new BlockNetherDoor("warped_door", WOOD_HARDNESS, WOOD_RESISTANCE, CreativeTabs.REDSTONE, SoundType.WOOD);
     public static final Block CRIMSON_DOOR = new BlockNetherDoor("crimson_door", WOOD_HARDNESS, WOOD_RESISTANCE, CreativeTabs.REDSTONE, SoundType.WOOD);
 
-    public static final Block CRIMSON_FENCE = new BlockFenceBase("crimson_fence", Material.WOOD, MapColor.RED_STAINED_HARDENED_CLAY, WOOD_HARDNESS, WOOD_RESISTANCE);
-    public static final Block WARPED_FENCE = new BlockFenceBase("warped_fence", Material.WOOD, MapColor.CYAN_STAINED_HARDENED_CLAY, WOOD_HARDNESS, WOOD_RESISTANCE);
+    public static final Block CRIMSON_FENCE = new BlockFenceBase("crimson_fence", Material.GROUND, MapColor.RED_STAINED_HARDENED_CLAY, WOOD_HARDNESS, WOOD_RESISTANCE);
+    public static final Block WARPED_FENCE = new BlockFenceBase("warped_fence", Material.GROUND, MapColor.CYAN_STAINED_HARDENED_CLAY, WOOD_HARDNESS, WOOD_RESISTANCE);
     public static final Block CRIMSON_GATE = new BlockFenceGateBase("crimson_gate", BlockPlanks.EnumType.OAK, WOOD_HARDNESS, WOOD_RESISTANCE);
     public static final Block WARPED_GATE = new BlockFenceGateBase("warped_gate", BlockPlanks.EnumType.OAK, WOOD_HARDNESS, WOOD_RESISTANCE);
 
-    public static final BlockSlab CRIMSON_SLAB_DOUBLE = new BlockDoubleSlab("crimson_slab_double", Material.WOOD, CreativeTabs.SEARCH, ModBlocks.CRIMSON_SLAB_HALF, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD);
+    public static final BlockSlab CRIMSON_SLAB_DOUBLE = new BlockDoubleSlabWood("crimson_slab_double", Material.GROUND, CreativeTabs.SEARCH, ModBlocks.CRIMSON_SLAB_HALF, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD);
 
-    public static final BlockSlab CRIMSON_SLAB_HALF = new BlockHalfSlab("crimson_slab_half", Material.WOOD, CreativeTabs.BUILDING_BLOCKS, ModBlocks.CRIMSON_SLAB_HALF, ModBlocks.CRIMSON_SLAB_DOUBLE, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD);
+    public static final BlockSlab CRIMSON_SLAB_HALF = new BlockHalfSlabWood("crimson_slab_half", Material.GROUND, CreativeTabs.BUILDING_BLOCKS, ModBlocks.CRIMSON_SLAB_HALF, ModBlocks.CRIMSON_SLAB_DOUBLE, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD);
 
-    public static final BlockSlab WARPED_SLAB_DOUBLE = new BlockDoubleSlab("warped_slab_double", Material.WOOD, CreativeTabs.SEARCH, ModBlocks.WARPED_SLAB_HALF, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD);
+    public static final BlockSlab WARPED_SLAB_DOUBLE = new BlockDoubleSlabWood("warped_slab_double", Material.GROUND, CreativeTabs.SEARCH, ModBlocks.WARPED_SLAB_HALF, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD);
 
-    public static final BlockSlab WARPED_SLAB_HALF = new BlockHalfSlab("warped_slab_half", Material.WOOD, CreativeTabs.BUILDING_BLOCKS, ModBlocks.WARPED_SLAB_HALF, ModBlocks.WARPED_SLAB_DOUBLE, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD);
+    public static final BlockSlab WARPED_SLAB_HALF = new BlockHalfSlabWood("warped_slab_half", Material.GROUND, CreativeTabs.BUILDING_BLOCKS, ModBlocks.WARPED_SLAB_HALF, ModBlocks.WARPED_SLAB_DOUBLE, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD);
 
     public static final BlockSlab BLACK_STONE_SLAB_DOUBLE = new BlockDoubleSlab("black_stone_slab_double", Material.ROCK, CreativeTabs.SEARCH, ModBlocks.BLACK_STONE_SLAB_HALF, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE);
 

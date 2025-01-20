@@ -5,27 +5,27 @@
     "sounds": [
       {
         "name": "nb:block/nether_grass/break1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/break2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/break3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/break4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/break5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/break6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -35,27 +35,27 @@
     "sounds": [
       {
         "name": "nb:block/nether_grass/break1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/break2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/break3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/break4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/break5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/break6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -65,27 +65,27 @@
     "sounds": [
       {
         "name": "nb:block/nether_grass/step1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/step2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/step3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/step4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/step5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/step6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -95,27 +95,27 @@
     "sounds": [
       {
         "name": "nb:block/nether_grass/step1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/step2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/step3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/step4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/step5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/step6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -124,27 +124,27 @@
     "sounds": [
       {
         "name": "nb:block/nether_grass/step1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/step2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/step3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/step4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/step5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_grass/step6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -154,27 +154,27 @@
     "sounds": [
       {
         "name": "nb:block/stem/break1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/stem/break2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/stem/break3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/stem/break4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/stem/break5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/stem/break16",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -183,27 +183,27 @@
     "sounds": [
       {
         "name": "nb:block/stem/step1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/stem/step2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/stem/step3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/stem/step4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/stem/step5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/stem/step6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -213,27 +213,27 @@
     "sounds": [
       {
         "name": "nb:block/hyphae/break1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/hyphae/break2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/hyphae/break3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/hyphae/break4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/hyphae/break5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/hyphae/break6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -243,27 +243,27 @@
     "sounds": [
       {
         "name": "nb:block/wart/break1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/wart/break2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/wart/break3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/wart/break4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/wart/break5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/wart/break6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -273,23 +273,23 @@
     "sounds": [
       {
         "name": "nb:block/wart/step1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/wart/step2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/wart/step3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/wart/step4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/wart/step5",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -299,27 +299,27 @@
     "sounds": [
       {
         "name": "nb:block/wart/break1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/wart/break2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/wart/break3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/wart/break4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/wart/break5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/wart/break6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -329,23 +329,23 @@
     "sounds": [
       {
         "name": "nb:block/wart/step1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/wart/step2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/wart/step3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/wart/step4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/wart/step5",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -361,27 +361,27 @@
     "sounds": [
       {
         "name": "nb:block/soul_soil/break1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_soil/break2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_soil/break3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_soil/break4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_soil/break5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_soil/break6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -391,27 +391,27 @@
     "sounds": [
       {
         "name": "nb:block/soul_soil/break1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_soil/break2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_soil/break3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_soil/break4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_soil/break5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_soil/break6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -421,23 +421,23 @@
     "sounds": [
       {
         "name": "nb:block/soul_soil/step1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_soil/step2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_soil/step3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_soil/step4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_soil/step5",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -447,23 +447,23 @@
     "sounds": [
       {
         "name": "nb:block/soul_soil/step1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_soil/step2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_soil/step3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_soil/step4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_soil/step5",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -472,27 +472,27 @@
     "sounds": [
       {
         "name": "nb:block/chain/step1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/chain/step2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/chain/step3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/chain/step4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/chain/step5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/chain/step6",
-        "stream": true
+        "stream": false
       }
 
     ]
@@ -502,19 +502,19 @@
     "sounds": [
       {
         "name": "nb:block/chain/break1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/chain/break2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/chain/break3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/chain/break4",
-        "stream": true
+        "stream": false
       }
 
     ]
@@ -524,27 +524,27 @@
     "sounds": [
       {
         "name": "nb:block/soul_lantern/break1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_lantern/break2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_lantern/break3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_lantern/break4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_lantern/break5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_lantern/break6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -553,27 +553,27 @@
     "sounds": [
       {
         "name": "nb:block/soul_lantern/place1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_lantern/place2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_lantern/place3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_lantern/place4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_lantern/place5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/soul_lantern/place6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -583,23 +583,23 @@
     "sounds": [
       {
         "name": "nb:block/basalt/break1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/basalt/break2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/basalt/break3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/basalt/break4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/basalt/break5",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -609,23 +609,23 @@
     "sounds": [
       {
         "name": "nb:block/basalt/break1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/basalt/break2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/basalt/break3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/basalt/break4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/basalt/break5",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -635,27 +635,27 @@
     "sounds": [
       {
         "name": "nb:block/basalt/step1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/basalt/step2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/basalt/step3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/basalt/step4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/basalt/step5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/basalt/step6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -665,27 +665,27 @@
     "sounds": [
       {
         "name": "nb:block/basalt/step1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/basalt/step2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/basalt/step3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/basalt/step4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/basalt/step5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/basalt/step6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -695,19 +695,19 @@
     "sounds": [
       {
         "name": "nb:block/nether_ore/break1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_ore/break2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_ore/break3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_ore/break4",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -717,19 +717,19 @@
     "sounds": [
       {
         "name": "nb:block/nether_ore/break1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_ore/break2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_ore/break3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_ore/break4",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -739,23 +739,23 @@
     "sounds": [
       {
         "name": "nb:block/nether_ore/step1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_ore/step2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_ore/step3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_ore/step4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_ore/step5",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -765,23 +765,23 @@
     "sounds": [
       {
         "name": "nb:block/nether_ore/step1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_ore/step2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_ore/step3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_ore/step4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/nether_ore/step5",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -791,19 +791,19 @@
     "sounds": [
       {
         "name": "nb:block/netherite/break1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/netherite/break2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/netherite/break3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/netherite/break4",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -813,19 +813,19 @@
     "sounds": [
       {
         "name": "nb:block/netherite/break1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/netherite/break2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/netherite/break3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/netherite/break4",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -835,27 +835,27 @@
     "sounds": [
       {
         "name": "nb:block/netherite/step1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/netherite/step2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/netherite/step3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/netherite/step4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/netherite/step5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/netherite/step6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -865,27 +865,27 @@
     "sounds": [
       {
         "name": "nb:block/netherite/step1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/netherite/step2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/netherite/step3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/netherite/step4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/netherite/step5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/netherite/step6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -895,23 +895,23 @@
     "sounds": [
       {
         "name": "nb:block/debris/break1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/debris/break2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/debris/break3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/debris/break4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/debris/break4",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -921,19 +921,19 @@
     "sounds": [
       {
         "name": "nb:block/lode_stone/place1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/lode_stone/place2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/lode_stone/place3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/lode_stone/place4",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -943,11 +943,11 @@
     "sounds": [
       {
         "name": "nb:block/lode_stone/lock1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/lode_stone/lock2",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -957,15 +957,15 @@
     "sounds": [
       {
         "name": "nb:block/respawn_anchor/ambient1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/respawn_anchor/ambient2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/respawn_anchor/ambient3",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -975,15 +975,15 @@
     "sounds": [
       {
         "name": "nb:block/respawn_anchor/charge1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/respawn_anchor/charge2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/respawn_anchor/charge3",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -993,11 +993,11 @@
     "sounds": [
       {
         "name": "nb:block/respawn_anchor/deplete1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/respawn_anchor/deplete2",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1007,15 +1007,15 @@
     "sounds": [
       {
         "name": "nb:block/respawn_anchor/set_spawn1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/respawn_anchor/set_spawn2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/respawn_anchor/set_spawn3",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1025,23 +1025,23 @@
     "sounds": [
       {
         "name": "nb:block/shroom_light/break1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/shroom_light/break2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/shroom_light/break3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/shroom_light/break4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/shroom_light/break5",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1051,23 +1051,23 @@
     "sounds": [
       {
         "name": "nb:block/shroom_light/break1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/shroom_light/break2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/shroom_light/break3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/shroom_light/break4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/shroom_light/break5",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1077,27 +1077,27 @@
     "sounds": [
       {
         "name": "nb:block/shroom_light/step1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/shroom_light/step2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/shroom_light/step3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/shroom_light/step4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/shroom_light/step5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/shroom_light/step6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1107,27 +1107,27 @@
     "sounds": [
       {
         "name": "nb:block/shroom_light/step1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/shroom_light/step2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/shroom_light/step3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/shroom_light/step4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/shroom_light/step5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/shroom_light/step6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1137,27 +1137,27 @@
     "sounds": [
       {
         "name": "nb:block/roots/break1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/roots/break2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/roots/break3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/roots/break4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/roots/break5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/roots/break6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1167,27 +1167,27 @@
     "sounds": [
       {
         "name": "nb:block/roots/break1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/roots/break2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/roots/break3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/roots/break4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/roots/break5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/roots/break6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1197,23 +1197,23 @@
     "sounds": [
       {
         "name": "nb:block/roots/step1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/roots/step2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/roots/step3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/roots/step4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/roots/step5",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1223,23 +1223,23 @@
     "sounds": [
       {
         "name": "nb:block/roots/step1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/roots/step2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/roots/step3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/roots/step4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/roots/step5",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1249,23 +1249,23 @@
     "sounds": [
       {
         "name": "nb:block/sprout/break1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/sprout/break2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/sprout/break3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/sprout/break4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:block/sprout/break5",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1275,23 +1275,23 @@
     "sounds": [
       {
         "name": "nb:entity/piglin/step1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/step2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/step3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/step4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/step5",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1301,15 +1301,15 @@
     "sounds": [
       {
         "name": "nb:entity/piglin/hurt1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/hurt2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/hurt3",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1319,23 +1319,23 @@
     "sounds": [
       {
         "name": "nb:entity/piglin/idle1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/idle2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/idle3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/idle4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/idle5",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1345,15 +1345,15 @@
     "sounds": [
       {
         "name": "nb:entity/piglin/death1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/death2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/death3",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1363,11 +1363,11 @@
     "sounds": [
       {
         "name": "nb:entity/piglin/admire1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/admire2",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1377,23 +1377,23 @@
     "sounds": [
       {
         "name": "nb:entity/piglin/jealous1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/jealous2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/jealous3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/jealous4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/jealous5",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1403,19 +1403,19 @@
     "sounds": [
       {
         "name": "nb:entity/piglin/angry1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/angry2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/angry3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/angry4",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1425,19 +1425,19 @@
     "sounds": [
       {
         "name": "nb:entity/piglin/celebrate1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/celebrate2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/celebrate3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/celebrate4",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1447,19 +1447,19 @@
     "sounds": [
       {
         "name": "nb:entity/piglin/retreat1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/retreat2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/retreat3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/retreat4",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1469,11 +1469,11 @@
     "sounds": [
       {
         "name": "nb:entity/piglin/converted1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/piglin/converted2",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1483,23 +1483,23 @@
     "sounds": [
       {
         "name": "nb:entity/strider/step1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/step2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/step3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/step4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/step5",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1509,27 +1509,27 @@
     "sounds": [
       {
         "name": "nb:entity/strider/step_lava1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/step_lava2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/step_lava3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/step_lava4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/step_lava5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/step_lava6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1539,19 +1539,19 @@
     "sounds": [
       {
         "name": "nb:entity/strider/hurt1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/hurt2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/hurt3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/hurt4",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1561,19 +1561,19 @@
     "sounds": [
       {
         "name": "nb:entity/strider/death1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/death2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/death3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/death4",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1583,23 +1583,23 @@
     "sounds": [
       {
         "name": "nb:entity/strider/retreat1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/retreat2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/retreat3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/retreat4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/retreat5",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1609,27 +1609,27 @@
     "sounds": [
       {
         "name": "nb:entity/strider/idle1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/idle2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/idle3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/idle4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/idle5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/idle6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1639,23 +1639,23 @@
     "sounds": [
       {
         "name": "nb:entity/strider/happy1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/happy2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/happy3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/happy4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/strider/happy5",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1665,39 +1665,39 @@
     "sounds": [
       {
         "name": "nb:entity/brute/idle1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/brute/idle2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/brute/idle3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/brute/idle4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/brute/idle5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/brute/idle6",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/brute/idle7",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/brute/idle8",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/brute/idle9",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1707,23 +1707,23 @@
     "sounds": [
       {
         "name": "nb:entity/brute/step1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/brute/step2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/brute/step3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/brute/step4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/brute/step5",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1733,19 +1733,19 @@
     "sounds": [
       {
         "name": "nb:entity/brute/hurt1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/brute/hurt2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/brute/hurt3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/brute/hurt4",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1755,15 +1755,15 @@
     "sounds": [
       {
         "name": "nb:entity/brute/death1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/brute/death2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/brute/death3",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1773,23 +1773,23 @@
     "sounds": [
       {
         "name": "nb:entity/brute/angry1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/brute/angry2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/brute/angry3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/brute/angry4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/brute/angry5",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1799,19 +1799,19 @@
     "sounds": [
       {
         "name": "nb:entity/zpig/angry1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/zpig/angry2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/zpig/angry3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/zpig/angry4",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1821,19 +1821,19 @@
     "sounds": [
       {
         "name": "nb:entity/zpig/idle1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/zpig/idle2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/zpig/idle3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/zpig/idle4",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1843,11 +1843,11 @@
     "sounds": [
       {
         "name": "nb:entity/zpig/hurt1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/zpig/hurt2",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1857,7 +1857,7 @@
     "sounds": [
       {
         "name": "nb:entity/zpig/death1",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1867,15 +1867,15 @@
     "sounds": [
       {
         "name": "nb:entity/hoglin/death1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/death2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/death3",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1885,27 +1885,27 @@
     "sounds": [
       {
         "name": "nb:entity/hoglin/step1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/step2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/step3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/step4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/step5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/step6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1915,47 +1915,47 @@
     "sounds": [
       {
         "name": "nb:entity/hoglin/idle1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/idle2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/idle3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/idle4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/idle5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/idle6",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/idle7",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/idle8",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/idle9",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/idle10",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/idle11",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1965,19 +1965,19 @@
     "sounds": [
       {
         "name": "nb:entity/hoglin/hurt1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/hurt2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/hurt3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/hurt4",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -1987,27 +1987,27 @@
     "sounds": [
       {
         "name": "nb:entity/hoglin/angry1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/angry2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/angry3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/angry4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/angry5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/angry6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -2017,15 +2017,15 @@
     "sounds": [
       {
         "name": "nb:entity/hoglin/retreat1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/retreat2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/retreat3",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -2035,11 +2035,11 @@
     "sounds": [
       {
         "name": "nb:entity/hoglin/attack1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/attack2",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -2049,11 +2049,11 @@
     "sounds": [
       {
         "name": "nb:entity/hoglin/converted1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/hoglin/converted2",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -2063,15 +2063,15 @@
     "sounds": [
       {
         "name": "nb:entity/zoglin/hurt1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/zoglin/hurt2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/zoglin/hurt3",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -2081,27 +2081,27 @@
     "sounds": [
       {
         "name": "nb:entity/zoglin/idle1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/zoglin/idle2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/zoglin/idle3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/zoglin/idle4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/zoglin/idle5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/zoglin/idle6",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -2111,23 +2111,23 @@
     "sounds": [
       {
         "name": "nb:entity/zoglin/step1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/zoglin/step2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/zoglin/step3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/zoglin/step4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/zoglin/step5",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -2137,15 +2137,15 @@
     "sounds": [
       {
         "name": "nb:entity/zoglin/death1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/zoglin/death2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/zoglin/death3",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -2155,15 +2155,15 @@
     "sounds": [
       {
         "name": "nb:entity/zoglin/angry1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/zoglin/angry2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/zoglin/angry3",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -2173,11 +2173,11 @@
     "sounds": [
       {
         "name": "nb:entity/zoglin/attack1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:entity/zoglin/attack2",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -2186,75 +2186,75 @@
     "sounds": [
       {
         "name": "nb:ambient/crimson_forest/addition1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/crimson_forest/addition2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/crimson_forest/addition3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/crimson_forest/mood1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/crimson_forest/mood2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/crimson_forest/mood3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/crimson_forest/particles1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/crimson_forest/particles2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/crimson_forest/particles3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/crimson_forest/shine1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/crimson_forest/shine2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/crimson_forest/shine3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/crimson_forest/shroom1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/crimson_forest/shroom2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/crimson_forest/shroom3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/crimson_forest/twang1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/crimson_forest/voom1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/crimson_forest/voom2",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -2281,115 +2281,115 @@
     "sounds": [
       {
         "name": "nb:ambient/warped_forest/addition1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/addition2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/addition3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/addition4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/addition5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/addition6",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/creak1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/creak2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/creak3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/creak4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/creak5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/enish1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/enish2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/enish3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/help1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/help2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/here1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/here2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/here3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/mood1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/mood2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/mood3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/mood4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/mood5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/mood6",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/mood7",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/mood8",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/warped_forest/mood9",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -2407,103 +2407,103 @@
     "sounds": [
       {
         "name": "nb:ambient/soulsand_valley/mood1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/soulsand_valley/mood2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/soulsand_valley/mood3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/soulsand_valley/mood4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/soulsand_valley/sand1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/soulsand_valley/sand2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/soulsand_valley/sand3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/soulsand_valley/voices1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/soulsand_valley/voices2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/soulsand_valley/voices3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/soulsand_valley/voices4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/soulsand_valley/voices5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/soulsand_valley/whisper1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/soulsand_valley/whisper2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/soulsand_valley/whisper3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/soulsand_valley/whisper4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/soulsand_valley/whisper5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/soulsand_valley/whisper6",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/soulsand_valley/whisper7",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/soulsand_valley/whisper8",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/soulsand_valley/wind1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/soulsand_valley/wind2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/soulsand_valley/wind3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/soulsand_valley/wind4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/soulsand_valley/with1",
-        "stream": true
+        "stream": false
       }
 
     ]
@@ -2522,123 +2522,123 @@
     "sounds": [
       {
         "name": "nb:ambient/basalt_deltas/active1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/active2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/active3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/active4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/basaltground1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/basaltground2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/basaltground3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/basaltground4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/click1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/click2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/click3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/click4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/click5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/click6",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/click7",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/click8",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/debris1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/debris2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/debris3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/heavy_click1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/heavy_click2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/long_debris1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/long_debris2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/plode1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/plode2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/plode3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/twist1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/twist2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/twist3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:ambient/basalt_deltas/twist4",
-        "stream": true
+        "stream": false
       }
 
     ]
@@ -2648,55 +2648,55 @@
     "sounds": [
       {
         "name": "nb:misc/soul/soulspeed1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:misc/soul/soulspeed2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:misc/soul/soulspeed3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:misc/soul/soulspeed4",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:misc/soul/soulspeed5",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:misc/soul/soulspeed6",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:misc/soul/soulspeed7",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:misc/soul/soulspeed8",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:misc/soul/soulspeed9",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:misc/soul/soulspeed10",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:misc/soul/soulspeed11",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:misc/soul/soulspeed12",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:misc/soul/soulspeed13",
-        "stream": true
+        "stream": false
       }
     ]
   },
@@ -2705,19 +2705,19 @@
     "sounds": [
       {
         "name": "nb:misc/armor/equip_netherite1",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:misc/armor/equip_netherite2",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:misc/armor/equip_netherite3",
-        "stream": true
+        "stream": false
       },
       {
         "name": "nb:misc/armor/equip_netherite4",
-        "stream": true
+        "stream": false
       }
     ]
   },

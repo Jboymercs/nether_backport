@@ -114,4 +114,55 @@ public class NBWorldConfig {
     @Config.Comment("Change the Particle Rate of the Basalt Deltas to help with performance, higher number means less particles")
     @Config.RequiresMcRestart
     public static int basaltDeltasparticleRate = 150;
+
+    @Config.Name("Ancient Debris Max Height Generation")
+    @Config.Comment("Change the max height generation of Ancient Debris")
+    @Config.RequiresMcRestart
+    public static int ancient_debris_max_y = 24;
+
+    @Config.Name("Ancient Debris Min Height Generation")
+    @Config.Comment("Change the min height generation of Ancient Debris")
+    @Config.RequiresMcRestart
+    public static int ancient_debris_min_y = 3;
+
+    @Config.Name("Ancient Debris Spawn Chances")
+    @Config.Comment("Change the chance of Ancient Debris spawning per chunk")
+    @Config.RequiresMcRestart
+    public static int ancient_debris_spawn_chances = 5;
+
+    @Config.Name("Ore generation Height Nether API")
+    @Config.Comment("If you have tall nether enabled in the nether-api config, does the backport mod double max spawn heights for Blackstone and Nether Gold Ore? default: true")
+    @Config.RequiresMcRestart
+    public static boolean enabled_double_height = true;
+
+    @Config.Name("Blackstone Max Height Generation")
+    @Config.Comment("Change the max height generation of Blackstone")
+    @Config.RequiresMcRestart
+    public static int blackstone_max_y = 120;
+
+    @Config.Name("Blackstone Min Height Generation")
+    @Config.Comment("Change the min height generation of Blackstone")
+    @Config.RequiresMcRestart
+    public static int blackstone_min_y = 20;
+
+    @Config.Name("Blackstone Spawn Chances")
+    @Config.Comment("Change the chance of Blackstone spawning per chunk")
+    @Config.RequiresMcRestart
+    public static int blacstone_spawn_chances = 10;
+
+    @Config.Name("Nether Gold Ore Height Generation")
+    @Config.Comment("Change the max height generation of Nether Gold Ore")
+    @Config.RequiresMcRestart
+    public static int nether_gold_max_y = 120;
+
+    @Config.Name("Nether Gold Ore Min Height Generation")
+    @Config.Comment("Change the min height generation of Nether Gold Ore")
+    @Config.RequiresMcRestart
+    public static int nether_gold_min_y = 10;
+
+    @Config.Name("Nether Gold Ore Spawn Chances")
+    @Config.Comment("Change the chance of Nether Gold Ore spawning per chunk")
+    @Config.RequiresMcRestart
+    public static int nether_gold_spawn_chances = 10;
+
 }

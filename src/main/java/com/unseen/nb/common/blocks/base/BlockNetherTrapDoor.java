@@ -22,6 +22,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.apache.http.util.TextUtils;
 
+import javax.annotation.Nullable;
 import java.util.Random;
 
 /**
@@ -31,7 +32,7 @@ public class BlockNetherTrapDoor extends BlockTrapDoor implements IHasModel {
 
 
     public BlockNetherTrapDoor(String name, float resistance, float hardness, CreativeTabs tab, SoundType soundType) {
-        super(Material.WOOD);
+        super(Material.GROUND);
         setTranslationKey(name);
         setRegistryName(name);
         setCreativeTab(tab);
@@ -44,7 +45,18 @@ public class BlockNetherTrapDoor extends BlockTrapDoor implements IHasModel {
         ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }
 
+    @Nullable
+    @Override
+    public String getHarvestTool(IBlockState state)
+    {
+        return "axe";
+    }
 
+    @Override
+    public boolean isToolEffective(String type, IBlockState state)
+    {
+        return type != null && type.equals(getHarvestTool(state));
+    }
 
     @Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {

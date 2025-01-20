@@ -157,16 +157,17 @@ public class BlockVineUpBase extends BlockBush implements IGrowable, IHasModel, 
     @Override
     public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
     {
-     //   if (entityIn instanceof EntityPlayer)
-    //    {
-    //        EntityPlayer player = (EntityPlayer) entityIn;
+        // PR Request #20 Credit to BlesseNtumble
+        if (worldIn.isRemote && entityIn instanceof EntityPlayer)
+        {
+           EntityPlayer player = (EntityPlayer) entityIn;
 //
-     //       if (Minecraft.getMinecraft().gameSettings.keyBindJump.isKeyDown())
-      //      {
-       //         player.motionY = 0.2D;
-       //         player.fallDistance = 0.0F;
-       //     }
-      //  }
+            if (Minecraft.getMinecraft().gameSettings.keyBindJump.isKeyDown())
+            {
+                player.motionY = 0.2D;
+                player.fallDistance = 0.0F;
+            }
+        }
     }
 
     @Override public boolean isLadder(IBlockState state, IBlockAccess world, BlockPos pos, EntityLivingBase entity) { return false; }

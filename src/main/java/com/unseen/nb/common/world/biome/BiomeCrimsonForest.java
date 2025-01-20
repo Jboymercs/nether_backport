@@ -128,16 +128,16 @@ public class BiomeCrimsonForest extends Biome implements INetherBiome, INetherAP
                     int randTreeSize = ModRand.range(1, 4);
                     if(randTreeSize == 1) { //small
                         WorldGenNB tree = ModRand.choice(small_trees);
-                        tree.generate(world, rand, pos.add(l6 -3, y + 2, k10 -3));
+                        tree.generate(world, rand, pos.add(l6 - 1, y + 2, k10 - 1));
                     } else if (randTreeSize == 2) { //medium
                         WorldGenNB tree = ModRand.choice(medium_trees);
-                        tree.generate(world, rand, pos.add(l6 -3, y + 2, k10 -3));
+                        tree.generate(world, rand, pos.add(l6 - 1, y + 2, k10 - 1));
                     } else { //large
                         WorldGenNB tree = ModRand.choice(small_trees);
                         WorldGenNB large_tree = ModRand.choice(large_trees);
                         //Incase it can't spawn a large tree here, it'll try to spawn a small one
-                        if(!large_tree.generate(world, rand, pos.add(l6 - 4, y + 2, k10 - 4))) {
-                            tree.generate(world, rand, pos.add(l6 -3, y + 2, k10 -3));
+                        if(!large_tree.generate(world, rand, pos.add(l6 - 1, y + 2, k10 - 1))) {
+                            tree.generate(world, rand, pos.add(l6 - 1, y + 2, k10 - 1));
                         }
                     }
                 }

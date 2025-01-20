@@ -20,11 +20,6 @@ import javax.annotation.Nullable;
 import java.util.Random;
 
 public class BlockFungusTree extends BlockPlantBase implements IGrowable {
-
-    private final WorldGenNB[] c_small_trees = {new WorldGenCrimsonTree("s_c_tree_1", 1), new WorldGenCrimsonTree("s_c_tree_2", 1), new WorldGenCrimsonTree("s_c_tree_3", 1), new WorldGenCrimsonTree("s_c_tree_4", 1), new WorldGenCrimsonTree("s_c_tree_5", 1)};
-    private final WorldGenNB[] c_medium_trees = {new WorldGenCrimsonTree("m_c_tree_1", 2),new WorldGenCrimsonTree("m_c_tree_2", 2), new WorldGenCrimsonTree("m_c_tree_3", 2), new WorldGenCrimsonTree("m_c_tree_4", 2), new WorldGenCrimsonTree("m_c_tree_5", 2) };
-
-    private final WorldGenNB[] c_large_trees = {new WorldGenCrimsonTree("l_c_tree_1", 3), new WorldGenCrimsonTree("l_c_tree_2", 3), new WorldGenCrimsonTree("l_c_tree_3", 3), new WorldGenCrimsonTree("l_c_tree_4", 3), new WorldGenCrimsonTree("l_c_tree_5", 3)};
     private final WorldGenNB[] small_trees = {new WorldGenWarpedTree("s_w_tree_1", 1), new WorldGenWarpedTree("s_w_tree_2", 1), new WorldGenWarpedTree("s_w_tree_3", 1), new WorldGenWarpedTree("s_w_tree_4", 1), new WorldGenWarpedTree("s_w_tree_5", 1)};
     private final WorldGenNB[] medium_trees = {new WorldGenWarpedTree("m_w_tree_1", 2),new WorldGenWarpedTree("m_w_tree_2", 2), new WorldGenWarpedTree("m_w_tree_3", 2), new WorldGenWarpedTree("m_w_tree_4", 2), new WorldGenWarpedTree("m_w_tree_5", 2) };
 
@@ -72,13 +67,13 @@ public class BlockFungusTree extends BlockPlantBase implements IGrowable {
                 //Warped
                 if(randTreeSize == 1) {
                     WorldGenNB tree = ModRand.choice(small_trees);
-                    tree.generate(world, random, pos.add(-2,0,-2));
+                    tree.generate(world, random, pos);
                 } else if (randTreeSize == 2) {
                     WorldGenNB tree = ModRand.choice(medium_trees);
-                    tree.generate(world, random, pos.add(-2,0,-2));
+                    tree.generate(world, random, pos);
                 } else {
                     WorldGenNB large_tree = ModRand.choice(large_trees);
-                    large_tree.generate(world, random, pos.add(- 3,  0,- 3));
+                    large_tree.generate(world, random, pos);
                 }
         }
 

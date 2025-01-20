@@ -17,6 +17,8 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
+import javax.annotation.Nullable;
+
 public class BlockLogBase extends BlockLog implements IHasModel {
     public BlockLogBase(String name) {
         super();
@@ -38,7 +40,20 @@ public class BlockLogBase extends BlockLog implements IHasModel {
     /** We are Overriding the material, as inheriting from `BlockLog` tries making it `Material.WOOD`, but we don't want the flammability of that! */
     @Override
     public Material getMaterial(IBlockState state)
-    { return Material.ROCK; }
+    { return Material.GROUND; }
+
+    @Nullable
+    @Override
+    public String getHarvestTool(IBlockState state)
+    {
+        return "axe";
+    }
+
+    @Override
+    public boolean isToolEffective(String type, IBlockState state)
+    {
+        return type != null && type.equals(getHarvestTool(state));
+    }
 
     @Override
     public void registerModels() {

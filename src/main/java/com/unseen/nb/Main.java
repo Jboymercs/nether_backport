@@ -26,7 +26,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = ModReference.MOD_ID, name = ModReference.NAME, version = ModReference.VERSION)
+// PR #17 szymonhajbowicz fix for detecting Dependencies
+@Mod(modid = ModReference.MOD_ID, name = ModReference.NAME, version = ModReference.VERSION, dependencies = "required-before:nether_api")
 public class Main {
 
     @SidedProxy(clientSide = ModReference.CLIENT_PROXY_CLASS, serverSide = ModReference.COMMON_PROXY_CLASS)
