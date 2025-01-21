@@ -153,15 +153,17 @@ public class BlockVineUpBase extends BlockBush implements IGrowable, IHasModel, 
         }
     }
 
-    // TODO: Test in Multiplayer/over a Server!
     @Override
     public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
     {
+        /* Resets the Fall distance, so climbing up/down doesn't cause Fall Damage. */
+        entityIn.fallDistance = 0;
+
         // PR Request #20 Credit to BlesseNtumble
         if (worldIn.isRemote && entityIn instanceof EntityPlayer)
         {
            EntityPlayer player = (EntityPlayer) entityIn;
-//
+
             if (Minecraft.getMinecraft().gameSettings.keyBindJump.isKeyDown())
             {
                 player.motionY = 0.2D;
