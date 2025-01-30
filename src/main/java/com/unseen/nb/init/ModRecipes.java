@@ -1,5 +1,6 @@
 package com.unseen.nb.init;
 
+import com.unseen.nb.config.ModConfig;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -30,10 +31,11 @@ public class ModRecipes {
                 OreDictionary.registerOre("trapDoor", ModBlocks.WARPED_TRAPDOOR);
                 OreDictionary.registerOre("trapDoor", Blocks.TRAPDOOR);
 
-                //Material
-                OreDictionary.registerOre("ingotNetherite", ModItemsCompat.NETHERITE_INGOT);
-                OreDictionary.registerOre("blockNetherite", ModBlocksCompat.NETHERITE_BLOCK);
-
+                if (!ModConfig.futureMCCompat) {
+                        //Material
+                        OreDictionary.registerOre("ingotNetherite", ModItemsCompat.NETHERITE_INGOT);
+                        OreDictionary.registerOre("blockNetherite", ModBlocksCompat.NETHERITE_BLOCK);
+                }
 
         }
 
