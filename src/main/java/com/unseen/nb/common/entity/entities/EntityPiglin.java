@@ -574,7 +574,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
     @Override
     protected void initEntityAI() {
         super.initEntityAI();
-        this.tasks.addTask(1, new EntityAISwimming(this));
+        //this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(3, new EntityAIWander(this, 1.0D));
         this.tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 9.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
