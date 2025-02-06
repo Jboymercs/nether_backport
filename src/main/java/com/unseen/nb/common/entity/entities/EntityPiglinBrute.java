@@ -220,7 +220,6 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
     @Override
     protected void initEntityAI() {
         super.initEntityAI();
-        this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(2, new EntityTimedAttackPiglinBrute<>(this, 1.8D, 20, 2, 0.15F));
         this.tasks.addTask(3, new EntityAIWander(this, 1.0D));
         this.tasks.addTask(8, new EntityAILookIdle(this));
