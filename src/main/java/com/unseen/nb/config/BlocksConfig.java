@@ -53,6 +53,13 @@ public class BlocksConfig {
     };
 
     @Config.RequiresMcRestart
+    @Config.Comment(value = "Which blocks to check for when Lava flows over Soul Soil, to generate Basalt. To add your own do 'modID:itemName', currently not supporting metaData")
+    public static String[] basaltGeneratorBlock = new String[] {
+            "oe:blue_ice",
+            "futuremc:blue_ice"
+    };
+
+    @Config.RequiresMcRestart
     @Config.Comment(value = "Enable this to turn the whitelist for fire resistant items into the opposite. Meaning when set to true, items in the list will act without fire resistance")
     public static boolean fireproofItemBlacklist = false;
 
