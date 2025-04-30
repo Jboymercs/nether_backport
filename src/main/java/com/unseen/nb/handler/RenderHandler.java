@@ -4,11 +4,14 @@ import com.unseen.nb.client.animation.model.BasicModelEntity;
 import com.unseen.nb.client.entity.RenderModEntity;
 import com.unseen.nb.client.entity.model.ModelPiglin;
 import com.unseen.nb.client.entity.render.*;
+import com.unseen.nb.client.entity.render.tileentity.RenderPiglinHead;
+import com.unseen.nb.common.blocks.tileentity.TilePiglinHead;
 import com.unseen.nb.common.entity.entities.*;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
@@ -32,6 +35,8 @@ public class RenderHandler {
         RenderingRegistry.registerEntityRenderingHandler(EntityHoglin.class, RenderHoglin::new);
         //Zoglin
         RenderingRegistry.registerEntityRenderingHandler(EntityZoglin.class, RenderZoglin::new);
+
+        ClientRegistry.bindTileEntitySpecialRenderer(TilePiglinHead.class, new RenderPiglinHead());
     }
 
 

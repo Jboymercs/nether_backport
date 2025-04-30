@@ -1,6 +1,7 @@
 package com.unseen.nb;
 
 import com.sun.jna.Structure;
+import com.unseen.nb.common.blocks.tileentity.TilePiglinHead;
 import com.unseen.nb.common.capabilities.CapabilityRespawnAnchor;
 import com.unseen.nb.common.world.WorldGenNetherStructures;
 import com.unseen.nb.common.world.ore.NBOreGen;
@@ -12,6 +13,7 @@ import com.unseen.nb.util.ModReference;
 import com.unseen.nb.util.NBLogger;
 import com.unseen.nb.util.integration.ModIntegration;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.functions.LootFunctionManager;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.fml.common.Mod;
@@ -51,6 +53,8 @@ public class Main {
         ModSoundHandler.registerSounds();
         //Registers Entities
         ModEntities.registerEntities();
+        //Piglin Head
+        GameRegistry.registerTileEntity(TilePiglinHead.class, new ResourceLocation(ModReference.MOD_ID, "piglin_skull"));
         //Registers Entity Spawns
         ModEntities.RegisterEntitySpawns();
         //Mod Integration for Crossbows

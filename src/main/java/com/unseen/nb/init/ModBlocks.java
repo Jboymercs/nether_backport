@@ -81,7 +81,7 @@ public class ModBlocks {
     public static final Block POLISHED_BRICKS_STONE_WALL = new BlockNetherWall("bricks_stone_wall", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE, CreativeTabs.DECORATIONS);
 
 
-    public static final Block SOUL_SOIL = new BlockBase("soul_soil", Material.SAND, 0.5F, 0.5F, NBSoundTypes.SOUL_SOIL).setHarvestInfo("shovel", 0).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block SOUL_SOIL = new BlockSoulSoil("soul_soil", Material.SAND, 0.5F, 0.5F, NBSoundTypes.SOUL_SOIL).setHarvestInfo("shovel", 0).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
     public static final Block BASALT = new BlockPillarBase("basalt", Material.ROCK, BASALT_HARDNESS, BASALT_RESISTANCE, NBSoundTypes.BASALT).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
@@ -112,6 +112,8 @@ public class ModBlocks {
     public static Block BLACK_STONE_BRICK_STAIRS = new BlockStairBase("black_stone_brick_stairs", ModBlocks.BLACK_STONE_BRICKS.getDefaultState(), STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
     public static Block LODE_STONE = new BlockLodeStone("lode_stone", Material.ROCK, 3.5F, 3.5F, NBSoundTypes.LODE_STONE).setCreativeTab(CreativeTabs.DECORATIONS);
+
+    public static Block PIGLIN_HEAD = new BlockPiglinHead("piglin_head");
 
     public static Block RESPAWN_ANCHOR = new BlockRespawnAnchor("respawn_anchor", Material.ROCK, OBSIDIAN_HARDNESS, OBSIDIAN_RESISTANCE, SoundType.STONE).setHarvestInfo("pickaxe", 3).setCreativeTab(CreativeTabs.DECORATIONS);
 

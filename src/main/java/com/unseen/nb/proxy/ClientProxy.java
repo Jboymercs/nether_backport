@@ -11,6 +11,7 @@ import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
@@ -24,11 +25,12 @@ public class ClientProxy extends CommonProxy{
     }
 
     @Override
-    public void registerItemRenderer(Item item, int meta, String id) {
+    public void registerItemRenderer(Item item, int meta, String id)
+    { registerItemRenderer(item, meta, id, item.getRegistryName()); }
 
-        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), id));
-
-    }
+    @Override
+    public void registerItemRenderer(Item item, int meta, String id, ResourceLocation resourceOverride)
+    { ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(resourceOverride, id)); }
 
 
 

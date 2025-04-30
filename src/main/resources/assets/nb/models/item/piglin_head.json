@@ -1,0 +1,4 @@
+{
+  "parent": "nb:base/piglin_head_base",
+  "textures": { "particle": "nb:entity/piglin" }
+}
