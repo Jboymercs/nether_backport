@@ -13,10 +13,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-
-import java.util.Random;
 
 public abstract class BlockSlabBase extends BlockSlab implements IHasModel {
     Block half;
@@ -35,17 +31,13 @@ public abstract class BlockSlabBase extends BlockSlab implements IHasModel {
 
         ModBlocks.BLOCKS.add(this);
     }
-    @Override
-    public Item getItemDropped(IBlockState state, Random Rand, int fortune) {
-        return Item.getItemFromBlock(half);
 
+    /** An easy method for setting up harvesting per individual block that extends this */
+    public BlockSlabBase setHarvestInfo(String tool, int level)
+    {
+        this.setHarvestLevel(tool, level);
+        return this;
     }
-
-    @Override
-    public ItemStack getItem(World world, BlockPos pos, IBlockState state) {
-        return new ItemStack(half);
-    }
-
 
     @Override
     public IBlockState getStateFromMeta(int meta) {
@@ -59,35 +51,26 @@ public abstract class BlockSlabBase extends BlockSlab implements IHasModel {
         if (!this.isDouble() && state.getValue(HALF) == EnumBlockHalf.TOP) meta |= 8;
         return meta;
     }
-    @Override
-    protected BlockStateContainer createBlockState() {
-        if(!this.isDouble()) return new BlockStateContainer(this, new IProperty[]{VARIANT, HALF});
-        else return new BlockStateContainer(this, new IProperty[]{VARIANT});
-    }
-    @Override
-    public String getTranslationKey(int meta) {
-        return super.getTranslationKey();
-    }
-    @Override
-    public IProperty<?> getVariantProperty() {
-        return VARIANT;
-    }
-    @Override
-    public Comparable<?> getTypeForItem(ItemStack itemStack) {
-        return Variant.DEFAULT;
-    }
 
-    public static enum Variant implements IStringSerializable {
+    @Override
+    protected BlockStateContainer createBlockState()
+    { return new BlockStateContainer(this, this.isDouble() ? new IProperty[]{VARIANT} : new IProperty[]{VARIANT, HALF}); }
+
+    @Override
+    public String getTranslationKey(int meta) { return super.getTranslationKey(); }
+    @Override
+    public IProperty<?> getVariantProperty() { return VARIANT; }
+    @Override
+    public Comparable<?> getTypeForItem(ItemStack itemStack) { return Variant.DEFAULT;  }
+
+    public static enum Variant implements IStringSerializable
+    {
         DEFAULT;
-
         @Override
-        public String getName() {
-            return "default";
-        }
+        public String getName() {  return "default"; }
     }
 
     @Override
-    public void registerModels() {
-        Main.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
-    }
+    public void registerModels()
+    { Main.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory"); }
 }

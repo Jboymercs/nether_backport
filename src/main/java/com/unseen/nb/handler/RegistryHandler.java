@@ -12,6 +12,7 @@ import net.minecraft.block.BlockDoor;
 import net.minecraft.block.BlockSkull;
 import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemSlab;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -22,6 +23,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
 
+import static com.unseen.nb.init.ModBlocks.*;
+
 @Mod.EventBusSubscriber
 public class RegistryHandler {
 
@@ -29,28 +32,37 @@ public class RegistryHandler {
 
 
 
-        @SubscribeEvent
-        public static void onItemRegister(RegistryEvent.Register<Item> event) {
-            itemRegistry = event.getRegistry();
-            event.getRegistry().registerAll(ModItems.ITEMS.toArray(new Item[0]));
-            // Items.ALTAR = registerItem(new ItemBlock(Items.ALTAR_BLOCK), "altar");
-            if(!ModIntegration.FUTURE_MC_LOADED) {
-                event.getRegistry().registerAll(ModItemsCompat.ITEMS.toArray(new Item[0]));
-            }
+    @SubscribeEvent
+    public static void onBlockRegister(RegistryEvent.Register<Block> event)
+    {
+        event.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
+
+        if(!ModIntegration.FUTURE_MC_LOADED)
+        {
+            //register the fill ins
+            event.getRegistry().registerAll(ModBlocksCompat.BLOCKS.toArray(new Block[0]));
         }
+        // blockRegistry = event.getRegistry();
+    }
 
 
-        @SubscribeEvent
-        public static void onBlockRegister(RegistryEvent.Register<Block> event) {
-            event.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
-            if(!ModIntegration.FUTURE_MC_LOADED) {
-                //register the fill ins
-                event.getRegistry().registerAll(ModBlocksCompat.BLOCKS.toArray(new Block[0]));
-            }
-            // blockRegistry = event.getRegistry();
+    @SubscribeEvent
+    public static void onItemRegister(RegistryEvent.Register<Item> event)
+    {
+        itemRegistry = event.getRegistry();
+        event.getRegistry().registerAll(ModItems.ITEMS.toArray(new Item[0]));
+        // Items.ALTAR = registerItem(new ItemBlock(Items.ALTAR_BLOCK), "altar");
 
+        /* Manually register the ItemSlabs, so we can reorganize the rest of the Slab code. */
+        event.getRegistry().register(new ItemSlab(BLACK_STONE_SLAB_HALF, BLACK_STONE_SLAB_HALF, BLACK_STONE_SLAB_DOUBLE).setRegistryName(BLACK_STONE_SLAB_HALF.getRegistryName()));
+        event.getRegistry().register(new ItemSlab(BLACK_BRICKS_SLAB_HALF, BLACK_BRICKS_SLAB_HALF, BLACK_BRICKS_SLAB_DOUBLE).setRegistryName(BLACK_BRICKS_SLAB_HALF.getRegistryName()));
+        event.getRegistry().register(new ItemSlab(POLISHED_BLACK_STONE_SLAB_HALF, POLISHED_BLACK_STONE_SLAB_HALF, POLISHED_BLACK_STONE_SLAB_DOUBLE).setRegistryName(POLISHED_BLACK_STONE_SLAB_HALF.getRegistryName()));
+        event.getRegistry().register(new ItemSlab(CRIMSON_SLAB_HALF, CRIMSON_SLAB_HALF, CRIMSON_SLAB_DOUBLE).setRegistryName(CRIMSON_SLAB_HALF.getRegistryName()));
+        event.getRegistry().register(new ItemSlab(WARPED_SLAB_HALF, WARPED_SLAB_HALF, WARPED_SLAB_DOUBLE).setRegistryName(WARPED_SLAB_HALF.getRegistryName()));
 
-        }
+        if(!ModIntegration.FUTURE_MC_LOADED)
+        { event.getRegistry().registerAll(ModItemsCompat.ITEMS.toArray(new Item[0])); }
+    }
 
 
 
