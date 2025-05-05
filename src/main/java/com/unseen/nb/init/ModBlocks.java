@@ -2,9 +2,8 @@ package com.unseen.nb.init;
 
 import com.unseen.nb.common.blocks.*;
 import com.unseen.nb.common.blocks.base.*;
+import com.unseen.nb.common.blocks.base.slab.*;
 
-import com.unseen.nb.common.blocks.base.slab.BlockDoubleSlab;
-import com.unseen.nb.common.blocks.base.slab.BlockHalfSlab;
 import net.minecraft.block.*;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -65,7 +64,7 @@ public class ModBlocks
     public static final Block CRIMSON_STAIRS = new BlockStairBaseWood("crimson_stairs", CRIMSON_PLANKS.getDefaultState(), WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     public static final Block CRIMSON_TRAPDOOR = new BlockNetherTrapDoor("crimson_trapdoor", WOOD_RESISTANCE, WOOD_HARDNESS, CreativeTabs.REDSTONE, SoundType.WOOD);
 
-    public static Block CRIMSON_FUNGUS = new BlockCrimsonFungusTree("crimson_fungus", Material.PLANTS, NBSoundTypes.HYPHAE);
+    public static Block CRIMSON_FUNGUS = new BlockFungusTree("crimson_fungus", Material.PLANTS, NBSoundTypes.HYPHAE, false);
     public static final Block CRIMSON_GRASS = new BlockNetherGrass("crimson_grass", Material.ROCK, 0.4F, 0.4F, NBSoundTypes.NYLIUM).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     public static Block CRIMSON_ROOTS = new BlockPlantBase("crimson_roots", Material.PLANTS, NBSoundTypes.ROOTS);
     public static Block CRIMSON_VINES = new BlockVineBase("crimson_vine", Material.PLANTS, NBSoundTypes.ROOTS);
@@ -102,10 +101,10 @@ public class ModBlocks
     public static final Block WARPED_STAIRS = new BlockStairBaseWood("warped_stairs", WARPED_PLANKS.getDefaultState(), WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     public static final Block WARPED_TRAPDOOR = new BlockNetherTrapDoor("warped_trapdoor", WOOD_RESISTANCE, WOOD_HARDNESS, CreativeTabs.REDSTONE, SoundType.WOOD);
 
-    public static Block WARPED_FUNGUS = new BlockFungusTree("warped_fungus", Material.PLANTS, NBSoundTypes.HYPHAE);
+    public static Block WARPED_FUNGUS = new BlockFungusTree("warped_fungus", Material.PLANTS, NBSoundTypes.HYPHAE, true);
     public static final Block WARPED_GRASS = new BlockNetherGrass("warped_grass", Material.ROCK, 0.4F, 0.4F, NBSoundTypes.NYLIUM).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     public static final Block WARPED_WART = new BlockBase("warped_wart", Material.GRASS, 1.0F, 1.0F, NBSoundTypes.WART).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     public static Block WARPED_ROOTS = new BlockPlantBase("warped_roots", Material.PLANTS, NBSoundTypes.ROOTS);
-    public static Block WARPED_SPROUT = new BlockSmallPlantBase("warped_sprout", Material.PLANTS, NBSoundTypes.SPROUT);
+    public static Block WARPED_SPROUT = new BlockPlantBase("warped_sprout", Material.PLANTS, NBSoundTypes.SPROUT).setRequiresShears(true).setIsSmall(true);
     public static Block WARPED_VINES = new BlockVineUpBase("warped_vine", Material.PLANTS, NBSoundTypes.ROOTS);
 }
