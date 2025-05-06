@@ -1,5 +1,9 @@
 {
-  "variants": {
-    "normal": { "model": "nb:crimson_hyphae" }
+  "variants":
+  {
+    "axis=y": { "model": "nb:crimson_hyphae" },
+    "axis=z": { "model": "nb:crimson_hyphae", "x": 90 },
+    "axis=x": { "model": "nb:crimson_hyphae", "x": 90, "y": 90 },
+    "axis=none": { "model": "nb:crimson_hyphae" }
   }
 }

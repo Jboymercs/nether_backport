@@ -54,14 +54,14 @@ public class ModBlocks
     public static Block CHAINS = new BlockChainNew("chain_block", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.CHAIN).setCreativeTab(CreativeTabs.DECORATIONS);
 
     public static final Block CRIMSON_STEM = new BlockLogBase("crimson_stem", WOOD_HARDNESS, WOOD_RESISTANCE, NBSoundTypes.STEM_TYPE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-    public static final Block CRIMSON_HYPHAE = new BlockNetherWood("crimson_hyphae", Material.GROUND, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.HYPHAE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-    public static final Block CRIMSON_PLANKS = new BlockNetherWood("crimson_planks", Material.GROUND, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block CRIMSON_HYPHAE = new BlockLogBase("crimson_hyphae", WOOD_HARDNESS, WOOD_RESISTANCE, NBSoundTypes.HYPHAE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block CRIMSON_PLANKS = new BlockBase("crimson_planks", Material.GROUND, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setHarvestInfo("axe", 0).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     public static final Block CRIMSON_DOOR = new BlockNetherDoor("crimson_door", WOOD_HARDNESS, WOOD_RESISTANCE, CreativeTabs.REDSTONE, SoundType.WOOD);
     public static final Block CRIMSON_FENCE = new BlockFenceBase("crimson_fence", Material.GROUND, MapColor.RED_STAINED_HARDENED_CLAY, WOOD_HARDNESS, WOOD_RESISTANCE);
     public static final Block CRIMSON_GATE = new BlockFenceGateBase("crimson_gate", BlockPlanks.EnumType.OAK, WOOD_HARDNESS, WOOD_RESISTANCE);
     public static final BlockSlab CRIMSON_SLAB_HALF = new BlockHalfSlab("crimson_slab_half", Material.GROUND, CreativeTabs.BUILDING_BLOCKS, ModBlocks.CRIMSON_SLAB_HALF, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setHarvestInfo("axe", 0);
     public static final BlockSlab CRIMSON_SLAB_DOUBLE = new BlockDoubleSlab("crimson_slab_double", Material.GROUND, CreativeTabs.SEARCH, ModBlocks.CRIMSON_SLAB_HALF, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setHarvestInfo("axe", 0);
-    public static final Block CRIMSON_STAIRS = new BlockStairBaseWood("crimson_stairs", CRIMSON_PLANKS.getDefaultState(), WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block CRIMSON_STAIRS = new BlockStairBase("crimson_stairs", CRIMSON_PLANKS.getDefaultState(), WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setHarvestInfo("axe", 0).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     public static final Block CRIMSON_TRAPDOOR = new BlockNetherTrapDoor("crimson_trapdoor", WOOD_RESISTANCE, WOOD_HARDNESS, CreativeTabs.REDSTONE, SoundType.WOOD);
 
     public static Block CRIMSON_FUNGUS = new BlockFungusTree("crimson_fungus", Material.PLANTS, NBSoundTypes.HYPHAE, false);
@@ -91,14 +91,14 @@ public class ModBlocks
     public static final Block SOUL_SOIL = new BlockSoulSoil("soul_soil", Material.SAND, 0.5F, 0.5F, NBSoundTypes.SOUL_SOIL).setHarvestInfo("shovel", 0).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
     public static final Block WARPED_STEM = new BlockLogBase("warped_stem",  WOOD_HARDNESS, WOOD_RESISTANCE, NBSoundTypes.STEM_TYPE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-    public static final Block WARPED_HYPHAE = new BlockNetherWood("warped_hyphae", Material.GROUND, STONE_HARDNESS, STONE_RESISTANCE, NBSoundTypes.HYPHAE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-    public static final Block WARPED_PLANKS = new BlockNetherWood("warped_planks", Material.GROUND, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block WARPED_HYPHAE = new BlockLogBase("warped_hyphae", WOOD_HARDNESS, WOOD_RESISTANCE, NBSoundTypes.HYPHAE).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block WARPED_PLANKS = new BlockBase("warped_planks", Material.GROUND, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setHarvestInfo("axe", 0).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     public static final Block WARPED_DOOR = new BlockNetherDoor("warped_door", WOOD_HARDNESS, WOOD_RESISTANCE, CreativeTabs.REDSTONE, SoundType.WOOD);
     public static final Block WARPED_FENCE = new BlockFenceBase("warped_fence", Material.GROUND, MapColor.CYAN_STAINED_HARDENED_CLAY, WOOD_HARDNESS, WOOD_RESISTANCE);
     public static final Block WARPED_GATE = new BlockFenceGateBase("warped_gate", BlockPlanks.EnumType.OAK, WOOD_HARDNESS, WOOD_RESISTANCE);
     public static final BlockSlab WARPED_SLAB_HALF = new BlockHalfSlab("warped_slab_half", Material.GROUND, CreativeTabs.BUILDING_BLOCKS, ModBlocks.WARPED_SLAB_HALF, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setHarvestInfo("axe", 0);
     public static final BlockSlab WARPED_SLAB_DOUBLE = new BlockDoubleSlab("warped_slab_double", Material.GROUND, CreativeTabs.SEARCH, ModBlocks.WARPED_SLAB_HALF, WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setHarvestInfo("axe", 0);
-    public static final Block WARPED_STAIRS = new BlockStairBaseWood("warped_stairs", WARPED_PLANKS.getDefaultState(), WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+    public static final Block WARPED_STAIRS = new BlockStairBase("warped_stairs", WARPED_PLANKS.getDefaultState(), WOOD_HARDNESS, WOOD_RESISTANCE, SoundType.WOOD).setHarvestInfo("axe", 0).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     public static final Block WARPED_TRAPDOOR = new BlockNetherTrapDoor("warped_trapdoor", WOOD_RESISTANCE, WOOD_HARDNESS, CreativeTabs.REDSTONE, SoundType.WOOD);
 
     public static Block WARPED_FUNGUS = new BlockFungusTree("warped_fungus", Material.PLANTS, NBSoundTypes.HYPHAE, true);

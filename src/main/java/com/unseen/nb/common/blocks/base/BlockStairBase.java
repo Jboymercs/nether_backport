@@ -10,11 +10,8 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 
-public class BlockStairBase extends BlockStairs implements IHasModel {
-    protected BlockStairBase(IBlockState modelState) {
-        super(modelState);
-    }
-
+public class BlockStairBase extends BlockStairs implements IHasModel
+{
     public BlockStairBase(String name, IBlockState modelState) {
         super(modelState);
         setTranslationKey(name);
@@ -35,8 +32,12 @@ public class BlockStairBase extends BlockStairs implements IHasModel {
         this.useNeighborBrightness = true;
     }
 
-
-
+    /** An easy method for setting up harvesting per individual block that extends this */
+    public BlockStairBase setHarvestInfo(String tool, int level)
+    {
+        this.setHarvestLevel(tool, level);
+        return this;
+    }
 
     @Override
     public void registerModels() {
