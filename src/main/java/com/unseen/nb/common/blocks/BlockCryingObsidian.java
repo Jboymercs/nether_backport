@@ -6,6 +6,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -44,4 +45,9 @@ public class BlockCryingObsidian extends BlockBase
             Main.proxy.spawnParticle(0, x, y, z, 0, 0, 0, 0);
         }
     }
+
+    /** Used for Overlay texture. */
+    @SideOnly(Side.CLIENT)
+    public BlockRenderLayer getRenderLayer()
+    { return BlockRenderLayer.CUTOUT_MIPPED; }
 }

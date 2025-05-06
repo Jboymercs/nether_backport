@@ -6,6 +6,7 @@ import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -48,6 +49,18 @@ public class ParticleObsidianTear extends ParticleBase
                 this.texSpot = 1;
             }
         }
+    }
+
+    /** Copy of `setPosition`, so we can give the Obsidian Tear a smaller Bounding Box.*/
+    @Override
+    public void setPosition(double x, double y, double z)
+    {
+        this.posX = x;
+        this.posY = y;
+        this.posZ = z;
+        float f = this.width / 6.0F;
+        float f1 = this.height;
+        this.setBoundingBox(new AxisAlignedBB(x - (double)f, y, z - (double)f, x + (double)f, y + (double)f1, z + (double)f));
     }
 
     @Override
