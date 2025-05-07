@@ -10,6 +10,7 @@ import com.unseen.nb.common.entity.entities.ai.EntityTimedAttackPiglinBrute;
 import com.unseen.nb.common.entity.entities.ai.IAttack;
 import com.unseen.nb.config.ModConfig;
 import com.unseen.nb.config.NBEntitiesConfig;
+import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.init.ModSoundHandler;
 import com.unseen.nb.util.ModRand;
 import com.unseen.nb.util.ModReference;
@@ -20,6 +21,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
+import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.monster.EntityWitherSkeleton;
 import net.minecraft.entity.player.EntityPlayer;
@@ -297,6 +299,23 @@ public class EntityPiglinBrute extends EntityNetherBase implements IAnimatedEnti
     @Override
     protected ResourceLocation getLootTable() {
         return null;
+    }
+
+    /** Causes a Skull to drop when killed via a charged creeper. */
+    public void onDeath(DamageSource cause)
+    {
+        super.onDeath(cause);
+
+        if (cause.getTrueSource() instanceof EntityCreeper)
+        {
+            EntityCreeper entitycreeper = (EntityCreeper)cause.getTrueSource();
+
+            if (entitycreeper.getPowered() && entitycreeper.ableToCauseSkullDrop())
+            {
+                entitycreeper.incrementDroppedSkulls();
+                this.entityDropItem(new ItemStack(ModBlocks.PIGLIN_HEAD, 1, 0), 0.0F);
+            }
+        }
     }
 
     public static final Predicate<Entity> CAN_TARGET = entity -> {

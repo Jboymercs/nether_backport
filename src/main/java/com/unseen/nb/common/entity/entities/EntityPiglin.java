@@ -784,6 +784,23 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
         return null;
     }
 
+    /** Causes a Skull to drop when killed via a charged creeper. */
+    public void onDeath(DamageSource cause)
+    {
+        super.onDeath(cause);
+
+        if (cause.getTrueSource() instanceof EntityCreeper)
+        {
+            EntityCreeper entitycreeper = (EntityCreeper)cause.getTrueSource();
+
+            if (entitycreeper.getPowered() && entitycreeper.ableToCauseSkullDrop())
+            {
+                entitycreeper.incrementDroppedSkulls();
+                this.entityDropItem(new ItemStack(ModBlocks.PIGLIN_HEAD, 1, 0), 0.0F);
+            }
+        }
+    }
+
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
         return ModSoundHandler.PIGLIN_HURT;
