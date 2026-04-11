@@ -89,7 +89,8 @@ public class ModUtils {
         for (int dx = -radius_int_conversion; dx < radius_int_conversion + 1; dx++) {
             // fast calculate affected blocks
             int y_lim = (int) Math.sqrt(radius_int_conversion*radius_int_conversion-dx*dx);
-            for (int dy = -y_lim; dy < y_lim + 1; dy++) {
+            // inverted top to bottom
+            for (int dy = y_lim; dy > y_lim - 1; dy--) {
                 int z_lim = (int) Math.sqrt(radius_int_conversion*radius_int_conversion-dx*dx-dy*dy);
                 for (int dz = -z_lim; dz < z_lim + 1; dz++) {
                     BlockPos blockPos = new BlockPos(x + dx, y + dy, z + dz);
@@ -106,9 +107,9 @@ public class ModUtils {
                 // added Gravel
                 if (world.getBlockState(blockPos).getBlock() instanceof BlockDirt || world.getBlockState(blockPos).getBlock() instanceof BlockSand || world.getBlockState(blockPos).getBlock() instanceof BlockGrass ||
                         world.getBlockState(blockPos).getBlock() instanceof BlockStone || world.getBlockState(blockPos).getBlock() instanceof BlockGravel) {
-                    // 8% chance to be magma & 2% change to be a lava
-                    int i = world.rand.nextInt(50);
-                    if (i>4) world.setBlockState(blockPos, Blocks.NETHERRACK.getDefaultState());            
+                    // 5% chance to be magma & 1% change to be a lava
+                    int i = world.rand.nextInt(100);
+                    if (i>5) world.setBlockState(blockPos, Blocks.NETHERRACK.getDefaultState());            
                     else if (i>0) world.setBlockState(blockPos, Blocks.MAGMA.getDefaultState());
                     else world.setBlockState(blockPos, Blocks.LAVA.getDefaultState());
                 } 
