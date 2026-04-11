@@ -103,9 +103,14 @@ public class ModUtils {
 
         for(BlockPos blockPos : affectedConversionPositions) {
             if(world.rand.nextInt(5) != 0) {
+                // added Gravel
                 if (world.getBlockState(blockPos).getBlock() instanceof BlockDirt || world.getBlockState(blockPos).getBlock() instanceof BlockSand || world.getBlockState(blockPos).getBlock() instanceof BlockGrass ||
-                        world.getBlockState(blockPos).getBlock() instanceof BlockStone) {
-                    world.setBlockState(blockPos, Blocks.NETHERRACK.getDefaultState());
+                        world.getBlockState(blockPos).getBlock() instanceof BlockStone || world.getBlockState(blockPos).getBlock() instanceof BlockGravel) {
+                    // 8% chance to be magma & 2% change to be a lava
+                    int i = (world.rand.nextInt(50);
+                    if (i>4) world.setBlockState(blockPos, Blocks.NETHERRACK.getDefaultState());            
+                    else if (i>0) world.setBlockState(blockPos, Blocks.MAGMA.getDefaultState());
+                    else world.setBlockState(blockPos, Blocks.LAVA.getDefaultState());
                 }
             }
         }
