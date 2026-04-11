@@ -102,6 +102,21 @@ public class ModUtils {
             }
         }
 
+        for (int dx = -radius_int_conversion; dx < radius_int_conversion + 1; dx++) {
+            // fast calculate affected blocks
+            int y_lim = (int) Math.sqrt(radius_int_conversion*radius_int_conversion-dx*dx);
+            // inverted top to bottom
+            for (int dy = -y_lim; dy < y_lim + 1; dy++) {
+                int z_lim = (int) Math.sqrt(radius_int_conversion*radius_int_conversion-dx*dx-dy*dy);
+                for (int dz = -z_lim; dz < z_lim + 1; dz++) {
+                    BlockPos blockPos = new BlockPos(x + dx, y - dy, z + dz);
+                    double power = interperetVar(Math.sqrt(dx*dx+dy*dy+dz*dz), radius);
+                    if ((power>1) ||(power > new Random().nextDouble())){
+                        affectedConversionPositions.add(blockPos);
+                    }
+                }
+            }
+        }
         for(BlockPos blockPos : affectedConversionPositions) {
             if(world.rand.nextInt(5) != 0) {
                 // added Gravel
@@ -113,28 +128,28 @@ public class ModUtils {
                     else if (i>0) world.setBlockState(blockPos, Blocks.MAGMA.getDefaultState());
                     else world.setBlockState(blockPos, Blocks.LAVA.getDefaultState());
                 } 
-                // removes floating corners
-                if (world.isAirBlock(blockPos) && world.getBlockState(blockPos.up(1)).getBlock() instanceof BlockNetherrack) {
-                    world.setBlockState(blockPos, Blocks.NETHERRACK.getDefaultState());    
-                    switch (world.rand.nextInt(4)) {
-                        case 0: if (world.isAirBlock(blockPos.east(1)))
-                            world.setBlockState(blockPos.east(1), Blocks.NETHERRACK.getDefaultState());    
-                        break;                
-                        case 1: if (world.isAirBlock(blockPos.west(1)))
-                            world.setBlockState(blockPos.west(1), Blocks.NETHERRACK.getDefaultState());    
-                        break;                    
-                        case 2: if (world.isAirBlock(blockPos.south(1)))
-                            world.setBlockState(blockPos.south(1), Blocks.NETHERRACK.getDefaultState());    
-                        break;                    
-                        case 3: if (world.isAirBlock(blockPos.north(1)))
-                            world.setBlockState(blockPos.north(1), Blocks.NETHERRACK.getDefaultState());    
-                        break;
-                    }
+            }
+            // removes floating corners 
+            if ((world.isAirBlock(blockPos) || world.getBlockState(blockPos.up(1)).getBlock() == Blocks.WATER) && (world.getBlockState(blockPos.up(1)).getBlock() instanceof BlockNetherrack) ||
+              world.getBlockState(blockPos.up(1)).getBlock() instanceof BlockMagma || world.getBlockState(blockPos.up(1)).getBlock() == Blocks.LAVA) {
+                world.setBlockState(blockPos, Blocks.NETHERRACK.getDefaultState());    
+                switch (world.rand.nextInt(4)) {
+                    case 0: if (world.isAirBlock(blockPos.east(1)) || world.getBlockState(blockPos.east(1)).getBlock() == Blocks.WATER)
+                        world.setBlockState(blockPos.east(1), Blocks.NETHERRACK.getDefaultState());    
+                    break;                
+                    case 1: if (world.isAirBlock(blockPos.west(1)) || world.getBlockState(blockPos.west(1)).getBlock() == Blocks.WATER)
+                        world.setBlockState(blockPos.west(1), Blocks.NETHERRACK.getDefaultState());    
+                    break;                    
+                    case 2: if (world.isAirBlock(blockPos.south(1)) || world.getBlockState(blockPos.south(1)).getBlock() == Blocks.WATER)
+                        world.setBlockState(blockPos.south(1), Blocks.NETHERRACK.getDefaultState());    
+                    break;                    
+                    case 3: if (world.isAirBlock(blockPos.north(1)) || world.getBlockState(blockPos.north(1)).getBlock() == Blocks.WATER)
+                        world.setBlockState(blockPos.north(1), Blocks.NETHERRACK.getDefaultState());    
+                    break;
                 }
             }
         }
     }
-
 
     public static BlockPos searchForBlocks(AxisAlignedBB box, World world, Entity entity, IBlockState block) {
         int i = MathHelper.floor(box.minX);
