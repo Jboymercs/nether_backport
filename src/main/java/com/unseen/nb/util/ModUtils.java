@@ -111,21 +111,21 @@ public class ModUtils {
                     if (i>4) world.setBlockState(blockPos, Blocks.NETHERRACK.getDefaultState());            
                     else if (i>0) world.setBlockState(blockPos, Blocks.MAGMA.getDefaultState());
                     else world.setBlockState(blockPos, Blocks.LAVA.getDefaultState());
-                }
+                } 
                 // removes floating corners
-                if (world.getBlockState(blockPos.getBlock() instanceof BlockAir && world.getBlockState(blockPos.up(1)).getBlock() instanceof BlockNetherrack) {
+                if (world.isAirBlock(blockPos) && world.getBlockState(blockPos.up(1)).getBlock() instanceof BlockNetherrack) {
                     world.setBlockState(blockPos, Blocks.NETHERRACK.getDefaultState());    
                     switch (world.rand.nextInt(4)) {
-                        case 0: if (world.getBlockState(blockPos.east(1).getBlock() instanceof BlockAir)
+                        case 0: if world.isAirBlock(blockPos).east(1)
                             world.setBlockState(blockPos.east(1), Blocks.NETHERRACK.getDefaultState());    
                         break;                
-                        case 1: if (world.getBlockState(blockPos.west(1).getBlock() instanceof BlockAir)
+                        case 1: if (world.isAirBlock(blockPos.west(1))
                             world.setBlockState(blockPos.west(1), Blocks.NETHERRACK.getDefaultState());    
                         break;                    
-                        case 2: if (world.getBlockState(blockPos.south(1).getBlock() instanceof BlockAir)
+                        case 2: if (world.isAirBlock(blockPos.south(1))
                             world.setBlockState(blockPos.south(1), Blocks.NETHERRACK.getDefaultState());    
                         break;                    
-                        case 3: if (world.getBlockState(blockPos.north(1).getBlock() instanceof BlockAir)
+                        case 3: if (world.isAirBlock(blockPos.north(1))
                             world.setBlockState(blockPos.north(1), Blocks.NETHERRACK.getDefaultState());    
                         break;
                     }
