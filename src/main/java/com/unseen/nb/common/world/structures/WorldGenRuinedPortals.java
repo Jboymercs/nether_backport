@@ -38,10 +38,13 @@ public class WorldGenRuinedPortals extends WorldGenNB {
     }
 
     @Override
+    // so the corners arn't floating & changed the positions
     public boolean generate(World worldIn, Random rand, BlockPos position) {
-            ModUtils.createNetherrackCorruption(worldIn, ModRand.range(7, 9), position.getX() -2, position.getY() -1, position.getZ() - 2);
+        try {
             return super.generate(worldIn, rand, position.add(-2, 0, -2));
-
+        } finally {
+            ModUtils.createNetherrackCorruption(worldIn, ModRand.range(7, 9), position.getX() , position.getY() -1, position.getZ());
+        }  
     }
 
 }
