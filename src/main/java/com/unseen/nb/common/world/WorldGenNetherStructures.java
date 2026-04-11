@@ -15,6 +15,7 @@ import com.unseen.nb.util.NBLogger;
 import git.jbredwards.nether_api.mod.common.config.NetherAPIConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
@@ -56,6 +57,7 @@ public class WorldGenNetherStructures implements IWorldGenerator {
         BlockPos pos = new BlockPos(x + 8, 0, z + 8);
 
         //using the overworld for testing, change this ID later
+        //using the overworld for testing, change this ID later
         if(world.provider.getDimension() == -1) {
             //This is the connect between the bastion spawn rules and a signal to tell it to try it here
             //WorldGenBastion handles the actual spawn rules
@@ -74,7 +76,7 @@ public class WorldGenNetherStructures implements IWorldGenerator {
 
                 //Nether Portal Ruins
                 if(NBWorldConfig.nether_ruined_portal_enabled) {
-                    if(random.nextInt(getGenerationNetherChance()) = 0) {
+                    if(random.nextInt(getGenerationNetherChance()) == 0) {
                         int y = getNetherSurfaceHeight(world, pos, 35, NetherAPIConfig.tallNether ? 240 : 110);
                         BlockPos modifiedPos = new BlockPos(pos.getX() - 2, y, pos.getZ() - 2);
                         if (!world.isAirBlock(modifiedPos) && !world.isAirBlock(modifiedPos.add(3, 0, 3)) && world.isAirBlock(modifiedPos.add(0, 10, 0))) {
@@ -88,7 +90,7 @@ public class WorldGenNetherStructures implements IWorldGenerator {
 
         if (world.provider.getDimension() == 0 && NBWorldConfig.ruined_portal_enabled) {
             if(world.provider.getBiomeForCoords(pos) != getSpawnBiomesRuinedPortals().iterator()) {
-                if(random.nextInt(getGenerationOverworldChance()) = 0) {
+                if(random.nextInt(getGenerationOverworldChance()) == 0) {
                 int y = getGroundFromAbove(world, pos.getX(), pos.getZ());
                 //generates regular ruined portals
                 BlockPos posModified = new BlockPos(pos.getX(), y, pos.getZ());
@@ -109,15 +111,13 @@ public class WorldGenNetherStructures implements IWorldGenerator {
             }
         }
     }
-
       
-protected int getGenerationNetherChance() {
-    return NBWorldConfig.nether_ruins_rate;
-}  
-protected int getGenerationOverworldChance() {
-    return NBWorldConfig.ruined_portal_rate;
-}
-
+    protected int getGenerationNetherChance() {
+        return NBWorldConfig.nether_ruins_rate;
+    }  
+    protected int getGenerationOverworldChance() {
+        return NBWorldConfig.ruined_portal_rate;
+    }
 
     /**
      * Credit goes to SmileyCorps for Biomes read from a config
@@ -162,10 +162,11 @@ protected int getGenerationOverworldChance() {
         boolean foundGround = false;
         while(!foundGround && y-- >= 31)
         {
-            Block blockAt = world.getBlockState(new BlockPos(x,y,z)).getBlock();
+            IBlockState blockState = world.getBlockState(new BlockPos(x,y,z));
+            Block blockAt = blockState.getBlock();
             // added check for fullblocks/leaves/transparentblocks
             foundGround =  blockAt != Blocks.AIR && blockAt != Blocks.LEAVES && blockAt != Blocks.LEAVES2 && !(blockAt instanceof BlockLiquid) 
-                && blockAt.isFullBlock(blockAt.getBlockState() && !blockAt.isLeaves(blockAt.getBlockState() && !blockAt.isTranslucent(blockAt.getBlockState());
+                && blockAt.isFullBlock(blockState) && !blockAt.isLeaves(blockState, world, new BlockPos(x,y,z)) && !blockAt.isTranslucent(blockState);
         }
 
         return y;
