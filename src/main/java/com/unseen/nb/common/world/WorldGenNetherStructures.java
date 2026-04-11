@@ -48,10 +48,7 @@ public class WorldGenNetherStructures implements IWorldGenerator {
             new WorldGenNetherPortal("nether_portal_6"),new WorldGenNetherPortal("nether_portal_7")};
 
     private static final WorldGenStriderSpawn strider_spawns = new WorldGenStriderSpawn("strider_spawn");
-
-    private int portalSpacing = 0;
-    private int netherPortalSpacing = 0;
-
+    
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
         int x = chunkX * 16;
@@ -77,16 +74,13 @@ public class WorldGenNetherStructures implements IWorldGenerator {
 
                 //Nether Portal Ruins
                 if(NBWorldConfig.nether_ruined_portal_enabled) {
-                    if (netherPortalSpacing > NBWorldConfig.nether_ruins_rate) {
+                    if(random.nextInt(getGenerationNetherChance()) = 0) {
                         int y = getNetherSurfaceHeight(world, pos, 35, NetherAPIConfig.tallNether ? 240 : 110);
                         BlockPos modifiedPos = new BlockPos(pos.getX() - 2, y, pos.getZ() - 2);
                         if (!world.isAirBlock(modifiedPos) && !world.isAirBlock(modifiedPos.add(3, 0, 3)) && world.isAirBlock(modifiedPos.add(0, 10, 0))) {
                             WorldGenNetherPortal portal = ModRand.choice(list_of_nether_portals);
                             portal.generate(world, random, pos.add(0, y, 0));
-                            netherPortalSpacing = 0;
                         }
-                    } else {
-                        netherPortalSpacing++;
                     }
                 }
             }
@@ -94,7 +88,7 @@ public class WorldGenNetherStructures implements IWorldGenerator {
 
         if (world.provider.getDimension() == 0 && NBWorldConfig.ruined_portal_enabled) {
             if(world.provider.getBiomeForCoords(pos) != getSpawnBiomesRuinedPortals().iterator()) {
-                if(portalSpacing > NBWorldConfig.ruined_portal_rate) {
+                if(random.nextInt(getGenerationOverworldChance()) = 0) {
                 int y = getGroundFromAbove(world, pos.getX(), pos.getZ());
                 //generates regular ruined portals
                 BlockPos posModified = new BlockPos(pos.getX(), y, pos.getZ());
@@ -110,14 +104,19 @@ public class WorldGenNetherStructures implements IWorldGenerator {
                             WorldGenRuinedPortals portal = ModRand.choice(list_Of_Portals);
                             portal.generate(world, random, pos.add(0, y, 0));
                         }
-                        portalSpacing = 0;
                     }
-                } else {
-                    portalSpacing++;
                 }
             }
         }
     }
+
+      
+protected int getGenerationNetherChance() {
+    return NBWorldConfig.nether_ruins_rate;
+}  
+protected int getGenerationOverworldChance() {
+    return NBWorldConfig.ruined_portal_rate;
+}
 
 
     /**
