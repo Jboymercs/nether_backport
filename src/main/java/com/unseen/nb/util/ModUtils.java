@@ -107,7 +107,7 @@ public class ModUtils {
                 if (world.getBlockState(blockPos).getBlock() instanceof BlockDirt || world.getBlockState(blockPos).getBlock() instanceof BlockSand || world.getBlockState(blockPos).getBlock() instanceof BlockGrass ||
                         world.getBlockState(blockPos).getBlock() instanceof BlockStone || world.getBlockState(blockPos).getBlock() instanceof BlockGravel) {
                     // 8% chance to be magma & 2% change to be a lava
-                    int i = (world.rand.nextInt(50);
+                    int i = world.rand.nextInt(50);
                     if (i>4) world.setBlockState(blockPos, Blocks.NETHERRACK.getDefaultState());            
                     else if (i>0) world.setBlockState(blockPos, Blocks.MAGMA.getDefaultState());
                     else world.setBlockState(blockPos, Blocks.LAVA.getDefaultState());
@@ -116,16 +116,16 @@ public class ModUtils {
                 if (world.isAirBlock(blockPos) && world.getBlockState(blockPos.up(1)).getBlock() instanceof BlockNetherrack) {
                     world.setBlockState(blockPos, Blocks.NETHERRACK.getDefaultState());    
                     switch (world.rand.nextInt(4)) {
-                        case 0: if world.isAirBlock(blockPos).east(1)
+                        case 0: if (world.isAirBlock(blockPos).east(1))
                             world.setBlockState(blockPos.east(1), Blocks.NETHERRACK.getDefaultState());    
                         break;                
-                        case 1: if (world.isAirBlock(blockPos.west(1))
+                        case 1: if (world.isAirBlock(blockPos.west(1)))
                             world.setBlockState(blockPos.west(1), Blocks.NETHERRACK.getDefaultState());    
                         break;                    
-                        case 2: if (world.isAirBlock(blockPos.south(1))
+                        case 2: if (world.isAirBlock(blockPos.south(1)))
                             world.setBlockState(blockPos.south(1), Blocks.NETHERRACK.getDefaultState());    
                         break;                    
-                        case 3: if (world.isAirBlock(blockPos.north(1))
+                        case 3: if (world.isAirBlock(blockPos.north(1)))
                             world.setBlockState(blockPos.north(1), Blocks.NETHERRACK.getDefaultState());    
                         break;
                     }
