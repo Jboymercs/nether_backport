@@ -90,10 +90,10 @@ public class ModUtils {
             // fast calculate affected blocks
             int y_lim = (int) Math.sqrt(radius_int_conversion*radius_int_conversion-dx*dx);
             // inverted top to bottom
-            for (int dy = y_lim; dy > y_lim - 1; dy--) {
+            for (int dy = -y_lim; dy < y_lim + 1; dy++) {
                 int z_lim = (int) Math.sqrt(radius_int_conversion*radius_int_conversion-dx*dx-dy*dy);
                 for (int dz = -z_lim; dz < z_lim + 1; dz++) {
-                    BlockPos blockPos = new BlockPos(x + dx, y + dy, z + dz);
+                    BlockPos blockPos = new BlockPos(x + dx, y - dy, z + dz);
                     double power = interperetVar(Math.sqrt(dx*dx+dy*dy+dz*dz), radius);
                     if ((power>1) ||(power > new Random().nextDouble())){
                         affectedConversionPositions.add(blockPos);
