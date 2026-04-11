@@ -116,7 +116,7 @@ public class ModUtils {
                 if (world.isAirBlock(blockPos) && world.getBlockState(blockPos.up(1)).getBlock() instanceof BlockNetherrack) {
                     world.setBlockState(blockPos, Blocks.NETHERRACK.getDefaultState());    
                     switch (world.rand.nextInt(4)) {
-                        case 0: if (world.isAirBlock(blockPos).east(1))
+                        case 0: if (world.isAirBlock(blockPos.east(1)))
                             world.setBlockState(blockPos.east(1), Blocks.NETHERRACK.getDefaultState());    
                         break;                
                         case 1: if (world.isAirBlock(blockPos.west(1)))
