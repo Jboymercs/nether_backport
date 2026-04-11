@@ -156,6 +156,7 @@ public class WorldGenNetherStructures implements IWorldGenerator {
         return spawnBiomesRuinedPortals;
     }
 
+    //"Comment from Phoenix" - Why didn't you just check if the block matches the netherrackCorruption replacement blocks.
     public static int getGroundFromAbove(World world, int x, int z)
     {
         int y = 255;
@@ -163,7 +164,9 @@ public class WorldGenNetherStructures implements IWorldGenerator {
         while(!foundGround && y-- >= 31)
         {
             Block blockAt = world.getBlockState(new BlockPos(x,y,z)).getBlock();
-            foundGround =  blockAt != Blocks.AIR && blockAt != Blocks.LEAVES && blockAt != Blocks.LEAVES2 && !(blockAt instanceof BlockLiquid);
+            // added check for fullblocks/leaves/transparentblocks
+            foundGround =  blockAt != Blocks.AIR && blockAt != Blocks.LEAVES && blockAt != Blocks.LEAVES2 && !(blockAt instanceof BlockLiquid) 
+                && blockAt.isFullBlock(blockAt.getBlockState() && !blockAt.isLeaves(blockAt.getBlockState() && !blockAt.isTranslucent(blockAt.getBlockState());
         }
 
         return y;
