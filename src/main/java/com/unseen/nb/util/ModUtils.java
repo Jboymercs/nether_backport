@@ -130,7 +130,7 @@ public class ModUtils {
                 } 
             }
             // removes floating corners 
-            if ((world.isAirBlock(blockPos) || world.getBlockState(blockPos.up(1)).getBlock() == Blocks.WATER) && (world.getBlockState(blockPos.up(1)).getBlock() instanceof BlockNetherrack) ||
+            if ((world.isAirBlock(blockPos) || world.getBlockState(blockPos).getBlock() == Blocks.WATER) && (world.getBlockState(blockPos.up(1)).getBlock() instanceof BlockNetherrack) ||
               world.getBlockState(blockPos.up(1)).getBlock() instanceof BlockMagma || world.getBlockState(blockPos.up(1)).getBlock() == Blocks.LAVA) {
                 world.setBlockState(blockPos, Blocks.NETHERRACK.getDefaultState());    
                 switch (world.rand.nextInt(4)) {
