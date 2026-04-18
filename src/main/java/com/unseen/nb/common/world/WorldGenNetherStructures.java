@@ -13,7 +13,7 @@ import com.unseen.nb.init.BiomeRegister;
 import com.unseen.nb.util.ModRand;
 import com.unseen.nb.util.NBLogger;
 import git.jbredwards.nether_api.mod.common.config.NetherAPIConfig;
-import net.minecraft.block.Block;
+import net.minecraft.block.*;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Biomes;
@@ -167,6 +167,12 @@ public class WorldGenNetherStructures implements IWorldGenerator {
             // added check for fullblocks/leaves/transparentblocks
             foundGround =  blockAt != Blocks.AIR && blockAt != Blocks.LEAVES && blockAt != Blocks.LEAVES2 && !(blockAt instanceof BlockLiquid) 
                 && blockAt.isFullBlock(blockState) && !blockAt.isLeaves(blockState, world, new BlockPos(x,y,z)) && !blockAt.isTranslucent(blockState);
+            //added check for the comment above
+            if (!(blockAt instanceof BlockDirt || blockAt instanceof BlockSand || blockAt instanceof BlockGrass
+                || blockAt instanceof BlockStone || blockAt instanceof BlockGravel || blockAt instanceof BlockSandStone
+                || blockAt instanceof BlockStainedHardenedClay || blockAt instanceof BlockHardenedClay || blockAt instanceof BlockMycelium)) {
+            foundGround = false;
+            }
         }
 
         return y;
