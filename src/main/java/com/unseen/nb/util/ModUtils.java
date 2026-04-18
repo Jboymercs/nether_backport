@@ -119,9 +119,11 @@ public class ModUtils {
         }
         for(BlockPos blockPos : affectedConversionPositions) {
             if(world.rand.nextInt(5) != 0) {
-                // added Gravel
-                if (world.getBlockState(blockPos).getBlock() instanceof BlockDirt || world.getBlockState(blockPos).getBlock() instanceof BlockSand || world.getBlockState(blockPos).getBlock() instanceof BlockGrass ||
-                        world.getBlockState(blockPos).getBlock() instanceof BlockStone || world.getBlockState(blockPos).getBlock() instanceof BlockGravel) {
+                // added gravel
+                // added hardened clay for mesa support && sandstone for deserts && mycelium for mushroom islands
+                if (world.getBlockState(blockPos).getBlock() instanceof BlockDirt || world.getBlockState(blockPos).getBlock() instanceof BlockSand || world.getBlockState(blockPos).getBlock() instanceof BlockGrass
+                    || world.getBlockState(blockPos).getBlock() instanceof BlockStone || world.getBlockState(blockPos).getBlock() instanceof BlockGravel || world.getBlockState(blockPos).getBlock() instanceof BlockSandStone
+                      || world.getBlockState(blockPos).getBlock() instanceof BlockStainedHardenedClay || world.getBlockState(blockPos).getBlock() instanceof BlockHardenedClay || world.getBlockState(blockPos).getBlock() instanceof BlockMycelium ) {
                     // 5% chance to be magma & 1% change to be a lava
                     int i = world.rand.nextInt(100);
                     if (i>5) world.setBlockState(blockPos, Blocks.NETHERRACK.getDefaultState());            
@@ -130,20 +132,21 @@ public class ModUtils {
                 } 
             }
             // removes floating corners 
-            if ((world.isAirBlock(blockPos) || world.getBlockState(blockPos).getBlock() == Blocks.WATER) && (world.getBlockState(blockPos.up(1)).getBlock() instanceof BlockNetherrack) ||
-              world.getBlockState(blockPos.up(1)).getBlock() instanceof BlockMagma || world.getBlockState(blockPos.up(1)).getBlock() == Blocks.LAVA) {
+            if ((world.isAirBlock(blockPos) || world.getBlockState(blockPos).getBlock() == Blocks.WATER || world.getBlockState(blockPos).getBlock() == Blocks.FLOWING_WATER) 
+                  && (world.getBlockState(blockPos.up(1)).getBlock() instanceof BlockNetherrack) || world.getBlockState(blockPos.up(1)).getBlock() instanceof BlockMagma
+                   || world.getBlockState(blockPos.up(1)).getBlock() == Blocks.LAVA || world.getBlockState(blockPos.up(1)).getBlock() == Blocks.FLOWING_LAVA) {
                 world.setBlockState(blockPos, Blocks.NETHERRACK.getDefaultState());    
                 switch (world.rand.nextInt(4)) {
-                    case 0: if (world.isAirBlock(blockPos.east(1)) || world.getBlockState(blockPos.east(1)).getBlock() == Blocks.WATER)
+                    case 0: if (world.isAirBlock(blockPos.east(1)) || world.getBlockState(blockPos.east(1)).getBlock() == Blocks.WATER || world.getBlockState(blockPos.east(1)).getBlock() == Blocks.FLOWING_WATER)
                         world.setBlockState(blockPos.east(1), Blocks.NETHERRACK.getDefaultState());    
-                    break;                
-                    case 1: if (world.isAirBlock(blockPos.west(1)) || world.getBlockState(blockPos.west(1)).getBlock() == Blocks.WATER)
+                    break;
+                    case 1: if (world.isAirBlock(blockPos.west(1)) || world.getBlockState(blockPos.west(1)).getBlock() == Blocks.WATER || world.getBlockState(blockPos.west(1)).getBlock() == Blocks.FLOWING_WATER)
                         world.setBlockState(blockPos.west(1), Blocks.NETHERRACK.getDefaultState());    
                     break;                    
-                    case 2: if (world.isAirBlock(blockPos.south(1)) || world.getBlockState(blockPos.south(1)).getBlock() == Blocks.WATER)
-                        world.setBlockState(blockPos.south(1), Blocks.NETHERRACK.getDefaultState());    
-                    break;                    
-                    case 3: if (world.isAirBlock(blockPos.north(1)) || world.getBlockState(blockPos.north(1)).getBlock() == Blocks.WATER)
+                    case 2: if (world.isAirBlock(blockPos.south(1)) || world.getBlockState(blockPos.south(1)).getBlock() == Blocks.WATER || world.getBlockState(blockPos.south(1)).getBlock() == Blocks.FLOWING_WATER)
+                        world.setBlockState(blockPos.south(1), Blocks.NETHERRACK.getDefaultState());   
+                    break;                         
+                    case 3: if (world.isAirBlock(blockPos.north(1)) || world.getBlockState(blockPos.north(1)).getBlock() == Blocks.WATER || world.getBlockState(blockPos.north(1)).getBlock() == Blocks.FLOWING_WATER)
                         world.setBlockState(blockPos.north(1), Blocks.NETHERRACK.getDefaultState());    
                     break;
                 }
