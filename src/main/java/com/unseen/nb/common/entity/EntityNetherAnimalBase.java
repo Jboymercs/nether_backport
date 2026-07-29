@@ -93,7 +93,7 @@ public abstract class EntityNetherAnimalBase extends EntityAnimal {
 
     @Override
     public void readEntityFromNBT(NBTTagCompound nbt) {
-        super.writeEntityToNBT(nbt);
+        super.readEntityFromNBT(nbt);
         this.setFightMode(nbt.getBoolean("Fight_Mode"));
         this.setImmovable(nbt.getBoolean("Immovable"));
         this.setInsideBastion(nbt.getBoolean("Inside_Bastion"));
