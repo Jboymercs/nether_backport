@@ -21,6 +21,7 @@ public class NBSoundTypes {
 
     public static final SoundType LANTERN = new SoundType(1, 1, ModSoundHandler.SOUL_LANTERN_BREAK, ModSoundHandler.SOUL_LANTERN_PlACE,
             ModSoundHandler.SOUL_LANTERN_PlACE, ModSoundHandler.SOUL_LANTERN_BREAK, ModSoundHandler.SOUL_LANTERN_PlACE);
+            
     public static final SoundType WART = new SoundType(1, 1, ModSoundHandler.WART_BREAK, ModSoundHandler.WART_STEP,
             ModSoundHandler.WART_PLACE, ModSoundHandler.WART_BLOCK_HIT, ModSoundHandler.WART_PLACE);
 

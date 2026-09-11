@@ -149,7 +149,8 @@ public class BiomeBasaltWastes extends Biome implements INetherBiome, INetherAPI
                         for(int i = y; i <= y + chunkGenerator.getRand().nextInt(10); i++) {
                             if(primer.getBlockState(x, i, z).getBlock() != Blocks.BEDROCK) {
                                 primer.setBlockState(x, i, z, topBlock);
-                            }
+                            }else break; 
+                            //^ fixes this from generating above the bedrock roof. 
                         }
                         currDepth = 15 + chunkGenerator.getRand().nextInt(5);
                 }

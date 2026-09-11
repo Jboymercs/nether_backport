@@ -19,6 +19,8 @@ public class ModSoundHandler {
     public static SoundEvent SOUL_LANTERN_BREAK;
     public static SoundEvent SOUL_LANTERN_PlACE;
 
+    public static SoundEvent AXE_STRIP;
+
     public static SoundEvent HYPHAE_BREAK;
 
     public static SoundEvent WART_BREAK;
@@ -154,6 +156,8 @@ public class ModSoundHandler {
     NYLIUM_FALL = registerSound("nether_grass.fall", "block");
     CHAIN_BREAK = registerSound("chain.break", "block");
     CHAIN_STEP = registerSound("chain.step", "block");
+
+    AXE_STRIP = registerSound("axe.strip", "player");
 
     HYPHAE_BREAK = registerSound("hyphae.break", "block");
 

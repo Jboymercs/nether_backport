@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "axis=y":  { "model": "nb:stripped_crimson_stem" },
+    "axis=z":   { "model": "nb:stripped_crimson_stem", "x": 90 },
+    "axis=x":   { "model": "nb:stripped_crimson_stem", "x": 90, "y": 90 },
+    "axis=none": { "model": "nb:stripped_crimson_stem" }
+  }
+}

@@ -74,4 +74,7 @@ public class BlocksConfig {
     @Config.Comment("Change if the Respawn Anchor explodes upon using it in the wrong dimension, default : true")
     @Config.RequiresMcRestart
     public static boolean doesAnchorExplode = true;
+
+    @Config.Comment("Whether axes will strip crimson/warped stems/hyphae or not, default : true")
+    public static boolean stripLog = true;
 }

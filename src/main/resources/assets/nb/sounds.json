@@ -207,6 +207,28 @@
       }
     ]
   },
+  "player.axe.strip": {
+    "category": "player",
+    "subtitle": "subtitles.player.axe.strip",
+    "sounds": [
+      {
+        "name": "nb:player/axe_strip/strip1",
+        "stream": false
+      },
+      {
+        "name": "nb:player/axe_strip/strip2",
+        "stream": false
+      },
+      {
+        "name": "nb:player/axe_strip/strip3",
+        "stream": false
+      },
+      {
+        "name": "nb:player/axe_strip/strip4",
+        "stream": false
+      }
+    ]
+  },
   "block.hyphae.break": {
     "category": "block",
     "subtitle": "subtitles.block.generic.hit",

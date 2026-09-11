@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "powered=false": { "model": "nb:polished_black_stone_pressure_plate_up" },
+        "powered=true": { "model": "nb:polished_black_stone_pressure_plate_down" }
+    }
+}
