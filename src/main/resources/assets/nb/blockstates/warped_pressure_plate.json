@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "powered=false": { "model": "nb:warped_pressure_plate_up" },
+        "powered=true": { "model": "nb:warped_pressure_plate_down" }
+    }
+}

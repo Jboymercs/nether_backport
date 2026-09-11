@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "V"
+  ],
+  "key": {
+    "V": {
+      "item": "nb:polished_black_stone"
+    }
+  },
+  "result": {
+    "item": "nb:polished_black_stone_button",
+    "count": 1
+  }
+}
