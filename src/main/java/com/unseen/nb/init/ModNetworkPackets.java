@@ -1,5 +1,6 @@
 package com.unseen.nb.init;
 
+import com.unseen.nb.client.animation.AnimationMessage;
 import com.unseen.nb.common.network.ParticleMessage;
 import com.unseen.nb.util.ModReference;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
@@ -15,6 +16,7 @@ public class ModNetworkPackets
         int packetId = 0;
         network = NetworkRegistry.INSTANCE.newSimpleChannel(ModReference.MOD_ID);
         network.registerMessage(ParticleMessage.Handler.class, ParticleMessage.class, packetId++, Side.CLIENT);
+        network.registerMessage(AnimationMessage.Handler.class, AnimationMessage.class, packetId++, Side.CLIENT);
     }
 
 }

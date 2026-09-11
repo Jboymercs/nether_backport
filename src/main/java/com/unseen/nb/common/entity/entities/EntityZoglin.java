@@ -170,7 +170,7 @@ public class EntityZoglin extends EntityNetherAnimalBase implements IAttack, IAn
             } else {
                 damage = (float)(NBEntitiesConfig.zoglin_attack_damange * ModConfig.attackDamageScale);
             }
-            ModUtils.handleAreaImpact(1.0f, (e)-> damage, this, offset, source, 0.9f, 0, false);
+            ModUtils.handleAreaImpact(1.5f, (e)-> damage, this, offset, source, 0.9f, 0, false);
         }, 13);
         addEvent(()-> this.setFightMode(false), 20);
         return 20;

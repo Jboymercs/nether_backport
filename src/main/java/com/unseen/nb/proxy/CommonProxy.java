@@ -25,6 +25,10 @@ public class CommonProxy {
 
     }
 
+    public static void registerMessages() {
+
+    }
+
     /** Handles spawning of Particles */
     public void spawnParticle(int particleId, World world, double posX, double posY, double posZ, double speedX, double speedY, double speedZ, int... parameters)
     {

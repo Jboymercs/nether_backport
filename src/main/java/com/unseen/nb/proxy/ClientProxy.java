@@ -34,6 +34,7 @@ public class ClientProxy extends CommonProxy{
 
 
 
+    @SideOnly(Side.CLIENT)
     @Override
     public void handleAnimationPacket(int entityId, int index) {
         EntityPlayerSP player = Minecraft.getMinecraft().player;

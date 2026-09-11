@@ -182,7 +182,7 @@ public class EntityPiglin extends EntityNetherBase implements IAnimatedEntity, I
     }
 
     protected void initMeleeAI() {
-        this.tasks.addTask(2, new EntityTimedAttackPiglin<>(this, 1.8D, 60, 3, 0.2F));
+        this.tasks.addTask(2, new EntityTimedAttackPiglin<>(this, 1.5D, 60, 3, 0.2F));
     }
     @Override
     protected void entityInit() {

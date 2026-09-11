@@ -188,7 +188,7 @@ public class EntityPiglinZombie extends EntityNetherBase implements IAnimatedEnt
         super.initEntityAI();
         this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(2, new EntityAIWander(this, 1.0D));
-        this.tasks.addTask(4, new EntityTimedAttackZombie<>(this, 1.8D, 20, 2, 0.15F));
+        this.tasks.addTask(4, new EntityTimedAttackZombie<>(this, 1.5D, 20, 2, 0.15F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
 
         this.targetTasks.addTask(1, new EntityPiglinZombie.AIHurtByAggressor(this));
