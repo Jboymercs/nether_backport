@@ -130,6 +130,8 @@ dependencies {
     implementation fg.deobf("curse.maven:spartan-weaponry-278141:5564836")
     //FutureMC
     implementation fg.deobf("curse.maven:futuremc-310059:5013081")
+    //Smithing Table
+    implementation fg.deobf("curse.maven:smithingtable-1402649:8888817")
     //Shaded `shade`
     //shade("io.github.kostaskougios:cloning:${project.cloning_version}")
 

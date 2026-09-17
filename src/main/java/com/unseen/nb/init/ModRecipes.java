@@ -2,6 +2,7 @@ package com.unseen.nb.init;
 
 import com.unseen.nb.util.integration.ModIntegration;
 import com.unseen.nb.util.ModReference;
+import com.unseen.nb.util.integration.SmithingTableIntegration;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.init.Items;
@@ -168,6 +169,9 @@ public class ModRecipes {
                         "AA",
                         'A', woodStack
                 );
+
+                if (ModIntegration.SMITHING_TABLE_LOADED &! OreDictionary.getOres("ingotNetherite", false).isEmpty())
+                        SmithingTableIntegration.registerRecipes();
         }
 
 }
