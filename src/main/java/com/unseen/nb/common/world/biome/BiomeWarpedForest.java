@@ -9,6 +9,7 @@ import com.unseen.nb.common.world.terrain.plants.WorldGenWarpedPlant;
 import com.unseen.nb.common.world.terrain.plants.WorldGenWarpedVines;
 import com.unseen.nb.common.world.terrain.trees.WorldGenWarpedTree;
 import com.unseen.nb.config.ModConfig;
+import com.unseen.nb.config.NBEntitiesConfig;
 import com.unseen.nb.config.NBWorldConfig;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.init.ModSoundHandler;
@@ -63,8 +64,8 @@ public class BiomeWarpedForest extends Biome implements INetherBiome, INetherAPI
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
         this.spawnableCaveCreatureList.clear();
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityEnderman.class, 4, 1, 4));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityStrider.class, 60, 1, 2));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityEnderman.class, NBEntitiesConfig.wf_endermen_spawnrate, 1, 4));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityStrider.class, NBEntitiesConfig.wf_strider_spawnrate, 1, 2));
         this.topBlock = CRIMSON_FLOOR;
         random = new Random();
     }

@@ -166,7 +166,7 @@ public class WorldGenNetherStructures implements IWorldGenerator {
             Block blockAt = blockState.getBlock();
             // added check for fullblocks/leaves/transparentblocks
             foundGround =  blockAt != Blocks.AIR && blockAt != Blocks.LEAVES && blockAt != Blocks.LEAVES2 && !(blockAt instanceof BlockLiquid) 
-                && blockAt.isFullBlock(blockState) && !blockAt.isLeaves(blockState, world, new BlockPos(x,y,z)) && !blockAt.isTranslucent(blockState);
+                && blockAt.isFullBlock(blockState) && !blockAt.isLeaves(blockState, world, new BlockPos(x,y,z)) && !blockState.isTranslucent();
             //added check for the comment above
             if (!(blockAt instanceof BlockDirt || blockAt instanceof BlockSand || blockAt instanceof BlockGrass
                 || blockAt instanceof BlockStone || blockAt instanceof BlockGravel || blockAt instanceof BlockSandStone

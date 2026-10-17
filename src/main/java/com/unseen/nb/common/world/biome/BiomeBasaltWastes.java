@@ -11,6 +11,7 @@ import com.unseen.nb.common.world.terrain.basaltHeights.WorldGenBasaltHeights;
 import com.unseen.nb.common.world.terrain.plants.WorldGenCrimsonPlant;
 import com.unseen.nb.common.world.terrain.plants.WorldGenCrimsonVines;
 import com.unseen.nb.common.world.terrain.trees.WorldGenCrimsonTree;
+import com.unseen.nb.config.NBEntitiesConfig;
 import com.unseen.nb.config.NBWorldConfig;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.init.ModSoundHandler;
@@ -62,9 +63,9 @@ public class BiomeBasaltWastes extends Biome implements INetherBiome, INetherAPI
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
         this.spawnableCaveCreatureList.clear();
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityMagmaCube.class, 100, 2, 5));
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityGhast.class, 40, 1, 2));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityStrider.class, 60, 2, 4));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityMagmaCube.class, NBEntitiesConfig.bd_magma_cubes_spawnrate, 2, 5));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityGhast.class, NBEntitiesConfig.bd_ghast_spawnrate, 1, 2));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityStrider.class, NBEntitiesConfig.bd_strider_spawnrate, 2, 4));
         this.topBlock = CRIMSON_FLOOR;
         random = new Random();
     }

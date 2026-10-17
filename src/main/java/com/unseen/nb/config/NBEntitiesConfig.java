@@ -157,4 +157,84 @@ public class NBEntitiesConfig {
     @Config.Comment("Disable the custom spawnrate in lava lakes")
     @Config.RequiresMcRestart
     public static boolean disabledCustomSpawns = false;
+
+    @Config.Name("Piglin Spawnrate HELL")
+    @Config.Comment("Change spawn rate of Piglins in default nether biome")
+    @Config.RequiresMcRestart
+    public static int hell_piglin_spawnrate = 15;
+
+    @Config.Name("Piglin Spawnrate Crimson Forest")
+    @Config.Comment("Change spawn rate of Piglins in Crimson Forest")
+    @Config.RequiresMcRestart
+    public static int cf_piglin_spawnrate = 30;
+
+    @Config.Name("Strider Spawnrate HELL")
+    @Config.Comment("Change spawn rate of Striders in default nether biome")
+    @Config.RequiresMcRestart
+    public static int hell_strider_spawnrate = 60;
+
+    @Config.Name("Strider Spawnrate Basalt Deltas")
+    @Config.Comment("Change spawn rate of Striders in Basalt Deltas")
+    @Config.RequiresMcRestart
+    public static int bd_strider_spawnrate = 60;
+
+    @Config.Name("Strider Spawnrate Crimson Forest")
+    @Config.Comment("Change spawn rate of Striders in Crimson Forest")
+    @Config.RequiresMcRestart
+    public static int cf_strider_spawnrate = 20;
+
+    @Config.Name("Strider Spawnrate Soulsand Valley")
+    @Config.Comment("Change spawn rate of Striders in Soulsand Valley")
+    @Config.RequiresMcRestart
+    public static int sv_strider_spawnrate = 60;
+
+    @Config.Name("Strider Spawnrate Warped Forest")
+    @Config.Comment("Change spawn rate of Striders in Warped Forest")
+    @Config.RequiresMcRestart
+    public static int wf_strider_spawnrate = 60;
+
+    @Config.Name("Zombified Piglin Spawnrate HELL")
+    @Config.Comment("Change spawn rate of Zombified Piglins in default nether biome")
+    @Config.RequiresMcRestart
+    public static int hell_z_piglin_spawnrate = 50;
+
+    @Config.Name("Zombified Piglin Spawnrate Crimson Forest")
+    @Config.Comment("Change spawn rate of Zombified Piglins in Crimson Forest")
+    @Config.RequiresMcRestart
+    public static int cf_z_piglin_spawnrate = 8;
+
+    @Config.Name("Hoglin Spawnrate Crimson Forest")
+    @Config.Comment("Change spawn rate of Hoglins in Crimson Forest")
+    @Config.RequiresMcRestart
+    public static int cf_hoglin_spawnrate = 40;
+
+    @Config.Name("Magma Cubes Spawnrate Basalt Deltas")
+    @Config.Comment("Change spawn rate of Magma cubes in Basalt Deltas")
+    @Config.RequiresMcRestart
+    public static int bd_magma_cubes_spawnrate = 100;
+
+    @Config.Name("Ghast Spawnrate Basalt Deltas")
+    @Config.Comment("Change spawn rate of Ghasts in Basalt Deltas")
+    @Config.RequiresMcRestart
+    public static int bd_ghast_spawnrate = 40;
+
+    @Config.Name("Ghast Spawnrate Soulsand Valley")
+    @Config.Comment("Change spawn rate of Ghasts in Soulsand Valley")
+    @Config.RequiresMcRestart
+    public static int sv_ghast_spawnrate = 36;
+
+    @Config.Name("Endermen Spawnrate Soulsand Valley")
+    @Config.Comment("Change spawn rate of Endermen in Soulsand Valley")
+    @Config.RequiresMcRestart
+    public static int sv_endermen_spawnrate = 4;
+
+    @Config.Name("Endermen Spawnrate Warped Forest")
+    @Config.Comment("Change spawn rate of Endermen in Warped Forest")
+    @Config.RequiresMcRestart
+    public static int wf_endermen_spawnrate = 20;
+
+    @Config.Name("Skeleton Spawnrate Soulsand Valley")
+    @Config.Comment("Change spawn rate of Skeltons in Soulsand Valley")
+    @Config.RequiresMcRestart
+    public static int sv_skelton_spawnrate = 40;
 }

@@ -13,6 +13,7 @@ import com.unseen.nb.common.world.terrain.plants.WorldGenWarpedPlant;
 import com.unseen.nb.common.world.terrain.plants.WorldGenWarpedVines;
 import com.unseen.nb.common.world.terrain.soulsandPatches.WorldGenSoulSandPatches;
 import com.unseen.nb.common.world.terrain.trees.WorldGenWarpedTree;
+import com.unseen.nb.config.NBEntitiesConfig;
 import com.unseen.nb.config.NBWorldConfig;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.init.ModSoundHandler;
@@ -75,10 +76,10 @@ public class BiomeSoulValley extends Biome implements INetherBiome, INetherAPIRe
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
         this.spawnableCaveCreatureList.clear();
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityEnderman.class, 4, 1, 1));
-        this.spawnableMonsterList.add(new SpawnListEntry(EntitySkeleton.class, 40, 1, 2));
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityGhast.class, 36, 1, 2));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityStrider.class, 60, 2, 4));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityEnderman.class, NBEntitiesConfig.sv_endermen_spawnrate, 1, 1));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntitySkeleton.class, NBEntitiesConfig.sv_skelton_spawnrate, 1, 2));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityGhast.class, NBEntitiesConfig.sv_ghast_spawnrate, 1, 2));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityStrider.class, NBEntitiesConfig.sv_strider_spawnrate, 2, 4));
         //Add Strider weight 10, min 2, max 4
         this.topBlock = CRIMSON_FLOOR;
         random = new Random();

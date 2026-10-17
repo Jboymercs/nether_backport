@@ -10,6 +10,7 @@ import com.unseen.nb.common.world.base.WorldGenNB;
 import com.unseen.nb.common.world.terrain.plants.WorldGenCrimsonPlant;
 import com.unseen.nb.common.world.terrain.plants.WorldGenCrimsonVines;
 import com.unseen.nb.common.world.terrain.trees.WorldGenCrimsonTree;
+import com.unseen.nb.config.NBEntitiesConfig;
 import com.unseen.nb.config.NBWorldConfig;
 import com.unseen.nb.init.ModBlocks;
 import com.unseen.nb.init.ModSoundHandler;
@@ -61,10 +62,10 @@ public class BiomeCrimsonForest extends Biome implements INetherBiome, INetherAP
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
         this.spawnableCaveCreatureList.clear();
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityPiglin.class, 20, 2, 4));
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityPiglinZombie.class, 4, 2,4));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityStrider.class, 20, 1, 2));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityHoglin.class, 40, 3, 4));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityPiglin.class, NBEntitiesConfig.cf_piglin_spawnrate, 2, 4));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityPiglinZombie.class, NBEntitiesConfig.cf_z_piglin_spawnrate, 2,4));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityStrider.class, NBEntitiesConfig.cf_strider_spawnrate, 1, 2));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityHoglin.class, NBEntitiesConfig.cf_hoglin_spawnrate, 3, 4));
         this.topBlock = CRIMSON_FLOOR;
         random = new Random();
     }

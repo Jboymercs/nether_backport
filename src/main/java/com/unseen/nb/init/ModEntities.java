@@ -2,6 +2,7 @@ package com.unseen.nb.init;
 
 import com.unseen.nb.Main;
 import com.unseen.nb.common.entity.entities.*;
+import com.unseen.nb.config.NBEntitiesConfig;
 import com.unseen.nb.util.ModReference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -50,11 +51,9 @@ public class ModEntities {
     }
 
     public static void RegisterEntitySpawns() {
-    spawnRateBiomeSpecific(EntityPiglin.class, EnumCreatureType.MONSTER, 15, 2, 4, Biomes.HELL);
-    spawnRateBiomeSpecific(EntityStrider.class, EnumCreatureType.CREATURE, 60, 1, 2, Biomes.HELL);
-    spawnRateBiomeSpecific(EntityPiglinZombie.class, EnumCreatureType.MONSTER, 50, 2, 4, Biomes.HELL);
-    //spawnRateBiomeSpecific(EntityHoglin.class, EnumCreatureType.CREATURE, 60, 3, 4, BiomeRegister.CRIMSON_FOREST);
-
+    spawnRateBiomeSpecific(EntityPiglin.class, EnumCreatureType.MONSTER, NBEntitiesConfig.hell_piglin_spawnrate, 2, 4, Biomes.HELL);
+    spawnRateBiomeSpecific(EntityStrider.class, EnumCreatureType.CREATURE, NBEntitiesConfig.hell_strider_spawnrate, 1, 2, Biomes.HELL);
+    spawnRateBiomeSpecific(EntityPiglinZombie.class, EnumCreatureType.MONSTER, NBEntitiesConfig.hell_z_piglin_spawnrate, 2, 4, Biomes.HELL);
     }
 
     public static String getID(Class<? extends Entity> entity) {
