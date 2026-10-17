@@ -20,6 +20,11 @@ public class ModConfig {
     @Config.RequiresMcRestart
     public static boolean use_backport_generation = false;
 
+    @Config.Name("Smithing Table Compat")
+    @Config.Comment("This setting allows for easy integration with Smithing Table, automatically adding recipes for converting diamond items to netherite ones, default: true")
+    @Config.RequiresMcRestart
+    public static boolean smithingTableCompat = true;
+
     @Config.Name("Enable/Disable Piglins use Spartan Weaponry over Crossbows")
     @Config.Comment("Affects Piglins only, makes Piglins carry Spartan Weaponry items. THIS REQUIRES SPARTAN WEAPONRY TO BE LOADED default: false")
     @Config.RequiresMcRestart

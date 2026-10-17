@@ -17,7 +17,7 @@ public class ModIntegration {
 
     public static boolean FUTURE_MC_LOADED = Loader.isModLoaded("futuremc") && ModConfig.futureMCCompat;
     public static boolean SPARTAN_WEAPONRY_LOADED = Loader.isModLoaded("spartanweaponry") && ModConfig.useSpartanWeapons;
-
+    public static boolean SMITHING_TABLE_LOADED = Loader.isModLoaded("smithing_table") && ModConfig.smithingTableCompat;
 
     public static void init() {
         if (CROSSBOWS_BACKPORT_LOADED) CrossbosBackportIntegration.init();
